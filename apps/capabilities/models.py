@@ -24,12 +24,15 @@ class Capability(models.Model):
         max_length = 100
     )
     body = models.TextField(
-        verbose_name = u'Отзыв'
+        verbose_name = u'Описание'
     )
     show_in_block = models.CharField(
         verbose_name = u'показывать в блоке',
         max_length = 50,
         choices = BLOCK_CHOISES
+    )
+    show_on_index = models.BooleanField(
+        verbose_name = u'показывать на главной',
     )
     image = ImageField(
         verbose_name = u'изображение',
@@ -51,3 +54,7 @@ class Capability(models.Model):
         ordering = ['-created_at', '-id',]
         verbose_name = u'возможность'
         verbose_name_plural = u'возможности'
+
+    def __unicode__(self):
+        return self.title
+

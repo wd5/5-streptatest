@@ -27,6 +27,7 @@ class Review(models.Model):
     # только для врачей
     reviewer_post = models.CharField(
         verbose_name = u'должность',
+        help_text = '*только для врачей',
         max_length = 30,
         blank = True,
         null = True

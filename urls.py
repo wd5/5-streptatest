@@ -7,6 +7,7 @@ from apps.urls import urlpatterns as apps_urlpatterns
 
 from apps.views import index
 from apps.reviews.views import ReviewListView
+from apps.capabilities.views import CapabilityListView 
 
 admin.autodiscover()
 
@@ -25,6 +26,8 @@ urlpatterns = patterns('',
     (r'^$', index), 
     # reviews
     (r'^reviews/$', ReviewListView.as_view()),
+    # capabilities
+    (r'^capabilities/$', CapabilityListView.as_view()),
 
 )
 
