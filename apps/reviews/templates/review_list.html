@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 
 {% block center %}
-    <ul class="reviews_container">
+    <ul class="reviews-container">
     {% include '_review_items.html' %}
-    <li><a class="more_more"><h1>MORE</h1></a></li>
+    <li><a class="more-more"><h1>MORE</h1></a></li>
     </ul>
+    <a class="form-link"><h1>FORMA</h1></a>
+    <div class="form-modal" style="display:none">
+        {% include '_new_review_form.html' %}
+    </div>
 {% endblock %}

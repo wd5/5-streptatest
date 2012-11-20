@@ -1,1 +1,24 @@
-форма
+<form action="form/" class="review-form" method="post">
+    {% csrf_token %}
+    <div class="fieldWrapper">
+        {{ form.reviewer_type.errors }}
+        <label>reviewer type:</label>
+        {{ form.reviewer_type }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.reviewer_post.errors }}
+        <label>reviewer post:</label>
+        {{ form.reviewer_post }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.initials.errors }}
+        <label>initials:</label>
+        {{ form.initials }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.review.errors }}
+        <label>review:</label>
+        {{ form.review }}
+    </div>
+    <p><input type="submit" value="Send message" /></p>
+</form>

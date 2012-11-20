@@ -1,7 +1,16 @@
 # -*- coding: utf-8 -*-
-from django.views.generic import TemplateView
+from django.http import HttpResponse
+from django.shortcuts import render_to_response
+from django.template.loader import get_template
+from django.utils import simplejson
+from django.views.generic import TemplateView, FormView
+from django.forms import ModelForm
 
 from apps.reviews.models import Review
+
+class ReviewForm(ModelForm):
+    class Meta:
+        model = Review
 
 class BaseReviewView(TemplateView):
     def get_params(self, request, **kwargs):
@@ -36,3 +45,16 @@ class MoreReviewsView(BaseReviewView):
         object_list = Review.objects.filter(is_published=True)
         context['object_list'] = object_list.filter(reviewer_type=kwargs['reviewer_type'])[start:limit]
         return context
+
+class ReviewForm(FormView):
+    form_class = ReviewForm
+    template_name = '_new_review_form.html'
+
+    def form_valid(self, form):
+        Review.objects.create(**form.cleaned_data)
+        response = 'success!'
+        return HttpResponse(response)
+
+    def form_invalid(self, form):
+        response = render_to_response(self.template_name, self.get_context_data(form=form))
+        return HttpResponse('asdfasdf', status=406)

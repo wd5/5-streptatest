@@ -1,12 +1,37 @@
-$('.more_more').live('click', function(e){
+$('.more-more').live('click', function(e){
     e.preventDefault();
     $.ajax({
         type: 'GET',
         url: 'more/',
-        data: { 'current_items':$('.reviews_container li.review_item').size() },
+        data: { 'current_items':$('.reviews-container li.review-item').size() },
         success: function(data){
-            $('.reviews_container li.review_item:last').append(data);
+            $('.reviews-container li.review-item:last').append(data);
         },
         dataType: 'html'
     });
 });
+
+$('.form-link').live('click', function(e){
+    e.preventDefault();
+    $.ajax({
+        type: 'GET',
+        url: 'form/',
+        success: function(data){
+            $('.form-modal').html(data);
+            $('.form-modal').show();
+        },
+        dataType: 'html'
+    });
+})
+
+$('.review-form').live('submit', function(e){
+    e.preventDefault();
+    $.ajax({
+        type: 'POST',
+        url: 'form/',
+        data: $(this).serialize(),
+        dataType: 'html'
+    }).fail(function(data) {
+        alert($(data).text())
+  });;
+})
