@@ -1,1 +1,8 @@
-{{ review_list }}
+{% extends 'base.html' %}
+
+{% block center %}
+    <ul class="reviews_container">
+    {% include '_review_items.html' %}
+    <li><a class="more_more"><h1>MORE</h1></a></li>
+    </ul>
+{% endblock %}

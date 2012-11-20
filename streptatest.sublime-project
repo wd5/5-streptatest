@@ -3,6 +3,9 @@
 	[
 		{
 			"path": "/home/grigl/Works/streptatest"
+		},
+		{
+			"path": "/home/grigl/.virtualenvs/streptatest/lib/python2.7/site-packages/django"
 		}
 	]
 }

@@ -6,7 +6,7 @@ from django.conf import settings
 from apps.urls import urlpatterns as apps_urlpatterns
 
 from apps.views import index
-from apps.reviews.views import ReviewListView
+from apps.reviews.views import ReviewIndexView, ReviewListView, MoreReviewsView
 from apps.capabilities.views import CapabilityListView 
 
 admin.autodiscover()
@@ -25,7 +25,11 @@ urlpatterns = patterns('',
     # index
     (r'^$', index), 
     # reviews
-    (r'^reviews/$', ReviewListView.as_view()),
+    (r'^reviews/$', ReviewIndexView.as_view()),
+    (r'^reviews/patients/$', ReviewListView.as_view(), {'reviewer_type':'patient'}),
+    (r'^reviews/doctors/$', ReviewListView.as_view(), {'reviewer_type':'doctor'}),
+    (r'^reviews/patients/more/$', MoreReviewsView.as_view(), {'reviewer_type':'patient'}),
+    (r'^reviews/doctors/more/$', MoreReviewsView.as_view(), {'reviewer_type':'doctor'}),
     # capabilities
     (r'^capabilities/$', CapabilityListView.as_view()),
 
