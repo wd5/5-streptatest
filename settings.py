@@ -24,6 +24,7 @@ INSTALLED_APPS += (
     'apps.inheritanceUser',
     'apps.capabilities',
     'apps.reviews',
+    'apps.clinics',
     'sorl.thumbnail',
     'south',
     #'captcha',
