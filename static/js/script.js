@@ -30,8 +30,13 @@ $('.review-form').live('submit', function(e){
         type: 'POST',
         url: 'form/',
         data: $(this).serialize(),
+        success: function(data){
+            alert(data);
+            $('.form-modal').hide();
+        },
+        error: function(ts){
+            $('.form-modal').html(ts.responseText);
+        },
         dataType: 'html'
-    }).fail(function(data) {
-        alert($(data).text())
-  });;
-})
+    });
+});

@@ -2,6 +2,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template.loader import get_template
+from django.template import RequestContext
 from django.utils import simplejson
 from django.views.generic import TemplateView, FormView
 from django.forms import ModelForm
@@ -56,5 +57,7 @@ class ReviewForm(FormView):
         return HttpResponse(response)
 
     def form_invalid(self, form):
-        response = render_to_response(self.template_name, self.get_context_data(form=form))
-        return HttpResponse('asdfasdf', status=406)
+        response = render_to_response(self.template_name, 
+                                      self.get_context_data(form=form),
+                                      context_instance=RequestContext(self.request))
+        return HttpResponse(response, status=406)
