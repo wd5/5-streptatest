@@ -2,11 +2,12 @@ from django.views.generic import FormView
 from django import forms
 from django.http import HttpResponse
 
-from models import Order, Product
+from models import Order
 
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
+        exclude = ('state',)
 
 class OrderFormView(FormView):
     template_name = 'order.html'

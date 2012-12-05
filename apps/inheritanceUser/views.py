@@ -6,7 +6,6 @@ from django.template.loader import render_to_string
 from django.views.generic import FormView, TemplateView
 from apps.inheritanceUser.forms import ProfileForm, RegistrationForm
 from apps.inheritanceUser.models import CustomUser
-from apps.orders.models import Order
 from django.core.urlresolvers import reverse
 from django.contrib.auth import  authenticate as auth_check, login as auth_login
 

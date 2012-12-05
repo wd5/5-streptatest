@@ -4,12 +4,40 @@
 		"selected_items":
 		[
 			[
-				"review",
-				"review_list"
+				"Or",
+				"OrderForm"
+			],
+			[
+				"ma",
+				"max_length"
+			],
+			[
+				"Re",
+				"RequestContext"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"Review",
+				"ReviewForm"
+			],
+			[
+				"C",
+				"Capability"
+			],
+			[
+				"I",
+				"IndexCapabilityList"
 			],
 			[
 				"T",
-				"TemplateView"
+				"TemplateResponseMixin"
+			],
+			[
+				"review",
+				"review_list"
 			],
 			[
 				"ge",
@@ -31,39 +59,72 @@
 			"file": "settings.py",
 			"settings":
 			{
-				"buffer_size": 990,
+				"buffer_size": 1055,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "config/development.py",
+			"file": "apps/reviews/views.py",
 			"settings":
 			{
-				"buffer_size": 373,
+				"buffer_size": 2296,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/grigl/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+			"file": "urls.py",
 			"settings":
 			{
-				"buffer_size": 115,
+				"buffer_size": 1778,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "apps/reviews/admin.py",
+			"file": "apps/reviews/models.py",
 			"settings":
 			{
-				"buffer_size": 177,
+				"buffer_size": 1644,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "apps/capabilities/admin.py",
+			"file": "apps/reviews/templates/review_list.html",
 			"settings":
 			{
-				"buffer_size": 185,
+				"buffer_size": 347,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "static/js/script.js",
+			"settings":
+			{
+				"buffer_size": 1034,
+				"line_ending": "Unix",
+				"name": "script.js"
+			}
+		},
+		{
+			"file": "apps/reviews/templates/_new_review_form.html",
+			"settings":
+			{
+				"buffer_size": 716,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "apps/reviews/templates/_review_items.html",
+			"settings":
+			{
+				"buffer_size": 90,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/grigl/.virtualenvs/streptatest/lib/python2.7/site-packages/django/views/generic/edit.py",
+			"settings":
+			{
+				"buffer_size": 7464,
 				"line_ending": "Unix"
 			}
 		},
@@ -76,74 +137,50 @@
 			}
 		},
 		{
-			"file": "apps/capabilities/models.py",
+			"file": "apps/publications/models.py",
 			"settings":
 			{
-				"buffer_size": 1418,
+				"buffer_size": 1076,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "apps/reviews/models.py",
+			"file": "apps/publications/admin.py",
 			"settings":
 			{
-				"buffer_size": 1669,
+				"buffer_size": 122,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "apps/reviews/views.py",
+			"file": "apps/orders/models.py",
 			"settings":
 			{
-				"buffer_size": 535,
+				"buffer_size": 2942,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "urls.py",
+			"file": "apps/orders/views.py",
 			"settings":
 			{
-				"buffer_size": 958,
+				"buffer_size": 454,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "config/base.py",
+			"file": "apps/orders/admin.py",
 			"settings":
 			{
-				"buffer_size": 2806,
+				"buffer_size": 123,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "apps/reviews/templates/review_list.html",
+			"file": "apps/orders/templates/order.html",
 			"settings":
 			{
-				"buffer_size": 17,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "apps/views.py",
-			"settings":
-			{
-				"buffer_size": 853,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/base.html",
-			"settings":
-			{
-				"buffer_size": 1180,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/index.html",
-			"settings":
-			{
-				"buffer_size": 619,
+				"buffer_size": 1579,
 				"line_ending": "Unix"
 			}
 		}
@@ -176,12 +213,38 @@
 	},
 	"file_history":
 	[
+		"/home/grigl/Works/streptatest/apps/urls.py",
+		"/home/grigl/Works/streptatest/apps/reviews/templates/_form_success.html",
+		"/home/grigl/.virtualenvs/streptatest/lib/python2.7/site-packages/django/views/generic/date_based.py",
+		"/home/grigl/Works/streptatest/static/css/style.css",
+		"/home/grigl/Works/streptatest/apps/reviews/templates/review_items.html",
+		"/home/grigl/Works/streptatest/apps/clinics/admin.py",
+		"/home/grigl/Works/streptatest/apps/reviews/templates/new_review_form.html",
+		"/home/grigl/Works/streptatest/apps/clinics/models.py",
+		"/home/grigl/Works/streptatest/apps/capabilities/templates/capability_list.html",
+		"/home/grigl/Works/streptatest/apps/capabilities/views.py",
+		"/home/grigl/Works/streptatest/templates/index.html",
+		"/home/grigl/Works/streptatest/templates/base.html",
+		"/home/grigl/Works/streptatest/apps/views.py",
+		"/home/grigl/Works/streptatest/config/base.py",
+		"/home/grigl/Works/streptatest/urls.py",
+		"/home/grigl/Works/streptatest/apps/reviews/views.py",
+		"/home/grigl/Works/streptatest/apps/reviews/models.py",
+		"/home/grigl/Works/streptatest/apps/capabilities/models.py",
+		"/home/grigl/Works/streptatest/apps/newsboard/admin.py",
+		"/home/grigl/Works/streptatest/apps/capabilities/admin.py",
+		"/home/grigl/Works/streptatest/apps/reviews/admin.py",
+		"/home/grigl/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/grigl/Works/streptatest/config/development.py",
+		"/home/grigl/Works/streptatest/apps/reviews/templates/review_index.html",
+		"/home/grigl/Works/streptatest/apps/reviews/templates/review_full_list.html",
+		"/home/grigl/Works/streptatest/clinics/admin.py",
+		"/home/grigl/Works/streptatest/clinics/models.py",
 		"/home/grigl/Works/streptatest/apps/reviews/review_list.html",
 		"/home/grigl/Works/streptatest/.gitignore",
 		"/home/grigl/Works/fastsite/requirements.txt",
 		"/home/grigl/Works/streptatest/apps/newsboard/models.py",
 		"/home/grigl/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
-		"/home/grigl/Works/streptatest/config/base.py",
 		"/home/grigl/.virtualenvs/streptatest/local/lib/python2.7/site-packages/pymorphy/backends/shelve_source/sqlite_shelve.py",
 		"/home/grigl/Works/streptatest/install.txt",
 		"/home/grigl/Works/fastsite/settings.py",
@@ -192,12 +255,11 @@
 		"/home/grigl/.config/fontconfig/.fonts.conf",
 		"/home/grigl/Works/fastsite/install.txt",
 		"/home/grigl/.bashrc",
-		"/home/grigl/.bash_profile",
-		"/home/grigl/.config/sublime-text-2/Packages/User/Preferences.sublime-settings"
+		"/home/grigl/.bash_profile"
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 37.0
 	},
 	"find_in_files":
 	{
@@ -211,6 +273,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"())",
+			"FormVi",
+			"Form",
+			"get_context_data",
 			"TemplateView"
 		],
 		"highlight": true,
@@ -229,7 +295,7 @@
 	"groups":
 	[
 		{
-			"selected": 12,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -237,15 +303,15 @@
 					"file": "settings.py",
 					"settings":
 					{
-						"buffer_size": 990,
+						"buffer_size": 1055,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								543,
-								543
+								367,
+								367
 							]
 						],
 						"settings":
@@ -262,23 +328,25 @@
 				},
 				{
 					"buffer": 1,
-					"file": "config/development.py",
+					"file": "apps/reviews/views.py",
 					"settings":
 					{
-						"buffer_size": 373,
+						"buffer_size": 2296,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								179,
-								179
+								2295,
+								2295
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -288,23 +356,25 @@
 				},
 				{
 					"buffer": 2,
-					"file": "/home/grigl/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+					"file": "urls.py",
 					"settings":
 					{
-						"buffer_size": 115,
+						"buffer_size": 1778,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								115,
-								115
+								1738,
+								1738
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -314,18 +384,18 @@
 				},
 				{
 					"buffer": 3,
-					"file": "apps/reviews/admin.py",
+					"file": "apps/reviews/models.py",
 					"settings":
 					{
-						"buffer_size": 177,
+						"buffer_size": 1644,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								34,
+								34
 							]
 						],
 						"settings":
@@ -342,24 +412,23 @@
 				},
 				{
 					"buffer": 4,
-					"file": "apps/capabilities/admin.py",
+					"file": "apps/reviews/templates/review_list.html",
 					"settings":
 					{
-						"buffer_size": 185,
+						"buffer_size": 347,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								185,
-								185
+								205,
+								205
 							]
 						],
 						"settings":
 						{
-							"auto_name": "",
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/HTML/HTML.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -369,23 +438,24 @@
 				},
 				{
 					"buffer": 5,
-					"file": "apps/newsboard/admin.py",
+					"file": "static/js/script.js",
 					"settings":
 					{
-						"buffer_size": 819,
+						"buffer_size": 1034,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								548,
+								548
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage",
+							"auto_name": "script.js",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -397,53 +467,51 @@
 				},
 				{
 					"buffer": 6,
-					"file": "apps/capabilities/models.py",
+					"file": "apps/reviews/templates/_new_review_form.html",
 					"settings":
 					{
-						"buffer_size": 1418,
+						"buffer_size": 716,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1269,
-								1269
+								652,
+								652
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 216.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 7,
-					"file": "apps/reviews/models.py",
+					"file": "apps/reviews/templates/_review_items.html",
 					"settings":
 					{
-						"buffer_size": 1669,
+						"buffer_size": 90,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								511,
-								511
+								54,
+								54
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/HTML/HTML.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -453,49 +521,53 @@
 				},
 				{
 					"buffer": 8,
-					"file": "apps/reviews/views.py",
+					"file": "/home/grigl/.virtualenvs/streptatest/lib/python2.7/site-packages/django/views/generic/edit.py",
 					"settings":
 					{
-						"buffer_size": 535,
+						"buffer_size": 7464,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								242,
-								242
+								1285,
+								1285
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1296.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 9,
-					"file": "urls.py",
+					"file": "apps/newsboard/admin.py",
 					"settings":
 					{
-						"buffer_size": 958,
+						"buffer_size": 819,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								184,
-								184
+								818,
+								818
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -505,18 +577,18 @@
 				},
 				{
 					"buffer": 10,
-					"file": "config/base.py",
+					"file": "apps/publications/models.py",
 					"settings":
 					{
-						"buffer_size": 2806,
+						"buffer_size": 1076,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								957,
-								957
+								1021,
+								1021
 							]
 						],
 						"settings":
@@ -533,44 +605,18 @@
 				},
 				{
 					"buffer": 11,
-					"file": "apps/reviews/templates/review_list.html",
+					"file": "apps/publications/admin.py",
 					"settings":
 					{
-						"buffer_size": 17,
+						"buffer_size": 122,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								17,
-								17
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "apps/views.py",
-					"settings":
-					{
-						"buffer_size": 853,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								853,
-								853
+								122,
+								122
 							]
 						],
 						"settings":
@@ -584,26 +630,52 @@
 					"type": "text"
 				},
 				{
-					"buffer": 13,
-					"file": "templates/base.html",
+					"buffer": 12,
+					"file": "apps/orders/models.py",
 					"settings":
 					{
-						"buffer_size": 1180,
+						"buffer_size": 2942,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1162,
-								1162
+								2338,
+								2338
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"syntax": "Packages/Python/Python.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 972.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "apps/orders/views.py",
+					"settings":
+					{
+						"buffer_size": 454,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								211,
+								211
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -613,18 +685,50 @@
 				},
 				{
 					"buffer": 14,
-					"file": "templates/index.html",
+					"file": "apps/orders/admin.py",
 					"settings":
 					{
-						"buffer_size": 619,
+						"buffer_size": 123,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								563,
-								563
+								123,
+								123
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 15,
+					"file": "apps/orders/templates/order.html",
+					"settings":
+					{
+						"buffer_size": 1579,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								391,
+								391
 							]
 						],
 						"settings":
@@ -659,11 +763,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":

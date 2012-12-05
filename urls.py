@@ -8,7 +8,7 @@ from apps.urls import urlpatterns as apps_urlpatterns
 from apps.views import index
 from apps.reviews.views import ReviewIndexView, ReviewListView, MoreReviewsView, ReviewForm
 from apps.capabilities.views import CapabilityListView 
-from apps.orders.views import OrderFormView
+from apps.messages.views import OrderFormView
 
 admin.autodiscover()
 
@@ -36,7 +36,7 @@ urlpatterns = patterns('',
     # capabilities
     (r'^capabilities/$', CapabilityListView.as_view()),
     # order form
-    (r'^order/$', OrderFormView.as_view()),
+    url(r'^order/$', OrderFormView.as_view(), name = "order"),
 
 )
 

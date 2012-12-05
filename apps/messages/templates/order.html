@@ -1,0 +1,55 @@
+<form action="/order/" class="review-form" method="post">
+    {% csrf_token %}
+    {{ form.errors }}
+    <div class="fieldWrapper">
+        {{ form.product.errors }}
+        <label>product type:</label>
+        {{ form.product }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.product_quantity.errors }}
+        <label>product_quantity:</label>
+        {{ form.product_quantity }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.initials.errors }}
+        <label>initials:</label>
+        {{ form.initials }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.email.errors }}
+        <label>email:</label>
+        {{ form.email }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.allow_mailings.errors }}
+        <label>allow_mailings:</label>
+        {{ form.allow_mailings }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.address.errors }}
+        <label>address:</label>
+        {{ form.address }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.city.errors }}
+        <label>city:</label>
+        {{ form.city }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.phone.errors }}
+        <label>phone:</label>
+        {{ form.phone }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.payment_type.errors }}
+        <label>payment_type:</label>
+        {{ form.payment_type }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.cash_pay_sum.errors }}
+        <label>cash_pay_sum:</label>
+        {{ form.cash_pay_sum }}
+    </div>
+    <p><input type="submit" value="Send message" /></p>
+</form>
