@@ -1,0 +1,25 @@
+# index page settings
+- model: siteblocks.settings
+  pk: 1
+  fields:
+    name: index_header_right_text
+    type: redactor
+
+- model: siteblocks.settings
+  pk: 2
+  fields:
+    name: index_header_center_text
+    type: redactor
+
+# capabilities page settings
+- model: siteblocks.settings
+  pk: 3
+  fields:
+    name: capabilities_top_text
+    type: redactor
+
+- model: siteblocks.settings
+  pk: 4
+  fields:
+    name: capabilities_center_text
+    type: redactor

@@ -28,6 +28,7 @@ INSTALLED_APPS += (
     'apps.publications',
     'apps.products',
     'apps.messages',
+    'apps.places',
     'sorl.thumbnail',
     'south',
     #'captcha',
