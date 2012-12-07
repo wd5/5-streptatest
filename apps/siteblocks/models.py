@@ -46,6 +46,11 @@ class SiteMenu(MPTTModel):
 
     objects = TreeManager()
 
+    def save(self, *args, **kwargs):
+        self.title = self.title.strip()
+        self.url = self.url.strip()
+        super(SiteMenu, self).save()
+
     class Meta:
         verbose_name =_(u'menu_item')
         verbose_name_plural =_(u'menu_items')
@@ -56,14 +61,6 @@ class SiteMenu(MPTTModel):
 
     def __unicode__(self):
         return self.title
-
-def strip_url_title(sender, instance, created, **kwargs):
-    # remove the first and the last space
-    instance.title = instance.title.strip()
-    instance.url = instance.url.strip()
-    instance.save()
-
-post_save.connect(strip_url_title, sender=SiteMenu)
 
 type_choices = (
     (u'input',u'input'),

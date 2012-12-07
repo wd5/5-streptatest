@@ -11,10 +11,16 @@
         {% block title %}{% endblock %}
         {{ site_name }}
     </title>
+    {% block head %}{% endblock %}
 </head>
 
 <body>
+<div class="wrapper bg_i">
+<div class="page">
+{% include '_header.html' %}
 {% block_menu request.path %}
 {% block center %}{% endblock %}
+</div>
+</div>
 </body>
 </html>

@@ -28,5 +28,5 @@
 - model: siteblocks.settings
   pk: 5
   fields:
-    name: main_phone
+    name: contacts
     type: redactor    

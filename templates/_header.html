@@ -1,0 +1,26 @@
+<!--HEADER-->
+    <div class="header">
+        <a id="logo_box" href="/" title="Стрептатест"><img id="logo" src="media/img/logo.png" alt="Стрептатест" width="581" height="69" /></a>
+        
+        <p class="header_info">Умный экспресс-тест для защиты здоровья всей семьи</p>
+        
+        <div class="header_contacts">
+            <p>Горячая линия</p>
+            {% if contacts %}
+            <div class="tel"><span>+7</span> {{ contacts }}</div>
+            {% endif %}
+            <p><a href="javascript:void(0)" class="header_contacts_lnk">Как нас найти</a></p>
+        </div><!--/header_contacts-->
+
+        <div class="header_menu">
+            <ul>
+                <li class="curr"><a href="#">О продукте</a></li>
+                <li><a href="#">Возможности</a></li>
+                <li><a href="#">Отзывы</a></li>
+                <li><a href="#">Инструкция</a></li>
+                <li><a href="#">Пациентам</a></li>
+                <li><a href="#">Партнерам</a></li>
+            </ul>
+        </div><!--/menu-->
+    </div>
+<!--/HEADER-->

@@ -41,7 +41,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 TEMPLATE_CONTEXT_PROCESSORS += (
-    'apps.pages.context_processors.meta',
+    # 'apps.pages.context_processors.meta',
     'apps.siteblocks.context_processors.settings',
     'apps.utils.context_processors.authorization_form',
 )

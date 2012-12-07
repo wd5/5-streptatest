@@ -13,6 +13,7 @@ class SiteMenuAdmin(AdminImageMixin, MPTTModelAdmin):
     list_display = ('title', 'url', 'order', 'is_published',)
     list_display_links = ('title', 'url',)
     list_editable = ('order', 'is_published',)
+    exclude = ('parent', 'image')
 
 admin.site.register(SiteMenu, SiteMenuAdmin)
 
