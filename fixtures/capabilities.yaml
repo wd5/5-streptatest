@@ -1,0 +1,31 @@
+- model: capabilities.capability
+  pk: 1
+  fields:
+    title: Результат через 5&nbsp;минут
+    body: Правильно установит возбудителя заболевания
+    show_on_index: True
+    image: teaser_fast.png
+
+- model: capabilities.capability
+  pk: 2
+  fields:
+    title: Защищает от&nbsp;антибиотиков
+    body: Предотвращает необоснованное назначение
+    show_on_index: True
+    image: teaser_drugs.png
+
+- model: capabilities.capability
+  pk: 3
+  fields:
+    title: Своевременная диагностика
+    body: Спасает жизни своевременно диагностирую опасные заболевания
+    show_on_index: True
+    image: teaser_diagnosis.png
+
+- model: capabilities.capability
+  pk: 4
+  fields:
+    title: Помогает избежать осложнений
+    body: При неправильной диагностики или лечения ангины
+    show_on_index: True
+    image: teaser_complication.png

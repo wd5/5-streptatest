@@ -13,10 +13,6 @@ class ImageField(sorl_ImageField, models.ImageField):
 def file_path_capabilities(instance, filename):
     return os.path.join('images','capabilities', translify(filename).replace(' ', '_') )
 
-BLOCK_CHOISES = (
-    ('top', 'Верхний блок (c большими картинками)'),
-    ('bottom', 'Нижний блок (с маленькими картинками)'),
-)
 
 class Capability(models.Model):
     title = models.CharField(
@@ -25,11 +21,6 @@ class Capability(models.Model):
     )
     body = models.TextField(
         verbose_name = u'Описание'
-    )
-    show_in_block = models.CharField(
-        verbose_name = u'показывать в блоке',
-        max_length = 50,
-        choices = BLOCK_CHOISES
     )
     show_on_index = models.BooleanField(
         verbose_name = u'показывать на главной',
@@ -48,6 +39,7 @@ class Capability(models.Model):
     updated_at = models.DateTimeField(
         verbose_name = u'дата изменения',
         auto_now = True,
+        default = datetime.now(),
     )
 
     class Meta:

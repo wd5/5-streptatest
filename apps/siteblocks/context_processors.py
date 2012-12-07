@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime
+
 from apps.siteblocks.models import Settings
 from settings import SITE_NAME
 
@@ -8,7 +10,10 @@ def settings(request):
     except Settings.DoesNotExist:
         contacts = False
 
+    now = datetime.now()
+
     return {
         'contacts': contacts,
         'site_name': SITE_NAME,
+        'now': now
     }

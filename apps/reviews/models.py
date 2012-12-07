@@ -26,13 +26,13 @@ class Review(models.Model):
     )
     reviewer_post = models.CharField(
         verbose_name = u'должность',
-        max_length = 30,
+        max_length = 200,
         blank = True,
         null = True
     )
     initials = models.CharField(
         verbose_name = u'ФИО',
-        max_length = 100
+        max_length = 200
     )
     review = models.TextField(
         verbose_name = u'обзор'
@@ -54,7 +54,8 @@ class Review(models.Model):
     )
     updated_at = models.DateTimeField(
         verbose_name = u'дата изменения',
-        auto_now = True
+        auto_now = True,
+        default = datetime.now(),
     )
 
     def __unicode__(self):

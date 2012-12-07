@@ -1,18 +1,141 @@
 {% extends "base.html" %}
 
-{% load thumbnail %}
+{% block main %}
+<!--MAIN-->
+    <div class="main">
+        <div class="index_top">
+            <div class="index_box col">
+                <div class="index_box_img index_box_img_1"></div>
+                <div class="index_box_des">
+                    <h1 class="index_box_des_h">{{ header_center_text_header }}</h1>
+                    <div class="index_box_des_img"><img src="media/img/box_zs.png" alt="Стептатест" /></div>
+                    <p>{{ header_center_text }}</p>
+                </div>
+                <div class="cl"></div>
+            </div><!--/index_box-->
+            
+            <div class="index_percents col">
+                <div class="index_percent">
+                    {{ header_right_text_1|safe }}
+                </div>
+                <div class="index_percent">
+                    {{ header_right_text_2|safe }}
+                </div>
+                <div class="btn_zl"><div class="btn_zl_in"><a href="#">Купить</a></div></div>
+            </div>
+        </div><!--/index_top-->
+        
+        {% if index_capability_list %}
+        <div class="content">
+            <div class="index_whys">
+                <div class="side">
+                    <div class="arrpl">
+                        <h2 class="side_h">Почему используют Стрептатест</h2>
+                        <div class="arrpl_lnk"><a href="/capabilities">Все возможности</a></div>
+                    </div>
+                </div>
+                
+                {% for capability in index_capability_list %}
+                <div class="index_why col">
+                    <div class="index_why_img"><img src="media/img/{{ capability.image }}" alt="" /></div>
+                    <h3 class="index_why_h">{{ capability.title }}</h3>
+                    <div class="index_why_des">{{ capability.body }}</div>
+                </div>
+                {% endfor %}
+                
+            </div><!--/index_why-->
+        </div><!--/content-->
+        {% endif %}
+          
+        {% if doctors_last_review_list or patients_last_review_list %}  
+        <div class="content">
+            <div class="index_reviews">
+                <div class="side">
+                    <h2 class="side_h">О Стрептатест говорят:</h2>
+                    <div class="sidemenu">
+                        <ul>
+                            <li class="curr">
+                                <div>
+                                {% if doctors_last_review_list %}
+                                <a href="#">Врачи</a>
+                                {% else %}
+                                Врачи
+                                {% endif %}
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                {% if patients_last_review_list %}
+                                <a href="#">Пациенты</a>
+                                {% else %}
+                                Пациенты
+                                {% endif %}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <p><a href="/reviews">Все отзывы</a></p>
+                </div><!--/side-->
+                
+                {% if doctors_last_review_list %}
+                <div class="reviews_carousel">
+                    <ul>
+                        {% for review in doctors_last_review_list %}
+                        <li>
+                            <div class="review review_doc">
+                                <div class="review_info col">
+                                    <div class="review_img"><img src="media/images/1.jpg" alt="" /></div>
+                                    <h3 class="review_name">{{ review.initials}}</h3>
+                                    <div class="review_post"><p>{{ review.reviwer_post }}</p></div>
+                                </div>
+                                <div class="review_blob col">
+                                    <div class="review_text">
+                                        <p>{{ review.review }}</p>
+                                    </div>
+                                    <div class="review_blob_arr"></div>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <a href="#" class="carousel_l carousel_l_disabled"></a>
+                    <a href="#" class="carousel_r"></a>
+                </div><!--/reviews_carousel-->
+                {% endif %}
 
-{% if page.title %}
-    {% block title %}
-        {{ page.title }} &mdash;
-    {% endblock %}
-{% endif %}
+                {% if patients_last_review_list %}
+                <div class="reviews_carousel" style="display:none;">
+                    <ul>
+                        {% for review in patients_last_review_list %}
+                        <li>
+                            <div class="review review_doc">
+                                <div class="review_info col">
+                                    <div class="review_img"><img src="media/images/1.jpg" alt="" /></div>
+                                    <h3 class="review_name">{{ review.initials}}</h3>
+                                    <div class="review_post"><p>{{ review.reviwer_post }}</p></div>
+                                </div>
+                                <div class="review_blob col">
+                                    <div class="review_text">
+                                        <p>{{ review.review }}</p>
+                                    </div>
+                                    <div class="review_blob_arr"></div>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <a href="#" class="carousel_l carousel_l_disabled"></a>
+                    <a href="#" class="carousel_r"></a>
+                </div><!--/reviews_carousel-->
+                {% endif %}
 
-{% block center %}
-    {{ doctors_last_review_list }}
-    {{ patients_last_review_list }}
-    {{ index_capability_list }}
-    {{ header_right_text|safe }}
-    {{ header_center_text|safe }}
+            </div><!--/index_reviews-->
+        </div><!--/content-->
+        {% endif %}
+        
+    </div>
+<!--/MAIN-->
 {% endblock %}
+
+
 

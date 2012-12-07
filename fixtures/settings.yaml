@@ -2,31 +2,54 @@
 - model: siteblocks.settings
   pk: 1
   fields:
-    name: index_header_right_text
+    name: index_header_right_text_1
     type: redactor
+    value: <div class="index_percent_val">80<span>%</span></div>
+           <div class="index_percent_h">Боли в горле</div>
+           <div class="index_percent_des">не требуют лечения антибиотиками</div>
 
 - model: siteblocks.settings
   pk: 2
   fields:
+    name: index_header_right_text_2
+    type: redactor
+    value: <div class="index_percent_val">71<span>%</span></div>
+           <div class="index_percent_h">Назначений антибиотиков</div>
+           <div class="index_percent_des">не обоснавано и&nbsp;не&nbsp;достигает цели</div>
+
+- model: siteblocks.settings
+  pk: 3
+  fields:
     name: index_header_center_text
     type: redactor
+    value: Универсальный инструмент для пациента и врача, 
+           который позволяет в течении 5 минут исключить риск неправильной диагностики 
+           и лечения заболеваний, защитить от необоснованного назначения антибиотиков 
+           и иных дорогостоящих лекарственных препаратов и процедур.
+
+- model: siteblocks.settings
+  pk: 4
+  fields:
+    name: index_header_center_text_header
+    type: redactor
+    value: Персональная экспресс-лаборатория в коробке
 
 # capabilities page settings
 - model: siteblocks.settings
-  pk: 3
+  pk: 5
   fields:
     name: capabilities_top_text
     type: redactor
 
 - model: siteblocks.settings
-  pk: 4
+  pk: 6
   fields:
     name: capabilities_center_text
     type: redactor
 
 # main settings
 - model: siteblocks.settings
-  pk: 5
+  pk: 7
   fields:
     name: contacts_block
     type: input
