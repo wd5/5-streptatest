@@ -44,6 +44,10 @@ class Clinic(models.Model):
         verbose_name = u'название',
         max_length = 100,
     )
+    address = models.CharField(
+        verbose_name = u'адрес',
+        max_length = 400,
+    )
     coordinates = models.CharField(
         verbose_name = u'координаты',
         max_length = 300,
@@ -103,6 +107,43 @@ class Drugstore(models.Model):
         ordering = ['-created_at', '-id',]
         verbose_name = u'аптека'
         verbose_name_plural = u'аптеки'
+
+
+class Lab(models.Model):
+    city = models.ForeignKey(
+        'City',
+        verbose_name = u'город',
+    )
+    title = models.CharField(
+        verbose_name = u'название',
+        max_length = 100,
+    )
+    address = models.CharField(
+        verbose_name = u'адрес',
+        max_length = 400,
+    )
+    coordinates = models.CharField(
+        verbose_name = u'координаты',
+        max_length = 300,
+    )
+    # timestamps
+    created_at = models.DateTimeField(
+        verbose_name = u'дата создания',
+        default = datetime.now(),
+        editable = False,
+    )
+    updated_at = models.DateTimeField(
+        verbose_name = u'дата изменения',
+        auto_now = True,
+    )
+
+    def __unicode__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['-created_at', '-id',]
+        verbose_name = u'лаборатория'
+        verbose_name_plural = u'лаборатории'
         
 
 class Branch(models.Model):
