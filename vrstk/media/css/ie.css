@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+
+/*6-7*/
+.col,
+.sidemenu li div,
+.hormenu li,
+.step, .case,
+.btn_zl,
+.btn_zl_in,
+.btn_zs,
+.btn_zs_in,
+.btn_blue,
+.btn_blue_in,
+.review_out,
+.review_out_full .review_blob {
+	*display:inline;
+	*zoom:1;
+}
+.some {
+	*position:relative;
+	*zoom:1;
+}
+.hormenu .curr img, .modal_header .curr img {
+	*display: none;
+}
+/*6-7*/
+
+

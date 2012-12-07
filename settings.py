@@ -24,7 +24,6 @@ INSTALLED_APPS += (
     'apps.inheritanceUser',
     'apps.capabilities',
     'apps.reviews',
-    'apps.clinics',
     'apps.publications',
     'apps.products',
     'apps.messages',

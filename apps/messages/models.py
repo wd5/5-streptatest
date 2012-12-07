@@ -133,8 +133,8 @@ class PartnershipOffer(models.Model):
         ('new', 'новый'),
     )
 
-    initials = models.CharField(
-        verbose_name = u'ФИО',
+    title = models.CharField(
+        verbose_name = u'ФИО или название',
         max_length = 300,
     )
     offer_author_type = models.CharField(
