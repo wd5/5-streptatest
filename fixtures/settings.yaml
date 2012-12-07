@@ -28,5 +28,6 @@
 - model: siteblocks.settings
   pk: 5
   fields:
-    name: contacts
-    type: redactor    
+    name: contacts_block
+    type: input
+    value: (499) 340-0-394    

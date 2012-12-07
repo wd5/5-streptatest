@@ -40,7 +40,37 @@ def block_menu(url):
         current = u'/%s/' % url[1]
     else:
         current = u'/'
+
+
     menu = SiteMenu.objects.all()
+    menu = get_active_menu(url, menu)
+    return {'menu': menu, 'current': current}
+
+@register.inclusion_tag("_header_menu.html")
+def header_menu(url):
+    url = url.split('/')
+
+    if url[1]:
+        current = u'/%s/' % url[1]
+    else:
+        current = u'/'
+
+
+    menu = SiteMenu.objects.filter(menu_type = 'header')
+    menu = get_active_menu(url, menu)
+    return {'menu': menu, 'current': current}
+
+@register.inclusion_tag("_footer_menu.html")
+def footer_menu(url):
+    url = url.split('/')
+
+    if url[1]:
+        current = u'/%s/' % url[1]
+    else:
+        current = u'/'
+
+
+    menu = SiteMenu.objects.filter(menu_type = 'footer')
     menu = get_active_menu(url, menu)
     return {'menu': menu, 'current': current}
 

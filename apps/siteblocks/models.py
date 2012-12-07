@@ -13,6 +13,11 @@ def image_path(self, instance, filename):
     return os.path.join('uploads', 'images/menu', filename)
 
 class SiteMenu(MPTTModel):
+    MENU_TYPE_CHOISES = (
+        ('header','верхнее меню'),
+        ('footer','нижнее меню'),
+    )
+
     title = models.CharField(
         max_length = 150, 
         verbose_name = u'Название'
@@ -29,6 +34,11 @@ class SiteMenu(MPTTModel):
         related_name = 'children',
         blank = True,
         null = True,
+    )
+    menu_type = models.CharField(
+        verbose_name = u'в каком меню показывать',
+        max_length = 200,
+        choices = MENU_TYPE_CHOISES
     )
     url = models.CharField(
         verbose_name = u'url', 

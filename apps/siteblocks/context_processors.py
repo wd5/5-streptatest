@@ -6,7 +6,7 @@ def settings(request):
     try:
         contacts = Settings.objects.get(name='contacts_block').value
     except Settings.DoesNotExist:
-        contacts = u''
+        contacts = False
 
     return {
         'contacts': contacts,

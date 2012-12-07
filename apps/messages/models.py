@@ -10,6 +10,10 @@ class MailingAddress(models.Model):
         verbose_name = 'e-mail',
         max_length = 300,
     )
+    initials = models.CharField(
+        verbose_name = u'инициалы',
+        max_length = 300,
+    )
     is_active = models.BooleanField(
         verbose_name = 'активен',
         default = True,

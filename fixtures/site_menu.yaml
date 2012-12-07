@@ -1,0 +1,125 @@
+- model: siteblocks.sitemenu
+  pk: 1
+  fields:
+    menu_type: header
+    title: О продукте
+    url: /
+    is_published: True
+    order: 6
+    # dummy for mptt stuff
+    lft: 1
+    rght: 1
+    tree_id: 1
+    level: 1
+
+- model: siteblocks.sitemenu
+  pk: 2
+  fields:
+    menu_type: header
+    title: Возможности
+    url: /capabilities
+    is_published: True
+    order: 5
+    # dummy for mptt stuff
+    lft: 1
+    rght: 1
+    tree_id: 1
+    level: 1
+
+- model: siteblocks.sitemenu
+  pk: 3
+  fields:
+    menu_type: header
+    title: Отзывы
+    url: /reviews
+    is_published: True
+    order: 4
+    # dummy for mptt stuff
+    lft: 1
+    rght: 1
+    tree_id: 1
+    level: 1
+
+- model: siteblocks.sitemenu
+  pk: 4
+  fields:
+    menu_type: header
+    title: Инструкция
+    url: /instruction
+    is_published: True
+    order: 3
+    # dummy for mptt stuff
+    lft: 1
+    rght: 1
+    tree_id: 1
+    level: 1
+
+- model: siteblocks.sitemenu
+  pk: 5
+  fields:
+    menu_type: header
+    title: Пациентам
+    url: /for_patients
+    is_published: True
+    order: 2
+    # dummy for mptt stuff
+    lft: 1
+    rght: 1
+    tree_id: 1
+    level: 1
+
+- model: siteblocks.sitemenu
+  pk: 6
+  fields:
+    menu_type: header
+    title: Партнерам
+    url: /for_partners
+    is_published: True
+    order: 1
+    # dummy for mptt stuff
+    lft: 1
+    rght: 1
+    tree_id: 1
+    level: 1
+
+- model: siteblocks.sitemenu
+  pk: 7
+  fields:
+    menu_type: footer
+    title: Посоветовать друзьям
+    url: /advise_friends
+    is_published: True
+    order: 3
+    # dummy for mptt stuff
+    lft: 1
+    rght: 1
+    tree_id: 1
+    level: 1
+
+- model: siteblocks.sitemenu
+  pk: 8
+  fields:
+    menu_type: footer
+    title: Подписаться на новости
+    url: /subscribe_for_news
+    is_published: True
+    order: 2
+    # dummy for mptt stuff
+    lft: 1
+    rght: 1
+    tree_id: 1
+    level: 1
+
+- model: siteblocks.sitemenu
+  pk: 9
+  fields:
+    menu_type: footer
+    title: пресс-центр
+    url: /newsboard
+    is_published: True
+    order: 2
+    # dummy for mptt stuff
+    lft: 1
+    rght: 1
+    tree_id: 1
+    level: 1
