@@ -15,10 +15,9 @@ TEMPLATE_DEBUG = DEBUG
 
 INSTALLED_APPS += (
     'apps.siteblocks',
-    'apps.pages',
+    # 'apps.pages',
     # 'apps.faq',
     'apps.slider',
-    # 'apps.products',
     # 'apps.newsboard',
     # 'apps.orders',
     'apps.inheritanceUser',
@@ -29,7 +28,6 @@ INSTALLED_APPS += (
     'apps.messages',
     'apps.places',
     'sorl.thumbnail',
-    'south',
     #'captcha',
 )
 

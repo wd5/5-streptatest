@@ -23,3 +23,10 @@
   fields:
     name: capabilities_center_text
     type: redactor
+
+# main settings
+- model: siteblocks.settings
+  pk: 5
+  fields:
+    name: main_phone
+    type: redactor    
