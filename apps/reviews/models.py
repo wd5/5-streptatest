@@ -63,5 +63,5 @@ class Review(models.Model):
 
     class Meta:
         ordering = ['-created_at', '-id',]
-        verbose_name = u'обзор'
-        verbose_name_plural = u'обзоры'
+        verbose_name = u'отзыв'
+        verbose_name_plural = u'отзывы'

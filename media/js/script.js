@@ -12,6 +12,7 @@ var SwitchSlider = function(){
         $('#doctors_link').parents('li').addClass('curr');
     });
 }
+
 var IndexPageSliders = function(){
     $('#doctors_carousel ul').bxSlider({
         pager: false,
@@ -29,7 +30,18 @@ var IndexPageSliders = function(){
     });
 }
 
+var IndexBoxAnimate = function(){
+    var ShowBox = function(){
+        $('.index_box_img_1').css({ 'background': "url('/media/img/box_2.png') no-repeat" }).delay(1000).css({ 'background': "url('/media/img/box_3.png') no-repeat" });
+    }
+    var ShowRoom = function(){
+        $('.index_box_img_1').css({ 'background': "url('/media/img/box_2.png') no-repeat" }).delay(1000).css({ 'background': "url('/media/img/box_1.png') no-repeat" });
+    }
+    $('.index_box_img').hover(ShowBox, ShowRoom);
+}
+
 $(function(){
     SwitchSlider();
     IndexPageSliders();
+    IndexBoxAnimate();
 });
