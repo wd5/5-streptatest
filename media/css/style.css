@@ -476,21 +476,23 @@ h3 {
 .reviews_carousel {
 	position: relative;
 }
-
-.carousel_l, .carousel_r {
+.reviews_carousel .review_do {
+	width: 800px;
+}
+.bx-prev, .bx-next {
 	background: url('../img/carousel_lr.png') no-repeat;
 	position: absolute;
 	width: 78px;
 	height: 78px;
 	top: 36px;
 }
-.carousel_l:active, .carousel_r:active {
+.bx-prev:active, .bx-next:active {
 	top: 38px;
 }
-.carousel_l {
+.bx-prev {
 	left: -82px;
 }
-.carousel_r {
+.bx-next {
 	background-position: -88px 0;
 	right: 90px;
 }

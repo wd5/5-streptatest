@@ -38,8 +38,8 @@
                 {% for capability in index_capability_list %}
                 <div class="index_why col">
                     <div class="index_why_img"><img src="media/img/{{ capability.image }}" alt="" /></div>
-                    <h3 class="index_why_h">{{ capability.title }}</h3>
-                    <div class="index_why_des">{{ capability.body }}</div>
+                    <h3 class="index_why_h">{{ capability.title|safe }}</h3>
+                    <div class="index_why_des">{{ capability.body|safe }}</div>
                 </div>
                 {% endfor %}
                 
@@ -57,7 +57,7 @@
                             <li class="curr">
                                 <div>
                                 {% if doctors_last_review_list %}
-                                <a href="#">Врачи</a>
+                                <a href="javascript:void(0)" id="doctors_link">Врачи</a>
                                 {% else %}
                                 Врачи
                                 {% endif %}
@@ -66,7 +66,7 @@
                             <li>
                                 <div>
                                 {% if patients_last_review_list %}
-                                <a href="#">Пациенты</a>
+                                <a href="javascript:void(0)" id="patients_link">Пациенты</a>
                                 {% else %}
                                 Пациенты
                                 {% endif %}
@@ -78,19 +78,21 @@
                 </div><!--/side-->
                 
                 {% if doctors_last_review_list %}
-                <div class="reviews_carousel">
+                <div class="reviews_carousel" id="doctors_carousel">
                     <ul>
                         {% for review in doctors_last_review_list %}
-                        <li>
+                        {% if forloop.first %}
+                        <li>{% else %}<li>
+                        {% endif %}
                             <div class="review review_doc">
                                 <div class="review_info col">
                                     <div class="review_img"><img src="media/images/1.jpg" alt="" /></div>
-                                    <h3 class="review_name">{{ review.initials}}</h3>
+                                    <h3 class="review_name">{{ review.initials }}</h3>
                                     <div class="review_post"><p>{{ review.reviwer_post }}</p></div>
                                 </div>
                                 <div class="review_blob col">
                                     <div class="review_text">
-                                        <p>{{ review.review }}</p>
+                                        <p>{{ review.review|safe }}</p>
                                     </div>
                                     <div class="review_blob_arr"></div>
                                 </div>
@@ -98,25 +100,31 @@
                         </li>
                         {% endfor %}
                     </ul>
-                    <a href="#" class="carousel_l carousel_l_disabled"></a>
-                    <a href="#" class="carousel_r"></a>
+                    <div id="doc_carousel_l"></div>
+                    <div id="doc_carousel_r"></div>
                 </div><!--/reviews_carousel-->
                 {% endif %}
 
                 {% if patients_last_review_list %}
-                <div class="reviews_carousel" style="display:none;">
+                {% if doctors_last_review_list %}
+                <div class="reviews_carousel" style="display:none;" id="patients_carousel">
+                {% else %}
+                <div class="reviews_carousel" id="patients_carousel">
+                {% endif %}
                     <ul>
                         {% for review in patients_last_review_list %}
-                        <li>
+                        {% if forloop.first %}
+                        <li>{% else %}<li>
+                        {% endif %}
                             <div class="review review_doc">
                                 <div class="review_info col">
-                                    <div class="review_img"><img src="media/images/1.jpg" alt="" /></div>
+                                    <div class="review_img"><img src="media/images/2.jpg" alt="" /></div>
                                     <h3 class="review_name">{{ review.initials}}</h3>
                                     <div class="review_post"><p>{{ review.reviwer_post }}</p></div>
                                 </div>
                                 <div class="review_blob col">
                                     <div class="review_text">
-                                        <p>{{ review.review }}</p>
+                                        <p>{{ review.review|safe }}</p>
                                     </div>
                                     <div class="review_blob_arr"></div>
                                 </div>
@@ -124,8 +132,8 @@
                         </li>
                         {% endfor %}
                     </ul>
-                    <a href="#" class="carousel_l carousel_l_disabled"></a>
-                    <a href="#" class="carousel_r"></a>
+                    <div id="patient_carousel_l"></div>
+                    <div id="patient_carousel_r"></div>
                 </div><!--/reviews_carousel-->
                 {% endif %}
 
