@@ -12,7 +12,6 @@ class IndexSettings(TemplateResponseMixin):
         context['header_right_text_1'] = Settings.objects.get(name='index_header_right_text_1').value
         context['header_right_text_2'] = Settings.objects.get(name='index_header_right_text_2').value
         context['header_center_text'] = Settings.objects.get(name='index_header_center_text').value
-        context['header_center_text_header'] = Settings.objects.get(name='index_header_center_text_header').value        
         return context
 
 class LastReviews(TemplateResponseMixin):

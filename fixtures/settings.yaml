@@ -27,13 +27,6 @@
            и лечения заболеваний, защитить от необоснованного назначения антибиотиков 
            и иных дорогостоящих лекарственных препаратов и процедур.
 
-- model: siteblocks.settings
-  pk: 4
-  fields:
-    name: index_header_center_text_header
-    type: redactor
-    value: Персональная экспресс-лаборатория в коробке
-
 # capabilities page settings
 - model: siteblocks.settings
   pk: 5
@@ -54,3 +47,12 @@
     name: contacts_block
     type: input
     value: (499) 340-0-394    
+
+# reviews page settings
+
+- model: siteblocks.settings
+  pk: 4
+  fields:
+    name: reviews_top_text
+    type: redactor
+    value: Наш эксперсс-тест уже более 3 лет на рынке и зарекомендовал себя как надежное средство для диагностирования стрептакоков. Можно тут еще несколько предложений написать про популярность препарата.

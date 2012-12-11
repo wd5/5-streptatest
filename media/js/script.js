@@ -1,14 +1,14 @@
 var SwitchSlider = function(){
     $('.index_reviews #patients_link').on('click', function(){
-        $('#doctors_carousel').hide('slide');
+        $('#doctors_carousel').hide();
         $('#doctors_link').parents('li').removeClass('curr');
-        $('#patients_carousel').show('slide');
+        $('#patients_carousel').show();
         $('#patients_link').parents('li').addClass('curr');
     });
     $('.index_reviews #doctors_link').on('click', function(){
-        $('#patients_carousel').hide('slide');
+        $('#patients_carousel').hide();
         $('#patients_link').parents('li').removeClass('curr');
-        $('#doctors_carousel').show('slide');
+        $('#doctors_carousel').show();
         $('#doctors_link').parents('li').addClass('curr');
     });
 }
@@ -40,8 +40,26 @@ var IndexBoxAnimate = function(){
     $('.index_box_img').hover(ShowBox, ShowRoom);
 }
 
+var ShowFullReview = function(){
+    $('.review_more').on('click', function(){
+        var targetReview = $(this).parents('.review').attr('data-review');
+        $(this).parents('.review').hide();
+        $('.review[data-review-full='+targetReview+']').show();
+    });
+}
+
+var HideFullReview = function(){
+    $('.blob_close').on('click', function(){
+        var targetReview = $(this).parents('.review').attr('data-review-full');
+        $(this).parents('.review').hide();
+        $('.review[data-review='+targetReview+']').show();
+    });
+}
+
 $(function(){
     SwitchSlider();
     IndexPageSliders();
     IndexBoxAnimate();
+    ShowFullReview();
+    HideFullReview();
 });

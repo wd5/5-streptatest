@@ -27,16 +27,16 @@ urlpatterns = patterns('',
     (r'^$', index), 
     # reviews
     (r'^reviews/$', ReviewIndexView.as_view()),
-    (r'^reviews/patients/$', ReviewListView.as_view(), {'reviewer_type':'patient'}),
-    (r'^reviews/doctors/$', ReviewListView.as_view(), {'reviewer_type':'doctor'}),
+    url(r'^reviews/patients/$', ReviewListView.as_view(), {'reviewer_type':'patient'}, name='patients_reviews_url'),
+    url(r'^reviews/doctors/$', ReviewListView.as_view(), {'reviewer_type':'doctor'}, name='doctors_reviews_url'),
     (r'^reviews/patients/more/$', MoreReviewsView.as_view(), {'reviewer_type':'patient'}),
     (r'^reviews/doctors/more/$', MoreReviewsView.as_view(), {'reviewer_type':'doctor'}),
     (r'^reviews/patients/form/$', ReviewForm.as_view(), {'reviewer_type':'patient'}),
     (r'^reviews/doctors/form/$', ReviewForm.as_view(), {'reviewer_type':'doctor'}),
     # capabilities
-    (r'^capabilities/$', CapabilityListView.as_view()),
+    url(r'^capabilities/$', CapabilityListView.as_view(), name='capabilities_url'),
     # order form
-    url(r'^order/$', OrderFormView.as_view(), name = "order"),
+    url(r'^order/$', OrderFormView.as_view(), name='order_url'),
 
 )
 

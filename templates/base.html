@@ -16,7 +16,7 @@
 </head>
 
 <body>
-<div class="wrapper bg_i">
+<div class="wrapper {% block wrapper-class%}{% endblock %}">
 <div class="page">
 {% include '_header.html' %}
 {% block main %}{% endblock %}

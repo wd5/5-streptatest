@@ -395,6 +395,12 @@ h3 {
 .index_box_img_1 {
 	background: url('../img/box_1.png') no-repeat;
 }
+.index_box_img_2 {
+	background: url('../img/box_2.png') no-repeat;
+}
+.index_box_img_3 {
+	background: url('../img/box_3.png') no-repeat;
+}
 
 .index_box_des_h {
 	font-size: 24px;

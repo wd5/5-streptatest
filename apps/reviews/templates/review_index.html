@@ -1,1 +1,172 @@
-{{ review_list }}
+{% extends 'base.html' %}
+
+{% block main %}
+<!--MAIN-->
+    <div class="main">
+        <div class="content">
+            <div class="content_l col">
+                <h1>Кто уже использует Стрептатест</h1>
+                
+                <div class="text page_lead">
+                    <p>{{ top_text }}</p>
+                </div>
+                            
+                <div class="reviews">
+                    <div class="side">
+                        <div class="arrpl">
+                            <h2 class="side_h">Врачи про&nbsp;Стрептатест</h2>
+                            <div class="arrpl_lnk"><a href="{% url doctors_reviews_url %}">Отзывы врачей</a></div>
+                            <div class="arrpl_img"><img src="/media/img/side_docs.png" alt="" /></div>
+                        </div>
+                    </div>
+                    
+                    {% for review in doctors_review_list %}
+                    <div class="review review_doc" data-review="{{ review.id }}">
+                        <div class="review_info col">
+                            <div class="review_img"><img src="/media/images/1.jpg" alt="" /></div>
+                            <h3 class="review_name">{{ review.initials }}</h3>
+                            <div class="review_post"><p>{{ review.reviewer_post }}</p></div>
+                        </div>
+                        <div class="review_blob col">
+                            <div class="review_text">
+                                <p>{{ review.review|truncatechars:200 }}
+                                {% if review.review|length > 200 %}
+                                <a href="javascript:void(0)" class="review_more">весь отзыв</a>
+                                {% endif %}
+                                </p>
+                            </div>
+                            <div class="review_blob_arr"></div>
+                            <div class="review_blob_shade"><img src="/media/img/shade2.png" alt="" /></div>
+                            <div class="blob_close"></div>
+                        </div>
+                    </div>
+                    
+                    {% if review.review|length > 200 %}
+                    <div class="review review_doc review_full" data-review-full="{{ review.id }}" style="display:none;">
+                        <div class="review_info col">
+                            <div class="review_img"><img src="/media/images/1.jpg" alt="" /></div>
+                            <h3 class="review_name">{{ review.initials }}</h3>
+                            <div class="review_post"><p>{{ review.reviewer_post }}</p></div>
+                        </div>
+                        <div class="review_blob col">
+                            <div class="review_text">
+                                <p>{{ review.review }}</p>
+                            </div>
+                            <div class="review_blob_arr"></div>
+                            <div class="review_blob_shade"><img src="/media/img/shade2.png" alt="" /></div>
+                            <div class="blob_close"></div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% empty %}
+                    Ни один врач еще не оставил отзыва.
+                    {% endfor %}
+                    
+                    <div class="reviews_more"><a href="{% url doctors_reviews_url %}">Еще {{ doctors_reviews_count }} отзывов от врачей</a></div>
+                </div><!--/reviews-->
+                            
+                <div class="reviews">
+                    <div class="side">
+                        <div class="arrpl">
+                            <h2 class="side_h">Пациенты про&nbsp;Стрептатест</h2>
+                            <div class="arrpl_lnk"><a href="{% url patients_reviews_url%}">Отзывы пациентов</a></div>
+                            <div class="arrpl_img"><img src="/media/img/side_people.png" alt="" /></div>
+                        </div>
+                    </div>
+                    
+                    {% for review in patients_review_list %}
+                    <div class="review review_client" data-review="{{ review.id }}">
+                        <div class="review_info col">
+                            <div class="review_img"><img src="/media/images/2.jpg" alt="" /><div class="review_img_fr"></div></div>
+                            <h3 class="review_name">{{ review.initials }}</h3>
+                            <div class="review_post">
+                                <p>{{ review.reviewer_post }}</p>
+                                <p><a href="{{ review.link }}">{{ review.link }}</a></p>
+                            </div>
+                        </div>
+                        <div class="review_blob col">
+                            <div class="review_text">
+                                <p>{{ review.review|truncatechars:200 }}</p>
+                                {% if review.review|length > 200 %}
+                                <a href="javascript:void(0)" class="review_more">весь отзыв</a>
+                                {% endif %}
+                            </div>
+                            <div class="review_blob_arr"></div>
+                            <div class="review_blob_shade"><img src="/media/img/shade2.png" alt="" /></div>
+                            <div class="blob_close"></div>
+                        </div>
+                    </div>
+
+                    {% if review|length > 200 %}
+                    <div class="review review_client review_full" data-review-full="{{ review.id }}" style="display:none;">
+                        <div class="review_info col">
+                            <div class="review_img"><img src="/media/images/2.jpg" alt="" /><div class="review_img_fr"></div></div>
+                            <h3 class="review_name">{{ review.initials }}</h3>
+                            <div class="review_post">
+                                <p>{{ review.reviewer_post }}</p>
+                                <p><a href="{{ review.link }}">{{ review.link }}</a></p>
+                            </div>
+                        </div>
+                        <div class="review_blob col">
+                            <div class="review_text">
+                                <p>Универсальный инструмент для пациента и врача, который позволяет в течении 5 минут исключить риск неправильной диагностики и лечения заболеваний, защитить от необоснованного назначения антибиотиков.</p>
+                            </div>
+                            <div class="review_blob_arr"></div>
+                            <div class="review_blob_shade"><img src="/media/img/shade2.png" alt="" /></div>
+                            <div class="blob_close"></div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% empty %}
+                    Еще ни один пациент не оставил отзыв.
+                    {% endfor %}
+                    
+                    <div class="reviews_more"><a href="{% url patients_reviews_url %}">Еще {{ patients_reviews_count }} отзывов от пациентов</a></div>
+                </div><!--/reviews-->
+                
+            </div><!--/content_l-->
+            
+            <div class="content_r col">
+                <div class="box_carousel_zs_menu"><a href="#" class="curr">5</a> или <a href="#">20</a> тестов</div>
+
+                <div class="box_carousel_zs">
+                    
+                    <ul>
+                        <li>
+                            <img class="box_carousel_zs_img" src="/media/img/box_slide_zs.png" alt="" />
+                            <div class="box_carousel_zs_name">Диагностическая система</div>
+                            <div class="box_carousel_zs_des">5 одноразовых тестов</div>
+                        </li>
+                    </ul>
+                    <a href="#" class="carousel_zs_l carousel_zs_l_disabled"></a>
+                    <a href="#" class="carousel_zs_r"></a>
+                    
+                    <div class="btn_zs"><div class="btn_zs_in"><a href="#">Купить</a></div></div>
+                </div><!--/box_carousel_zs-->
+                
+                <div class="review_clinics_block">
+                    <div class="review_clinics_block_num">341</div>
+                    <div class="block_name">Клиника России</div>
+                    <p>используют Стрептатест в своей работе.</p>
+                    <p class="review_clinics_block_example">Такие как, Клиника доктора Сотникова и Институт травматологии и неотложной помощи им. Н.В. Склифосовского.</p>
+                    <div><a href="#" class="dot">Весь список</a></div>
+                </div><!--/review_clinics_block-->
+                
+                <div class="publics_block">
+                    <div class="block_name">Научные публикации</div>
+                    <div class="public">
+                        <h3><a href="#">Коллективный страх: сновидение или контраст?</a></h3>
+                        <p>Научный журнал «Молодой ученый» №25</p>
+                    </div>
+                    <div class="public">
+                        <h3><a href="#">Понимающий импульс: гипотеза и теории</a></h3>
+                        <p>«Вестник медицины» №4 (142)</p>
+                    </div>
+                    <div><a href="#">Еще 8 публикаций</a></div>
+                </div><!--/publics_block-->
+            </div><!--/content_r-->
+        </div><!--/content-->
+        
+    </div>
+    <!--/MAIN--> 
+{% endblock %}

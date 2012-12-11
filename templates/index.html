@@ -7,7 +7,7 @@
             <div class="index_box col">
                 <div class="index_box_img index_box_img_1"></div>
                 <div class="index_box_des">
-                    <h1 class="index_box_des_h">{{ header_center_text_header }}</h1>
+                    <h1 class="index_box_des_h">Персональная экспресс-лаборатория в коробке</h1>
                     <div class="index_box_des_img"><img src="media/img/box_zs.png" alt="Стептатест" /></div>
                     <p>{{ header_center_text }}</p>
                 </div>
@@ -21,7 +21,7 @@
                 <div class="index_percent">
                     {{ header_right_text_2|safe }}
                 </div>
-                <div class="btn_zl"><div class="btn_zl_in"><a href="#">Купить</a></div></div>
+                <div class="btn_zl"><div class="btn_zl_in"><a href="{% url order_url %}">Купить</a></div></div>
             </div>
         </div><!--/index_top-->
         
@@ -31,7 +31,7 @@
                 <div class="side">
                     <div class="arrpl">
                         <h2 class="side_h">Почему используют Стрептатест</h2>
-                        <div class="arrpl_lnk"><a href="/capabilities">Все возможности</a></div>
+                        <div class="arrpl_lnk"><a href="{% url capabilities_url %}">Все возможности</a></div>
                     </div>
                 </div>
                 
