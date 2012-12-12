@@ -4,64 +4,20 @@
 		"selected_items":
 		[
 			[
-				"S",
-				"SiteMenu"
+				"ba",
+				"background-color"
 			],
 			[
-				"def",
-				"default"
-			],
-			[
-				"T",
-				"TextField"
-			],
-			[
-				"M",
-				"Model"
-			],
-			[
-				"Or",
-				"OrderForm"
-			],
-			[
-				"ma",
-				"max_length"
-			],
-			[
-				"Re",
-				"RequestContext"
-			],
-			[
-				"fu",
-				"function"
-			],
-			[
-				"Review",
-				"ReviewForm"
-			],
-			[
-				"C",
-				"Capability"
-			],
-			[
-				"I",
-				"IndexCapabilityList"
-			],
-			[
-				"review",
+				"rev",
 				"review_list"
 			],
 			[
-				"ge",
-				"generic"
+				"tem",
+				"template_name"
 			],
 			[
-				"R",
-				"ReviewListView"
-			],
-			[
-				"get_",
-				"get_context_data"
+				"revi",
+				"reviewer_type"
 			]
 		]
 	},
@@ -71,47 +27,31 @@
 			"file": "templates/base.html",
 			"settings":
 			{
-				"buffer_size": 900,
+				"buffer_size": 1016,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "templates/_footer.html",
+			"file": "urls.py",
 			"settings":
 			{
-				"buffer_size": 544,
+				"buffer_size": 1896,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "templates/_header.html",
+			"file": "apps/reviews/views.py",
 			"settings":
 			{
-				"buffer_size": 703,
+				"buffer_size": 3188,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "fixtures/settings.yaml",
+			"file": "config/base.py",
 			"settings":
 			{
-				"buffer_size": 1593,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "apps/siteblocks/context_processors.py",
-			"settings":
-			{
-				"buffer_size": 417,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/index.html",
-			"settings":
-			{
-				"buffer_size": 6160,
+				"buffer_size": 2809,
 				"line_ending": "Unix"
 			}
 		},
@@ -119,58 +59,74 @@
 			"file": "fixtures/reviews.yaml",
 			"settings":
 			{
-				"buffer_size": 2503,
+				"buffer_size": 6597,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "apps/views.py",
+			"file": "media/css/style.css",
 			"settings":
 			{
-				"buffer_size": 1724,
+				"buffer_size": 28235,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "fixtures/capabilities.yaml",
+			"file": "vrstk/buy.html",
 			"settings":
 			{
-				"buffer_size": 814,
+				"buffer_size": 6494,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "apps/reviews/models.py",
+			"file": "apps/messages/views.py",
 			"settings":
 			{
-				"buffer_size": 1680,
+				"buffer_size": 612,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "apps/capabilities/models.py",
+			"file": "apps/messages/templates/order.html",
 			"settings":
 			{
-				"buffer_size": 1330,
+				"buffer_size": 1517,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n<link href=\"media/css/style.css\" rel=\"stylesheet\" type=\"text/css\" />\n<!--[if lte IE 8]><link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"media/css/ie.css\" /><![endif]--> \n<script type=\"text/javascript\" src=\"media/js/jquery.js\"></script>\n<script type=\"text/javascript\" src=\"media/js/script.js\"></script>\n<title>Стрептатест</title>\n</head>\n\n<body>\n<div class=\"wrapper bg_i\">\n\n<!--PAGE-->\n<div class=\"page\">\n\n<!--HEADER-->\n	<div class=\"header\">\n		<a id=\"logo_box\" href=\"/\" title=\"Стрептатест\"><img id=\"logo\" src=\"media/img/logo.png\" alt=\"Стрептатест\" width=\"581\" height=\"69\" /></a>\n		\n		<p class=\"header_info\">Умный экспресс-тест для защиты здоровья всей семьи</p>\n		\n		<div class=\"header_contacts\">\n			<p>Горячая линия</p>\n			<div class=\"tel\"><span>+7</span> (499) 340-0-394</div>\n			<p><a href=\"#\" class=\"header_contacts_lnk\">Как нас найти</a></p>\n		</div><!--/header_contacts-->\n\n		<div class=\"header_menu\">\n			<ul>\n				<li class=\"curr\"><a href=\"#\">О продукте</a></li>\n				<li><a href=\"#\">Возможности</a></li>\n				<li><a href=\"#\">Отзывы</a></li>\n				<li><a href=\"#\">Инструкция</a></li>\n				<li><a href=\"#\">Пациентам</a></li>\n				<li><a href=\"#\">Партнерам</a></li>\n			</ul>\n		</div><!--/menu-->\n	</div>\n    <!--/HEADER-->\n\n\n    <!--MAIN-->\n	<div class=\"main\">\n		<div class=\"index_top\">\n			<div class=\"index_box col\">\n				<div class=\"index_box_img index_box_img_1\"></div>\n				<div class=\"index_box_des\">\n					<h1 class=\"index_box_des_h\">Персональная экспресс-лаборатория в коробке</h1>\n					<div class=\"index_box_des_img\"><img src=\"media/img/box_zs.png\" alt=\"Стептатест\" /></div>\n					<p>Универсальный инструмент для пациента и врача, который позволяет в течении 5 минут исключить риск неправильной диагностики и лечения заболеваний, защитить от необоснованного назначения антибиотиков и иных дорогостоящих лекарственных препаратов и процедур.</p>\n				</div>\n				<div class=\"cl\"></div>\n			</div><!--/index_box-->\n			\n			<div class=\"index_percents col\">\n				<div class=\"index_percent\">\n					<div class=\"index_percent_val\">80<span>%</span></div>\n					<div class=\"index_percent_h\">Боли в горле</div>\n					<div class=\"index_percent_des\">не требуют лечения антибиотиками</div>\n				</div>\n				<div class=\"index_percent\">\n					<div class=\"index_percent_val\">71<span>%</span></div>\n					<div class=\"index_percent_h\">Назначений антибиотиков</div>\n					<div class=\"index_percent_des\">не обоснавано и&nbsp;не&nbsp;достигает цели</div>\n				</div>\n				<div class=\"btn_zl\"><div class=\"btn_zl_in\"><a href=\"#\">Купить</a></div></div>\n			</div>\n		</div><!--/index_top-->\n		\n		<div class=\"content\">\n			<div class=\"index_whys\">\n				<div class=\"side\">\n					<div class=\"arrpl\">\n						<h2 class=\"side_h\">Почему используют Стрептатест</h2>\n						<div class=\"arrpl_lnk\"><a href=\"#\">Все возможности</a></div>\n					</div>\n				</div>\n				\n				<div class=\"index_why col\">\n					<div class=\"index_why_img\"><img src=\"media/img/teaser_fast.png\" alt=\"\" /></div>\n					<h3 class=\"index_why_h\">Результат через 5&nbsp;минут</h3>\n					<div class=\"index_why_des\">Правильно установит возбудителя заболевания</div>\n				</div>\n				\n				<div class=\"index_why col\">\n					<div class=\"index_why_img\"><img src=\"media/img/teaser_drugs.png\" alt=\"\" /></div>\n					<h3 class=\"index_why_h\">Защищает от&nbsp;антибиотиков</h3>\n					<div class=\"index_why_des\">Предотвращает необоснованное назначение</div>\n				</div>\n				\n				<div class=\"index_why col\">\n					<div class=\"index_why_img\"><img src=\"media/img/teaser_diagnosis.png\" alt=\"\" /></div>\n					<h3 class=\"index_why_h\">Своевременная диагностика</h3>\n					<div class=\"index_why_des\">Спасает жизни своевременно диагностирую опасные заболевания</div>\n				</div>\n				\n				<div class=\"index_why col\">\n					<div class=\"index_why_img\"><img src=\"media/img/teaser_complication.png\" alt=\"\" /></div>\n					<h3 class=\"index_why_h\">Помогает избежать осложнений</h3>\n					<div class=\"index_why_des\">При неправильной диагностики или лечения ангины</div>\n				</div>\n			</div><!--/index_why-->\n		</div><!--/content-->\n			\n		<div class=\"content\">\n			<div class=\"index_reviews\">\n				<div class=\"side\">\n					<h2 class=\"side_h\">О Стрептатест говорят:</h2>\n					<div class=\"sidemenu\">\n						<ul>\n							<li class=\"curr\"><div><a href=\"#\">Врачи</a></div></li>\n							<li><div><a href=\"#\">Пациенты</a></div></li>\n						</ul>\n					</div>\n					<p><a href=\"#\">Все отзывы</a></p>\n				</div><!--/side-->\n				\n				<div class=\"reviews_carousel\">\n					<ul>\n						<li>\n							<div class=\"review review_doc\">\n								<div class=\"review_info col\">\n									<div class=\"review_img\"><img src=\"media/images/1.jpg\" alt=\"\" /></div>\n									<h3 class=\"review_name\">Прокофьев Сергей Владимирович</h3>\n									<div class=\"review_post\"><p>Заслуженный доктор России, министр здравоохранения</p></div>\n								</div>\n								<div class=\"review_blob col\">\n									<div class=\"review_text\">\n										<p>Универсальный инструмент для пациента и врача, который позволяет в течении 5 минут исключить риск неправильной диагностики и лечения заболеваний, защитить от необоснованного назначения антибиотиков.</p>\n									</div>\n									<div class=\"review_blob_arr\"></div>\n								</div>\n							</div>\n						</li>\n					</ul>\n					<a href=\"#\" class=\"carousel_l carousel_l_disabled\"></a>\n					<a href=\"#\" class=\"carousel_r\"></a>\n				</div><!--/reviews_carousel-->\n			</div><!--/index_reviews-->\n		</div><!--/content-->\n		\n	</div>\n    <!--/MAIN-->\n	\n</div>\n<!--/PAGE-->\n\n</div><!--/wrapper-->\n\n\n\n<!--FOOTER-->\n<div class=\"footer_out\">\n<div class=\"footer\">\n	<div id=\"copyright\" class=\"col\">\n		<p>© 2010–2012</p>\n		<p>ООО «Стриптатест»</p>\n	</div>\n	\n	<div class=\"footer_menu col\">\n		<ul>\n			<li><a href=\"#\">Посоветовать друзьям</a></li>\n			<li><a href=\"#\">Подписаться на новости</a></li>\n			<li><a href=\"#\">Пресс-центр</a></li>\n		</ul>\n		<p>Сайт разработан в студии <a href=\"http://octoberweb.ru/\" title=\"Разработка сайта — студия OctoberWeb\">«<u>OctoberWeb</u>»</a></p>\n	</div><!--/footer_menu-->\n	\n	<div class=\"footer_soc\">вставить код яндекса</div>\n</div>\n</div>\n<!--/FOOTER-->\n\n</body>\n</html>",
-			"file": "vrstk/index.html",
-			"file_size": 7575,
-			"file_write_time": 1354507319000000,
+			"contents": "<div class=\"buy_step\">\n    <div class=\"buy_step_num\">1.</div>\n    <h2 class=\"buy_step_h\">Тип упаковки</h2>\n    \n    <div class=\"box_carousel_zl_menu\">\n        <a href=\"#\" class=\"curr\">5 тестов</a> или <a href=\"#\">20 тестов</a> в упаковке</div>\n    <div class=\"box_carousel_zl\">\n        <ul>\n            <li><img class=\"box_carousel_zl_img\" src=\"/media/img/box_slide_zl_20.png\" alt=\"\" /></li>\n            <li style=\"display:none;\"><img class=\"box_carousel_zl_img\" src=\"/media/img/box_slide_zl_5.png\" alt=\"\" /></li>\n        </ul>\n        <a href=\"#\" class=\"carousel_l\"></a>\n        <a href=\"#\" class=\"carousel_r carousel_r_disabled\"></a>\n    </div><!--/box_carousel_zl-->\n</div><!--/buy_step-->\n\n<div class=\"buy_step\">\n    <div class=\"buy_step_num\">2.</div>\n    <h2 class=\"buy_step_h\">Цена и количество</h2>\n    <div class=\"buy_calc\">\n        <div class=\"buy_calc_price col\">\n            <strong>1 500 руб. </strong>\n            <strong>1 500 руб. </strong>\n            <em>цена за упаковку</em>\n        </div>\n        <div class=\"math col\">X</div>\n        <div class=\"buy_calc_qty col\">\n            <input class=\"inpt\" type=\"text\" value=\"1\" />\n            <div class=\"buy_calc_qty_plus\"></div>\n            <div class=\"buy_calc_qty_minus\"></div>\n        </div>\n        <div class=\"math col\">=</div>\n        <div class=\"buy_calc_sum col\">\n            <strong><span>3 000</span> руб.</strong>\n            <em>итоговая стоимость</em>\n        </div>\n    </div><!--/buy_calc-->\n</div><!--/buy_step-->\n\n\n<div class=\"buy_step\">\n    <div class=\"buy_step_num\">3.</div>\n    <h2 class=\"buy_step_h\">Оплата и адрес доставки</h2>\n    <form class=\"buy_form\" method=\"post\" action=\"\">\n        <div class=\"form_line\">\n            <label>ФИО:</label>\n            <input class=\"inpt\" type=\"text\" />\n        </div>\n        \n        <div class=\"form_line\">\n            <label>E-mail:</label>\n            <input class=\"inpt\" type=\"text\" />\n            <div class=\"mail_checkbox mail_checked\">Получать информационную рассылку на этот e-mail</div>\n        </div>\n        \n        <div class=\"form_line\">\n            <label>Город:</label>\n            <input class=\"inpt\" type=\"text\" />\n        </div>\n        \n        <div class=\"form_line\">\n            <label>Адрес доставки:</label>\n            <input class=\"inpt\" type=\"text\" />\n        </div>\n        \n        <div class=\"form_line\">\n            <label>Телефон:</label>\n            <strong class=\"inpt_tel_label\">+7</strong> <input class=\"inpt inpt_tel\" type=\"text\" />\n        </div>\n        \n        <div class=\"form_line\">\n            <label>Оплата:</label>\n            <div class=\"buy_form_options col\">\n                <div class=\"buy_form_option buy_form_option_checked\">\n                    <div class=\"buy_form_option_label\">наличными</div>\n                    <div class=\"buy_form_option_cash col\">с какой суммы готовить сдачу</div>\n                    <input class=\"inpt inpt_cash\" type=\"text\" name=\"\" value=\"\" /> <strong class=\"r\">руб.</strong>\n                </div>\n                <div class=\"buy_form_option\">\n                    <div class=\"buy_form_option_label\">картой</div>\n                    <div>куръер захватит терминал</div>\n                </div>\n            </div>\n        </div>\n        \n        <div class=\"btn_zs\"><div class=\"btn_zs_in\"><input type=\"submit\" value=\"Оформить заказ\" /></div></div>\n    </form><!--/buy_form-->\n</div><!--/buy_step-->",
+			"file": "apps/messages/templates/_order_form.html",
+			"file_size": 3648,
+			"file_write_time": 1355322483000000,
 			"settings":
 			{
-				"buffer_size": 6276,
+				"buffer_size": 3400,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/grigl/.virtualenvs/streptatest/lib/python2.7/site-packages/mptt/models.py",
+			"file": "apps/messages/models.py",
 			"settings":
 			{
-				"buffer_size": 28806,
+				"buffer_size": 8569,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "apps/products/models.py",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "settings.py",
+			"settings":
+			{
+				"buffer_size": 1024,
 				"line_ending": "Unix"
 			}
 		}
@@ -178,23 +134,19 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 309.0,
+		"height": 201.0,
 		"selected_items":
 		[
 			[
-				"task",
-				"Tasks: New document"
-			],
-			[
-				"Package Control: ",
+				"Package Control:i",
 				"Package Control: Install Package"
 			]
 		],
-		"width": 435.0
+		"width": 449.0
 	},
 	"console":
 	{
-		"height": 146.0
+		"height": 139.0
 	},
 	"distraction_free":
 	{
@@ -207,92 +159,30 @@
 	},
 	"file_history":
 	[
-		"/home/grigl/Works/streptatest/templates/_footer_menu.html",
-		"/home/grigl/Works/streptatest/templates/_header_menu.html",
-		"/home/grigl/Works/streptatest/apps/siteblocks/models.py",
-		"/home/grigl/Works/streptatest/fixtures/site_menu.yaml",
-		"/home/grigl/Works/streptatest/apps/places/admin.py",
-		"/home/grigl/Works/streptatest/config/base.py",
-		"/home/grigl/Works/streptatest/apps/siteblocks/templatetags/siteblocks_extras.py",
-		"/home/grigl/Works/streptatest/apps/messages/models.py",
-		"/home/grigl/Works/streptatest/templates/siteblocks/block_menu.html",
-		"/home/grigl/Works/streptatest/apps/siteblocks/context_processors.py",
-		"/home/grigl/Works/streptatest/settings.py",
-		"/home/grigl/Works/streptatest/apps/siteblocks/admin.py",
-		"/home/grigl/.config/sublime-text-2/Packages/PlainTasks/Default (Linux).sublime-keymap",
-		"/home/grigl/Works/streptatest/TODO",
-		"/home/grigl/Works/streptatest/templates/index.html",
-		"/home/grigl/Works/streptatest/apps/publications/admin.py",
-		"/home/grigl/Works/streptatest/apps/places/models.py",
-		"/home/grigl/Works/streptatest/fixtures/settings.yaml",
-		"/home/grigl/Works/streptatest/maps_example",
-		"/home/grigl/Works/streptatest/apps/messages/admin.py",
-		"/home/grigl/Works/streptatest/apps/messages/views.py",
-		"/home/grigl/Works/streptatest/apps/products/models.py",
-		"/home/grigl/Works/streptatest/apps/publications/models.py",
-		"/home/grigl/Works/streptatest/apps/newsboard/admin.py",
-		"/home/grigl/.virtualenvs/streptatest/lib/python2.7/site-packages/django/views/generic/edit.py",
-		"/home/grigl/Works/streptatest/apps/reviews/templates/_review_items.html",
-		"/home/grigl/Works/streptatest/apps/reviews/templates/_new_review_form.html",
-		"/home/grigl/Works/streptatest/static/js/script.js",
-		"/home/grigl/Works/streptatest/apps/reviews/templates/review_list.html",
-		"/home/grigl/Works/streptatest/apps/reviews/models.py",
-		"/home/grigl/Works/streptatest/urls.py",
-		"/home/grigl/Works/streptatest/apps/reviews/views.py",
-		"/home/grigl/Works/streptatest/apps/clinics/models.py",
-		"/home/grigl/Works/streptatest/apps/inheritanceUser/views.py",
-		"/home/grigl/Works/streptatest/apps/views.py",
-		"/home/grigl/Works/streptatest/dump.yaml",
-		"/home/grigl/Works/streptatest/fixtures/initial_data.yaml",
-		"/home/grigl/Works/streptatest/apps/products/views.py",
-		"/home/grigl/Works/streptatest/apps/products/admin.py",
-		"/home/grigl/Works/streptatest/apps/orders/models.py",
-		"/home/grigl/Works/streptatest/apps/orders/views.py",
-		"/home/grigl/Works/streptatest/apps/orders/admin.py",
-		"/home/grigl/Works/streptatest/apps/orders/templates/order.html",
-		"/home/grigl/Works/streptatest/apps/urls.py",
-		"/home/grigl/Works/streptatest/apps/reviews/templates/_form_success.html",
-		"/home/grigl/.virtualenvs/streptatest/lib/python2.7/site-packages/django/views/generic/date_based.py",
-		"/home/grigl/Works/streptatest/static/css/style.css",
-		"/home/grigl/Works/streptatest/apps/reviews/templates/review_items.html",
-		"/home/grigl/Works/streptatest/apps/clinics/admin.py",
-		"/home/grigl/Works/streptatest/apps/reviews/templates/new_review_form.html",
-		"/home/grigl/Works/streptatest/apps/capabilities/templates/capability_list.html",
-		"/home/grigl/Works/streptatest/apps/capabilities/views.py",
-		"/home/grigl/Works/streptatest/templates/base.html",
-		"/home/grigl/Works/streptatest/apps/capabilities/models.py",
-		"/home/grigl/Works/streptatest/apps/capabilities/admin.py",
-		"/home/grigl/Works/streptatest/apps/reviews/admin.py",
-		"/home/grigl/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
-		"/home/grigl/Works/streptatest/config/development.py",
-		"/home/grigl/Works/streptatest/apps/reviews/templates/review_index.html",
-		"/home/grigl/Works/streptatest/apps/reviews/templates/review_full_list.html",
-		"/home/grigl/Works/streptatest/clinics/admin.py",
-		"/home/grigl/Works/streptatest/clinics/models.py",
-		"/home/grigl/Works/streptatest/apps/reviews/review_list.html",
-		"/home/grigl/Works/streptatest/.gitignore",
-		"/home/grigl/Works/fastsite/requirements.txt",
-		"/home/grigl/Works/streptatest/apps/newsboard/models.py",
-		"/home/grigl/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
-		"/home/grigl/.virtualenvs/streptatest/local/lib/python2.7/site-packages/pymorphy/backends/shelve_source/sqlite_shelve.py",
-		"/home/grigl/Works/streptatest/install.txt",
-		"/home/grigl/Works/fastsite/settings.py",
-		"/home/grigl/Works/fastsite/config/base.py",
-		"/home/grigl/Works/fastsite/config/development.py",
-		"/home/grigl/.config/fontconfig/fonts.conf",
-		"/home/grigl/.fonts.conf",
-		"/home/grigl/.config/fontconfig/.fonts.conf",
-		"/home/grigl/Works/fastsite/install.txt",
-		"/home/grigl/.bashrc",
-		"/home/grigl/.bash_profile"
+		"/home/gleb/works/streptatest/fixtures/products.yaml",
+		"/home/gleb/works/streptatest/vrstk/reviews_modal.html",
+		"/home/gleb/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/gleb/works/streptatest/apps/reviews/templates/review_list.html",
+		"/home/gleb/works/streptatest/apps/reviews/templates/review_index.html",
+		"/home/gleb/works/streptatest/templates/index.html",
+		"/home/gleb/works/streptatest/templates/_header_menu.html",
+		"/home/gleb/works/streptatest/apps/siteblocks/templatetags/siteblocks_extras.py",
+		"/home/gleb/works/streptatest/vrstk/reviews_list.html",
+		"/home/gleb/works/streptatest/fixtures/site_menu.yaml",
+		"/home/gleb/works/streptatest/templates/_header.html",
+		"/home/gleb/works/streptatest/fixtures/settings.yaml",
+		"/usr/share/applications/sublime.desktop",
+		"/usr/share/applications/defaults.list",
+		"/home/gleb/.bashrc",
+		"/home/gleb/works/streptatest/requirements.txt"
 	],
 	"find":
 	{
-		"height": 37.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
-		"height": 95.0,
+		"height": 0.0,
 		"where_history":
 		[
 		]
@@ -302,16 +192,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			":",
-			"новостей",
-			"settings",
-			"model",
-			"settings",
-			"())",
-			"FormVi",
-			"Form",
-			"get_context_data",
-			"TemplateView"
+			"купи",
+			"купить",
+			"от"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -329,7 +212,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 7,
 			"sheets":
 			[
 				{
@@ -337,15 +220,15 @@
 					"file": "templates/base.html",
 					"settings":
 					{
-						"buffer_size": 900,
+						"buffer_size": 1016,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								841,
-								841
+								1016,
+								1016
 							]
 						],
 						"settings":
@@ -362,23 +245,23 @@
 				},
 				{
 					"buffer": 1,
-					"file": "templates/_footer.html",
+					"file": "urls.py",
 					"settings":
 					{
-						"buffer_size": 544,
+						"buffer_size": 1896,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								155,
-								155
+								975,
+								975
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"syntax": "Packages/Python/Python.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -390,10 +273,66 @@
 				},
 				{
 					"buffer": 2,
-					"file": "templates/_header.html",
+					"file": "apps/reviews/views.py",
 					"settings":
 					{
-						"buffer_size": 703,
+						"buffer_size": 3188,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1473,
+								1473
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 255.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "config/base.py",
+					"settings":
+					{
+						"buffer_size": 2809,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2192,
+								2192
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 816.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "fixtures/reviews.yaml",
+					"settings":
+					{
+						"buffer_size": 6597,
 						"regions":
 						{
 						},
@@ -406,63 +345,9 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "fixtures/settings.yaml",
-					"settings":
-					{
-						"buffer_size": 1593,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1065,
-								1065
-							]
-						],
-						"settings":
-						{
 							"syntax": "Packages/YAML/YAML.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "apps/siteblocks/context_processors.py",
-					"settings":
-					{
-						"buffer_size": 417,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								405,
-								405
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -472,72 +357,72 @@
 				},
 				{
 					"buffer": 5,
-					"file": "templates/index.html",
+					"file": "media/css/style.css",
 					"settings":
 					{
-						"buffer_size": 6160,
+						"buffer_size": 28235,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4852,
-								4852
+								11071,
+								11071
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 8964.0,
+						"translation.y": 11254.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "fixtures/reviews.yaml",
+					"file": "vrstk/buy.html",
 					"settings":
 					{
-						"buffer_size": 2503,
+						"buffer_size": 6494,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2225,
-								2225
+								5846,
+								5846
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/YAML/YAML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 25.0,
-						"translation.y": 162.0,
+						"translation.x": 0.0,
+						"translation.y": 357.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 7,
-					"file": "apps/views.py",
+					"file": "apps/messages/views.py",
 					"settings":
 					{
-						"buffer_size": 1724,
+						"buffer_size": 612,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								514,
-								514
+								232,
+								232
 							]
 						],
 						"settings":
@@ -554,10 +439,93 @@
 				},
 				{
 					"buffer": 8,
-					"file": "fixtures/capabilities.yaml",
+					"file": "apps/messages/templates/order.html",
 					"settings":
 					{
-						"buffer_size": 814,
+						"buffer_size": 1517,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								477,
+								477
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "apps/messages/templates/_order_form.html",
+					"settings":
+					{
+						"buffer_size": 3400,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								184,
+								184
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "apps/messages/models.py",
+					"settings":
+					{
+						"buffer_size": 8569,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1180,
+								1180
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 306.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "apps/products/models.py",
+					"settings":
+					{
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -570,117 +538,30 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/YAML/YAML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 9,
-					"file": "apps/reviews/models.py",
-					"settings":
-					{
-						"buffer_size": 1680,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								885,
-								885
-							]
-						],
-						"settings":
-						{
 							"syntax": "Packages/Python/Python.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "apps/capabilities/models.py",
-					"settings":
-					{
-						"buffer_size": 1330,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								541,
-								541
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "vrstk/index.html",
-					"settings":
-					{
-						"buffer_size": 6276,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4981,
-								4981
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2340.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 12,
-					"file": "/home/grigl/.virtualenvs/streptatest/lib/python2.7/site-packages/mptt/models.py",
+					"file": "settings.py",
 					"settings":
 					{
-						"buffer_size": 28806,
+						"buffer_size": 1024,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								15364,
-								15364
+								549,
+								549
 							]
 						],
 						"settings":
@@ -690,7 +571,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6372.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -700,11 +581,11 @@
 	],
 	"incremental_find":
 	{
-		"height": 36.0
+		"height": 0.0
 	},
 	"input":
 	{
-		"height": 36.0
+		"height": 33.0
 	},
 	"layout":
 	{
@@ -715,18 +596,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.886886264761,
 			1.0
 		],
 		"rows":
@@ -736,6 +610,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.unsaved_changes":
+	{
+		"height": 112.0
+	},
 	"replace":
 	{
 		"height": 0.0
@@ -746,6 +624,54 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"p/m",
+				"apps/products/models.py"
+			],
+			[
+				"m/v",
+				"apps/messages/views.py"
+			],
+			[
+				"revl",
+				"apps/reviews/templates/review_list.html"
+			],
+			[
+				"revi",
+				"apps/reviews/templates/review_index.html"
+			],
+			[
+				"index.h",
+				"templates/index.html"
+			],
+			[
+				"review",
+				"apps/reviews/templates/review_index.html"
+			],
+			[
+				"style",
+				"media/css/style.css"
+			],
+			[
+				"view",
+				"apps/reviews/views.py"
+			],
+			[
+				"_hea",
+				"templates/_header_menu.html"
+			],
+			[
+				"_he",
+				"templates/_header.html"
+			],
+			[
+				"site",
+				"fixtures/site_menu.yaml"
+			],
+			[
+				"set",
+				"fixtures/settings.yaml"
+			]
 		],
 		"width": 0.0
 	},
@@ -761,6 +687,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 246.0,
+	"side_bar_width": 235.0,
 	"status_bar_visible": true
 }

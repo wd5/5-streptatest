@@ -11,7 +11,8 @@
 					<p>Заказать экспресс-тест можно прямо на сайте. В удобное для вас время товар доставят по указанному адресу. Оплатить можно наличными или карточкой при получении.</p>
 				</div>
 				
-				<form action="{% url order_url %}">
+				<form action="{% url order_url %}" method="post">
+					{% csrf_token %}
 					{% include '_order_form.html' %}
 				</form>
 			</div><!--/content_l-->

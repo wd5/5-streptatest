@@ -2,14 +2,44 @@
     <div class="buy_step_num">1.</div>
     <h2 class="buy_step_h">Тип упаковки</h2>
     
-    <div class="box_carousel_zl_menu"><a href="#" class="curr">5 тестов</a> или <a href="#">20 тестов</a> в упаковке</div>
+    <div class="box_carousel_zl_menu">
+        {% if form.product.value %}
+            {% if form.product.value == product_with_20_tests.id|slugify %}
+            <a href="javascript:void(0)">5 тестов</a> или <a href="javascript:void(0)" class="curr">20 тестов</a> в упаковке</div>
+            {% else %}
+            <a href="javascript:void(0)" class="curr">5 тестов</a> или <a href="javascript:void(0)">20 тестов</a> в упаковке</div>
+            {% endif %}
+        {% else %}
+            {% if chosed_product == product_with_20_tests.id|slugify %}
+            <a href="javascript:void(0)">5 тестов</a> или <a href="javascript:void(0)" class="curr">20 тестов</a> в упаковке</div>
+            {% else %}
+            <a href="javascript:void(0)" class="curr">5 тестов</a> или <a href="javascript:void(0)">20 тестов</a> в упаковке</div>
+            {% endif %}
+        {% endif %}
+        {% if form.product.value %}
+            {% if form.product.value == product_with_20_tests.id|slugify %}
+            <input type="radio" name="product" value="{{ product_with_5_tests.id }}" style="display:none;">
+            <input type="radio" name="product" value="{{ product_with_20_tests.id }}" style="display:none;" checked>
+            {% else %}
+            <input type="radio" name="product" value="{{ product_with_5_tests.id }}" style="display:none;" checked>
+            <input type="radio" name="product" value="{{ product_with_20_tests.id }}" style="display:none;">
+            {% endif %}
+        {% else %}
+            {% if chosed_product == product_with_20_tests.id|slugify %}
+            <input type="radio" name="product" value="{{ product_with_5_tests.id }}" style="display:none;">
+            <input type="radio" name="product" value="{{ product_with_20_tests.id }}" style="display:none;" checked>
+            {% else %}
+            <input type="radio" name="product" value="{{ product_with_5_tests.id }}" style="display:none;" checked>
+            <input type="radio" name="product" value="{{ product_with_20_tests.id }}" style="display:none;">
+            {% endif %}
+        {% endif %}
     <div class="box_carousel_zl">
         <ul>
-            <li><img class="box_carousel_zl_img" src="/media/img/box_slide_zl_20.png" alt="" /></li>
-            <li style="display:none;"><img class="box_carousel_zl_img" src="/media/img/box_slide_zl_5.png" alt="" /></li>
+            <li><img class="box_carousel_zl_img" src="/media/img/box_slide_zl_5.png" alt="" /></li>
+            <li style="display:none;"><img class="box_carousel_zl_img" src="/media/img/box_slide_zl_20.png" alt="" /></li>
         </ul>
-        <a href="#" class="carousel_l"></a>
-        <a href="#" class="carousel_r carousel_r_disabled"></a>
+        <a href="javascript:void(0)" class="carousel_l"></a>
+        <a href="javascript:void(0)" class="carousel_r carousel_r_disabled"></a>
     </div><!--/box_carousel_zl-->
 </div><!--/buy_step-->
 
@@ -18,19 +48,46 @@
     <h2 class="buy_step_h">Цена и количество</h2>
     <div class="buy_calc">
         <div class="buy_calc_price col">
-            <strong>1 500 руб. </strong>
-            <strong>1 500 руб. </strong>
+            {% if form.product.value %}
+                {% if form.product.value == product_with_20_tests.id|slugify %}
+                    <strong style="display:none;">{{ product_with_5_tests.price|floatformat }} руб. </strong>
+                    <strong>{{ product_with_20_tests.price }} руб. </strong>
+                {% else %}
+                    <strong>{{ product_with_5_tests.price|floatformat }} руб. </strong>
+                    <strong style="display:none;">{{ product_with_20_tests.price }} руб. </strong>
+                {% endif %}
+            {% else %}
+                {% if chosed_product == product_with_20_tests.id|slugify %}
+                    <strong style="display:none;">{{ product_with_5_tests.price|floatformat }} руб. </strong>
+                    <strong>{{ product_with_20_tests.price|floatformat }} руб. </strong>
+                {% else %}
+                    <strong>{{ product_with_5_tests.price|floatformat }} руб. </strong>
+                    <strong style="display:none;">{{ product_with_20_tests.price|floatformat }} руб. </strong>
+                {% endif %}
+            {% endif %}            
             <em>цена за упаковку</em>
         </div>
         <div class="math col">X</div>
         <div class="buy_calc_qty col">
-            <input class="inpt" type="text" value="1" />
+            <input class="inpt" type="text" name="product_quantity" value="{{ form.product_quantity.value|default_if_none:1 }}" />
             <div class="buy_calc_qty_plus"></div>
             <div class="buy_calc_qty_minus"></div>
         </div>
         <div class="math col">=</div>
         <div class="buy_calc_sum col">
-            <strong><span>3 000</span> руб.</strong>
+            {% if form.product.value %}
+                {% if form.product.value == product_with_20_tests.id|slugify %}
+                    <strong><span>{{ total_20_tests }}</span> руб.</strong>
+                {% else %}
+                    <strong><span>{{ total_5_tests }}</span> руб.</strong>
+                {% endif %}
+            {% else %}
+                {% if chosed_product == product_with_20_tests.id|slugify %}
+                    <strong><span>{{ total_20_tests }}</span> руб.</strong>
+                {% else %}
+                    <strong><span>{{ total_5_tests }}</span> руб.</strong>
+                {% endif %}
+            {% endif %}
             <em>итоговая стоимость</em>
         </div>
     </div><!--/buy_calc-->
@@ -43,42 +100,78 @@
     <form class="buy_form" method="post" action="">
         <div class="form_line">
             <label>ФИО:</label>
-            <input class="inpt" type="text" />
+            <input class="inpt" type="text" name="initials" value="{{ form.initials.value|default_if_none:"" }}" />
         </div>
         
         <div class="form_line">
             <label>E-mail:</label>
-            <input class="inpt" type="text" />
+            <input class="inpt" type="text" name="email" value="{{ form.email.value|default_if_none:"" }}" />
             <div class="mail_checkbox mail_checked">Получать информационную рассылку на этот e-mail</div>
         </div>
         
         <div class="form_line">
             <label>Город:</label>
-            <input class="inpt" type="text" />
+            <input class="inpt" type="text" name="city" value="{{ form.city.value|default_if_none:"" }}" />
         </div>
         
         <div class="form_line">
             <label>Адрес доставки:</label>
-            <input class="inpt" type="text" />
+            <input class="inpt" type="text" name="address" value="{{ form.address.value|default_if_none:"" }}" />
         </div>
         
         <div class="form_line">
             <label>Телефон:</label>
-            <strong class="inpt_tel_label">+7</strong> <input class="inpt inpt_tel" type="text" />
+            <strong class="inpt_tel_label">+7</strong> <input class="inpt inpt_tel" type="text" name="phone" value="{{ form.phone.value|default_if_none:"" }}"/>
         </div>
         
         <div class="form_line">
             <label>Оплата:</label>
+            {% if form.payment_type.value %}
+                {% if form.payment_type.value == 'cash' %}
+                <input type="radio" name="payment_type" value="cash" style="display:none;" checked>
+                <input type="radio" name="payment_type" value="credit_card" style="display:none;">
+                {% else %}
+                <input type="radio" name="payment_type" value="cash" style="display:none;">
+                <input type="radio" name="payment_type" value="credit_card" style="display:none;" checked>
+                {% endif %}
+            {% else %}
+                <input type="radio" name="payment_type" value="cash" style="display:none;" checked>
+                <input type="radio" name="payment_type" value="credit_card" style="display:none;">
+            {% endif %}
             <div class="buy_form_options col">
+            {% if form.payment_type.value %}
+                {% if form.payment_type.value == 'cash' %}
                 <div class="buy_form_option buy_form_option_checked">
                     <div class="buy_form_option_label">наличными</div>
                     <div class="buy_form_option_cash col">с какой суммы готовить сдачу</div>
-                    <input class="inpt inpt_cash" type="text" name="" value="" /> <strong class="r">руб.</strong>
+                    <input class="inpt inpt_cash" type="text" name="cash_pay_sum" value="{{ form.cash_pay_sum.value|default_if_none:"" }}" /> <strong class="r">руб.</strong>
                 </div>
                 <div class="buy_form_option">
                     <div class="buy_form_option_label">картой</div>
                     <div>куръер захватит терминал</div>
                 </div>
+                {% else %}
+                <div class="buy_form_option">
+                    <div class="buy_form_option_label">наличными</div>
+                    <div class="buy_form_option_cash col">с какой суммы готовить сдачу</div>
+                    <input class="inpt inpt_cash" type="text" name="cash_pay_sum" value="{{ form.cash_pay_sum.value|default_if_none:"" }}" disabled/> <strong class="r">руб.</strong>
+                </div>
+                <div class="buy_form_option buy_form_option_checked">
+                    <div class="buy_form_option_label">картой</div>
+                    <div>куръер захватит терминал</div>
+                </div>
+                {% endif %}
+            {% else %}
+                <div class="buy_form_option buy_form_option_checked">
+                    <div class="buy_form_option_label">наличными</div>
+                    <div class="buy_form_option_cash col">с какой суммы готовить сдачу</div>
+                    <input class="inpt inpt_cash" type="text" name="cash_pay_sum" value="{{ form.cash_pay_sum.value|default_if_none:"" }}" /> <strong class="r">руб.</strong>
+                </div>
+                <div class="buy_form_option">
+                    <div class="buy_form_option_label">картой</div>
+                    <div>куръер захватит терминал</div>
+                </div>
+            {% endif %}
             </div>
         </div>
         

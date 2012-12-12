@@ -24,6 +24,7 @@ INSTALLED_APPS += (
     'apps.capabilities',
     'apps.reviews',
     'apps.publications',
+    'apps.products',
     'apps.messages',
     'apps.places',
     'sorl.thumbnail',

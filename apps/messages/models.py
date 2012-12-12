@@ -1,6 +1,7 @@
 # coding: utf-8
 from datetime import datetime
 
+from apps.products.models import Product
 from django.db import models
 
 class MailingAddress(models.Model):
@@ -45,9 +46,9 @@ class Order(models.Model):
         ('new', 'новый'),
     )
 
-    product = models.CharField(
-        verbose_name = u'тип товара',
-        max_length = 200,
+    product = models.ForeignKey(
+        'products.Product',
+        verbose_name = 'тип товара',
     )
     product_quantity = models.IntegerField(
         verbose_name = u'количество',

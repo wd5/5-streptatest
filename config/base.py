@@ -80,7 +80,7 @@ INSTALLED_APPS = (
 )
 
 PYMORPHY_DICTS = {
-    'ru': { 'dir': 'pymorphy/ru' },
+    'ru': { 'dir': '/usr/share/pymorphy/ru' },
 }
 
 ROOT_URLCONF = 'urls'
