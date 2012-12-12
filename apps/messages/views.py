@@ -13,6 +13,10 @@ class OrderFormView(FormView):
     template_name = 'order.html'
     form_class = OrderForm
 
+    def get_context_data(self, **kwargs):
+        context = super(OrderFormView, self).get_context_data(**kwargs)
+        return context
+
     def form_valid(self, form):
         Order.objects.create(**form.cleaned_data)
         response = 'success!'

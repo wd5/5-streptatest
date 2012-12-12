@@ -1,55 +1,52 @@
-<form action="/order/" class="review-form" method="post">
-    {% csrf_token %}
-    {{ form.errors }}
-    <div class="fieldWrapper">
-        {{ form.product.errors }}
-        <label>product type:</label>
-        {{ form.product }}
-    </div>
-    <div class="fieldWrapper">
-        {{ form.product_quantity.errors }}
-        <label>product_quantity:</label>
-        {{ form.product_quantity }}
-    </div>
-    <div class="fieldWrapper">
-        {{ form.initials.errors }}
-        <label>initials:</label>
-        {{ form.initials }}
-    </div>
-    <div class="fieldWrapper">
-        {{ form.email.errors }}
-        <label>email:</label>
-        {{ form.email }}
-    </div>
-    <div class="fieldWrapper">
-        {{ form.allow_mailings.errors }}
-        <label>allow_mailings:</label>
-        {{ form.allow_mailings }}
-    </div>
-    <div class="fieldWrapper">
-        {{ form.address.errors }}
-        <label>address:</label>
-        {{ form.address }}
-    </div>
-    <div class="fieldWrapper">
-        {{ form.city.errors }}
-        <label>city:</label>
-        {{ form.city }}
-    </div>
-    <div class="fieldWrapper">
-        {{ form.phone.errors }}
-        <label>phone:</label>
-        {{ form.phone }}
-    </div>
-    <div class="fieldWrapper">
-        {{ form.payment_type.errors }}
-        <label>payment_type:</label>
-        {{ form.payment_type }}
-    </div>
-    <div class="fieldWrapper">
-        {{ form.cash_pay_sum.errors }}
-        <label>cash_pay_sum:</label>
-        {{ form.cash_pay_sum }}
-    </div>
-    <p><input type="submit" value="Send message" /></p>
-</form>
+{% extends 'base.html' %}
+
+{% block main %}
+<!--MAIN-->
+	<div class="main">
+		<div class="content">
+			<div class="content_l col">
+				<h1>Оформление заказа</h1>
+				
+				<div class="text page_lead">
+					<p>Заказать экспресс-тест можно прямо на сайте. В удобное для вас время товар доставят по указанному адресу. Оплатить можно наличными или карточкой при получении.</p>
+				</div>
+				
+				<form action="{% url order_url %}">
+					{% include '_order_form.html' %}
+				</form>
+			</div><!--/content_l-->
+			
+			<div class="content_r col">
+				<div class="right_pl">
+					<div class="right_pl_num">136</div>
+					<p><strong>аптек</strong></p>
+					<p>продают Стрептатест</p>
+					<p><a class="dot" href="#">смотреть на карте</a></p>
+					<div class="arr_b"><img src="/media/img/arr_b.png" alt="" /></div>
+				</div>
+			</div><!--/content_r-->
+				
+			<div class="content_l col">
+				<div class="h_line h_line2">
+					<h2 class="col">Аптеки</h2>
+					<div class="hormenu col">
+						<ul>
+							<li class="curr"><a href="#">Москва</a><img src="/media/img/hormenu_arr.png"/></li>
+							<li><a href="#">Санкт-Петербург</a><img src="/media/img/hormenu_arr.png"/></li>
+						</ul>
+					</div><!--/hormenu-->
+				</div>
+			</div><!--/content_l-->
+			
+			<div class="content_r col">
+				<div class="up"><a href="#"><span class="dot">К оформлению заказа</span></a></div>
+			</div><!--/content_r-->
+		</div><!--/content-->
+
+		<div class="map_zl">
+			код карты
+		</div><!--/map_zl-->
+		
+	</div>
+    <!--/MAIN-->
+{% endblock %}

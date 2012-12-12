@@ -686,6 +686,11 @@ div.review_out_full {
 
 /*review_modal*/
 .modal {
+	background-color: white;
+	position: absolute;
+	z-index: 3;
+	top:0;
+	left:0;
 	width: 840px;
 	padding: 20px 40px;
 }

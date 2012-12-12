@@ -1,0 +1,13 @@
+- model: products.product
+  pk: 1
+  fields:
+    title: Стрептатест 5 тестов
+    price: 1500
+    test_items_quantity: 5
+
+- model: products.product
+  pk: 2
+  fields:
+    title: Стрептатест 20 тестов
+    price: 1500
+    test_items_quantity: 20

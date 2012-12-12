@@ -3,8 +3,6 @@ from datetime import datetime
 
 from django.db import models
 
-from apps.products.models import Product
-
 class MailingAddress(models.Model):
     email = models.CharField(
         verbose_name = 'e-mail',
@@ -47,9 +45,9 @@ class Order(models.Model):
         ('new', 'новый'),
     )
 
-    product = models.ForeignKey(
-        'products.Product',
-        verbose_name = 'тип товара'
+    product = models.CharField(
+        verbose_name = u'тип товара',
+        max_length = 200,
     )
     product_quantity = models.IntegerField(
         verbose_name = u'количество',

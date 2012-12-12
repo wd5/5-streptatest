@@ -1,0 +1,87 @@
+<div class="buy_step">
+    <div class="buy_step_num">1.</div>
+    <h2 class="buy_step_h">Тип упаковки</h2>
+    
+    <div class="box_carousel_zl_menu"><a href="#" class="curr">5 тестов</a> или <a href="#">20 тестов</a> в упаковке</div>
+    <div class="box_carousel_zl">
+        <ul>
+            <li><img class="box_carousel_zl_img" src="/media/img/box_slide_zl_20.png" alt="" /></li>
+            <li style="display:none;"><img class="box_carousel_zl_img" src="/media/img/box_slide_zl_5.png" alt="" /></li>
+        </ul>
+        <a href="#" class="carousel_l"></a>
+        <a href="#" class="carousel_r carousel_r_disabled"></a>
+    </div><!--/box_carousel_zl-->
+</div><!--/buy_step-->
+
+<div class="buy_step">
+    <div class="buy_step_num">2.</div>
+    <h2 class="buy_step_h">Цена и количество</h2>
+    <div class="buy_calc">
+        <div class="buy_calc_price col">
+            <strong>1 500 руб. </strong>
+            <strong>1 500 руб. </strong>
+            <em>цена за упаковку</em>
+        </div>
+        <div class="math col">X</div>
+        <div class="buy_calc_qty col">
+            <input class="inpt" type="text" value="1" />
+            <div class="buy_calc_qty_plus"></div>
+            <div class="buy_calc_qty_minus"></div>
+        </div>
+        <div class="math col">=</div>
+        <div class="buy_calc_sum col">
+            <strong><span>3 000</span> руб.</strong>
+            <em>итоговая стоимость</em>
+        </div>
+    </div><!--/buy_calc-->
+</div><!--/buy_step-->
+
+
+<div class="buy_step">
+    <div class="buy_step_num">3.</div>
+    <h2 class="buy_step_h">Оплата и адрес доставки</h2>
+    <form class="buy_form" method="post" action="">
+        <div class="form_line">
+            <label>ФИО:</label>
+            <input class="inpt" type="text" />
+        </div>
+        
+        <div class="form_line">
+            <label>E-mail:</label>
+            <input class="inpt" type="text" />
+            <div class="mail_checkbox mail_checked">Получать информационную рассылку на этот e-mail</div>
+        </div>
+        
+        <div class="form_line">
+            <label>Город:</label>
+            <input class="inpt" type="text" />
+        </div>
+        
+        <div class="form_line">
+            <label>Адрес доставки:</label>
+            <input class="inpt" type="text" />
+        </div>
+        
+        <div class="form_line">
+            <label>Телефон:</label>
+            <strong class="inpt_tel_label">+7</strong> <input class="inpt inpt_tel" type="text" />
+        </div>
+        
+        <div class="form_line">
+            <label>Оплата:</label>
+            <div class="buy_form_options col">
+                <div class="buy_form_option buy_form_option_checked">
+                    <div class="buy_form_option_label">наличными</div>
+                    <div class="buy_form_option_cash col">с какой суммы готовить сдачу</div>
+                    <input class="inpt inpt_cash" type="text" name="" value="" /> <strong class="r">руб.</strong>
+                </div>
+                <div class="buy_form_option">
+                    <div class="buy_form_option_label">картой</div>
+                    <div>куръер захватит терминал</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="btn_zs"><div class="btn_zs_in"><input type="submit" value="Оформить заказ" /></div></div>
+    </form><!--/buy_form-->
+</div><!--/buy_step-->
