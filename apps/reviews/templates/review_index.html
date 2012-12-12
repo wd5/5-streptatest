@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load pymorphy_tags %}
 
 {% block main %}
 <!--MAIN-->
@@ -62,7 +63,9 @@
                     Ни один врач еще не оставил отзыва.
                     {% endfor %}
                     
-                    <div class="reviews_more"><a href="{% url doctors_reviews_url %}">Еще {{ doctors_reviews_count }} отзывов от врачей</a></div>
+                    <div class="reviews_more">
+                        <a href="{% url doctors_reviews_url %}">Еще {{ doctors_reviews_count }} {{ 'отзыв'|plural:doctors_reviews_count }} от врачей</a>
+                    </div>
                 </div><!--/reviews-->
                             
                 <div class="reviews">
@@ -121,7 +124,9 @@
                     Еще ни один пациент не оставил отзыв.
                     {% endfor %}
                     
-                    <div class="reviews_more"><a href="{% url patients_reviews_url %}">Еще {{ patients_reviews_count }} отзывов от пациентов</a></div>
+                    <div class="reviews_more">
+                        <a href="{% url patients_reviews_url %}">Еще {{ patients_reviews_count }} {{ 'отзыв'|plural:patients_reviews_count }} от пациентов</a>
+                    </div>
                 </div><!--/reviews-->
                 
             </div><!--/content_l-->

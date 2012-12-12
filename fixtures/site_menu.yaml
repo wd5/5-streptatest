@@ -17,7 +17,7 @@
   fields:
     menu_type: header
     title: Возможности
-    url: /capabilities
+    url: /capabilities/
     is_published: True
     order: 5
     # dummy for mptt stuff
@@ -31,7 +31,7 @@
   fields:
     menu_type: header
     title: Отзывы
-    url: /reviews
+    url: /reviews/
     is_published: True
     order: 4
     # dummy for mptt stuff
@@ -45,7 +45,7 @@
   fields:
     menu_type: header
     title: Инструкция
-    url: /instruction
+    url: /instruction/
     is_published: True
     order: 3
     # dummy for mptt stuff
@@ -59,7 +59,7 @@
   fields:
     menu_type: header
     title: Пациентам
-    url: /for_patients
+    url: /for_patients/
     is_published: True
     order: 2
     # dummy for mptt stuff
@@ -73,7 +73,7 @@
   fields:
     menu_type: header
     title: Партнерам
-    url: /for_partners
+    url: /for_partners/
     is_published: True
     order: 1
     # dummy for mptt stuff
@@ -87,7 +87,7 @@
   fields:
     menu_type: footer
     title: Посоветовать друзьям
-    url: /advise_friends
+    url: /advise_friends/
     is_published: True
     order: 3
     # dummy for mptt stuff
@@ -101,7 +101,7 @@
   fields:
     menu_type: footer
     title: Подписаться на новости
-    url: /subscribe_for_news
+    url: /subscribe_for_news/
     is_published: True
     order: 2
     # dummy for mptt stuff
@@ -115,7 +115,7 @@
   fields:
     menu_type: footer
     title: пресс-центр
-    url: /newsboard
+    url: /newsboard/
     is_published: True
     order: 2
     # dummy for mptt stuff

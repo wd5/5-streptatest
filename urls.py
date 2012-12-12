@@ -26,7 +26,7 @@ urlpatterns = patterns('',
     # index
     (r'^$', index), 
     # reviews
-    (r'^reviews/$', ReviewIndexView.as_view()),
+    url(r'^reviews/$', ReviewIndexView.as_view(), name='reviews_url'),
     url(r'^reviews/patients/$', ReviewListView.as_view(), {'reviewer_type':'patient'}, name='patients_reviews_url'),
     url(r'^reviews/doctors/$', ReviewListView.as_view(), {'reviewer_type':'doctor'}, name='doctors_reviews_url'),
     (r'^reviews/patients/more/$', MoreReviewsView.as_view(), {'reviewer_type':'patient'}),

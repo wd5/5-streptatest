@@ -1,12 +1,152 @@
 {% extends 'base.html' %}
+{% load pymorphy_tags %}
 
-{% block center %}
-    <ul class="reviews-container">
-    {% include '_review_items.html' %}
-    <li><a class="more-more"><h1>MORE</h1></a></li>
-    </ul>
-    <a class="form-link"><h1>FORMA</h1></a>
-    <div class="form-modal" style="display:none">
-        {% include '_new_review_form.html' %}
-    </div>
+{% block main %}
+  	<!--MAIN-->
+	<div class="main">
+		<div class="content">
+			<div class="content_l col">
+				<div class="bread"><a href="{% url reviews_url %}">Кто уже использует Стрептатест</a> / </div>
+				{% if reviewer_type == 'doctor' %}
+				<h1>Отзывы врачей</h1>
+				{% elif reviewer_type == 'patient' %}
+				<h1>Отзывы пациентов</h1>
+				{% endif %}
+				
+				<div class="text page_lead">
+					{% if reviewer_type == 'doctor' %}
+					<p>Многие врачи уже убедились, что Стрептатест помогает в работе и просто незаменим для определения диагноза.</p>
+					{% elif reviewer_type == 'patient' %}
+					<p>Заголовок про пациентов</p>
+					{% endif %}
+				</div>
+							
+				<div class="reviews">
+					{% if reviewer_type == 'doctor' %}
+						<div class="side" style="margin-top: 356px;">
+							<div class="reviews_count_pl">
+								<img src="/media/img/side_docs.png" alt="" />
+								<div class="reviews_count_pl_num">{{ object_list_count }}</div>
+								<h2 class="side_h">{{ 'врач'|plural:object_list_count }}</h2>
+								<p>поделились своим опытом использования Стрептатест</p>
+							</div>
+						</div>
+						<div class="side side_pl" style="margin-top: 560px;">
+							<p>Поделитесь своим опытом использования Стрептатест</p>
+							<div class="btn_blue"><div class="btn_blue_in">
+								<a id="new_review_link" href="javascript:void(0)">Оставить отзыв</a>
+							</div></div>
+						</div>
+					{% elif reviewer_type == 'patient' %}
+						<div class="side" style="margin-top: 356px;">
+							<div class="reviews_count_pl">
+								<img src="/media/img/side_people.png" alt="" />
+								<div class="reviews_count_pl_num">{{ object_list_count }}</div>
+								<h2 class="side_h">{{ 'пациент'|plural:object_list_count }}</h2>
+								<p>поделились своим опытом использования Стрептатест</p>
+							</div>
+						</div>
+						<div class="side side_pl" style="margin-top: 560px;">
+							<p>Поделитесь своим опытом использования Стрептатест</p>
+							<div class="btn_blue"><div class="btn_blue_in">
+								<a id="new_review_link" href="javascript:void(0)">Оставить отзыв</a>
+							</div></div>
+						</div>
+					{% endif %}
+					
+					{% with object_list_first as review %}
+					<div class="review review_doc" data-review="{{ review.id }}">
+						<div class="review_info col">
+							<div class="review_img"><img src="/media/images/1.jpg" alt="" /></div>
+							<h3 class="review_name">{{ review.initials }}</h3>
+							<div class="review_post"><p>{{ review.reviewer_post }}</p></div>
+						</div>
+						<div class="review_blob col">
+							<div class="review_text">
+								<p>{{ review.review|truncatechars:200 }}
+								{% if review.review|length > 200 %}
+                                <a href="javascript:void(0)" class="review_more">весь отзыв</a>
+                                {% endif %}
+                                </p>
+							</div>
+							<div class="review_blob_arr"></div>
+							<div class="review_blob_shade"><img src="/media/img/shade2.png" alt="" /></div>
+							<div class="blob_close"></div>
+						</div>
+					</div>
+
+					{% if review.review|length > 200 %}
+                    <div class="review review_doc review_full" data-review-full="{{ review.id }}" style="display:none;">
+                        <div class="review_info col">
+                            <div class="review_img"><img src="/media/images/1.jpg" alt="" /></div>
+                            <h3 class="review_name">{{ review.initials }}</h3>
+                            <div class="review_post"><p>{{ review.reviewer_post }}</p></div>
+                        </div>
+                        <div class="review_blob col">
+                            <div class="review_text">
+                                <p>{{ review.review }}</p>
+                            </div>
+                            <div class="review_blob_arr"></div>
+                            <div class="review_blob_shade"><img src="/media/img/shade2.png" alt="" /></div>
+                            <div class="blob_close"></div>
+                        </div>
+                    </div>
+                    {% endif %}
+					{% endwith %}
+		
+				</div><!--/reviews-->
+			</div><!--/content_l-->
+			
+			<div class="content_r col">
+				<div class="box_carousel_zs_menu"><a href="#" class="curr">5</a> или <a href="#">20</a> тестов</div>
+
+				<div class="box_carousel_zs">
+					<ul>
+						<li>
+							<img class="box_carousel_zs_img" src="/media/img/box_slide_zs.png" alt="" />
+							<div class="box_carousel_zs_name">Диагностическая система</div>
+							<div class="box_carousel_zs_des">5 одноразовых тестов</div>
+						</li>
+					</ul>
+					<a href="#" class="carousel_zs_l carousel_zs_l_disabled"></a>
+					<a href="#" class="carousel_zs_r"></a>
+					
+					<div class="btn_zs"><div class="btn_zs_in"><a href="#">Купить</a></div></div>
+				</div><!--/box_carousel_zs-->
+			</div><!--/content_r-->
+		</div><!--/content-->
+		
+		
+		<div class="content">
+			<div class="reviews_list">
+				{% for review_list_line in object_list %}
+				<div class="reviews_list_line">
+					{% for review in review_list_line %}
+					<div class="review_out">
+						<div class="review review_doc">
+							<div class="review_info col">
+								<div class="review_img"><img src="/media/images/1.jpg" alt="" /></div>
+								<h3 class="review_name"><a href="javascript:void(0)">{{ review.initials }}</a></h3>
+								<div class="review_post"><p>{{ review.reviewer_post }}</p></div>
+							</div>
+							<div class="review_blob col">
+								<div class="review_text">
+									<p>Универсальный инструмент для пациента и врача, который позволяет в течении 5 минут исключить риск неправильной диагностики и лечения заболеваний, защитить от необоснованного назначения антибиотиков</p>
+								</div>
+								<div class="review_blob_arr"></div>
+								<div class="review_blob_shade"><img src="/media/img/shade2.png" alt="" /></div>
+								<div class="blob_close"></div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div><!--/reviews_list_line-->
+				{% endfor %}
+			</div><!--reviews_list-->
+			
+			<div class="up up_l" style="top: 1200px;"><a href="#"><span class="dot">Наверх</span></a></div>
+		</div><!--/content-->
+		
+	</div>
+    <!--/MAIN-->
 {% endblock %}

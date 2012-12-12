@@ -10,6 +10,12 @@ from django.forms import ModelForm
 from apps.reviews.models import Review
 from apps.siteblocks.models import Settings
 
+def chunks(l, n):
+    """ Yield successive n-sized chunks from l.
+    """
+    for i in range(0, len(l), n):
+        yield l[i:i+n]
+
 class ReviewForm(ModelForm):
     class Meta:
         model = Review
@@ -37,8 +43,12 @@ class ReviewListView(BaseReviewView):
 
     def get_context_data(self, **kwargs):
         context = super(ReviewListView, self).get_context_data(**kwargs)
-        object_list = Review.objects.filter(is_published=True)
-        context['object_list'] = object_list.filter(reviewer_type=kwargs['reviewer_type'])[:2]
+        full_object_list = Review.objects.filter(is_published=True).filter(reviewer_type=kwargs['reviewer_type'])
+        object_list = full_object_list[:17]
+        context['object_list_first'] = object_list[0]
+        context['object_list'] = chunks(object_list[1:], 4)
+        context['object_list_count'] = full_object_list.filter(reviewer_type=kwargs['reviewer_type']).count
+        context['reviewer_type'] = kwargs['reviewer_type']
         return context
 
 class MoreReviewsView(BaseReviewView):
