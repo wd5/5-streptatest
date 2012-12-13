@@ -40,3 +40,6 @@ class InstructionsView(TemplateView):
         context = super(InstructionsView, self).get_context_data(**kwargs)
         context['instructions_video'] = Settings.objects.get(name='instructions_video').value
         return context
+
+class PatientsView(TemplateView):
+    template_name = 'pages/patients.html'
