@@ -1,0 +1,62 @@
+- model: places.city
+  pk: 1
+  fields:
+    title: Москва
+    coordinates_center: 37.619405,55.751173
+    zoom: 11
+
+- model: places.city
+  pk: 2
+  fields:
+    title: Санкт-Петербург
+    coordinates_center: 30.313497,59.938531
+    zoom: 11
+
+# аптеки
+- model: places.drugstore
+  pk: 1
+  fields:
+    city: 2
+    title: asdfasdf
+    coordinates: 30.422674,59.931553
+    address: Невский проспект 440
+
+- model: places.drugstore
+  pk: 2
+  fields:
+    city: 2
+    title: asdfasdf
+    coordinates: 30.238223,59.949511
+    address: Невский проспект 440
+
+- model: places.drugstore
+  pk: 3
+  fields:
+    city: 2
+    title: sdgasdgas
+    coordinates: 30.309291,59.965351
+    address: Невский проспект 440
+
+- model: places.drugstore
+  pk: 4
+  fields:
+    city: 2
+    title: sdvsdv
+    coordinates: 30.345683,59.985743
+    address: Невский проспект 440
+
+- model: places.drugstore
+  pk: 5
+  fields:
+    city: 2
+    title: oihpuj
+    coordinates: 30.209041,59.991591
+    address: Невский проспект 440
+
+- model: places.drugstore
+  pk: 6
+  fields:
+    city: 2
+    title: ergerver
+    coordinates: 30.383621,59.870112
+    address: Невский проспект 440

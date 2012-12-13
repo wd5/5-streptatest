@@ -5,7 +5,7 @@ from django.conf import settings
 
 from apps.urls import urlpatterns as apps_urlpatterns
 
-from apps.views import index
+from apps.views import index, InstructionsView
 from apps.reviews.views import ReviewIndexView, ReviewListView, MoreReviewsView, ReviewForm
 from apps.capabilities.views import CapabilityListView 
 from apps.messages.views import OrderFormView
@@ -37,6 +37,8 @@ urlpatterns = patterns('',
     url(r'^capabilities/$', CapabilityListView.as_view(), name='capabilities_url'),
     # order form
     url(r'^order/$', OrderFormView.as_view(), name='order_url'),
+    # instructions
+    url(r'^instructions/$', InstructionsView.as_view(), name='instructions_url'),
 
 )
 

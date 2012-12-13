@@ -24,6 +24,7 @@ class City(models.Model):
     updated_at = models.DateTimeField(
         verbose_name = u'дата изменения',
         auto_now = True,
+        default = datetime.now(),
     )
 
     def __unicode__(self):
@@ -61,6 +62,7 @@ class Clinic(models.Model):
     updated_at = models.DateTimeField(
         verbose_name = u'дата изменения',
         auto_now = True,
+        default = datetime.now(),
     )
 
     def __unicode__(self):
@@ -98,6 +100,7 @@ class Drugstore(models.Model):
     updated_at = models.DateTimeField(
         verbose_name = u'дата изменения',
         auto_now = True,
+        default = datetime.now(),
     )
 
     def __unicode__(self):
@@ -135,6 +138,7 @@ class Lab(models.Model):
     updated_at = models.DateTimeField(
         verbose_name = u'дата изменения',
         auto_now = True,
+        default = datetime.now(),
     )
 
     def __unicode__(self):
@@ -176,6 +180,7 @@ class Branch(models.Model):
     updated_at = models.DateTimeField(
         verbose_name = u'дата изменения',
         auto_now = True,
+        default = datetime.now(),
     )
 
     def __unicode__(self):

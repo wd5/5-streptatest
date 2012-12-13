@@ -56,10 +56,22 @@ var HideFullReview = function(){
     });
 }
 
+var DrugstoresMapChange = function(){
+    $('.drugstore-map-link').on('click', function(){
+        var targetMap = $(this).attr('data-target-city');
+        $('.drugstore-map-link').parents('li.curr').removeClass('curr')
+        $('.drugstore-map.curr').hide();
+        $(this).parents('li').addClass('curr')
+        $('.drugstore-map[data-city='+targetMap+']').show();
+        fid_135478862065364205712_1()
+    })
+}
+
 $(function(){
     SwitchSlider();
     IndexPageSliders();
     IndexBoxAnimate();
     ShowFullReview();
     HideFullReview();
+    DrugstoresMapChange();
 });

@@ -1,0 +1,23 @@
+<div data-city="{{ current_city.id }}" id="ymaps-map-id_135478862065364205712_{{ current_city.id }}" style="width: 100%; height: 100%; {% if hide == 'true' %}display:none;{% endif %}" class="drugstore-map {% if not hide == 'true' %}curr{% endif %}"></div>
+<script type="text/javascript">
+function fid_135478862065364205712_{{ current_city.id }}(ymaps) {
+    var map = new ymaps.Map("ymaps-map-id_135478862065364205712_{{ current_city.id }}", {
+        center: [{{ current_city.coordinates_center }}],
+        zoom: {{ current_city.zoom }},
+        type: "yandex#map"
+    });
+    map.controls
+        .add("zoomControl")
+        .add("mapTools")
+        .add(new ymaps.control.TypeSelector(["yandex#map", "yandex#satellite", "yandex#hybrid", "yandex#publicMap"]));
+
+    {% for drugstore in current_city.drugstore_set.all %}
+	    map.geoObjects.add(new ymaps.Placemark([{{ drugstore.coordinates }}], {
+	        balloonContent: "<p><h4>{{ drugstore.title }}</h4></p><p>{{ drugstore.address }}</p>"
+	    }, {
+	        preset: "twirl#lightblueDotIcon"
+	    }))
+    {% endfor %}
+};
+</script>
+<script type="text/javascript" src="http://api-maps.yandex.ru/2.0-stable/?lang=ru-RU&coordorder=longlat&load=package.full&wizard=constructor&onload=fid_135478862065364205712_{{ current_city.id }}"></script>

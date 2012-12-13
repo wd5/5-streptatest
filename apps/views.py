@@ -32,3 +32,6 @@ class IndexView(IndexSettings, LastReviews, IndexCapabilityList, TemplateView):
     template_name = 'index.html'
 
 index = IndexView.as_view()
+
+class InstructionsView(TemplateView):
+    template_name = 'pages/instructions.html'

@@ -45,7 +45,7 @@
   fields:
     menu_type: header
     title: Инструкция
-    url: /instruction/
+    url: /instructions/
     is_published: True
     order: 3
     # dummy for mptt stuff

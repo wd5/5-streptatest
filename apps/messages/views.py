@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.forms.widgets import RadioSelect
 
 from apps.products.models import Product
+from apps.places.models import City, Drugstore
 from models import Order
 
 class OrderForm(forms.ModelForm):
@@ -29,6 +30,10 @@ class OrderFormView(FormView):
             context['chosed_product'] = params['chosed_product']
         except:
             context['chosed_product'] = None
+
+        context['city_list'] = City.objects.all()
+        context['drugtest'] = City.objects.all()[0].drugstore_set
+        context['drugstore_count'] = Drugstore.objects.all().count
         context['product_with_5_tests'] = Product.objects.filter(test_items_quantity=5)[0]
         context['product_with_20_tests'] = Product.objects.filter(test_items_quantity=20)[0]
         return context
