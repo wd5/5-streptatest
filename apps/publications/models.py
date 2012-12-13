@@ -57,6 +57,7 @@ class NewsCategory(models.Model):
     updated_at = models.DateTimeField(
         verbose_name = u'дата изменения',
         auto_now = True,
+        default = datetime.now(),
     )
 
     class Meta:
@@ -79,6 +80,9 @@ class News(models.Model):
         null = True,
         blank = True,
     )
+    # short_text = models.TextField(
+    #     verbose_name = u'короткий текст новости',
+    # )
     text = models.TextField(
         verbose_name = u'текст новости',
     )
@@ -95,6 +99,7 @@ class News(models.Model):
     updated_at = models.DateTimeField(
         verbose_name = u'дата изменения',
         auto_now = True,
+        default = datetime.now(),
     )
 
     class Meta:
@@ -126,6 +131,7 @@ class Article(models.Model):
     updated_at = models.DateTimeField(
         verbose_name = u'дата изменения',
         auto_now = True,
+        default = datetime.now(),
     )
 
     class Meta:

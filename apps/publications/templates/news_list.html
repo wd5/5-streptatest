@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<!--MAIN-->
+	<div class="main">
+		<div class="content">
+			<div class="content_l col">
+				<h1>Пресс-центр</h1>
+				
+				<div class="hormenu hormenu_l_margin">
+					<ul>
+						<li class="{% if not current_category %}curr{% endif %} hormenu_first"><a href="{% url news_list_url %}">Все новости</a><img src="/media/img/hormenu_arr.png"/></li>
+						{% for category in news_category_list %}
+						<li {% if category == current_category %}class="curr"{% endif %}><a href="{% url news_list_url %}?category={{ category.id }}">{{ category.title }}</a><img src="/media/img/hormenu_arr.png"/></li>
+						{% endfor %}
+					</ul>
+					<div class="cl"></div>
+				</div><!--/hormenu-->
+				
+				<div class="press">
+					{% for news_item in news_list %}
+					<div class="new">
+						<a href="{% url single_news_url news_item.id %}">
+							<h2>{{ news_item.title }}</h2>
+						</a>
+						<div class="new_date">{{ news_item.created_at }}</div>
+						<div class="text new_short">
+							<p>{{ news_item.text }}</p>
+						</div>
+					</div>
+					{% endfor %}
+								
+					<div class="pgn">
+						<a class="pgn_num curr" href="#">1</a>
+						<a class="pgn_num" href="#">2</a>
+						<a class="pgn_num" href="#">3</a>
+						<a class="pgn_num" href="#">4</a>
+					</div>
+
+				</div><!--/press-->
+			</div><!--/content_l-->
+			
+			<div class="content_r col">
+				{% include 'shared/buy_box_aside.html' %}
+			</div>
+		</div><!--/content-->
+		
+	</div>
+    <!--/MAIN-->
+{% endblock %}

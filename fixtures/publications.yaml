@@ -1,0 +1,203 @@
+- model: publications.newscategory
+  pk: 1
+  fields:
+    title: Акции
+
+- model: publications.newscategory
+  pk: 2
+  fields:
+    title: Школа пациентов
+
+- model: publications.article
+  pk: 1
+  fields:
+    title: mnbvnmvbnm
+    text: bnmvbnm
+          asdfasdfasdfsa
+          dfasdfasdfasdf
+          asdfasdf
+          fsdfbsd
+          sdfb
+          sdfbsbdfb
+
+- model: publications.article
+  pk: 2
+  fields:
+    title: vcbcbcvbc
+    text: bnmvbnm
+          asdfasdfasdfsa
+          dfasdfasdfasdf
+          asdfasdf
+          fsdfbsd
+          sdfb
+          sdfbsbdfb
+
+- model: publications.article
+  pk: 3
+  fields:
+    title: mnbvnmvbnm
+    text: bnmvbnm
+          asdfasdfasdfsa
+          dfasdfasdfasdf
+          asdfasdf
+          fsdfbsd
+          sdfb
+          sdfbsbdfb
+
+- model: publications.article
+  pk: 4
+  fields:
+    title: vcbcbcvbc
+    text: bnmvbnm
+          asdfasdfasdfsa
+          dfasdfasdfasdf
+          asdfasdf
+          fsdfbsd
+          sdfb
+          sdfbsbdfb
+          asdfasdfasdasdfasdfasdfsa
+          dfasdfasdfasdf
+          asdfasdf
+          fsdfbsd
+          sdfb
+          sdfbsbdfb
+
+- model: publications.article
+  pk: 5
+  fields:
+    title: vcbcbcvbc
+    text: bnmvbnm
+          asdfasdfasdfsa
+          dfasdfasdfasdf
+          asdfasdf
+          fsdfbsd
+          sdfb
+          sdfbsbdfb
+          asdfasdfasdasdfasdfasdfsa
+          dfasdfasdfasdf
+          asdfasdf
+          fsdfbsd
+          sdfb
+          sdfbsbdfb
+
+- model: publications.article
+  pk: 6
+  fields:
+    title: vcbcbcvbc
+    text: bnmvbnm
+          asdfasdfasdfsa
+          dfasdfasdfasdf
+          asdfasdf
+          fsdfbsd
+          sdfb
+          sdfbsbdfb
+          asdfasdfasdasdfasdfasdfsa
+          dfasdfasdfasdf
+          asdfasdf
+          fsdfbsd
+          sdfb
+          sdfbsbdfb
+
+- model: publications.news
+  pk: 1
+  fields:
+    category: 1
+    title: asdfasdf
+    text: asdfasdfasdf
+          asdfasdfasdfsa
+          dfasdfasdfasdf
+          asdfasdf
+          fsdfbsd
+          sdfb
+          sdfbsbdfb
+
+- model: publications.news
+  pk: 2
+  fields:
+    category: 1
+    title: ghjghj
+    text: asdfasdfasdf
+          asdfasdfasdfsa
+          dfasdfasdfasdf
+          asdfasdf
+          fsdfbsd
+          sdfb
+          sdfbsbdfb
+
+- model: publications.news
+  pk: 3
+  fields:
+    category: 1
+    title: vbnvcbn
+    text: asdfasdfasdf
+          asdfasdfasdfsa
+          dfasdfasdfasdf
+          asdfasdf
+          fsdfbsd
+          sdfb
+          sdfbsbdfb
+
+- model: publications.news
+  pk: 4
+  fields:
+    category: 1
+    title: zxcvxcv
+    text: asdfasdfasdf
+          asdfasdfasdfsa
+          dfasdfasdfasdf
+          asdfasdf
+          fsdfbsd
+          sdfb
+          sdfbsbdfb
+
+- model: publications.news
+  pk: 5
+  fields:
+    category: 2
+    title: 1234123
+    text: asdfasdfasdf
+          asdfasdfasdfsa
+          dfasdfasdfasdf
+          asdfasdf
+          fsdfbsd
+          sdfb
+          sdfbsbdfb
+
+- model: publications.news
+  pk: 6
+  fields:
+    category: 2
+    title: 2345345
+    text: asdfasdfasdf
+          asdfasdfasdfsa
+          dfasdfasdfasdf
+          asdfasdf
+          fsdfbsd
+          sdfb
+          sdfbsbdfb
+
+- model: publications.news
+  pk: 7
+  fields:
+    category: 2
+    title: 5463456
+    text: asdfasdfasdf
+          asdfasdfasdfsa
+          dfasdfasdfasdf
+          asdfasdf
+          fsdfbsd
+          sdfb
+          sdfbsbdfb
+
+- model: publications.news
+  pk: 8
+  fields:
+    category: 2
+    title: 6789
+    text: asdfasdfasdf
+          asdfasdfasdfsa
+          dfasdfasdfasdf
+          asdfasdf
+          fsdfbsd
+          sdfb
+          sdfbsbdfb               

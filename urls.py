@@ -5,10 +5,11 @@ from django.conf import settings
 
 from apps.urls import urlpatterns as apps_urlpatterns
 
-from apps.views import index, InstructionsView, PatientsView
+from apps.views import index, InstructionsView, PatientsView, PartnersView
 from apps.reviews.views import ReviewIndexView, ReviewListView, MoreReviewsView, ReviewForm
 from apps.capabilities.views import CapabilityListView 
 from apps.messages.views import OrderFormView
+from apps.publications.views import ArticleListView, ArticleView, NewsListView, NewsView
 
 admin.autodiscover()
 
@@ -41,6 +42,13 @@ urlpatterns = patterns('',
     url(r'^instructions/$', InstructionsView.as_view(), name='instructions_url'),
     # for_patients
     url(r'^for_patients/$', PatientsView.as_view(), name='patients_url'),
+    # for_partners
+    url(r'^for_partners/$', PartnersView.as_view(), name='partners_url'),
+    # publications
+    url(r'^newslist/$', NewsListView.as_view(), name='news_list_url'),
+    url(r'^articles/$', ArticleListView.as_view(), name='article_list_url'),
+    url(r'^newslist/(?P<id>\d)/$', NewsView.as_view(), name='single_news_url'),
+    url(r'^articles/(?P<id>\d)/$', ArticleView.as_view(), name='article_url'),
 
 )
 
