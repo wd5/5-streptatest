@@ -1,4 +1,114 @@
-        {{capability_list_top}}
-        {{capability_list_bottom}}
-        {{top_text}}
-        {{center_text}}
+{% extends 'base.html' %}
+
+{% block main %}
+<!--MAIN-->
+	<div class="main">
+		<div class="content">
+			<div class="content_l col">
+				<h1>Возможности экспресс-теста</h1>
+		
+				<div class="text capabilities_short">
+					<p>Универсальный инструмент для пациента и врача, который позволяет в течении 5 минут исключить риск неправильной диагностики и лечения заболеваний, защитить от необоснованного назначения антибиотиков и иных дорогостоящих лекарственных препаратов и процедур.</p>
+					<p>Диагностировать наличие стрептококков можно несколькими способами:</p>
+				</div>
+				
+				<div class="diagn_way">
+					<div class="diagn_way_img"><img src="/media/img/teaser_doc.png" alt="" /></div>
+					<div class="diagn_way_name col">
+						<h2>Врач</h2>
+						<div class="plus">Быстро</div>
+						<div class="minus">Шанс ошибки</div>
+					</div>
+					<div class="diagn_way_blob col">
+						<div class="diagn_way_des">
+							<div class="diagn_way_des_img col"><img src="/media/img/ic_drugs.png" alt="" /></div>
+							<div class="diagn_way_des_text col">
+								<h3>Необоснованное лечение антибиотиками</h3>
+								<p>71% назначений антибиотиков необосновано и не достигает цели</p>
+							</div>
+						</div>
+						<div class="diagn_way_des">
+							<div class="diagn_way_des_img col"><img src="/media/img/ic_compl.png" alt="" /></div>
+							<div class="diagn_way_des_text col">
+								<h3>Осложнения от неправильного лечения</h3>
+								<p>Например, 80% болей в горли не нуждаются в лечении</p>
+							</div>
+						</div>
+						<div class="diagn_way_blob_arr"></div>
+					</div>
+				</div><!--/diagn_way-->
+				
+				<div class="diagn_way">
+					<div class="diagn_way_img"><img src="/media/img/teaser_lab.png" alt="" /></div>
+					<div class="diagn_way_name col">
+						<h2>Лаборатория</h2>
+						<div class="plus">Точно</div>
+						<div class="minus">Долго</div>
+					</div>
+					<div class="diagn_way_blob col">
+						<div class="diagn_way_des">
+							<div class="diagn_way_des_img col"><img src="/media/img/ic_cure.png" alt="" /></div>
+							<div class="diagn_way_des_text col">
+								<h3>Лечение может оказаться несвоевременно</h3>
+								<p>Очевидно, что начинать правильное лечение нужно как можно быстрее</p>
+							</div>
+						</div>
+						<div class="diagn_way_des">
+							<div class="diagn_way_des_img col"><img src="/media/img/ic_wait.png" alt="" /></div>
+							<div class="diagn_way_des_text col">
+								<h3>Волнительное ожидание</h3>
+								<p>Необходимость стоят в очередях на анализы и ожидания результатов</p>
+							</div>
+						</div>
+						<div class="diagn_way_blob_arr"></div>
+					</div>
+				</div><!--/diagn_way-->
+			</div><!--/content_l-->
+			
+			<div class="content_r col">
+				<div class="box_carousel_zs_menu"><a href="#" class="curr">5</a> или <a href="#">20</a> тестов</div>
+
+				<div class="box_carousel_zs">
+					<ul>
+						<li>
+							<img class="box_carousel_zs_img" src="/media/img/box_slide_zs.png" alt="" />
+							<div class="box_carousel_zs_name">Диагностическая система</div>
+							<div class="box_carousel_zs_des">5 одноразовых тестов</div>
+						</li>
+					</ul>
+					<a href="#" class="carousel_zs_l carousel_zs_l_disabled"></a>
+					<a href="#" class="carousel_zs_r"></a>
+					
+					<div class="btn_zs"><div class="btn_zs_in"><a href="{% url order_url %}">Купить</a></div></div>
+				</div><!--/box_carousel_zs-->
+			</div><!--/content_r-->
+			
+				
+			<div class="diagn_way_strep">
+				<div class="diagn_way_img"><img src="/media/img/teaser_strep.png" alt="" /></div>
+				<div class="diagn_way_name col">
+					<h2>Стрептатест</h2>
+					<div class="plus">Быстро</div>
+					<div class="plus">Точно</div>
+					<div class="plus">Удобно</div>
+					<div class="btn_zs"><div class="btn_zs_in"><a href="{% url order_url %}">Купить</a></div></div>
+				</div>
+				<div class="diagn_way_strep_blob col">
+
+					{% for capability in capability_list %}
+					<div class="diagn_way_strep_des col">
+						<div class="diagn_way_strep_des_img col"><img src="/media/img/{{ capability.image }}" alt="" /></div>
+						<div class="diagn_way_strep_des_text col"><p>{{ capability.body }}</p></div>
+					</div>
+					{% endfor %}
+
+					<div class="diagn_way_strep_blob_arr"></div>
+					<div class="diagn_way_strep_blob_shade"></div>
+				</div><!--/diagn_way_strep_blob-->
+			</div><!--/diagn_way-->
+			
+		</div><!--/content-->
+		
+	</div>
+    <!--/MAIN-->
+{% endblock %}

@@ -56,3 +56,11 @@
     name: reviews_top_text
     type: redactor
     value: Наш эксперсс-тест уже более 3 лет на рынке и зарекомендовал себя как надежное средство для диагностирования стрептакоков. Можно тут еще несколько предложений написать про популярность препарата.
+
+- model: siteblocks.settings
+  pk: 8
+  fields:
+    name: instructions_video
+    type: input
+    value: http://www.youtube.com/embed/fJ9rUzIMcZQ
+    

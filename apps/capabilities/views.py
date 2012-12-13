@@ -9,8 +9,7 @@ class CapabilityListView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(CapabilityListView, self).get_context_data(**kwargs)
-        context['capability_list_top'] = Capability.objects.filter(show_in_block='top')
-        context['capability_list_bottom'] = Capability.objects.filter(show_in_block='bottom')
+        context['capability_list'] = Capability.objects.filter(show_on_index=False)
         context['top_text'] = Settings.objects.get(name='capabilities_top_text')
         context['center_text'] = Settings.objects.get(name='capabilities_center_text')
         return context

@@ -35,3 +35,8 @@ index = IndexView.as_view()
 
 class InstructionsView(TemplateView):
     template_name = 'pages/instructions.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(InstructionsView, self).get_context_data(**kwargs)
+        context['instructions_video'] = Settings.objects.get(name='instructions_video').value
+        return context
