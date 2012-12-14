@@ -1,4 +1,12 @@
 var IndexPageSliders = {
+    delControls: function(type){
+        if ($('#'+type+'_carousel_l a.bx-prev').size() > 1) {
+            $('#'+type+'_carousel_l a.bx-prev:not(:first)').remove();
+        };
+        if ($('#'+type+'_carousel_r a.bx-next').size() > 1) {
+            $('#'+type+'_carousel_r a.bx-next:not(:first)').remove();
+        };
+    },
     doctorsCarousel: function(){
         $('#doctors_carousel ul').bxSlider({
             pager: false,
@@ -7,6 +15,7 @@ var IndexPageSliders = {
             nextText: '',
             prevText: ''
         });
+        this.delControls('doc');
     },
     patientsCarousel: function(){
         $('#patients_carousel ul').bxSlider({
@@ -16,6 +25,7 @@ var IndexPageSliders = {
             nextText: '',
             prevText: ''
         });
+        this.delControls('patient');
     }
 };
 
