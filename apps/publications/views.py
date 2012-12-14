@@ -5,7 +5,7 @@ from models import NewsCategory, News, Article
 class NewsListView(ListView):
 	template_name = 'news_list.html'
 	context_object_name = 'news_list'
-	paginate_by = 3
+	paginate_by = 7
 
 	def get_params(self, **kwargs):
 		params = self.request.GET
@@ -44,13 +44,14 @@ class NewsListView(ListView):
 
 
 
-class ArticleListView(TemplateView):
+class ArticleListView(ListView):
 	template_name = 'article_list.html'
+	context_object_name = 'article_list'
+	paginate_by = 5
 
-	def get_context_data(self, **kwargs):
-		context = super(ArticleListView, self).get_context_data(**kwargs)
-		context['article_list'] = Article.objects.filter(is_published=True)
-		return context
+	def get_queryset(self, **kwargs):
+		qs = Article.objects.filter(is_published=True)
+		return qs
 
 class ArticleView(TemplateView):
 	template_name = 'article.html'

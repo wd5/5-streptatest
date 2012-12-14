@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load custom_filters %}
 
 {% block main %}
 <!--MAIN-->
@@ -23,12 +24,17 @@
 					</div>
 					{% endfor %}
 								
+					{% if is_paginated and page_obj.paginator.num_pages > 1 %}
 					<div class="pgn">
-						<a class="pgn_num curr" href="#">1</a>
-						<a class="pgn_num" href="#">2</a>
-						<a class="pgn_num" href="#">3</a>
-						<a class="pgn_num" href="#">4</a>
+						{% for i in page_obj.paginator.num_pages|times %}
+							{% if forloop.counter == page_obj.number %}
+								<a class="pgn_num curr" href="{% url article_list_url %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>
+							{% else %}
+								<a class="pgn_num" href="{% url article_list_url %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>
+							{% endif %}
+						{% endfor %}
 					</div>
+					{% endif %}
 
 				</div><!--/press-->
 			</div><!--/content_l-->
