@@ -32,7 +32,7 @@ INSTALLED_APPS += (
 )
 
 MIDDLEWARE_CLASSES += (
-    'apps.pages.middleware.PageFallbackMiddleware',
+    # 'apps.pages.middleware.PageFallbackMiddleware',
 )
 
 AUTHENTICATION_BACKENDS = (

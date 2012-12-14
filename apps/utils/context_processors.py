@@ -13,3 +13,8 @@ def authorization_form(request):
         'auth_form':authform,
         'next_url':next_url,
     }
+
+def get_current_path(request):
+    return {
+       'current_path': request.get_full_path()
+     }

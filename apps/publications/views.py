@@ -5,10 +5,14 @@ from models import NewsCategory, News, Article
 class NewsListView(ListView):
 	template_name = 'news_list.html'
 	context_object_name = 'news_list'
-	paginate_by = 10
+	paginate_by = 3
+
+	def get_params(self, **kwargs):
+		params = self.request.GET
+		return params
 
 	def get_current_category(self, **kwargs):
-		params = self.request.GET
+		params = self.get_params()
 
 		try:
 			current_category = NewsCategory.objects.filter(pk=params['category'])[0]
@@ -19,8 +23,13 @@ class NewsListView(ListView):
 
 	def get_context_data(self, **kwargs):
 		context = super(NewsListView, self).get_context_data(**kwargs)
+		params = self.get_params()
 		context['current_category'] = self.get_current_category
 		context['news_category_list'] = NewsCategory.objects.all()
+		try:
+			context['current_page'] = int(params['page'])
+		except :
+			context['current_page'] = 1
 		return context
 
 	def get_queryset(self, **kwargs):
