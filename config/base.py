@@ -76,7 +76,7 @@ INSTALLED_APPS = (
     'pytils',
     'pymorphy',
     'pagination',
-    'south',
+    # 'south',
 )
 
 PYMORPHY_DICTS = {

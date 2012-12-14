@@ -5,12 +5,12 @@ DEBUG = True
 
 DATABASES = {
     'default': {
-	'ENGINE': 'mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-	'NAME': DATABASE_NAME,                      # Or path to database file if using sqlite3.
-	'USER': 'root',                      # Not used with sqlite3.
-	'PASSWORD': 'otmcyoQav',                  # Not used with sqlite3.
-	'HOST': '127.0.0.1',                      # Set to empty string for localhost. Not used with sqlite3.
-	'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': DATABASE_NAME,
+        'USER': 'root',
+        'PASSWORD': 'jQ93Hb!6',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 EMAIL_PORT = 25
