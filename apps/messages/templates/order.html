@@ -14,6 +14,7 @@
 				
 				<form action="{% url order_url %}" method="post">
 					{% csrf_token %}
+					{{ form.errors }}
 					{% include '_order_form.html' %}
 				</form>
 			</div><!--/content_l-->
@@ -36,12 +37,12 @@
 							{% for city in city_list %}
 							{% if forloop.first %}
 							<li class="curr">
-								<a href="javascript:vid(0)" class="drugstore-map-link" data-target-city="{{ city.id }}">{{ city.title }}</a>
+								<a href="javascript:void(0)" class="drugstore-map-link" data-target-city="{{ city.id }}">{{ city.title }}</a>
 								<img src="/media/img/hormenu_arr.png"/>
 							</li>
 							{% else %}
 							<li>
-								<a href="javascript:vid(0)" class="drugstore-map-link" data-target-city="{{ city.id }}">{{ city.title }}</a>
+								<a href="javascript:void(0)" class="drugstore-map-link" data-target-city="{{ city.id }}">{{ city.title }}</a>
 								<img src="/media/img/hormenu_arr.png"/>
 							</li>
 							{% endif %}

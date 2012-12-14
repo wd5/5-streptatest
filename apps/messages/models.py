@@ -85,6 +85,7 @@ class Order(models.Model):
         verbose_name = u'сумма наличных для оплаты',
         max_length = 100,
         help_text = 'с какой суммы готовить сдачу',
+        blank=True,
     )
     state = models.CharField(
         verbose_name = u'статус обращения',

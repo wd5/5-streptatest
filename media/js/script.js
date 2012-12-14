@@ -95,11 +95,54 @@ var DrugstoresMapChange = function(){
     })
 }
 
+var OrderSwitchProduct = function(){
+    $('.5_link').on('click', function(){
+        $('.20_link').removeClass('curr');
+        $('.5_link').addClass('curr');
+        $('.20_input').attr('checked', false);
+        $('.5_input').attr('checked', true);
+        $('.20_elem').hide();
+        $('.5_elem').show();
+    });
+    $('.20_link').on('click', function(){
+        $('.5_link').removeClass('curr');
+        $('.20_link').addClass('curr');
+        $('.5_input').attr('checked', false);
+        $('.20_input').attr('checked', true);
+        $('.5_elem').hide();
+        $('.20_elem').show();
+    });
+    $('.cash_radio').on('click', function(){
+        $('.credit_radio').removeClass('buy_form_option_checked');
+        $('.cash_radio').addClass('buy_form_option_checked');
+        $('.inpt_cash').attr('disabled', false);
+        $('.credit_input').attr('checked', false);
+        $('.cash_input').attr('checked', true);
+    });
+    $('.credit_radio').on('click', function(){
+        $('.cash_radio').removeClass('buy_form_option_checked');
+        $('.credit_radio').addClass('buy_form_option_checked');
+        $('.inpt_cash').attr('disabled', true);
+        $('.cash_input').attr('checked', false);
+        $('.credit_input').attr('checked', true);
+    });
+    $('.mail_checkbox').on('click', function(){
+        if ($('.mail_inpt').attr('checked')){
+            $('.mail_inpt').attr('checked',false);
+            $(this).removeClass('mail_checked');
+        } else {
+            $('.mail_inpt').attr('checked',true);
+            $(this).addClass('mail_checked');
+        };
+    });
+}
+
 $(function(){
     SwitchSlider();
     IndexPageSliders.doctorsCarousel();
     IndexBoxAnimate();
     ShowFullReview();
     HideFullReview();
-    DrugstoresMapChange();
+    // DrugstoresMapChange();
+    OrderSwitchProduct();
 });
