@@ -2,11 +2,12 @@ from django.views.generic import TemplateView, ListView
 
 from models import NewsCategory, News, Article
 
-class NewsListView(TemplateView):
+class NewsListView(ListView):
 	template_name = 'news_list.html'
+	context_object_name = 'news_list'
+	paginate_by = 10
 
-	def get_context_data(self, **kwargs):
-		context = super(NewsListView, self).get_context_data(**kwargs)
+	def get_current_category(self, **kwargs):
 		params = self.request.GET
 
 		try:
@@ -14,15 +15,24 @@ class NewsListView(TemplateView):
 		except:
 			current_category = None
 
-		if current_category:				
-			news_list = current_category.news_set.filter(is_published=True)
-		else:
-			news_list = News.objects.filter(is_published=True)
+		return current_category
 
-		context['current_category'] = current_category
+	def get_context_data(self, **kwargs):
+		context = super(NewsListView, self).get_context_data(**kwargs)
+		context['current_category'] = self.get_current_category
 		context['news_category_list'] = NewsCategory.objects.all()
-		context['news_list'] = news_list
 		return context
+
+	def get_queryset(self, **kwargs):
+		current_category = self.get_current_category()
+
+		if current_category:
+			qs = current_category.news_set.filter(is_published=True)
+		else:
+			qs = News.objects.filter(is_published=True)
+
+		return qs
+
 
 
 class ArticleListView(TemplateView):

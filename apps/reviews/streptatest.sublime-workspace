@@ -1,0 +1,647 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"t",
+				"targetReview"
+			],
+			[
+				"rev",
+				"reviewer_type"
+			],
+			[
+				"Sho",
+				"ShowRoom"
+			],
+			[
+				"Show",
+				"ShowBox"
+			],
+			[
+				"curr",
+				"curr_carousel"
+			],
+			[
+				"cu",
+				"currentCarousel"
+			],
+			[
+				"S",
+				"SiteMenu"
+			],
+			[
+				"def",
+				"default"
+			],
+			[
+				"T",
+				"TextField"
+			],
+			[
+				"M",
+				"Model"
+			],
+			[
+				"Or",
+				"OrderForm"
+			],
+			[
+				"ma",
+				"max_length"
+			],
+			[
+				"Re",
+				"RequestContext"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"Review",
+				"ReviewForm"
+			],
+			[
+				"C",
+				"Capability"
+			],
+			[
+				"I",
+				"IndexCapabilityList"
+			],
+			[
+				"review",
+				"review_list"
+			],
+			[
+				"ge",
+				"generic"
+			],
+			[
+				"R",
+				"ReviewListView"
+			],
+			[
+				"get_",
+				"get_context_data"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/grigl/Works/streptatest/urls.py",
+			"settings":
+			{
+				"buffer_size": 2644,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/review_index.html",
+			"settings":
+			{
+				"buffer_size": 8906,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views.py",
+			"settings":
+			{
+				"buffer_size": 3188,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/grigl/Works/streptatest/templates/base.html",
+			"settings":
+			{
+				"buffer_size": 1016,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/grigl/Works/streptatest/templates/index.html",
+			"settings":
+			{
+				"buffer_size": 6705,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/grigl/Works/streptatest/fixtures/settings.yaml",
+			"settings":
+			{
+				"buffer_size": 1904,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/grigl/Works/streptatest/media/css/style.css",
+			"settings":
+			{
+				"buffer_size": 28235,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/grigl/Works/streptatest/fixtures/reviews.yaml",
+			"settings":
+			{
+				"buffer_size": 6597,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/grigl/Works/streptatest/media/js/script.js",
+			"settings":
+			{
+				"buffer_size": 2630,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 309.0,
+		"selected_items":
+		[
+			[
+				"task",
+				"Tasks: New document"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 435.0
+	},
+	"console":
+	{
+		"height": 146.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/grigl/Works/streptatest/vrstk/reviews.html",
+		"/home/grigl/Works/streptatest/vrstk/index.html",
+		"/home/grigl/Works/streptatest/apps/views.py",
+		"/home/grigl/Works/streptatest/media/js/script.js",
+		"/home/grigl/Works/streptatest/templates/_header.html",
+		"/home/grigl/.virtualenvs/streptatest/lib/python2.7/site-packages/mptt/models.py",
+		"/home/grigl/Works/streptatest/apps/capabilities/models.py",
+		"/home/grigl/Works/streptatest/apps/reviews/models.py",
+		"/home/grigl/Works/streptatest/media/css/style.css",
+		"/home/grigl/Works/streptatest/fixtures/capabilities.yaml",
+		"/home/grigl/Works/streptatest/fixtures/reviews.yaml",
+		"/home/grigl/Works/streptatest/apps/siteblocks/context_processors.py",
+		"/home/grigl/Works/streptatest/fixtures/settings.yaml",
+		"/home/grigl/Works/streptatest/templates/_footer.html",
+		"/home/grigl/Works/streptatest/templates/base.html",
+		"/home/grigl/Works/streptatest/templates/index.html",
+		"/home/grigl/Works/streptatest/templates/_footer_menu.html",
+		"/home/grigl/Works/streptatest/templates/_header_menu.html",
+		"/home/grigl/Works/streptatest/apps/siteblocks/models.py",
+		"/home/grigl/Works/streptatest/fixtures/site_menu.yaml",
+		"/home/grigl/Works/streptatest/apps/places/admin.py",
+		"/home/grigl/Works/streptatest/config/base.py",
+		"/home/grigl/Works/streptatest/apps/siteblocks/templatetags/siteblocks_extras.py",
+		"/home/grigl/Works/streptatest/apps/messages/models.py",
+		"/home/grigl/Works/streptatest/templates/siteblocks/block_menu.html",
+		"/home/grigl/Works/streptatest/settings.py",
+		"/home/grigl/Works/streptatest/apps/siteblocks/admin.py",
+		"/home/grigl/.config/sublime-text-2/Packages/PlainTasks/Default (Linux).sublime-keymap",
+		"/home/grigl/Works/streptatest/TODO",
+		"/home/grigl/Works/streptatest/apps/publications/admin.py",
+		"/home/grigl/Works/streptatest/apps/places/models.py",
+		"/home/grigl/Works/streptatest/maps_example",
+		"/home/grigl/Works/streptatest/apps/messages/admin.py",
+		"/home/grigl/Works/streptatest/apps/messages/views.py",
+		"/home/grigl/Works/streptatest/apps/products/models.py",
+		"/home/grigl/Works/streptatest/apps/publications/models.py",
+		"/home/grigl/Works/streptatest/apps/newsboard/admin.py",
+		"/home/grigl/.virtualenvs/streptatest/lib/python2.7/site-packages/django/views/generic/edit.py",
+		"/home/grigl/Works/streptatest/apps/reviews/templates/_review_items.html",
+		"/home/grigl/Works/streptatest/apps/reviews/templates/_new_review_form.html",
+		"/home/grigl/Works/streptatest/static/js/script.js",
+		"/home/grigl/Works/streptatest/apps/reviews/templates/review_list.html",
+		"/home/grigl/Works/streptatest/urls.py",
+		"/home/grigl/Works/streptatest/apps/reviews/views.py",
+		"/home/grigl/Works/streptatest/apps/clinics/models.py",
+		"/home/grigl/Works/streptatest/apps/inheritanceUser/views.py",
+		"/home/grigl/Works/streptatest/dump.yaml",
+		"/home/grigl/Works/streptatest/fixtures/initial_data.yaml",
+		"/home/grigl/Works/streptatest/apps/products/views.py",
+		"/home/grigl/Works/streptatest/apps/products/admin.py",
+		"/home/grigl/Works/streptatest/apps/orders/models.py",
+		"/home/grigl/Works/streptatest/apps/orders/views.py",
+		"/home/grigl/Works/streptatest/apps/orders/admin.py",
+		"/home/grigl/Works/streptatest/apps/orders/templates/order.html",
+		"/home/grigl/Works/streptatest/apps/urls.py",
+		"/home/grigl/Works/streptatest/apps/reviews/templates/_form_success.html",
+		"/home/grigl/.virtualenvs/streptatest/lib/python2.7/site-packages/django/views/generic/date_based.py",
+		"/home/grigl/Works/streptatest/static/css/style.css",
+		"/home/grigl/Works/streptatest/apps/reviews/templates/review_items.html",
+		"/home/grigl/Works/streptatest/apps/clinics/admin.py",
+		"/home/grigl/Works/streptatest/apps/reviews/templates/new_review_form.html",
+		"/home/grigl/Works/streptatest/apps/capabilities/templates/capability_list.html",
+		"/home/grigl/Works/streptatest/apps/capabilities/views.py",
+		"/home/grigl/Works/streptatest/apps/capabilities/admin.py",
+		"/home/grigl/Works/streptatest/apps/reviews/admin.py",
+		"/home/grigl/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/grigl/Works/streptatest/config/development.py",
+		"/home/grigl/Works/streptatest/apps/reviews/templates/review_index.html",
+		"/home/grigl/Works/streptatest/apps/reviews/templates/review_full_list.html",
+		"/home/grigl/Works/streptatest/clinics/admin.py",
+		"/home/grigl/Works/streptatest/clinics/models.py",
+		"/home/grigl/Works/streptatest/apps/reviews/review_list.html",
+		"/home/grigl/Works/streptatest/.gitignore",
+		"/home/grigl/Works/fastsite/requirements.txt",
+		"/home/grigl/Works/streptatest/apps/newsboard/models.py",
+		"/home/grigl/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/grigl/.virtualenvs/streptatest/local/lib/python2.7/site-packages/pymorphy/backends/shelve_source/sqlite_shelve.py",
+		"/home/grigl/Works/streptatest/install.txt",
+		"/home/grigl/Works/fastsite/settings.py",
+		"/home/grigl/Works/fastsite/config/base.py",
+		"/home/grigl/Works/fastsite/config/development.py",
+		"/home/grigl/.config/fontconfig/fonts.conf",
+		"/home/grigl/.fonts.conf",
+		"/home/grigl/.config/fontconfig/.fonts.conf",
+		"/home/grigl/Works/fastsite/install.txt",
+		"/home/grigl/.bashrc",
+		"/home/grigl/.bash_profile"
+	],
+	"find":
+	{
+		"height": 37.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"reviews_carousel",
+			"curr",
+			":",
+			"новостей",
+			"settings",
+			"model",
+			"settings",
+			"())",
+			"FormVi",
+			"Form",
+			"get_context_data",
+			"TemplateView"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/grigl/Works/streptatest/urls.py",
+					"settings":
+					{
+						"buffer_size": 2644,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "templates/review_index.html",
+					"settings":
+					{
+						"buffer_size": 8906,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 234.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "views.py",
+					"settings":
+					{
+						"buffer_size": 3188,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								611,
+								611
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/grigl/Works/streptatest/templates/base.html",
+					"settings":
+					{
+						"buffer_size": 1016,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/grigl/Works/streptatest/templates/index.html",
+					"settings":
+					{
+						"buffer_size": 6705,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1332.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/grigl/Works/streptatest/fixtures/settings.yaml",
+					"settings":
+					{
+						"buffer_size": 1904,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/grigl/Works/streptatest/media/css/style.css",
+					"settings":
+					{
+						"buffer_size": 28235,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 8434.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/home/grigl/Works/streptatest/fixtures/reviews.yaml",
+					"settings":
+					{
+						"buffer_size": 6597,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/home/grigl/Works/streptatest/media/js/script.js",
+					"settings":
+					{
+						"buffer_size": 2630,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								849,
+								849
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 36.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 246.0,
+	"status_bar_visible": true
+}
