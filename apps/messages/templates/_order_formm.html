@@ -34,47 +34,14 @@
             {% endif %}
         {% endif %}
     </div>
-        {% if form.product.value %}
-            {% if form.product.value == product_with_20_tests.id|slugify %}
-                <div class="box_carousel_zl">
-                    <ul>
-                        <li class="5-image-box" style="display:none;"><img class="box_carousel_zl_img" src="/media/img/box_slide_zl_5.png" alt="" /></li>
-                        <li class="20-image-box"><img class="box_carousel_zl_img" src="/media/img/box_slide_zl_20.png" alt="" /></li>
-                    </ul>
-                    <a href="javascript:void(0)" class="carousel_l 5-link-c"></a>
-                    <a href="javascript:void(0)" class="carousel_r 5-link-c"></a>
-                </div><!--/box_carousel_zl-->
-            {% else %}
-                <div class="box_carousel_zl">
-                    <ul>
-                        <li class="5-image-box"><img class="box_carousel_zl_img" src="/media/img/box_slide_zl_5.png" alt="" /></li>
-                        <li class="20-image-box" style="display:none;"><img class="box_carousel_zl_img" src="/media/img/box_slide_zl_20.png" alt="" /></li>
-                    </ul>
-                    <a href="javascript:void(0)" class="carousel_l 20-link-c"></a>
-                    <a href="javascript:void(0)" class="carousel_r 20-link-c"></a>
-                </div><!--/box_carousel_zl-->
-            {% endif %}
-        {% else %}
-            {% if chosed_product == product_with_20_tests.id|slugify %}
-                <div class="box_carousel_zl">
-                    <ul>
-                        <li class="5-image-box" style="display:none;"><img class="box_carousel_zl_img" src="/media/img/box_slide_zl_5.png" alt="" /></li>
-                        <li class="20-image-box"><img class="box_carousel_zl_img" src="/media/img/box_slide_zl_20.png" alt="" /></li>
-                    </ul>
-                    <a href="javascript:void(0)" class="carousel_l 5-link-c"></a>
-                    <a href="javascript:void(0)" class="carousel_r 5-link-c"></a>
-                </div><!--/box_carousel_zl-->
-            {% else %}
-                <div class="box_carousel_zl">
-                    <ul>
-                        <li class="5-image-box"><img class="box_carousel_zl_img" src="/media/img/box_slide_zl_5.png" alt="" /></li>
-                        <li class="20-image-box" style="display:none;"><img class="box_carousel_zl_img" src="/media/img/box_slide_zl_20.png" alt="" /></li>
-                    </ul>
-                    <a href="javascript:void(0)" class="carousel_l 20-link-c"></a>
-                    <a href="javascript:void(0)" class="carousel_r 20-link-c"></a>
-                </div><!--/box_carousel_zl-->
-            {% endif %}
-        {% endif %}
+        <div class="box_carousel_zl">
+            <ul>
+                <li><img class="box_carousel_zl_img" src="/media/img/box_slide_zl_5.png" alt="" /></li>
+                <li style="display:none;"><img class="box_carousel_zl_img" src="/media/img/box_slide_zl_20.png" alt="" /></li>
+            </ul>
+            <a href="javascript:void(0)" class="carousel_l"></a>
+            <a href="javascript:void(0)" class="carousel_r carousel_r_disabled"></a>
+        </div><!--/box_carousel_zl-->
 </div><!--/buy_step-->
 
 <div class="buy_step">
@@ -111,35 +78,19 @@
         <div class="buy_calc_sum col">
             {% if form.product.value %}
                 {% if form.product.value == product_with_20_tests.id|slugify %}
-                    <strong class="20_elem">
-                        <span class="sum">{{ current_total_20|floatformat }}</span> руб.
-                    </strong>
-                    <strong class="5_elem" style="display:none;">
-                        <span class="sum">{{ current_total_5|floatformat }}</span> руб.
-                    </strong>
+                    <strong class="20_elem"><span>{{ product_with_20_tests.price|floatformat }}</span> руб.</strong>
+                    <strong class="5_elem" style="display:none;"><span>{{ product_with_5_tests.price|floatformat }}</span> руб.</strong>
                 {% else %}
-                    <strong class="5_elem">
-                        <span class="sum">{{ current_total_5|floatformat }}</span> руб.
-                    </strong>
-                    <strong class="20_elem" style="display:none;">
-                        <span class="sum">{{ current_total_20|floatformat }}</span> руб.
-                    </strong>
+                    <strong class="5_elem"><span>{{ product_with_5_tests.price|floatformat }}</span> руб.</strong>
+                    <strong class="20_elem" style="display:none;"><span>{{ product_with_20_tests.price|floatformat }}</span> руб.</strong>
                 {% endif %}
             {% else %}
                 {% if chosed_product == product_with_20_tests.id|slugify %}
-                    <strong class="20_elem">
-                        <span class="sum">{{ current_total_20|floatformat }}</span> руб.
-                    </strong>
-                    <strong class="5_elem" style="display:none;">
-                        <span class="sum">{{ current_total_5|floatformat }}</span> руб.
-                    </strong>
+                    <strong class="20_elem"><span>{{ product_with_20_tests.price|floatformat }}</span> руб.</strong>
+                    <strong class="5_elem" style="display:none;"><span>{{ product_with_5_tests.price|floatformat }}</span> руб.</strong>
                 {% else %}
-                    <strong class="5_elem">
-                        <span class="sum">{{ current_total_5|floatformat }}</span> руб.
-                    </strong>
-                    <strong class="20_elem" style="display:none;">
-                        <span class="sum">{{ current_total_20|floatformat }}</span> руб.
-                    </strong>
+                    <strong class="5_elem"><span>{{ product_with_5_tests.price|floatformat }}</span> руб.</strong>
+                    <strong class="20_elem" style="display:none;"><span>{{ product_with_20_tests.price|floatformat }}</span> руб.</strong>
                 {% endif %}
             {% endif %}
             <em>итоговая стоимость</em>
@@ -151,6 +102,9 @@
 <div class="buy_step">
     <div class="buy_step_num">3.</div>
     <h2 class="buy_step_h">Оплата и адрес доставки</h2>
+    <form class="buy_form" method="post" action="{% url order_url %}">
+        {% csrf_token %}
+        {{ form.errors }}
         <div class="form_line">
             <label>ФИО:</label>
             <input class="inpt" type="text" name="initials" value="{{ form.initials.value|default_if_none:"" }}" />
@@ -235,4 +189,5 @@
         </div>
         
         <div class="btn_zs"><div class="btn_zs_in"><input type="submit" value="Оформить заказ" /></div></div>
+    </form><!--/buy_form-->
 </div><!--/buy_step-->

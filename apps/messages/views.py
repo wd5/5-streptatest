@@ -33,11 +33,20 @@ class OrderFormView(FormView):
         except:
             context['chosed_product'] = None
 
+        try:
+            current_quantity = self.get_form_kwargs()['data']['product_quantity']      
+        except:
+            current_quantity = 1
+
         context['city_list'] = City.objects.all()
         context['drugtest'] = City.objects.all()[0].drugstore_set
         context['drugstore_count'] = Drugstore.objects.all().count
-        context['product_with_5_tests'] = Product.objects.filter(test_items_quantity=5)[0]
-        context['product_with_20_tests'] = Product.objects.filter(test_items_quantity=20)[0]
+        product_with_5_tests = Product.objects.filter(test_items_quantity=5)[0]
+        product_with_20_tests = Product.objects.filter(test_items_quantity=20)[0]
+        context['product_with_5_tests'] = product_with_5_tests
+        context['product_with_20_tests'] = product_with_20_tests
+        context['current_total_5'] = product_with_5_tests.price*int(current_quantity)
+        context['current_total_20'] = product_with_20_tests.price*int(current_quantity)
         return context
 
     def form_valid(self, form):

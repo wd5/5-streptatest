@@ -493,6 +493,19 @@ h3 {
 	height: 78px;
 	top: 36px;
 }
+.carousel_l, .carousel_r {
+	background: url('../img/carousel_lr.png') no-repeat;
+	position: absolute;
+	width: 78px;
+	height: 78px;
+	top: 36px;
+}
+.carousel_l {
+	background-position: 0 0px;
+}
+.carousel_r {
+	background-position: -88px 0px;
+}
 .bx-prev:active, .bx-next:active {
 	top: 38px;
 }

@@ -95,23 +95,46 @@ var DrugstoresMapChange = function(){
     })
 }
 
-var OrderSwitchProduct = function(){
-    $('.5_link').on('click', function(){
+var OrderSwitchProduct = {
+    bindLinks: function(){
+        $('.5_link').on('click', function(){
+            OrderSwitchProduct.show5();
+        });
+        $('.20_link').on('click', function(){
+            OrderSwitchProduct.show20();
+        });
+        $('.carousel_l, .carousel_r').on('click', function(){
+            if ($(this).hasClass('5-link-c')) {
+                OrderSwitchProduct.show5();
+            } else {
+                OrderSwitchProduct.show20();
+            };
+        });
+    },
+    show5: function(){
         $('.20_link').removeClass('curr');
         $('.5_link').addClass('curr');
         $('.20_input').attr('checked', false);
         $('.5_input').attr('checked', true);
         $('.20_elem').hide();
         $('.5_elem').show();
-    });
-    $('.20_link').on('click', function(){
+        $('.20-image-box').hide();
+        $('.5-image-box').show();
+        $('.carousel_l, .carousel_r').removeClass('5-link-c');
+        $('.carousel_l, .carousel_r').addClass('20-link-c');
+    },
+    show20: function(){
         $('.5_link').removeClass('curr');
         $('.20_link').addClass('curr');
         $('.5_input').attr('checked', false);
         $('.20_input').attr('checked', true);
         $('.5_elem').hide();
         $('.20_elem').show();
-    });
+        $('.5-image-box').hide();
+        $('.20-image-box').show();
+        $('.carousel_l, .carousel_r').removeClass('20-link-c');
+        $('.carousel_l, .carousel_r').addClass('5-link-c'); 
+    }
 }
 
 var OrderForm = function(){ 
@@ -138,6 +161,40 @@ var OrderForm = function(){
             $(this).addClass('mail_checked');
         };
     });
+    $('.buy_calc_qty_plus').on('click', function(){
+        if ($('.buy_calc_sum strong:not(:hidden)').hasClass('20_elem')){
+            var currentSumBox = $('.buy_calc_sum .20_elem .sum');
+            currentQntBox = $('.buy_calc_qty .inpt');
+            var currentPrice = $('.buy_calc_price .20_elem').text();
+        } else {
+            var currentSumBox = $('.buy_calc_sum .5_elem .sum');
+            currentQntBox = $('.buy_calc_qty .inpt');
+            var currentPrice = $('.buy_calc_price .5_elem').text();
+        }
+        var currentPrice = parseInt(currentPrice);
+        var currentQnt = parseInt(currentQntBox.attr('value'));
+        var newQnt = currentQnt+1;
+        var newSum = newQnt*currentPrice;
+        currentQntBox.attr('value',newQnt);
+        currentSumBox.html(newSum);
+    });
+    $('.buy_calc_qty_minus').on('click', function(){
+        if ($('.buy_calc_sum strong:not(:hidden)').hasClass('20_elem')){
+            var currentSumBox = $('.buy_calc_sum .20_elem .sum');
+            currentQntBox = $('.buy_calc_qty .inpt');
+            var currentPrice = $('.buy_calc_price .20_elem').text();
+        } else {
+            var currentSumBox = $('.buy_calc_sum .5_elem .sum');
+            currentQntBox = $('.buy_calc_qty .inpt');
+            var currentPrice = $('.buy_calc_price .5_elem').text();
+        }
+        var currentPrice = parseInt(currentPrice);
+        var currentQnt = parseInt(currentQntBox.attr('value'));
+        var newQnt = currentQnt-1;
+        var newSum = newQnt*currentPrice;
+        currentQntBox.attr('value',newQnt);
+        currentSumBox.html(newSum);
+    });
 }
 
 var AsideOrderLink = {
@@ -146,6 +203,8 @@ var AsideOrderLink = {
         $('.20-link-a').removeClass('curr');
         $('.20-box-a').hide();
         $('.5-box-a').show();
+        $('.carousel_zs_l, .carousel_zs_r').removeClass('5-link-c');
+        $('.carousel_zs_l, .carousel_zs_r').addClass('20-link-c');
         var oldUrl = $('.btn_zs_in a').attr('href');
         $('.btn_zs_in a').attr('href', oldUrl.replace('?chosed_product=2',''));
     },
@@ -153,7 +212,9 @@ var AsideOrderLink = {
         $('.20-link-a').addClass('curr');
         $('.5-link-a').removeClass('curr');
         $('.5-box-a').hide();
-        $('.20-box-a').show();             
+        $('.20-box-a').show();
+        $('.carousel_zs_l, .carousel_zs_r').removeClass('20-link-c');
+        $('.carousel_zs_l, .carousel_zs_r').addClass('5-link-c');             
         var oldUrl = $('.btn_zs_in a').attr('href');
         $('.btn_zs_in a').attr('href', oldUrl+'?chosed_product=2');
     },
@@ -166,12 +227,8 @@ var AsideOrderLink = {
         });
         $('.carousel_zs_l, .carousel_zs_r').on('click', function(){
             if ($(this).hasClass('5-link-c')) {
-                $('.carousel_zs_l, .carousel_zs_r').removeClass('5-link-c');
-                $('.carousel_zs_l, .carousel_zs_r').addClass('20-link-c');
                 AsideOrderLink.show5();
             } else {
-                $('.carousel_zs_l, .carousel_zs_r').removeClass('20-link-c');
-                $('.carousel_zs_l, .carousel_zs_r').addClass('5-link-c');
                 AsideOrderLink.show20();
             };
         });
@@ -185,7 +242,7 @@ $(function(){
     ShowFullReview();
     HideFullReview();
     // DrugstoresMapChange();
-    OrderSwitchProduct();
+    OrderSwitchProduct.bindLinks();
     OrderForm();
     AsideOrderLink.bindLinks();
 });
