@@ -112,6 +112,9 @@ var OrderSwitchProduct = function(){
         $('.5_elem').hide();
         $('.20_elem').show();
     });
+}
+
+var OrderForm = function(){ 
     $('.cash_radio').on('click', function(){
         $('.credit_radio').removeClass('buy_form_option_checked');
         $('.cash_radio').addClass('buy_form_option_checked');
@@ -137,6 +140,23 @@ var OrderSwitchProduct = function(){
     });
 }
 
+var AsideOrderLink = function(){
+    $('.5-link-a').on('click', function(){
+        $(this).addClass('curr');
+        $('.20-link-a').removeClass('curr');
+        $('.5-box-a').show();
+        $('.20-box-a').hide();
+    });
+    $('.20-link-a').on('click', function(){
+        $(this).addClass('curr');
+        $('.5-link-a').removeClass('curr');
+        $('.20-box-a').show();
+        $('.5-box-a').hide();
+        var oldUrl = $('.btn_zs_in a').attr('href');
+        $('.btn_zs_in a').attr('href', oldUrl+'?chosed_product=2')
+    });
+}
+
 $(function(){
     SwitchSlider();
     IndexPageSliders.doctorsCarousel();
@@ -145,4 +165,6 @@ $(function(){
     HideFullReview();
     // DrugstoresMapChange();
     OrderSwitchProduct();
+    OrderForm();
+    AsideOrderLink();
 });
