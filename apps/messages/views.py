@@ -1,9 +1,10 @@
-from django.views.generic import FormView
+from django.views.generic import FormView, TemplateView
 from django import forms
 from django.http import HttpResponse
 from django.forms.widgets import RadioSelect
 
 from apps.products.models import Product
+from django.shortcuts import redirect
 from apps.places.models import City, Drugstore
 from models import Order
 
@@ -17,6 +18,7 @@ class OrderForm(forms.ModelForm):
 
 class OrderFormView(FormView):
     template_name = 'order.html'
+    success_url = '/thanks/'
     form_class = OrderForm
 
     def get_params(self, request, **kwargs):
@@ -40,5 +42,9 @@ class OrderFormView(FormView):
 
     def form_valid(self, form):
         Order.objects.create(**form.cleaned_data)
-        response = 'success!'
-        return HttpResponse(response)
+        return redirect(self.get_success_url())
+
+class OrderThanksView(TemplateView):
+    template_name = 'success.html'
+
+        
