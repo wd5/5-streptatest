@@ -140,21 +140,42 @@ var OrderForm = function(){
     });
 }
 
-var AsideOrderLink = function(){
-    $('.5-link-a').on('click', function(){
-        $(this).addClass('curr');
+var AsideOrderLink = {
+    show5: function(){
+        $('.5-link-a').addClass('curr');
         $('.20-link-a').removeClass('curr');
-        $('.5-box-a').show();
         $('.20-box-a').hide();
-    });
-    $('.20-link-a').on('click', function(){
-        $(this).addClass('curr');
-        $('.5-link-a').removeClass('curr');
-        $('.20-box-a').show();
-        $('.5-box-a').hide();
+        $('.5-box-a').show();
         var oldUrl = $('.btn_zs_in a').attr('href');
-        $('.btn_zs_in a').attr('href', oldUrl+'?chosed_product=2')
-    });
+        $('.btn_zs_in a').attr('href', oldUrl.replace('?chosed_product=2',''));
+    },
+    show20: function(){
+        $('.20-link-a').addClass('curr');
+        $('.5-link-a').removeClass('curr');
+        $('.5-box-a').hide();
+        $('.20-box-a').show();             
+        var oldUrl = $('.btn_zs_in a').attr('href');
+        $('.btn_zs_in a').attr('href', oldUrl+'?chosed_product=2');
+    },
+    bindLinks: function(){
+        $('.5-link-a').on('click', function(){
+            AsideOrderLink.show5();
+        });
+        $('.20-link-a').on('click', function(){
+            AsideOrderLink.show20();
+        });
+        $('.carousel_zs_l, .carousel_zs_r').on('click', function(){
+            if ($(this).hasClass('5-link-c')) {
+                $('.carousel_zs_l, .carousel_zs_r').removeClass('5-link-c');
+                $('.carousel_zs_l, .carousel_zs_r').addClass('20-link-c');
+                AsideOrderLink.show5();
+            } else {
+                $('.carousel_zs_l, .carousel_zs_r').removeClass('20-link-c');
+                $('.carousel_zs_l, .carousel_zs_r').addClass('5-link-c');
+                AsideOrderLink.show20();
+            };
+        });
+    },
 }
 
 $(function(){
@@ -166,5 +187,5 @@ $(function(){
     // DrugstoresMapChange();
     OrderSwitchProduct();
     OrderForm();
-    AsideOrderLink();
+    AsideOrderLink.bindLinks();
 });
