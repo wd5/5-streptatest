@@ -235,6 +235,14 @@ var AsideOrderLink = {
     },
 }
 
+var ShowOutReviewFull = function(){
+    $('.review_out .show_review_out_full').on('click', function(){
+        var targetReview = $(this).parents('.review_out .review').attr('data-target');
+        $('.review_out_full[data-review='+targetReview+']').show();
+        $(this).parents('.review_out').hide();
+    });
+}
+
 $(function(){
     SwitchSlider();
     IndexPageSliders.doctorsCarousel();
@@ -245,4 +253,5 @@ $(function(){
     OrderSwitchProduct.bindLinks();
     OrderForm();
     AsideOrderLink.bindLinks();
+    ShowOutReviewFull();
 });

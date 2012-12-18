@@ -200,4 +200,83 @@
           asdfasdf
           fsdfbsd
           sdfb
-          sdfbsbdfb               
+          sdfbsbdfb
+
+# publications
+- model: publications.publication
+  pk: 1
+  fields:
+    title: mnbvnmvbnm
+    where_published: «Вестник медицины» №4 (142)
+    text: bnmvbnm
+          asdfasdfasdfsa
+          dfasdfasdfasdf
+          asdfasdf
+          fsdfbsd
+          sdfb
+          sdfbsbdfb
+
+- model: publications.publication
+  pk: 2
+  fields:
+    title: mnbvnmvbnm
+    where_published: «Вестник медицины» №4 (142)
+    text: bnmvbnm
+          asdfasdfasdfsa
+          dfasdfasdfasdf
+          asdfasdf
+          fsdfbsd
+          sdfb
+          sdfbsbdfb
+
+- model: publications.publication
+  pk: 3
+  fields:
+    title: mnbvnmvbnm
+    where_published: «Вестник медицины» №4 (142)
+    text: bnmvbnm
+          asdfasdfasdfsa
+          dfasdfasdfasdf
+          asdfasdf
+          fsdfbsd
+          sdfb
+          sdfbsbdfb
+
+- model: publications.publication
+  pk: 4
+  fields:
+    title: mnbvnmvbnm
+    where_published: «Вестник медицины» №4 (142)
+    text: bnmvbnm
+          asdfasdfasdfsa
+          dfasdfasdfasdf
+          asdfasdf
+          fsdfbsd
+          sdfb
+          sdfbsbdfb
+
+- model: publications.publication
+  pk: 5
+  fields:
+    title: mnbvnmvbnm
+    where_published: «Вестник медицины» №4 (142)
+    text: bnmvbnm
+          asdfasdfasdfsa
+          dfasdfasdfasdf
+          asdfasdf
+          fsdfbsd
+          sdfb
+          sdfbsbdfb
+
+- model: publications.publication
+  pk: 6
+  fields:
+    title: mnbvnmvbnm
+    where_published: «Вестник медицины» №4 (142)
+    text: bnmvbnm
+          asdfasdfasdfsa
+          dfasdfasdfasdf
+          asdfasdf
+          fsdfbsd
+          sdfb
+          sdfbsbdfb

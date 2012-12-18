@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView, ListView
 
-from models import NewsCategory, News, Article
+from models import NewsCategory, News, Article, Publication
 
 class NewsListView(ListView):
 	template_name = 'news_list.html'
@@ -78,3 +78,6 @@ class NewsView(TemplateView):
 			context['article'] = None
 
 		return context
+
+class PublicationListView(TemplateView):
+	template_name = 'publication_list.html'

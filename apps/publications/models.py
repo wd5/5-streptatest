@@ -32,6 +32,7 @@ class Publication(models.Model):
     updated_at = models.DateTimeField(
         verbose_name = u'дата изменения',
         auto_now = True,
+        default = datetime.now(),
     )
 
     class Meta:

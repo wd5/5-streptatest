@@ -7,6 +7,8 @@ from django.utils import simplejson
 from django.views.generic import TemplateView, FormView
 from django.forms import ModelForm
 
+from apps.publications.models import Publication
+from apps.places.models import Clinic
 from apps.reviews.models import Review
 from apps.siteblocks.models import Settings
 
@@ -32,9 +34,13 @@ class ReviewIndexView(BaseReviewView):
         context = super(ReviewIndexView, self).get_context_data(**kwargs)
         review_list = Review.objects.filter(is_published=True)
         context['doctors_review_list'] = review_list.filter(reviewer_type='doctor')[:3]
-        context['doctors_reviews_count'] = review_list.filter(reviewer_type='doctor').count
+        context['doctors_reviews_count'] = review_list.filter(reviewer_type='doctor').count()-3
         context['patients_review_list'] = review_list.filter(reviewer_type='patient')[:3]
-        context['patients_reviews_count'] = review_list.filter(reviewer_type='patient').count
+        context['patients_reviews_count'] = review_list.filter(reviewer_type='patient').count()-3
+        context['clinic_list'] = Clinic.objects.all()
+        context['clinics_count'] = Clinic.objects.all().count()
+        context['last_publications'] = Publication.objects.all()[:2]
+        context['publications_count'] = Publication.objects.all().count()-2
         context['top_text'] = Settings.objects.get(name='reviews_top_text').value
         return context
 

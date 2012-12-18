@@ -159,12 +159,12 @@
         <div class="form_line">
             <label>E-mail:</label>
             <input class="inpt" type="text" name="email" value="{{ form.email.value|default_if_none:"" }}" />
-            {% if form.allow_mailings.value %}
-                <div class="mail_checkbox mail_checked">Получать информационную рассылку на этот e-mail</div>
-                <input style="display:none;" class="inpt mail_inpt" type="checkbox" name="allow_mailings" checked="checked"/>
-            {% else %}
+            {% if form.allow_mailings.value == False %}
                 <div class="mail_checkbox">Получать информационную рассылку на этот e-mail</div>
-                <input style="display:none;" class="inpt mail_inpt" type="checkbox" name="allow_mailings" />
+                <input style="display:none;" class="inpt mail_inpt" type="checkbox" name="allow_mailings"/>
+            {% else %}
+                <div class="mail_checkbox mail_checked">Получать информационную рассылку на этот e-mail</div>
+                <input style="display:none;" class="inpt mail_inpt" type="checkbox" name="allow_mailings" checked="checked/>
             {% endif %}
         </div>
         
