@@ -4,6 +4,46 @@
 		"selected_items":
 		[
 			[
+				"win",
+				"windowHeight"
+			],
+			[
+				"e",
+				"except"
+			],
+			[
+				"A",
+				"ArticleListView"
+			],
+			[
+				"new",
+				"news_list"
+			],
+			[
+				"New",
+				"NewsCategory"
+			],
+			[
+				"N",
+				"NewsListView"
+			],
+			[
+				"P",
+				"PatientsView"
+			],
+			[
+				"get",
+				"get_context_data"
+			],
+			[
+				"In",
+				"InstructionsView"
+			],
+			[
+				"city",
+				"city_list"
+			],
+			[
 				"ba",
 				"background-color"
 			],
@@ -24,42 +64,34 @@
 	"buffers":
 	[
 		{
-			"file": "templates/base.html",
-			"settings":
-			{
-				"buffer_size": 1016,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "urls.py",
 			"settings":
 			{
-				"buffer_size": 1896,
+				"buffer_size": 2820,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "apps/reviews/views.py",
+			"file": "apps/publications/views.py",
 			"settings":
 			{
-				"buffer_size": 3188,
+				"buffer_size": 2030,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "config/base.py",
+			"file": "templates/pages/instructions.html",
 			"settings":
 			{
-				"buffer_size": 2809,
+				"buffer_size": 3979,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "fixtures/reviews.yaml",
+			"file": "vrstk/article.html",
 			"settings":
 			{
-				"buffer_size": 6597,
+				"buffer_size": 7140,
 				"line_ending": "Unix"
 			}
 		},
@@ -67,23 +99,39 @@
 			"file": "media/css/style.css",
 			"settings":
 			{
-				"buffer_size": 28235,
+				"buffer_size": 28909,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "vrstk/buy.html",
+			"file": "media/js/script.js",
 			"settings":
 			{
-				"buffer_size": 6494,
+				"buffer_size": 11119,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "apps/messages/views.py",
+			"file": "apps/reviews/templates/review_index.html",
 			"settings":
 			{
-				"buffer_size": 612,
+				"buffer_size": 9070,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/base.html",
+			"settings":
+			{
+				"buffer_size": 1307,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/_header.html",
+			"settings":
+			{
+				"buffer_size": 886,
 				"line_ending": "Unix"
 			}
 		},
@@ -91,42 +139,7 @@
 			"file": "apps/messages/templates/order.html",
 			"settings":
 			{
-				"buffer_size": 1517,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "<div class=\"buy_step\">\n    <div class=\"buy_step_num\">1.</div>\n    <h2 class=\"buy_step_h\">Тип упаковки</h2>\n    \n    <div class=\"box_carousel_zl_menu\">\n        <a href=\"#\" class=\"curr\">5 тестов</a> или <a href=\"#\">20 тестов</a> в упаковке</div>\n    <div class=\"box_carousel_zl\">\n        <ul>\n            <li><img class=\"box_carousel_zl_img\" src=\"/media/img/box_slide_zl_20.png\" alt=\"\" /></li>\n            <li style=\"display:none;\"><img class=\"box_carousel_zl_img\" src=\"/media/img/box_slide_zl_5.png\" alt=\"\" /></li>\n        </ul>\n        <a href=\"#\" class=\"carousel_l\"></a>\n        <a href=\"#\" class=\"carousel_r carousel_r_disabled\"></a>\n    </div><!--/box_carousel_zl-->\n</div><!--/buy_step-->\n\n<div class=\"buy_step\">\n    <div class=\"buy_step_num\">2.</div>\n    <h2 class=\"buy_step_h\">Цена и количество</h2>\n    <div class=\"buy_calc\">\n        <div class=\"buy_calc_price col\">\n            <strong>1 500 руб. </strong>\n            <strong>1 500 руб. </strong>\n            <em>цена за упаковку</em>\n        </div>\n        <div class=\"math col\">X</div>\n        <div class=\"buy_calc_qty col\">\n            <input class=\"inpt\" type=\"text\" value=\"1\" />\n            <div class=\"buy_calc_qty_plus\"></div>\n            <div class=\"buy_calc_qty_minus\"></div>\n        </div>\n        <div class=\"math col\">=</div>\n        <div class=\"buy_calc_sum col\">\n            <strong><span>3 000</span> руб.</strong>\n            <em>итоговая стоимость</em>\n        </div>\n    </div><!--/buy_calc-->\n</div><!--/buy_step-->\n\n\n<div class=\"buy_step\">\n    <div class=\"buy_step_num\">3.</div>\n    <h2 class=\"buy_step_h\">Оплата и адрес доставки</h2>\n    <form class=\"buy_form\" method=\"post\" action=\"\">\n        <div class=\"form_line\">\n            <label>ФИО:</label>\n            <input class=\"inpt\" type=\"text\" />\n        </div>\n        \n        <div class=\"form_line\">\n            <label>E-mail:</label>\n            <input class=\"inpt\" type=\"text\" />\n            <div class=\"mail_checkbox mail_checked\">Получать информационную рассылку на этот e-mail</div>\n        </div>\n        \n        <div class=\"form_line\">\n            <label>Город:</label>\n            <input class=\"inpt\" type=\"text\" />\n        </div>\n        \n        <div class=\"form_line\">\n            <label>Адрес доставки:</label>\n            <input class=\"inpt\" type=\"text\" />\n        </div>\n        \n        <div class=\"form_line\">\n            <label>Телефон:</label>\n            <strong class=\"inpt_tel_label\">+7</strong> <input class=\"inpt inpt_tel\" type=\"text\" />\n        </div>\n        \n        <div class=\"form_line\">\n            <label>Оплата:</label>\n            <div class=\"buy_form_options col\">\n                <div class=\"buy_form_option buy_form_option_checked\">\n                    <div class=\"buy_form_option_label\">наличными</div>\n                    <div class=\"buy_form_option_cash col\">с какой суммы готовить сдачу</div>\n                    <input class=\"inpt inpt_cash\" type=\"text\" name=\"\" value=\"\" /> <strong class=\"r\">руб.</strong>\n                </div>\n                <div class=\"buy_form_option\">\n                    <div class=\"buy_form_option_label\">картой</div>\n                    <div>куръер захватит терминал</div>\n                </div>\n            </div>\n        </div>\n        \n        <div class=\"btn_zs\"><div class=\"btn_zs_in\"><input type=\"submit\" value=\"Оформить заказ\" /></div></div>\n    </form><!--/buy_form-->\n</div><!--/buy_step-->",
-			"file": "apps/messages/templates/_order_form.html",
-			"file_size": 3648,
-			"file_write_time": 1355322483000000,
-			"settings":
-			{
-				"buffer_size": 3400,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "apps/messages/models.py",
-			"settings":
-			{
-				"buffer_size": 8569,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "apps/products/models.py",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "settings.py",
-			"settings":
-			{
-				"buffer_size": 1024,
+				"buffer_size": 2146,
 				"line_ending": "Unix"
 			}
 		}
@@ -159,18 +172,59 @@
 	},
 	"file_history":
 	[
+		"/home/gleb/works/streptatest/apps/messages/templates/_drugstores_map.html",
+		"/home/gleb/works/streptatest/apps/publications/templates/article.html",
+		"/home/gleb/works/streptatest/apps/publications/templates/article_list.html",
+		"/home/gleb/works/streptatest/apps/publications/templates/news_item.html",
+		"/home/gleb/works/streptatest/apps/reviews/templates/review_index.html",
+		"/home/gleb/works/streptatest/apps/capabilities/templates/capability_list.html",
+		"/home/gleb/works/streptatest/apps/publications/models.py",
+		"/home/gleb/works/streptatest/apps/publications/templates/news_list.html",
+		"/home/gleb/works/streptatest/templates/shared/buy_box_aside.html",
+		"/home/gleb/works/streptatest/fixtures/publications.yaml",
+		"/home/gleb/works/streptatest/templates/pages/patients.html",
+		"/home/gleb/works/streptatest/templates/pages/partners.html",
+		"/home/gleb/works/streptatest/apps/views.py",
+		"/home/gleb/works/streptatest/fixtures/capabilities.yaml",
+		"/home/gleb/works/streptatest/apps/capabilities/models.py",
+		"/home/gleb/works/streptatest/apps/capabilities/views.py",
+		"/home/gleb/works/streptatest/apps/reviews/views.py",
+		"/home/gleb/works/streptatest/fixtures/settings.yaml",
+		"/home/gleb/works/streptatest/templates/base.html",
+		"/home/gleb/works/streptatest/media/js/script.js",
+		"/home/gleb/works/streptatest/templates/index.html",
 		"/home/gleb/works/streptatest/fixtures/products.yaml",
+		"/home/gleb/works/streptatest/settings.py",
+		"/home/gleb/works/streptatest/apps/messages/templates/_order_form.html",
+		"/home/gleb/works/streptatest/apps/messages/templates/order.html",
+		"/home/gleb/works/streptatest/apps/messages/views.py",
+		"/home/gleb/works/streptatest/vrstk/buy.html",
+		"/home/gleb/works/streptatest/media/css/style.css",
+		"/home/gleb/works/streptatest/urls.py",
+		"/home/gleb/works/streptatest/fixtures/places.yaml",
+		"/home/gleb/works/streptatest/apps/places/models.py",
+		"/home/gleb/works/streptatest/vrstk/capabilities.html",
+		"/home/gleb/works/streptatest/templates/pages/instructions.html",
+		"/home/gleb/works/streptatest/vrstk/instruction.html",
+		"/home/gleb/works/streptatest/apps/urls.py",
+		"/home/gleb/works/streptatest/fixtures/site_menu.yaml",
+		"/home/gleb/works/streptatest/views.py",
+		"/home/gleb/works/temp/streptatest/apps/messages/templates/order.html",
+		"/home/gleb/works/streptatest/apps/products/models.py",
+		"/home/gleb/works/streptatest/config/base.py",
+		"/home/gleb/works/streptatest/apps/messages/models.py",
+		"/home/gleb/works/streptatest/fixtures/reviews.yaml",
+		"/home/gleb/works/streptatest/fixtures/cities.yaml",
+		"/home/gleb/works/temp/streptatest/config/base.py",
+		"/home/gleb/works/temp/streptatest/apps/messages/models.py",
+		"/home/gleb/works/temp/streptatest/apps/messages/models.pyc",
 		"/home/gleb/works/streptatest/vrstk/reviews_modal.html",
 		"/home/gleb/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/home/gleb/works/streptatest/apps/reviews/templates/review_list.html",
-		"/home/gleb/works/streptatest/apps/reviews/templates/review_index.html",
-		"/home/gleb/works/streptatest/templates/index.html",
 		"/home/gleb/works/streptatest/templates/_header_menu.html",
 		"/home/gleb/works/streptatest/apps/siteblocks/templatetags/siteblocks_extras.py",
 		"/home/gleb/works/streptatest/vrstk/reviews_list.html",
-		"/home/gleb/works/streptatest/fixtures/site_menu.yaml",
 		"/home/gleb/works/streptatest/templates/_header.html",
-		"/home/gleb/works/streptatest/fixtures/settings.yaml",
 		"/usr/share/applications/sublime.desktop",
 		"/usr/share/applications/defaults.list",
 		"/home/gleb/.bashrc",
@@ -192,6 +246,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Drugs",
+			"blob_close",
+			"instr",
+			"review_blob",
+			"video",
 			"купи",
 			"купить",
 			"от"
@@ -203,7 +262,7 @@
 		"replace_history":
 		[
 		],
-		"reverse": false,
+		"reverse": true,
 		"show_context": true,
 		"use_buffer2": true,
 		"whole_word": false,
@@ -212,127 +271,15 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 8,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "templates/base.html",
-					"settings":
-					{
-						"buffer_size": 1016,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1016,
-								1016
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "urls.py",
 					"settings":
 					{
-						"buffer_size": 1896,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								975,
-								975
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "apps/reviews/views.py",
-					"settings":
-					{
-						"buffer_size": 3188,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1473,
-								1473
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 255.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "config/base.py",
-					"settings":
-					{
-						"buffer_size": 2809,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2192,
-								2192
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 816.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "fixtures/reviews.yaml",
-					"settings":
-					{
-						"buffer_size": 6597,
+						"buffer_size": 2820,
 						"regions":
 						{
 						},
@@ -345,8 +292,172 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/YAML/YAML.tmLanguage",
-							"tab_size": 2,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 51.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "apps/publications/views.py",
+					"settings":
+					{
+						"buffer_size": 2030,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 102.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "templates/pages/instructions.html",
+					"settings":
+					{
+						"buffer_size": 3979,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2382,
+								2382
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 765.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "vrstk/article.html",
+					"settings":
+					{
+						"buffer_size": 7140,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6492,
+								6492
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 425.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "media/css/style.css",
+					"settings":
+					{
+						"buffer_size": 28909,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14648,
+								14648
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 14957.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "media/js/script.js",
+					"settings":
+					{
+						"buffer_size": 11119,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3432,
+								3432
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1306.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "apps/reviews/templates/review_index.html",
+					"settings":
+					{
+						"buffer_size": 9070,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6619,
+								6619
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -356,78 +467,24 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "media/css/style.css",
+					"buffer": 7,
+					"file": "templates/base.html",
 					"settings":
 					{
-						"buffer_size": 28235,
+						"buffer_size": 1307,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11071,
-								11071
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 11254.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "vrstk/buy.html",
-					"settings":
-					{
-						"buffer_size": 6494,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5846,
-								5846
+								1307,
+								1307
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 357.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "apps/messages/views.py",
-					"settings":
-					{
-						"buffer_size": 612,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								232,
-								232
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -439,24 +496,25 @@
 				},
 				{
 					"buffer": 8,
-					"file": "apps/messages/templates/order.html",
+					"file": "templates/_header.html",
 					"settings":
 					{
-						"buffer_size": 1517,
+						"buffer_size": 886,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								477,
-								477
+								886,
+								706
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -466,112 +524,27 @@
 				},
 				{
 					"buffer": 9,
-					"file": "apps/messages/templates/_order_form.html",
+					"file": "apps/messages/templates/order.html",
 					"settings":
 					{
-						"buffer_size": 3400,
+						"buffer_size": 2146,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								184,
-								184
+								1981,
+								1981
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "apps/messages/models.py",
-					"settings":
-					{
-						"buffer_size": 8569,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1180,
-								1180
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 306.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "apps/products/models.py",
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "settings.py",
-					"settings":
-					{
-						"buffer_size": 1024,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								549,
-								549
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 510.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -581,7 +554,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 0.0
+		"height": 36.0
 	},
 	"input":
 	{
@@ -624,6 +597,66 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"amto",
+				"apps/messages/templates/order.html"
+			],
+			[
+				"t_h",
+				"templates/_header.html"
+			],
+			[
+				"tb",
+				"templates/base.html"
+			],
+			[
+				"artr",
+				"apps/reviews/templates/review_index.html"
+			],
+			[
+				"mjs",
+				"media/js/script.js"
+			],
+			[
+				"mcs",
+				"media/css/style.css"
+			],
+			[
+				"ti",
+				"templates/pages/instructions.html"
+			],
+			[
+				"arr",
+				"apps/reviews/templates/review_index.html"
+			],
+			[
+				"actc",
+				"apps/capabilities/templates/capability_list.html"
+			],
+			[
+				"apum",
+				"apps/publications/models.py"
+			],
+			[
+				"av",
+				"apps/views.py"
+			],
+			[
+				"acm",
+				"apps/capabilities/models.py"
+			],
+			[
+				"a/pm",
+				"apps/places/models.py"
+			],
+			[
+				"a/m/o",
+				"apps/messages/templates/order.html"
+			],
+			[
+				"a/p/m",
+				"apps/products/models.py"
+			],
 			[
 				"p/m",
 				"apps/products/models.py"
@@ -687,6 +720,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 235.0,
+	"side_bar_width": 282.0,
 	"status_bar_visible": true
 }

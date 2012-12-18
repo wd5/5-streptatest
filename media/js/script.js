@@ -84,15 +84,21 @@ var HideFullReview = function(){
     });
 }
 
-var DrugstoresMapChange = function(){
+var DrugstoresMap = function(){
+    var myMap = [];
+    function InitMap(id){     
+        myMap[id] = new ymaps.Map (id, {
+            center: [55.76, 37.64],
+            zoom: 7,
+        });
+    }
     $('.drugstore-map-link').on('click', function(){
-        var targetMap = $(this).attr('data-target-city');
-        $('.drugstore-map-link').parents('li.curr').removeClass('curr')
-        $('.drugstore-map.curr').hide();
-        $(this).parents('li').addClass('curr')
-        $('.drugstore-map[data-city='+targetMap+']').show();
-        fid_135478862065364205712_1()
-    })
+        var cityId = $(this).attr('data-target-city');
+        var targetId = 'map_'+cityId;
+        $('.map_container').hide();
+        $('#'+targetId).show();
+        InitMap(targetId);
+    });
 }
 
 var OrderSwitchProduct = {
@@ -197,6 +203,37 @@ var OrderForm = function(){
     });
 }
 
+var HeaderContact = function(){
+    modal = $('.contact_map_modal');
+    // ymaps.ready(initMap);
+    var myMap;
+    function InitMap(){     
+        myMap = new ymaps.Map ("contact_map", {
+            center: [55.76, 37.64],
+            zoom: 7,
+        });
+    }
+    var ShowContactModal = function(){
+        var scroll = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        var height = modal.find('#contact_map').height();
+        var width = modal.find('#contact_map').width();
+        modal.css('margin-left', -(width/2));
+        modal.css('z-index', '99');
+        modal.css('top', scroll);
+        modal.css('margin-top', (windowHeight-height)/2 );
+        modal.show();
+    };
+    $('.header_contacts_lnk').on('click', function(){
+        ShowContactModal();
+        InitMap();
+    });
+    $('.blob_modal_close').on('click', function(){
+        modal.hide();
+        myMap.destroy();
+    });
+}
+
 var AsideOrderLink = {
     show5: function(){
         $('.5-link-a').addClass('curr');
@@ -242,17 +279,25 @@ var ShowOutReviewFull = function(){
         $(this).parents('.review_out').hide();
     });
 }
+
 var InstructionsModal = function(){
     var modal = $('.instructions_modal');
     var showModal = function(){
+        // var windowHeight = document.documentElement.clientHeight;
+        var scroll = $(window).scrollTop();
         var height = modal.find('img').height();
         var width = modal.find('img').width();
         modal.css('margin-left', -(width/2));
-        modal.css('z-index', '10');
+        modal.css('z-index', '99');
+        modal.css('top', scroll);
+        modal.css('margin-top', 'auto');
         modal.show()
     }
     $('.res_lnk a').on('click', function(){
         showModal();
+    });
+    modal.find('.blob_inst_close').on('click', function(){
+        modal.hide();
     });
 }
 
@@ -262,10 +307,11 @@ $(function(){
     IndexBoxAnimate();
     ShowFullReview();
     HideFullReview();
-    // DrugstoresMapChange();
+    DrugstoresMap();
     OrderSwitchProduct.bindLinks();
     OrderForm();
     AsideOrderLink.bindLinks();
     ShowOutReviewFull();
     InstructionsModal();
+    HeaderContact();
 });
