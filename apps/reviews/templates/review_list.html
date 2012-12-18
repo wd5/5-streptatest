@@ -61,7 +61,7 @@
 					<div class="review review_client" data-review="{{ review.id }}">
 					{% endif %}
 						<div class="review_info col">
-							<div class="review_img"><img src="/media/images/1.jpg" alt="" /></div>
+							<div class="review_img"><img src="/media/images/1.jpg" alt="" />{% if reviewer_type == 'patient' %}<div class="review_img_fr"></div>{% endif %}</div>
 							<h3 class="review_name">{{ review.initials }}</h3>
 							<div class="review_post"><p>{{ review.reviewer_post }}</p></div>
 						</div>
@@ -86,7 +86,7 @@
                     <div class="review review_client review_full" data-review-full="{{ review.id }}" style="display:none;">
                     {% endif %}
                         <div class="review_info col">
-                            <div class="review_img"><img src="/media/images/1.jpg" alt="" /></div>
+                            <div class="review_img"><img src="/media/images/1.jpg" alt="" />{% if reviewer_type == 'patient' %}<div class="review_img_fr"></div>{% endif %}</div>
                             <h3 class="review_name">{{ review.initials }}</h3>
                             <div class="review_post"><p>{{ review.reviewer_post }}</p></div>
                         </div>
@@ -123,7 +123,7 @@
 						<div class="review review_out_full review_client" data-review="{{ review.id }}" style="display:none;">
 						{% endif %}
 							<div class="review_info col">
-								<div class="review_img"><img src="/media/images/1.jpg" alt="" /></div>
+								<div class="review_img"><img src="/media/images/1.jpg" alt="" />{% if reviewer_type == 'patient' %}<div class="review_img_fr"></div>{% endif %}</div>
 								<h3 class="review_name">{{ review.initials }}</h3>
 								<div class="review_post"><p>{{ review.reviewer_post }}</p></div>
 							</div>
@@ -148,7 +148,7 @@
 	                    <div class="review review_client review_out_full review_full" data-review-full="{{ review.id }}" style="display:none;">
 	                    {% endif %}
 	                        <div class="review_info col">
-	                            <div class="review_img"><img src="/media/images/1.jpg" alt="" /></div>
+	                            <div class="review_img"><img src="/media/images/1.jpg" alt="" />{% if reviewer_type == 'patient' %}<div class="review_img_fr"></div>{% endif %}</div>
 	                            <h3 class="review_name">{{ review.initials }}</h3>
 	                            <div class="review_post"><p>{{ review.reviewer_post }}</p></div>
 	                        </div>
@@ -172,7 +172,7 @@
 						<div class="review review_client" data-target="{{ review.id }}">
 						{% endif %}
 							<div class="review_info col">
-								<div class="review_img"><img src="/media/images/1.jpg" alt="" /></div>
+								<div class="review_img"><img src="/media/images/1.jpg" alt="" />{% if reviewer_type == 'patient' %}<div class="review_img_fr"></div>{% endif %}</div>
 								<h3 class="review_name"><a href="javascript:void(0)" class="show_review_out_full">{{ review.initials }}</a></h3>
 								<div class="review_post"><p>{{ review.reviewer_post }}</p></div>
 							</div>

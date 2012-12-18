@@ -242,6 +242,19 @@ var ShowOutReviewFull = function(){
         $(this).parents('.review_out').hide();
     });
 }
+var InstructionsModal = function(){
+    var modal = $('.instructions_modal');
+    var showModal = function(){
+        var height = modal.find('img').height();
+        var width = modal.find('img').width();
+        modal.css('margin-left', -(width/2));
+        modal.css('z-index', '10');
+        modal.show()
+    }
+    $('.res_lnk a').on('click', function(){
+        showModal();
+    });
+}
 
 $(function(){
     SwitchSlider();
@@ -254,4 +267,5 @@ $(function(){
     OrderForm();
     AsideOrderLink.bindLinks();
     ShowOutReviewFull();
+    InstructionsModal();
 });

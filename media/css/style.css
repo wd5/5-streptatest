@@ -890,7 +890,11 @@ div.review_out_full {
 	line-height: 24px;
 }
 /*instruction*/
-
+.instructions_modal {
+	position: absolute;
+	left:50%;
+	display:none;
+}
 
 
 
