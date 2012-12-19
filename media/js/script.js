@@ -328,8 +328,55 @@ var InstructionsModal = function(){
     $('.res_lnk a').on('click', function(){
         showModal();
     });
-    modal.find('.blob_inst_close').on('click', function(){
+    modal.find('.close_instruction').on('click', function(){
         modal.hide();
+    });
+}
+
+var ReviewForm = function(){
+    var showModal = function(){
+        var modal = $('.review_form_modal');
+        var scroll = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        var height = modal.height();
+        var width = modal.width();
+        modal.css('margin-left', -(width/2));
+        modal.css('z-index', '99');
+        modal.css('top', scroll);
+        modal.css('margin-top', (windowHeight-height)/2);
+        modal.show()
+    }
+    $('.form-link').live('click', function(e){
+        e.preventDefault();
+        $.ajax({
+            type: 'GET',
+            url: 'form/',
+            success: function(data){
+                $('.review_form_modal').html(data);
+                showModal();
+            },
+            dataType: 'html'
+        });
+    });
+
+    $('.blob_modal_close').live('click', function(){
+        $('.review_form_modal').hide();
+    });
+
+    $('.review-form').live('submit', function(e){
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: 'form/',
+            data: $(this).serialize(),
+            success: function(data){
+                $('.review_form_modal').hide();
+            },
+            error: function(ts){
+                $('.review_form_modal').html(ts.responseText);
+            },
+            dataType: 'html'
+        });
     });
 }
 
@@ -348,4 +395,5 @@ $(function(){
     HeaderContact();
     PatientsMap();
     ClinicsModal();
+    ReviewForm();
 });

@@ -796,6 +796,12 @@ div.review_out_full {
 	left:50%;
 	display:none;
 }
+.review_form_modal {
+	position: absolute;
+	left:50%;
+	display:none;
+	padding: 20px 40px;
+}
 .modal_clinics_col {
 	font-size: 15px;
 	line-height: 24px;
