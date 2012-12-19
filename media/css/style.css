@@ -791,6 +791,11 @@ div.review_out_full {
 /*/review_modal*/
 
 /*modal_clinics*/
+.clinics_modal {
+	position: absolute;
+	left:50%;
+	display:none;
+}
 .modal_clinics_col {
 	font-size: 15px;
 	line-height: 24px;

@@ -3,9 +3,10 @@ from django import forms
 from django.forms.formsets import formset_factory
 from django.http import HttpResponse
 from django.forms.widgets import RadioSelect
-
-from apps.products.models import Product
 from django.shortcuts import redirect
+
+from apps.publications.models import Article
+from apps.products.models import Product
 from apps.places.models import City, Drugstore
 from models import Order, PartnershipOffer
 
@@ -39,7 +40,7 @@ class OrderFormView(FormView):
         except:
             current_quantity = 1
 
-        context['city'] = City.objects.get(pk=2)
+        context['city'] = City.objects.get(pk=1)
         context['drugtest'] = City.objects.all()[0].drugstore_set
         context['drugstore_count'] = Drugstore.objects.all().count
         product_with_5_tests = Product.objects.filter(test_items_quantity=5)[0]
@@ -128,5 +129,14 @@ class PartnersDrugstoresFormView(FormView):
     def form_invalid(self, form):
         return self.render_to_response(self.get_context_data(form_drugstores=form))
 
+
+class PatientsView(TemplateView):
+    template_name = 'patients.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(PatientsView, self).get_context_data(**kwargs)
+        context['last_articles'] = Article.objects.all()[:2]
+        context['articles_more_count'] = Article.objects.all().count()-2
+        return context
 
         

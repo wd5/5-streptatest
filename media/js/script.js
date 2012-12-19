@@ -204,7 +204,7 @@ var OrderForm = function(){
 }
 
 var HeaderContact = function(){
-    modal = $('.contact_map_modal');
+    var modal = $('.contact_map_modal');
     // ymaps.ready(initMap);
     var myMap;
     function InitMap(){     
@@ -228,9 +228,41 @@ var HeaderContact = function(){
         ShowContactModal();
         InitMap();
     });
-    $('.blob_modal_close').on('click', function(){
+    $('.blob_modal_close.close_contacts').on('click', function(){
         modal.hide();
         myMap.destroy();
+    });
+}
+
+var PatientsMap = function(){
+    ymaps.ready(InitPatientsMap);
+    var myMap;
+    function InitPatientsMap(){     
+        myMap = new ymaps.Map ("patients_map", {
+            center: [55.76, 37.64],
+            zoom: 7,
+        });
+    }
+}
+
+var ClinicsModal = function(){
+    var modal = $('.clinics_modal');
+    var ShowClinicsModal = function(){
+        var scroll = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        var height = modal.height();
+        var width = modal.width();
+        modal.css('margin-left', -(width/2));
+        modal.css('z-index', '99');
+        modal.css('top', scroll);
+        modal.css('margin-top', (windowHeight-height)/2 );
+        modal.show();
+    };
+    $('.clinics_modal_link').on('click', function(){
+        ShowClinicsModal();
+    });
+    $('.blob_modal_close.close_clinics').on('click', function(){
+        modal.hide();
     });
 }
 
@@ -314,4 +346,6 @@ $(function(){
     ShowOutReviewFull();
     InstructionsModal();
     HeaderContact();
+    PatientsMap();
+    ClinicsModal();
 });

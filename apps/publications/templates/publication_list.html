@@ -1,1 +1,49 @@
-dfbefb
+{% extends 'base.html' %}
+{% load custom_filters %}
+
+{% block main %}
+<!--MAIN-->
+    <div class="main">
+        <div class="content">
+            <div class="side side_pl" style="margin-top: 440px;">
+                <p>Бесплатная консультация нашего специалиста</p>
+                <div class="btn_blue"><div class="btn_blue_in"><a href="javascript:void(0)">Задать вопрос</a></div></div>
+            </div>
+            <div class="content_l col">
+                <h1>Научные публикации</h1>
+
+                <div class="press">
+                    {% for publication in publication_list %}
+                    <div class="new">
+                        <a href="{% url publication_url publication.id %}">
+                            <h2>{{ publication.title }}</h2>
+                        </a>
+                        <div class="text new_short">
+                            <p>{{ publication.text }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                                
+                    {% if is_paginated and page_obj.paginator.num_pages > 1 %}
+                    <div class="pgn">
+                        {% for i in page_obj.paginator.num_pages|times %}
+                            {% if forloop.counter == page_obj.number %}
+                                <a class="pgn_num curr" href="{% url publication_list_url %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>
+                            {% else %}
+                                <a class="pgn_num" href="{% url publication_list_url %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                </div><!--/press-->
+            </div><!--/content_l-->
+            
+            <div class="content_r col">
+                {% include 'shared/buy_box_aside.html' %}
+            </div>
+        </div><!--/content-->
+        
+    </div>
+    <!--/MAIN-->
+{% endblock %}

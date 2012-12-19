@@ -206,6 +206,7 @@
 - model: publications.publication
   pk: 1
   fields:
+    is_published: True
     title: mnbvnmvbnm
     where_published: «Вестник медицины» №4 (142)
     text: bnmvbnm
@@ -219,6 +220,7 @@
 - model: publications.publication
   pk: 2
   fields:
+    is_published: True
     title: mnbvnmvbnm
     where_published: «Вестник медицины» №4 (142)
     text: bnmvbnm
@@ -233,6 +235,7 @@
   pk: 3
   fields:
     title: mnbvnmvbnm
+    is_published: True
     where_published: «Вестник медицины» №4 (142)
     text: bnmvbnm
           asdfasdfasdfsa
@@ -246,6 +249,7 @@
   pk: 4
   fields:
     title: mnbvnmvbnm
+    is_published: True
     where_published: «Вестник медицины» №4 (142)
     text: bnmvbnm
           asdfasdfasdfsa
@@ -259,6 +263,7 @@
   pk: 5
   fields:
     title: mnbvnmvbnm
+    is_published: True
     where_published: «Вестник медицины» №4 (142)
     text: bnmvbnm
           asdfasdfasdfsa
@@ -272,6 +277,7 @@
   pk: 6
   fields:
     title: mnbvnmvbnm
+    is_published: True
     where_published: «Вестник медицины» №4 (142)
     text: bnmvbnm
           asdfasdfasdfsa

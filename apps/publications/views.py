@@ -42,7 +42,18 @@ class NewsListView(ListView):
 
 		return qs
 
+class NewsView(TemplateView):
+	template_name = 'news_item.html'
 
+	def get_context_data(self, **kwargs):
+		context = super(NewsView, self).get_context_data(**kwargs)
+
+		try:
+			context['article'] = News.objects.get(pk=kwargs['id'])
+		except:
+			context['article'] = None
+
+		return context
 
 class ArticleListView(ListView):
 	template_name = 'article_list.html'
@@ -66,18 +77,26 @@ class ArticleView(TemplateView):
 
 		return context
 
-class NewsView(TemplateView):
-	template_name = 'news_item.html'
+
+class PublicationListView(ListView):
+	template_name = 'publication_list.html'
+	context_object_name = 'publication_list'
+	paginate_by = 5
+
+	def get_queryset(self, **kwargs):
+		qs = Publication.objects.all()
+		return qs
+
+
+class PublicationView(TemplateView):
+	template_name = 'publication.html'
 
 	def get_context_data(self, **kwargs):
-		context = super(NewsView, self).get_context_data(**kwargs)
+		context = super(PublicationView, self).get_context_data(**kwargs)
 
 		try:
-			context['article'] = News.objects.get(pk=kwargs['id'])
+			context['publication'] = Publication.objects.get(pk=kwargs['id'])
 		except:
-			context['article'] = None
+			context['publication'] = None
 
 		return context
-
-class PublicationListView(TemplateView):
-	template_name = 'publication_list.html'

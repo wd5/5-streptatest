@@ -143,7 +143,7 @@
                     <div class="block_name">{{ 'Клиника'|plural:clinics_count }} России</div>
                     <p>используют Стрептатест в своей работе.</p>
                     <p class="review_clinics_block_example">Такие как, {{ clinic_list.0.title }}{% if clinic_list.count > 1 %} и {{ clinic_list.1.title }}{% endif %}</p>
-                    <div><a href="javasript:void(0)" class="dot">Весь список</a></div>
+                    <div><a href="javascript:void(0)" class="dot clinics_modal_link">Весь список</a></div>
                 </div><!--/review_clinics_block-->
                 
                 <div class="publics_block">
@@ -162,7 +162,7 @@
                 </div><!--/publics_block-->
             </div><!--/content_r-->
         </div><!--/content-->
-        
     </div>
     <!--/MAIN--> 
+{% include 'shared/clinics_modal.html' %}
 {% endblock %}
