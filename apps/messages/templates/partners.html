@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load pymorphy_tags %}
 
 {% block main %}
 <!--MAIN-->
@@ -92,8 +93,8 @@
 			
 			<div class="content_r col">
 				<div class="right_pl">
-					<div class="right_pl_num">136</div>
-					<p><strong>аптек</strong></p>
+					<div class="right_pl_num">{{ drugstore_count }}</div>
+					<p><strong>{{ 'аптек'|plural:drugstore_count }}</strong></p>
 					<p>продают Стрептатест</p>
 				</div>
 			</div><!--/content_r-->

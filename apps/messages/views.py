@@ -39,7 +39,7 @@ class OrderFormView(FormView):
         except:
             current_quantity = 1
 
-        context['city_list'] = City.objects.all()
+        context['city'] = City.objects.get(pk=2)
         context['drugtest'] = City.objects.all()[0].drugstore_set
         context['drugstore_count'] = Drugstore.objects.all().count
         product_with_5_tests = Product.objects.filter(test_items_quantity=5)[0]
@@ -89,12 +89,18 @@ class PartnersView(TemplateView):
         context = super(PartnersView, self).get_context_data(**kwargs)
         context['form_doctors'] = PartnersFormDoctors(initial={'offer_author_type': 'doctor'})
         context['form_drugstores'] = PartnersFormDrugstores(initial={'offer_author_type': 'drugstore'})
+        context['drugstore_count'] = Drugstore.objects.all().count()
         return context
 
 class PartnersDoctorsFormView(FormView):
     template_name = 'partners.html'
     success_url = '/thanks/'
     form_class = PartnersFormDoctors
+
+    def get_context_data(self, **kwargs):
+        context = super(PartnersDoctorsFormView, self).get_context_data(**kwargs)
+        context['drugstore_count'] = Drugstore.objects.all().count() 
+        return context
 
     def get(self, request, *args, **kwargs):
         form_class = self.get_form_class()
@@ -108,6 +114,11 @@ class PartnersDrugstoresFormView(FormView):
     template_name = 'partners.html'
     success_url = '/thanks/'
     form_class = PartnersFormDrugstores
+
+    def get_context_data(self, **kwargs):
+        context = super(PartnersDrugstoresFormView, self).get_context_data(**kwargs)
+        context['drugstore_count'] = Drugstore.objects.all().count() 
+        return context
 
     def get(self, request, *args, **kwargs):
         form_class = self.get_form_class()

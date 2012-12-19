@@ -31,23 +31,6 @@
 			<div class="content_l col">
 				<div class="h_line h_line2">
 					<h2 class="col">Аптеки</h2>
-					<div class="hormenu col">
-						<ul>
-							{% for city in city_list %}
-							{% if forloop.first %}
-							<li class="curr">
-								<a href="javascript:void(0)" class="drugstore-map-link" data-target-city="{{ city.id }}">{{ city.title }}</a>
-								<img src="/media/img/hormenu_arr.png"/>
-							</li>
-							{% else %}
-							<li>
-								<a href="javascript:void(0)" class="drugstore-map-link" data-target-city="{{ city.id }}">{{ city.title }}</a>
-								<img src="/media/img/hormenu_arr.png"/>
-							</li>
-							{% endif %}
-							{% endfor %}
-						</ul>
-					</div><!--/hormenu-->
 				</div>
 			</div><!--/content_l-->
 			
@@ -57,13 +40,7 @@
 		</div><!--/content-->
 
 		<div id="map" class="map_zl">
-			{% for city in city_list %}
-				{% if forloop.first %}
-					{% include '_drugstores_map.html' with current_city=city %}
-				{% else %}
-					{% include '_drugstores_map.html' with current_city=city hide='true' %}
-				{% endif %}			
-			{% endfor %}	
+			{% include '_drugstores_map.html' with current_city=city %}
 		</div><!--/map_zl-->	
 	</div>
     <!--/MAIN-->
