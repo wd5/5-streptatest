@@ -144,6 +144,7 @@ class PartnershipOffer(models.Model):
     offer_author_type = models.CharField(
         verbose_name = u'тип автора предложения',
         max_length = 100,
+        choices = OFFER_AUTHOR_TYPE_CHOICES,
     )
     email = models.CharField(
         verbose_name = 'e-mail',

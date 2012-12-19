@@ -1,12 +1,13 @@
 from django.views.generic import FormView, TemplateView
 from django import forms
+from django.forms.formsets import formset_factory
 from django.http import HttpResponse
 from django.forms.widgets import RadioSelect
 
 from apps.products.models import Product
 from django.shortcuts import redirect
 from apps.places.models import City, Drugstore
-from models import Order
+from models import Order, PartnershipOffer
 
 class OrderForm(forms.ModelForm):
     class Meta:
@@ -55,5 +56,66 @@ class OrderFormView(FormView):
 
 class OrderThanksView(TemplateView):
     template_name = 'success.html'
+
+# ArticleFormSet = formset_factory(ArticleForm)
+#     BookFormSet = formset_factory(BookForm)
+#     if request.method == 'POST':
+#         article_formset = ArticleFormSet(request.POST, request.FILES, prefix='articles')
+#         book_formset = BookFormSet(request.POST, request.FILES, prefix='books')
+#         if article_formset.is_valid() and book_formset.is_valid():
+#             # do something with the cleaned_data on the formsets.
+#             pass
+#     else:
+#         article_formset = ArticleFormSet(prefix='articles')
+#         book_formset = BookFormSet(prefix='books')
+#     return render_to_response('manage_articles.html', {
+#         'article_formset': article_formset,
+#         'book_formset': book_formset,
+#     })
+class PartnersFormDoctors(forms.ModelForm):
+    class Meta:
+        model = PartnershipOffer
+        exclude = ('state',)
+
+class PartnersFormDrugstores(forms.ModelForm):
+    class Meta:
+        model = PartnershipOffer
+        exclude = ('state',)
+
+class PartnersView(TemplateView):
+    template_name = 'partners.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(PartnersView, self).get_context_data(**kwargs)
+        context['form_doctors'] = PartnersFormDoctors(initial={'offer_author_type': 'doctor'})
+        context['form_drugstores'] = PartnersFormDrugstores(initial={'offer_author_type': 'drugstore'})
+        return context
+
+class PartnersDoctorsFormView(FormView):
+    template_name = 'partners.html'
+    success_url = '/thanks/'
+    form_class = PartnersFormDoctors
+
+    def get(self, request, *args, **kwargs):
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+        return self.render_to_response(self.get_context_data(form_doctors=form))
+
+    def form_invalid(self, form):
+        return self.render_to_response(self.get_context_data(form_doctors=form))
+
+class PartnersDrugstoresFormView(FormView):
+    template_name = 'partners.html'
+    success_url = '/thanks/'
+    form_class = PartnersFormDrugstores
+
+    def get(self, request, *args, **kwargs):
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+        return self.render_to_response(self.get_context_data(form_drugstores=form))
+
+    def form_invalid(self, form):
+        return self.render_to_response(self.get_context_data(form_drugstores=form))
+
 
         

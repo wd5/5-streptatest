@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<!--MAIN-->
+	<div class="main">
+		<div class="content">
+			<div class="content_l col">
+				<h1>Партнерам</h1>
+				
+				<div class="text page_lead">
+					<p>Унитарное государство важно представляет собой онтологический кризис легитимности, что неминуемо повлечет эскалацию напряжения в стране. Политическое учение Руссо взаимно. Референдум, на первый взгляд, предсказуем.</p>
+				</div>
+				<form class="partners_form" method="post" action="{% url partners_doctors_url %}">
+					<div class="side">
+						<div class="arrpl arrpl_2">
+							<h2 class="side_h">Сотрудничество для врачей</h2>
+						</div>
+					</div>
+					{{ form_doctors.errors }}
+					{% csrf_token %}
+					<div style="display:none;">
+						<input type="text" name="offer_author_type" value="{{ form_doctors.offer_author_type.value }}">
+					</div>
+					<div class="form_line">
+						<label class="required">ФИО</label>
+						<input class="inpt" type="text" name="title" value="{{ form_doctors.title.value|default_if_none:'' }}" />
+					</div>
+					
+					<div class="form_line">
+						<label>E-mail</label>
+						<input class="inpt" type="text" name="email" value="{{ form_doctors.email.value|default_if_none:'' }}" />
+					</div>
+					
+					<div class="form_line">
+						<label>Телефон</label>
+						<input class="inpt" type="text" name="phone" value="{{ form_doctors.phone.value|default_if_none:'' }}" />
+					</div>
+					
+					<div class="form_line">
+						<label>Сообщение</label>
+						<textarea class="txtr" rows="0" cols="0" name="message">{{ form_doctors.message.value|default_if_none:'' }}</textarea>
+					</div>
+					
+					<div class="form_line">
+						<div class="btn_blue"><div class="btn_blue_in"><input type="submit" value="Отправить сообщение" /></div></div>
+					</div>
+				</form><!--/partners_form-->
+			</div><!--/content_l-->
+			
+			<div class="content_r col">
+				{% include 'shared/buy_box_aside.html' %}
+			</div><!--/content_r-->
+				
+			<div class="content_l col">
+				<form class="partners_form" method="post" action="{% url partners_drugstores_url %}">
+					<div class="side">
+						<div class="arrpl arrpl_2">
+							<h2 class="side_h">Сотрудничество для аптек</h2>
+						</div>
+					</div>
+					{{ form_drugstores.errors }}
+					{% csrf_token %}
+					<div style="display:none;">
+						<input type="text" name="offer_author_type" value="{{ form_drugstores.offer_author_type.value }}">
+					</div>
+
+					<div class="form_line">
+						<label class="required">ФИО</label>
+						<input class="inpt" type="text" name="title" value="{{ form_drugstores.title.value|default_if_none:''}}"/>
+					</div>
+					
+					<div class="form_line">
+						<label>E-mail</label>
+						<input class="inpt" type="text" name="email" value="{{ form_drugstores.email.value|default_if_none:'' }}"/>
+					</div>
+					
+					<div class="form_line">
+						<label>Телефон</label>
+						<input class="inpt" type="text" name="phone" value="{{ form_drugstores.phone.value|default_if_none:'' }}"/>
+					</div>
+					
+					<div class="form_line">
+						<label>Сообщение</label>
+						<textarea class="txtr" rows="0" cols="0" name="message">{{ form_drugstores.message.value|default_if_none:'' }}</textarea>
+					</div>
+					
+					<div class="form_line">
+						<div class="btn_blue"><div class="btn_blue_in"><input type="submit" value="Отправить сообщение" /></div></div>
+					</div>
+				</form><!--/partners_form-->
+			</div><!--/content_l-->
+			
+			<div class="content_r col">
+				<div class="right_pl">
+					<div class="right_pl_num">136</div>
+					<p><strong>аптек</strong></p>
+					<p>продают Стрептатест</p>
+				</div>
+			</div><!--/content_r-->
+				
+		</div><!--/content-->
+		
+	</div>
+    <!--/MAIN-->
+{% endblock %}

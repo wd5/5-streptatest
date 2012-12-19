@@ -43,6 +43,3 @@ class InstructionsView(TemplateView):
 
 class PatientsView(TemplateView):
     template_name = 'pages/patients.html'
-
-class PartnersView(TemplateView):
-    template_name = 'pages/partners.html'
