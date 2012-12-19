@@ -889,14 +889,34 @@ div.review_out_full {
 	font-size: 18px;
 	line-height: 24px;
 }
-/*instruction*/
 .instructions_modal {
 	position: absolute;
 	left:50%;
 	display:none;
 }
+.modal_blob {
+	background: #fff;
+	border: 3px solid #c3e3e5;
+	border-radius: 4px;
+	position: relative;
+	margin-left: -3%;
+}
+.blob_modal_close {
+	background: url('../img/blob_close.png') no-repeat;
+	width: 23px;
+	height: 22px;
+	position: absolute;
+	top: -12px;
+	right: -12px;
+	cursor: pointer;	
+}
+/*instruction*/
 
-
+.contact_map_modal {
+	position: absolute;
+	left:50%;
+	display:none;
+}
 
 /*box_carousel_zs*/
 .box_carousel_zs {
