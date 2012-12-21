@@ -49,7 +49,17 @@ body {
 	color: #000;
 	font: 15px/18px 'PT Sans', Arial, Helvetica, sans-serif;
 }
-
+body.no-scroll{
+	overflow: hidden;
+}
+div.blocked {
+	position:absolute;
+	width:100%;
+	height:100%;
+	opacity:0.5;
+	background-color: black;
+	z-index: 20;
+}
 .wrapper {
 	background: #fff url('../img/bg.png') center 0 no-repeat;
 	margin: 0 auto;

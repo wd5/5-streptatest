@@ -1,3 +1,45 @@
+function getScrollBarWidth () { 
+  var inner = document.createElement('p'); 
+  inner.style.width = "100%"; 
+  inner.style.height = "200px"; 
+
+  var outer = document.createElement('div'); 
+  outer.style.position = "absolute"; 
+  outer.style.top = "0px"; 
+  outer.style.left = "0px"; 
+  outer.style.visibility = "hidden"; 
+  outer.style.width = "200px"; 
+  outer.style.height = "150px"; 
+  outer.style.overflow = "hidden"; 
+  outer.appendChild (inner); 
+
+  document.body.appendChild (outer); 
+  var w1 = inner.offsetWidth; 
+  outer.style.overflow = 'scroll'; 
+  var w2 = inner.offsetWidth; 
+  if (w1 == w2) w2 = outer.clientWidth; 
+
+  document.body.removeChild (outer); 
+
+  return (w1 - w2); 
+}; 
+
+var addBlocked = function(){
+    $('body').addClass('no-scroll');
+    var scrollBarWidth = getScrollBarWidth();
+    if ($('body').height() > $(window).height()){
+        $('body').css('padding-right',scrollBarWidth);
+    }
+    $('body').prepend('<div class="blocked"></div>');
+    $('div.blocked').css('top', $(window).scrollTop());
+}
+
+var removeBlocked = function(){
+    $('body').removeClass('no-scroll');
+    $('div.blocked').remove();
+    $('body').css('padding-right','');
+}
+
 var IndexPageSliders = {
     delControls: function(type){
         if ($('#'+type+'_carousel_l a.bx-prev').size() > 1) {
@@ -250,6 +292,7 @@ var HeaderContact = function(){
         modal.css('z-index', '99');
         modal.css('top', scroll);
         modal.css('margin-top', (windowHeight-height)/2 );
+        addBlocked();
         modal.show();
     };
     $('.header_contacts_lnk').on('click', function(){
@@ -259,6 +302,7 @@ var HeaderContact = function(){
     $('.blob_modal_close.close_contacts').on('click', function(){
         modal.hide();
         myMap.destroy();
+        removeBlocked();
     });
 }
 
@@ -284,6 +328,7 @@ var ClinicsModal = function(){
         modal.css('z-index', '99');
         modal.css('top', scroll);
         modal.css('margin-top', (windowHeight-height)/2 );
+        addBlocked();
         modal.show();
     };
     $('.clinics_modal_link').on('click', function(){
@@ -291,6 +336,7 @@ var ClinicsModal = function(){
     });
     $('.blob_modal_close.close_clinics').on('click', function(){
         modal.hide();
+        removeBlocked();
     });
 }
 
@@ -345,19 +391,22 @@ var InstructionsModal = function(){
     var showModal = function(){
         // var windowHeight = document.documentElement.clientHeight;
         var scroll = $(window).scrollTop();
+        var windowHeight = $(window).height();
         var height = modal.find('img').height();
         var width = modal.find('img').width();
         modal.css('margin-left', -(width/2));
         modal.css('z-index', '99');
         modal.css('top', scroll);
-        modal.css('margin-top', 'auto');
+        modal.css('margin-top', (windowHeight-height)/2);
         modal.show()
     }
     $('.res_lnk a').on('click', function(){
+        addBlocked();
         showModal();
     });
     modal.find('.close_instruction').on('click', function(){
         modal.hide();
+        removeBlocked();
     });
 }
 
@@ -372,7 +421,8 @@ var ReviewForm = function(){
         modal.css('z-index', '99');
         modal.css('top', scroll);
         modal.css('margin-top', (windowHeight-height)/2);
-        modal.show()
+        modal.show();
+        addBlocked();
     }
     $('.form-link').live('click', function(e){
         e.preventDefault();
@@ -389,6 +439,7 @@ var ReviewForm = function(){
 
     $('.blob_modal_close').live('click', function(){
         $('.review_form_modal').hide();
+        removeBlocked();
     });
 
     $('.review-form').live('submit', function(e){
@@ -431,7 +482,8 @@ var PatientsQuestionForm = function(){
         modal.css('z-index', '99');
         modal.css('top', scroll);
         modal.css('margin-top', (windowHeight-height)/2);
-        modal.show()
+        addBlocked();
+        modal.show();
     }
     $('.patients-q-form-link').live('click', function(e){
         e.preventDefault();
@@ -449,6 +501,7 @@ var PatientsQuestionForm = function(){
 
     $('.blob_modal_close').live('click', function(){
         $('.patients_question_form_modal').hide();
+        removeBlocked();
     });
 
     $('.patients-question-form').live('submit', function(e){
@@ -480,6 +533,7 @@ var PatientsSchoolForm = function(){
         modal.css('z-index', '99');
         modal.css('top', scroll);
         modal.css('margin-top', (windowHeight-height)/2);
+        addBlocked();
         modal.show();
     }
     $('.patients-school-form-link').live('click', function(e){
@@ -498,6 +552,7 @@ var PatientsSchoolForm = function(){
 
     $('.blob_modal_close').live('click', function(){
         $('.patients_school_form_modal').hide();
+        removeBlocked();
     });
 
     $('.patients-school-form').live('submit', function(e){

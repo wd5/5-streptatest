@@ -10,7 +10,7 @@
 				
 				<div class="hormenu hormenu_l_margin">
 					<ul>
-						<li class="{% if not current_category %}curr{% endif %} hormenu_first"><a href="{% url news_list_url %}">Все новости</a><img src="/media/img/hormenu_arr.png"/></li>
+						<li class="{% if not current_category %}curr{% endif %} hormenu_first"><a data-url="{% url patients_q_url %}" class="patients-q-form-link" href="{% url news_list_url %}">Все новости</a><img src="/media/img/hormenu_arr.png"/></li>
 						{% for category in news_category_list %}
 						<li {% if category == current_category %}class="curr"{% endif %}><a href="{% url news_list_url %}?category={{ category.id }}">{{ category.title }}</a><img src="/media/img/hormenu_arr.png"/></li>
 						{% endfor %}
@@ -61,4 +61,7 @@
 		
 	</div>
     <!--/MAIN-->
+{% endblock %}
+{% block modals%}
+	<div class="patients_question_form_modal"></div>
 {% endblock %}
