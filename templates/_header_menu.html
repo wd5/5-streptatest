@@ -2,15 +2,10 @@
 
 <ul>
 {% recursetree menu %}
-    {% if node.is_active %}
+    {% if node.url == current %}
     <li class="curr">
     {% else %}
     <li>
     {% endif %}<a href="{{ node.url }}">{{ node.title }}</a></li>
-    {% if not node.is_leaf_node %}
-        <ul class="children">
-            {{ children }}
-        </ul>
-    {% endif %}
 {% endrecursetree %}
 </ul>

@@ -57,7 +57,6 @@ def header_menu(url):
 
 
     menu = SiteMenu.objects.filter(menu_type = 'header')
-    menu = get_active_menu(url, menu)
     return {'menu': menu, 'current': current}
 
 @register.inclusion_tag("_footer_menu.html")
