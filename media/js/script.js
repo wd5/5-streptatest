@@ -72,15 +72,43 @@ var ShowFullReview = function(){
     $('.review_more').on('click', function(){
         var targetReview = $(this).parents('.review').attr('data-review');
         $(this).parents('.review').hide();
-        $('.review[data-review-full='+targetReview+']').show();
+        var fullReview = $('.review[data-review-full='+targetReview+']')
+        fullReview.addClass('opened');
+        fullReview.show();
+        if($(this).hasClass('more_index')){
+            var cont = $(this).parents('.bx-viewport');
+            var oldHeight = cont.height();
+            var newHeight = fullReview.find('.review_blob').height()+26;
+            if (newHeight>oldHeight){
+                cont.height(newHeight);
+            }            
+        };
     });
 }
 
 var HideFullReview = function(){
     $('.blob_close').on('click', function(){
         var targetReview = $(this).parents('.review').attr('data-review-full');
+        var review = $('.review[data-review='+targetReview+']');
+        $(this).parents('.review').removeClass('opened');
         $(this).parents('.review').hide();
-        $('.review[data-review='+targetReview+']').show();
+        review.show();
+        if($(this).hasClass('close_review_index')){
+            var cont = $(this).parents('.bx-viewport');
+            var oldHeight = cont.height();
+            var newHeight = 303;
+            if (newHeight<oldHeight){
+                cont.height(newHeight);
+            }            
+        };
+    });
+    $('.index_carousel .bx-prev, .index_carousel .bx-next').on('click', function(){
+        var cont = $(this).parents('.index_carousel').find('.bx-viewport');
+        var oldHeight = cont.height();
+        var newHeight = 303;
+        if (newHeight<oldHeight){
+            cont.height(newHeight);
+        }
     });
 }
 
@@ -378,6 +406,116 @@ var ReviewForm = function(){
             dataType: 'html'
         });
     });
+    $('#doc_link').live('click', function(){
+        $('#doc_radio').attr('checked', true);
+        $('#doc_link').parent().addClass('curr');
+        $('#patient_radio').attr('checked', false);
+        $('#patient_link').parent().removeClass('curr');
+    });
+    $('#patient_link').live('click', function(){
+        $('#patient_radio').attr('checked', true);
+        $('#patient_link').parent().addClass('curr');
+        $('#doc_radio').attr('checked', false);
+        $('#doc_link').parent().removeClass('curr');
+    });
+}
+
+var PatientsQuestionForm = function(){
+    var showModal = function(){
+        var modal = $('.patients_question_form_modal');
+        var scroll = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        var height = modal.height();
+        var width = modal.width();
+        modal.css('margin-left', -(width/2));
+        modal.css('z-index', '99');
+        modal.css('top', scroll);
+        modal.css('margin-top', (windowHeight-height)/2);
+        modal.show()
+    }
+    $('.patients-q-form-link').live('click', function(e){
+        e.preventDefault();
+        var url = $(this).attr('data-url');
+        $.ajax({
+            type: 'GET',
+            url: url,
+            success: function(data){
+                $('.patients_question_form_modal').html(data);
+                showModal();
+            },
+            dataType: 'html'
+        });
+    });
+
+    $('.blob_modal_close').live('click', function(){
+        $('.patients_question_form_modal').hide();
+    });
+
+    $('.patients-question-form').live('submit', function(e){
+        e.preventDefault();
+        var url = $(this).attr('action');
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: $(this).serialize(),
+            success: function(data){
+                $('.patients_question_form_modal').hide();
+            },
+            error: function(ts){
+                $('.patients_question_form_modal').html(ts.responseText);
+            },
+            dataType: 'html'
+        });
+    });
+}
+
+var PatientsSchoolForm = function(){
+    var showModal = function(){
+        var modal = $('.patients_school_form_modal');
+        var scroll = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        var height = modal.height();
+        var width = modal.width();
+        modal.css('margin-left', -(width/2));
+        modal.css('z-index', '99');
+        modal.css('top', scroll);
+        modal.css('margin-top', (windowHeight-height)/2);
+        modal.show();
+    }
+    $('.patients-school-form-link').live('click', function(e){
+        e.preventDefault();
+        var url = $(this).attr('data-url');
+        $.ajax({
+            type: 'GET',
+            url: url,
+            success: function(data){
+                $('.patients_school_form_modal').html(data);
+                showModal();
+            },
+            dataType: 'html'
+        });
+    });
+
+    $('.blob_modal_close').live('click', function(){
+        $('.patients_school_form_modal').hide();
+    });
+
+    $('.patients-school-form').live('submit', function(e){
+        e.preventDefault();
+        var url = $(this).attr('action');
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: $(this).serialize(),
+            success: function(data){
+                $('.patients_school_form_modal').hide();
+            },
+            error: function(ts){
+                $('.patients_school_form_modal').html(ts.responseText);
+            },
+            dataType: 'html'
+        });
+    });
 }
 
 $(function(){
@@ -396,4 +534,6 @@ $(function(){
     PatientsMap();
     ClinicsModal();
     ReviewForm();
+    PatientsQuestionForm();
+    PatientsSchoolForm();
 });

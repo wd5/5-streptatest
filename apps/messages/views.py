@@ -2,12 +2,14 @@ from django.views.generic import FormView, TemplateView
 from django import forms
 from django.forms.formsets import formset_factory
 from django.http import HttpResponse
+from django.template import RequestContext
 from django.forms.widgets import RadioSelect
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render_to_response
 
 from apps.publications.models import Article
 from apps.products.models import Product
 from apps.places.models import City, Drugstore
+from apps.messages.models import Question, EntryInSchool
 from models import Order, PartnershipOffer
 
 class OrderForm(forms.ModelForm):
@@ -139,4 +141,43 @@ class PatientsView(TemplateView):
         context['articles_more_count'] = Article.objects.all().count()-2
         return context
 
-        
+class PatientQForm(forms.ModelForm):
+    class Meta:
+        model = Question
+        exclude = ('state','answer','send_answer')
+
+class PatientsQFormView(FormView):
+    form_class = PatientQForm
+    template_name = '_new_patients_q_form.html'
+
+    def form_valid(self, form):
+        Question.objects.create(**form.cleaned_data)
+        response = 'success!'
+        return HttpResponse(response)
+
+    def form_invalid(self, form):
+        response = render_to_response(self.template_name, 
+                                      self.get_context_data(form=form),
+                                      context_instance=RequestContext(self.request))
+        return HttpResponse(response, status=406)   
+
+
+class PatientsSchoolForm(forms.ModelForm):
+    class Meta:
+        model = EntryInSchool
+        exclude = ('state',)
+
+class PatientsSchoolFormView(FormView):
+    form_class = PatientsSchoolForm
+    template_name = '_new_patients_school_form.html'
+
+    def form_valid(self, form):
+        EntryInSchool.objects.create(**form.cleaned_data)
+        response = 'success!'
+        return HttpResponse(response)
+
+    def form_invalid(self, form):
+        response = render_to_response(self.template_name, 
+                                      self.get_context_data(form=form),
+                                      context_instance=RequestContext(self.request))
+        return HttpResponse(response, status=406)        

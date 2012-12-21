@@ -1,0 +1,14 @@
+<div class="modal_blob">
+<form class="patients-question-form" method="post" action="{% url patients_q_url %}">
+    {% csrf_token %}
+	{{ form.errors }}
+	{% for field in form %}
+	<div>
+		{{ field.label }}
+		{{ field }}
+	</div>
+	{% endfor %}
+	<input type="submit" value="Отправить" />
+</form>
+<div class="blob_modal_close"></div>
+</div>

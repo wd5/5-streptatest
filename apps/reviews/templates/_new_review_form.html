@@ -2,17 +2,18 @@
 <div class="modal_header">
         <h2 class="col">Оставить отзыв</h2>
         <span class="review_select_word">как</span>
-        <span class="review_select curr"><a href="#">Врач</a><img src="media/img/hormenu_arr.png"/></span>
+        <span class="review_select curr"><a href="javascript:void(0)" id="doc_link">Врач</a><img src="/media/img/hormenu_arr.png"/></span>
         <span class="review_select_word">или</span>
-        <span class="review_select"><a href="#">Пациент</a><img src="media/img/hormenu_arr.png"/></span>
+        <span class="review_select"><a href="javascript:void(0)" id="patient_link">Пациент</a><img src="/media/img/hormenu_arr.png"/></span>
     </div><!--/modal_header-->
 
     <form class="review-form" method="post" action="">
         {% csrf_token %}
         {{ form.errors }}
-        {{ form.reviewer_type }}
+        <input id="doc_radio" type="radio" name="reviewer_type" value="doctor" style="display:none" checked="checked">
+        <input id="patient_radio" type="radio" name="reviewer_type" value="patient" style="display:none">
         <div class="review_form_photo col">
-            <div class="review_form_photo_lnk"><a href="#" class="dot">Загрузить фото</a></div>
+            <div class="review_form_photo_lnk"><a href="javascript:void(0)" class="dot">Загрузить фото</a></div>
         </div>
         
         <div class="review_form_inputs col">

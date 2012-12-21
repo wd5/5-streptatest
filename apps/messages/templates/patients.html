@@ -38,7 +38,7 @@
 					</div>
 					
 					<div class="patients_school_submit">
-						<div class="btn_blue"><div class="btn_blue_in"><a href="#">Записаться</a></div></div>
+						<div class="btn_blue"><div class="btn_blue_in"><a class="patients-school-form-link" data-url="{% url patients_school_url %}" href="javascript:void(0)">Записаться</a></div></div>
 						<em>Будьте в курсе всех мероприятий</em>
 					</div>
 				</div><!--/patients_school-->
@@ -62,7 +62,7 @@
 				
 				<div class="side_pl" style="margin: 0;">
 					<p>Бесплатная консультация нашего специалиста</p>
-					<div class="btn_blue"><div class="btn_blue_in"><a href="#">Задать вопрос</a></div></div>
+					<div class="btn_blue"><div class="btn_blue_in"><a data-url="{% url patients_q_url %}" class="patients-q-form-link" href="javascript:void(0)">Задать вопрос</a></div></div>
 				</div>
 
 			</div><!--/content_r-->
@@ -72,4 +72,8 @@
 		
 	</div>
     <!--/MAIN-->
+{% endblock %}
+{% block modals%}
+	<div class="patients_question_form_modal"></div>
+	<div class="patients_school_form_modal"></div>
 {% endblock %}

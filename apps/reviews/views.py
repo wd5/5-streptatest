@@ -69,7 +69,7 @@ class MoreReviewsView(BaseReviewView):
         context['object_list'] = object_list.filter(reviewer_type=kwargs['reviewer_type'])[start:limit]
         return context
 
-class ReviewForm(FormView):
+class ReviewFormView(FormView):
     form_class = ReviewForm
     template_name = '_new_review_form.html'
 

@@ -486,6 +486,9 @@ h3 {
 .reviews_carousel .review_do {
 	width: 800px;
 }
+.bx-viewport {
+	padding-top:20px;
+}
 .bx-prev, .bx-next {
 	background: url('../img/carousel_lr.png') no-repeat;
 	position: absolute;
@@ -627,8 +630,11 @@ h3 {
 	left: 33%;
 	top: 0;
 }
+.review_full_index .review_blob {
+	left: 25.4%;
+}
 .review_full .review_blob_shade, .review_full .blob_close {
-	display: block;
+	display: block;	
 }
 .review_text {
 	font-size: 15px;
@@ -796,10 +802,22 @@ div.review_out_full {
 	left:50%;
 	display:none;
 }
-.review_form_modal {
+.review_form_modal{
 	position: absolute;
 	left:50%;
 	display:none;
+}
+.patients_question_form_modal {
+	position: absolute;
+	left:50%;
+	display:none;
+}
+.patients_school_form_modal {
+	position: absolute;
+	left:50%;
+	display:none;
+}
+.review_form_modal .modal_blob{
 	padding: 20px 40px;
 }
 .modal_clinics_col {

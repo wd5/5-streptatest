@@ -79,7 +79,7 @@
                 </div><!--/side-->
                 
                 {% if doctors_last_review_list %}
-                <div class="reviews_carousel" id="doctors_carousel">
+                <div class="reviews_carousel index_carousel" id="doctors_carousel">
                     <ul>
                         {% for review in doctors_last_review_list %}
                         <li>
@@ -93,7 +93,7 @@
                                     <div class="review_text">
                                         <p>{{ review.review|truncatechars:200 }}</p>
                                         {% if review.review|length > 200 %}
-                                        <a href="javascript:void(0)" class="review_more">весь отзыв</a>
+                                        <a href="javascript:void(0)" class="review_more more_index">весь отзыв</a>
                                         {% endif %}
                                     </div>
                                     <div class="review_blob_arr"></div>
@@ -101,7 +101,7 @@
                             </div>
 
                             {% if review|length > 200 %}
-                            <div class="review review_doc review_full" data-review-full="{{ review.id }}" style="display:none;">
+                            <div class="review review_doc review_full review_full_index" data-review-full="{{ review.id }}" style="display:none;">
                                 <div class="review_info col">
                                     <div class="review_img"><img src="/media/images/1.jpg" alt="" /></div>
                                     <h3 class="review_name">{{ review.initials }}</h3>
@@ -116,7 +116,7 @@
                                     </div>
                                     <div class="review_blob_arr"></div>
                                     <div class="review_blob_shade"><img src="/media/img/shade2.png" alt="" /></div>
-                                    <div class="blob_close"></div>
+                                    <div class="blob_close close_review_index"></div>
                                 </div>
                             </div>
                             {% endif %}
@@ -130,16 +130,16 @@
 
                 {% if patients_last_review_list %}
                 {% if doctors_last_review_list %}
-                <div class="reviews_carousel" style="display:none;" id="patients_carousel">
+                <div class="reviews_carousel index_carousel" style="display:none;" id="patients_carousel">
                 {% else %}
-                <div class="reviews_carousel" id="patients_carousel">
+                <div class="reviews_carousel index_carousel" id="patients_carousel">
                 {% endif %}
                     <ul>
                         {% for review in patients_last_review_list %}
                         <li>
                             <div class="review review_client" data-review="{{ review.id }}">
                                 <div class="review_info col">
-                                    <div class="review_img"><img src="media/images/2.jpg" alt="" /><div class="review_img_fr"></div></div>
+                                    <div class="review_img"><img src="/media/images/2.jpg" alt="" /><div class="review_img_fr"></div></div>
                                     <h3 class="review_name">{{ review.initials }}</h3>
                                     <div class="review_post"><p>{{ review.reviewer_post }}</p></div>
                                 </div>
@@ -147,7 +147,7 @@
                                     <div class="review_text">
                                         <p>{{ review.review|truncatechars:200 }}</p>
                                         {% if review.review|length > 200 %}
-                                        <a href="javascript:void(0)" class="review_more">весь отзыв</a>
+                                        <a href="javascript:void(0)" class="review_more more_index">весь отзыв</a>
                                         {% endif %}
                                     </div>
                                     <div class="review_blob_arr"></div>
@@ -155,7 +155,7 @@
                             </div>
 
                             {% if review|length > 200 %}
-                            <div class="review review_client review_full" data-review-full="{{ review.id }}" style="display:none;">
+                            <div class="review review_client review_full review_full_index" data-review-full="{{ review.id }}" style="display:none;">
                                 <div class="review_info col">
                                     <div class="review_img"><img src="/media/images/2.jpg" alt="" /><div class="review_img_fr"></div></div>
                                     <h3 class="review_name">{{ review.initials }}</h3>
@@ -170,7 +170,7 @@
                                     </div>
                                     <div class="review_blob_arr"></div>
                                     <div class="review_blob_shade"><img src="/media/img/shade2.png" alt="" /></div>
-                                    <div class="blob_close"></div>
+                                    <div class="blob_close close_review_index"></div>
                                 </div>
                             </div>
                             {% endif %}
