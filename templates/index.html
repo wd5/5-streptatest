@@ -38,7 +38,9 @@
                 
                 {% for capability in index_capability_list %}
                 <div class="index_why col">
-                    <div class="index_why_img"><img src="media/img/{{ capability.image }}" alt="" /></div>
+                    <div class="index_why_img">
+                        <a href="{% url capabilities_url %}"><img src="media/img/{{ capability.image }}" alt="" /></a>
+                    </div>
                     <h3 class="index_why_h">{{ capability.title|safe }}</h3>
                     <div class="index_why_des">{{ capability.body|safe }}</div>
                 </div>

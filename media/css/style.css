@@ -903,9 +903,6 @@ div.review_out_full {
 	font-weight: bold;
 	line-height: 46px;
 }
-.res_lnk {
-	margin-top: 270px;
-}
 .res_lnk a {
 	line-height: 24px;
 	text-decoration: none;
@@ -1801,3 +1798,11 @@ input:placeholder {
 
 
 .cl {clear:both}
+
+.contact_map_modal .modal_blob{
+	padding: 20px 40px;
+}
+
+.contacts_branches {
+	padding: 0 20px;
+}

@@ -1,0 +1,51 @@
+{% for city in city_list %}
+    {% if forloop.first %}
+    <div id="contacts_map_{{city.id}}" style="width: 100%; height: 100%;"></div>
+    {% else %}
+    <div id="contacts_map_{{city.id}}" style="width: 100%; height: 100%; display:none;"></div>
+    {% endif %}
+{% endfor %}
+<script>
+{% for city in city_list %}
+    var contactsMap_{{city.id}};
+    var currentMap;
+    function init_{{city.id}}(){     
+        contactsMap_{{city.id}} = new ymaps.Map ("contacts_map_{{city.id}}", {
+            center: [{{city.coordinates_center}}],
+            zoom: {{city.zoom}},
+        });
+        contactsMap_{{city.id}}.controls.add(
+           new ymaps.control.ZoomControl()
+        );
+        currentMap = contactsMap_{{city.id}};
+        {% for branch in city.branch_set.all %}
+            var myPlacemark_{{branch.id}} = new ymaps.Placemark(
+                [{{branch.coordinates}}],
+                {
+                    content: '{{branch.id}}',
+                    balloonContent: '<p>{{branch.title}}</p><p>{{branch.address}}</p>'
+                },{
+                    iconImageHref: '/media/img/ic_map_apt.png', // картинка иконки
+                    iconImageSize: [30, 25], // размеры картинки
+                    iconImageOffset: [-6,-12] // смещение картинки
+                });
+            contactsMap_{{city.id}}.geoObjects.add(myPlacemark_{{branch.id}});
+        {% endfor %}
+    }
+    {% if forloop.first %}
+    ymaps.ready(init_{{city.id}});
+    currentCity = {{city.id}};
+    {% endif %}
+{% endfor %}
+{% for city in city_list %}
+    $('#contacts_map_link_{{city.id}}').on('click', function(){
+        $('#contacts_map_'+currentCity).hide();
+        currentMap.destroy();
+        $('#contacts_map_link_'+currentCity).parent('li').removeClass('curr');
+        $('#contacts_map_{{city.id}}').show();
+        $('#contacts_map_link_{{city.id}}').parent('li').addClass('curr');
+        ymaps.ready(init_{{city.id}});
+        currentCity = {{city.id}};
+    });
+{% endfor%}
+</script>

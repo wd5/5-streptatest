@@ -24,19 +24,20 @@ function getScrollBarWidth () {
   return (w1 - w2); 
 }; 
 
-var addBlocked = function(){
+var addBlocked = function(prefix){
     $('body').addClass('no-scroll');
     var scrollBarWidth = getScrollBarWidth();
     if ($('body').height() > $(window).height()){
         $('body').css('padding-right',scrollBarWidth);
     }
-    $('body').prepend('<div class="blocked"></div>');
-    $('div.blocked').css('top', $(window).scrollTop());
+    $('body').prepend('<div class="'+prefix+'_blocked"></div>');
+    $('div.'+prefix+'_blocked').css('top', $(window).scrollTop());
+    $('div.'+prefix+'_blocked').addClass('blocked')
 }
 
-var removeBlocked = function(){
+var removeBlocked = function(prefix){
     $('body').removeClass('no-scroll');
-    $('div.blocked').remove();
+    $('div.'+prefix+'_blocked').remove();
     $('body').css('padding-right','');
 }
 
@@ -198,6 +199,11 @@ var OrderSwitchProduct = {
         $('.5-image-box').show();
         $('.carousel_l, .carousel_r').removeClass('5-link-c');
         $('.carousel_l, .carousel_r').addClass('20-link-c');
+
+        var currentPrice = parseInt($('.buy_calc_price .5_elem').text());
+        var currentQnt = parseInt($('.buy_calc_qty .inpt').attr('value'));
+        var newSum = currentQnt*currentPrice;
+        $('.buy_calc_sum .20_elem .sum').html(newSum);
     },
     show20: function(){
         $('.5_link').removeClass('curr');
@@ -210,6 +216,11 @@ var OrderSwitchProduct = {
         $('.20-image-box').show();
         $('.carousel_l, .carousel_r').removeClass('20-link-c');
         $('.carousel_l, .carousel_r').addClass('5-link-c'); 
+
+        var currentPrice = parseInt($('.buy_calc_price .20_elem').text());
+        var currentQnt = parseInt($('.buy_calc_qty .inpt').attr('value'));
+        var newSum = currentQnt*currentPrice;
+        $('.buy_calc_sum .20_elem .sum').html(newSum);
     }
 }
 
@@ -267,6 +278,9 @@ var OrderForm = function(){
         var currentPrice = parseInt(currentPrice);
         var currentQnt = parseInt(currentQntBox.attr('value'));
         var newQnt = currentQnt-1;
+        if (newQnt < 1) {
+            newQnt = 1;
+        }
         var newSum = newQnt*currentPrice;
         currentQntBox.attr('value',newQnt);
         currentSumBox.html(newSum);
@@ -286,14 +300,15 @@ var HeaderContact = function(){
     var ShowContactModal = function(){
         var scroll = $(window).scrollTop();
         var windowHeight = $(window).height();
-        var height = modal.find('#contact_map').height();
-        var width = modal.find('#contact_map').width();
+        var height = modal.height();
+        var width = modal.width();
         modal.css('margin-left', -(width/2));
         modal.css('z-index', '99');
         modal.css('top', scroll);
         modal.css('margin-top', (windowHeight-height)/2 );
-        addBlocked();
+        addBlocked('contmod');
         modal.show();
+        modal.addClass('current-modal');
     };
     $('.header_contacts_lnk').on('click', function(){
         ShowContactModal();
@@ -302,7 +317,12 @@ var HeaderContact = function(){
     $('.blob_modal_close.close_contacts').on('click', function(){
         modal.hide();
         myMap.destroy();
-        removeBlocked();
+        removeBlocked('contmod');
+    });
+    $('div.contmod_blocked').live('click', function(){
+        modal.hide();
+        myMap.destroy();
+        removeBlocked('contmod');
     });
 }
 
@@ -317,7 +337,7 @@ var ClinicsModal = function(){
         modal.css('z-index', '99');
         modal.css('top', scroll);
         modal.css('margin-top', (windowHeight-height)/2 );
-        addBlocked();
+        addBlocked('clmod');
         modal.show();
     };
     $('.clinics_modal_link').on('click', function(){
@@ -325,7 +345,11 @@ var ClinicsModal = function(){
     });
     $('.blob_modal_close.close_clinics').on('click', function(){
         modal.hide();
-        removeBlocked();
+        removeBlocked('clmod');
+    });
+    $('div.clmod_blocked').live('click', function(){
+        modal.hide();
+        removeBlocked('clmod');
     });
 }
 
@@ -390,12 +414,16 @@ var InstructionsModal = function(){
         modal.show()
     }
     $('.res_lnk a').on('click', function(){
-        addBlocked();
+        addBlocked('instmod');
         showModal();
     });
     modal.find('.close_instruction').on('click', function(){
         modal.hide();
-        removeBlocked();
+        removeBlocked('instmod');
+    });
+    $('div.instmod_blocked').live('click', function(){
+        modal.hide();
+        removeBlocked('instmod');
     });
 }
 
@@ -411,7 +439,7 @@ var ReviewForm = function(){
         modal.css('top', scroll);
         modal.css('margin-top', (windowHeight-height)/2);
         modal.show();
-        addBlocked();
+        addBlocked('revform');
     }
     $('.form-link').live('click', function(e){
         e.preventDefault();
@@ -428,7 +456,11 @@ var ReviewForm = function(){
 
     $('.blob_modal_close').live('click', function(){
         $('.review_form_modal').hide();
-        removeBlocked();
+        removeBlocked('revform');
+    });
+    $('div.revform_blocked').live('click', function(){
+        $('.review_form_modal').hide();
+        removeBlocked('revform');
     });
 
     $('.review-form').live('submit', function(e){
@@ -471,7 +503,7 @@ var PatientsQuestionForm = function(){
         modal.css('z-index', '99');
         modal.css('top', scroll);
         modal.css('margin-top', (windowHeight-height)/2);
-        addBlocked();
+        addBlocked('patqform');
         modal.show();
     }
     $('.patients-q-form-link').live('click', function(e){
@@ -490,7 +522,11 @@ var PatientsQuestionForm = function(){
 
     $('.blob_modal_close').live('click', function(){
         $('.patients_question_form_modal').hide();
-        removeBlocked();
+        removeBlocked('patqform');
+    });
+    $('div.patqform_blocked').live('click', function(){
+        $('.patients_question_form_modal').hide();
+        removeBlocked('patqform');
     });
 
     $('.patients-question-form').live('submit', function(e){
@@ -522,7 +558,7 @@ var PatientsSchoolForm = function(){
         modal.css('z-index', '99');
         modal.css('top', scroll);
         modal.css('margin-top', (windowHeight-height)/2);
-        addBlocked();
+        addBlocked('patsform');
         modal.show();
     }
     $('.patients-school-form-link').live('click', function(e){
@@ -541,7 +577,11 @@ var PatientsSchoolForm = function(){
 
     $('.blob_modal_close').live('click', function(){
         $('.patients_school_form_modal').hide();
-        removeBlocked();
+        removeBlocked('patsform');
+    });
+    $('div.patsform_blocked').live('click', function(){
+        $('.patients_school_form_modal').hide();
+        removeBlocked('patsform');
     });
 
     $('.patients-school-form').live('submit', function(e){

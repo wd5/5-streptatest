@@ -20,7 +20,22 @@
 
 <div class="contact_map_modal">
 <div class="modal_blob">
-    <div id="contact_map" style="width: 600px; height: 400px"></div>
+    <div class="modal_header">
+        <h2>Как нас найти</h2>
+    </div><!--/modal_header-->
+
+    <div class="col">
+        <div class="map" style="width: 700px; height: 400px;">
+            {% include '_contacts_map.html' %}
+        </div>
+    </div>
+    <div class="col contacts_branches">
+        {% for branch in city.branch_set.all %}
+            {{ branch.title }}
+        {% endfor %}
+    </div>
+    {% endfor %}
     <div class="blob_modal_close close_contacts"></div>
+    <div class="modal_shade"></div>
 </div>
 </div>

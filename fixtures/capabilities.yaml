@@ -64,14 +64,6 @@
     image: ic_4.png
 
 - model: capabilities.capability
-  pk: 8
-  fields:
-    title: Защита от корыстных или непрофессиональных врачей
-    body: Защита от корыстных или непрофессиональных врачей
-    show_on_index: False
-    image: ic_5.png
-
-- model: capabilities.capability
   pk: 9
   fields:
     title: Диагностирует наличие стриптококков на ранних стадиях

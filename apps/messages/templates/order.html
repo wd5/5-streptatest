@@ -31,6 +31,7 @@
 			<div class="content_l col">
 				<div class="h_line h_line2">
 					<h2 class="col">Аптеки</h2>
+					{% if city_list|length > 1 %}
 					<div class="hormenu col">
 						<ul>
 							{% for city in city_list %}
@@ -42,6 +43,7 @@
 							{% endfor %}
 						</ul>
 					</div><!--/hormenu-->
+					{% endif %}
 				</div>
 			</div><!--/content_l-->
 			

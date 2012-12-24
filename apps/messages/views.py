@@ -137,6 +137,7 @@ class PatientsView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(PatientsView, self).get_context_data(**kwargs)
+        context['city_list'] = City.objects.all()
         context['last_articles'] = Article.objects.all()[:2]
         context['articles_more_count'] = Article.objects.all().count()-2
         return context

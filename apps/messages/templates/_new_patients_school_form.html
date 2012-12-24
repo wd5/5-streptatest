@@ -1,14 +1,18 @@
 <div class="modal_blob">
-<form class="patients-school-form" method="post" action="{% url patients_school_url %}">
-    {% csrf_token %}
-	{{ form.errors }}
-	{% for field in form %}
-	<div>
-		{{ field.label }}
-		{{ field }}
-	</div>
-	{% endfor %}
-	<input type="submit" value="Отправить" />
-</form>
+    <div class="modal_header">
+        <h2 class="col">Оставить отзыв</h2>
+    </div><!--/modal_header-->
+
+    <form class="patients-school-form review_form" method="post" action="{% url patients_school_url %}">
+        {% csrf_token %}
+    	{{ form.errors }}
+    	{% for field in form %}
+    	<div>
+    		{{ field.label }}
+    		{{ field }}
+    	</div>
+    	{% endfor %}
+    	<input type="submit" value="Отправить" />
+    </form>
 <div class="blob_modal_close"></div>
 </div>

@@ -1,0 +1,64 @@
+{% for city in city_list %}
+    {% if forloop.first %}
+        <div id="patients_map_{{city.id}}" style="width:100%;height:100%;"></div>
+    {% else %}
+        <div id="patients_map_{{city.id}}" style="width:100%;height:100%;display:none;"></div>
+    {% endif %}
+{% endfor %}
+<script>
+{% for city in city_list %}
+    var patientsMap_{{city.id}};
+    var currentMap;
+    function init_{{city.id}}(){     
+        patientsMap_{{city.id}} = new ymaps.Map ("patients_map_{{city.id}}", {
+            center: [{{city.coordinates_center}}],
+            zoom: {{city.zoom}},
+        });
+        patientsMap_{{city.id}}.controls.add(
+           new ymaps.control.ZoomControl()
+        );
+        currentMap = patientsMap_{{city.id}};
+        {% for drugstore in city.drugstore_set.all %}
+            var myPlacemark_drug_{{drugstore.id}} = new ymaps.Placemark(
+                [{{drugstore.coordinates}}],
+                {
+                    content: '{{drugstore.id}}',
+                    balloonContent: '<p>{{drugstore.title}}</p><p>{{drugstore.address}}</p>'
+                },{
+                    iconImageHref: '/media/img/ic_map_apt.png', // картинка иконки
+                    iconImageSize: [30, 25], // размеры картинки
+                    iconImageOffset: [-6,-12] // смещение картинки
+                });
+            patientsMap_{{city.id}}.geoObjects.add(myPlacemark_drug_{{drugstore.id}});
+        {% endfor %}
+        {% for lab in city.lab_set.all %}
+            var myPlacemark_lab_{{lab.id}} = new ymaps.Placemark(
+                [{{lab.coordinates}}],
+                {
+                    content: '{{lab.id}}',
+                    balloonContent: '<p>{{lab.title}}</p><p>{{lab.address}}</p>'
+                },{
+                    iconImageHref: '/media/img/ic_map_lab.png', // картинка иконки
+                    iconImageSize: [30, 25], // размеры картинки
+                    iconImageOffset: [-6,-12] // смещение картинки
+                });
+            patientsMap_{{city.id}}.geoObjects.add(myPlacemark_lab_{{lab.id}});
+        {% endfor %}
+    }
+    {% if forloop.first %}
+    ymaps.ready(init_{{city.id}});
+    currentCity = {{city.id}};
+    {% endif %}
+{% endfor %}
+{% for city in city_list %}
+    $('#drugstores_map_link_{{city.id}}').on('click', function(){
+        $('#patients_map_'+currentCity).hide();
+        currentMap.destroy();
+        $('#drugstores_map_link_'+currentCity).parent('li').removeClass('curr');
+        $('#patients_map_{{city.id}}').show();
+        $('#drugstores_map_link_{{city.id}}').parent('li').addClass('curr');
+        ymaps.ready(init_{{city.id}});
+        currentCity = {{city.id}};
+    });
+{% endfor%}
+</script>
