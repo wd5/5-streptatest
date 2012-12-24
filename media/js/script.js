@@ -306,17 +306,6 @@ var HeaderContact = function(){
     });
 }
 
-var PatientsMap = function(){
-    ymaps.ready(InitPatientsMap);
-    var myMap;
-    function InitPatientsMap(){     
-        myMap = new ymaps.Map ("patients_map", {
-            center: [55.76, 37.64],
-            zoom: 7,
-        });
-    }
-}
-
 var ClinicsModal = function(){
     var modal = $('.clinics_modal');
     var ShowClinicsModal = function(){
@@ -586,7 +575,6 @@ $(function(){
     ShowOutReviewFull();
     InstructionsModal();
     HeaderContact();
-    PatientsMap();
     ClinicsModal();
     ReviewForm();
     PatientsQuestionForm();

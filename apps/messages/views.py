@@ -42,7 +42,7 @@ class OrderFormView(FormView):
         except:
             current_quantity = 1
 
-        context['city'] = City.objects.get(pk=1)
+        context['city_list'] = City.objects.all()
         context['drugtest'] = City.objects.all()[0].drugstore_set
         context['drugstore_count'] = Drugstore.objects.all().count
         product_with_5_tests = Product.objects.filter(test_items_quantity=5)[0]
