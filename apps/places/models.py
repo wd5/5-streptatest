@@ -31,7 +31,7 @@ class City(models.Model):
         return self.title
 
     class Meta:
-        ordering = ['-created_at', '-id',]
+        ordering = ['id']
         verbose_name = u'город'
         verbose_name_plural = u'города'
 

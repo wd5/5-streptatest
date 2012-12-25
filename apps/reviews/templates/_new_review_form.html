@@ -2,16 +2,26 @@
 <div class="modal_header">
         <h2 class="col">Оставить отзыв</h2>
         <span class="review_select_word">как</span>
+        {% if form.reviewer_type.value == 'doctor' %}
         <span class="review_select curr"><a href="javascript:void(0)" id="doc_link">Врач</a><img src="/media/img/hormenu_arr.png"/></span>
         <span class="review_select_word">или</span>
         <span class="review_select"><a href="javascript:void(0)" id="patient_link">Пациент</a><img src="/media/img/hormenu_arr.png"/></span>
+        {% else %}
+        <span class="review_select"><a href="javascript:void(0)" id="doc_link">Врач</a><img src="/media/img/hormenu_arr.png"/></span>
+        <span class="review_select_word">или</span>
+        <span class="review_select curr"><a href="javascript:void(0)" id="patient_link">Пациент</a><img src="/media/img/hormenu_arr.png"/></span>
+        {% endif %}
     </div><!--/modal_header-->
 
     <form class="review-form" method="post" action="">
         {% csrf_token %}
-        {{ form.errors }}
+        {% if form.reviewer_type.value == 'doctor' %}
         <input id="doc_radio" type="radio" name="reviewer_type" value="doctor" style="display:none" checked="checked">
         <input id="patient_radio" type="radio" name="reviewer_type" value="patient" style="display:none">
+        {% else %}
+        <input id="doc_radio" type="radio" name="reviewer_type" value="doctor" style="display:none">
+        <input id="patient_radio" type="radio" name="reviewer_type" value="patient" style="display:none" checked="checked">
+        {% endif %}
         <div class="review_form_photo col">
             <div class="review_form_photo_lnk"><a href="javascript:void(0)" class="dot">Загрузить фото</a></div>
         </div>
@@ -20,22 +30,26 @@
             <div class="form_line">
                 <label class="required">ФИО:</label>
                 <input class="inpt" type="text" name="initials" value="{{ form.initials.value|default_if_none:'' }}" />
+                <span class="form-text-error">{{form.initials.errors}}</span>
             </div>
             
             <div class="form_line">
                 <label class="required">Кем работаете:</label>
                 <input class="inpt" type="text" name="reviewer_post" value="{{ form.reviewer_post.value|default_if_none:'' }}"/>
+                <span class="form-text-error">{{form.reviewer_post.errors}}</span>
                 <div class="input_note">Например, модератор форума «Молодая мама» или директор турфирмы</div>
             </div>
             
             <div class="form_line">
                 <label>Ссылка на сайт:</label>
-                <input class="inpt" type="text" name="review" value="{{ form.review.value|default_if_none:'' }}"/>
+                <input class="inpt" type="text" name="link" value="{{ form.link.value|default_if_none:'' }}"/>
+                <span class="form-text-error">{{form.link.errors}}</span>
             </div>
             
             <div class="form_line">
                 <label class="required">Ваш отзыв:</label>
-                <textarea class="txtr" rows="0" cols="0"></textarea>
+                <textarea class="txtr" rows="0" cols="0">{{ form.review.value|default_if_none:'' }}</textarea>
+                <span class="form-text-error">{{form.review.errors}}</span>
             </div>          
         
             <div class="btn_zs"><div class="btn_zs_in"><input type="submit" value="Отправить отзыв" /></div></div>

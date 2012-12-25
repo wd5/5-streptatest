@@ -14,6 +14,19 @@
 				
 				<div class="h_line">
 					<h2>Аптеки и лаборатории</h2>
+					{% if city_list|length > 1 %}
+					<div class="hormenu col">
+						<ul>
+							{% for city in city_list %}
+								{% if forloop.first %}
+								<li class="curr"><a id="patients_map_link_{{city.id}}">{{city.title}}</a><img src="/media/img/hormenu_arr.png"/></li>
+								{% else %}
+								<li><a id="patients_map_link_{{city.id}}" href="javascript:void(0)">{{city.title}}</a><img src="/media/img/hormenu_arr.png"/></li>
+								{% endif %}
+							{% endfor %}
+						</ul>
+					</div><!--/hormenu-->
+					{% endif %}
 				</div>
 				
 				<div class="patients_map">

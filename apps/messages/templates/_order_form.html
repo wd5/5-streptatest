@@ -104,6 +104,7 @@
         <div class="math col">X</div>
         <div class="buy_calc_qty col">
             <input class="inpt" type="text" name="product_quantity" value="{{ form.product_quantity.value|default_if_none:1 }}" />
+            <span class="form-text-error">{{form.product_quantity.errors}}</span>
             <div class="buy_calc_qty_plus"></div>
             <div class="buy_calc_qty_minus"></div>
         </div>
@@ -154,11 +155,13 @@
         <div class="form_line">
             <label>ФИО:</label>
             <input class="inpt" type="text" name="initials" value="{{ form.initials.value|default_if_none:"" }}" />
+            <span class="form-text-error">{{form.initials.errors}}</span>
         </div>
         
         <div class="form_line">
             <label>E-mail:</label>
             <input class="inpt" type="text" name="email" value="{{ form.email.value|default_if_none:"" }}" />
+            <span class="form-text-error">{{form.email.errors}}</span>
             {% if form.allow_mailings.value == False %}
                 <div class="mail_checkbox">Получать информационную рассылку на этот e-mail</div>
                 <input style="display:none;" class="inpt mail_inpt" type="checkbox" name="allow_mailings"/>
@@ -171,16 +174,19 @@
         <div class="form_line">
             <label>Город:</label>
             <input class="inpt" type="text" name="city" value="{{ form.city.value|default_if_none:"" }}" />
+            <span class="form-text-error">{{form.city.errors}}</span>
         </div>
         
         <div class="form_line">
             <label>Адрес доставки:</label>
             <input class="inpt" type="text" name="address" value="{{ form.address.value|default_if_none:"" }}" />
+            <span class="form-text-error">{{form.address.errors}}</span>
         </div>
         
         <div class="form_line">
             <label>Телефон:</label>
             <strong class="inpt_tel_label">+7</strong> <input class="inpt inpt_tel" type="text" name="phone" value="{{ form.phone.value|default_if_none:"" }}"/>
+            <span class="form-text-error">{{form.phone.errors}}</span>
         </div>
         
         <div class="form_line">
@@ -204,6 +210,7 @@
                     <div class="buy_form_option_label">наличными</div>
                     <div class="buy_form_option_cash col">с какой суммы готовить сдачу</div>
                     <input class="inpt inpt_cash" type="text" name="cash_pay_sum" value="{{ form.cash_pay_sum.value|default_if_none:"" }}" /> <strong class="r">руб.</strong>
+                    <span class="form-text-error">{{form.cash_pay_sum.errors}}</span>
                 </div>
                 <div class="buy_form_option credit_radio">
                     <div class="buy_form_option_label">картой</div>
@@ -213,7 +220,7 @@
                 <div class="buy_form_option cash_radio">
                     <div class="buy_form_option_label">наличными</div>
                     <div class="buy_form_option_cash col">с какой суммы готовить сдачу</div>
-                    <input class="inpt inpt_cash" type="text" name="cash_pay_sum" value="{{ form.cash_pay_sum.value|default_if_none:"" }}" disabled="disabled"/> <strong class="r">руб.</strong>
+                    <input class="inpt inpt_cash" type="text" name="cash_pay_sum" value="{{ form.cash_pay_sum.value|default_if_none:"" }}" disabled="disabled"/> <strong class="r">руб.</strong><span class="form-text-error">{{form.cash_pay_sum.errors}}</span>
                 </div>
                 <div class="buy_form_option buy_form_option_checked credit_radio">
                     <div class="buy_form_option_label">картой</div>
@@ -225,6 +232,7 @@
                     <div class="buy_form_option_label">наличными</div>
                     <div class="buy_form_option_cash col">с какой суммы готовить сдачу</div>
                     <input class="inpt inpt_cash" type="text" name="cash_pay_sum" value="{{ form.cash_pay_sum.value|default_if_none:"" }}" /> <strong class="r">руб.</strong>
+                    <span class="form-text-error">{{form.cash_pay_sum.errors}}</span>
                 </div>
                 <div class="buy_form_option credit_radio">
                     <div class="buy_form_option_label">картой</div>

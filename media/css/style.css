@@ -1804,5 +1804,25 @@ input:placeholder {
 }
 
 .contacts_branches {
-	padding: 0 20px;
+	width: 150px;
+	padding-left: 20px;
+	font-size: 120%;
+}
+.contacts_branches .phone {
+	color:gray;
+}
+.contacts_branches .branch {
+	margin-bottom: 30px;
+}
+span.form-text-error .errorlist{
+	margin-left: 170px;
+	color:red;
+}
+.order_form span.form-text-error .errorlist{
+	margin-left: 210px;
+	color:red;
+}
+.partners_form span.form-text-error .errorlist{
+	margin-left: 210px;
+	color:red;
 }

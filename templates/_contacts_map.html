@@ -9,7 +9,7 @@
 {% for city in city_list %}
     var contactsMap_{{city.id}};
     var currentMap;
-    function init_{{city.id}}(){     
+    function initHeaderMap_{{city.id}}(){     
         contactsMap_{{city.id}} = new ymaps.Map ("contacts_map_{{city.id}}", {
             center: [{{city.coordinates_center}}],
             zoom: {{city.zoom}},
@@ -24,28 +24,53 @@
                 {
                     content: '{{branch.id}}',
                     balloonContent: '<p>{{branch.title}}</p><p>{{branch.address}}</p>'
-                },{
-                    iconImageHref: '/media/img/ic_map_apt.png', // картинка иконки
-                    iconImageSize: [30, 25], // размеры картинки
-                    iconImageOffset: [-6,-12] // смещение картинки
                 });
             contactsMap_{{city.id}}.geoObjects.add(myPlacemark_{{branch.id}});
         {% endfor %}
     }
     {% if forloop.first %}
-    ymaps.ready(init_{{city.id}});
     currentCity = {{city.id}};
     {% endif %}
 {% endfor %}
 {% for city in city_list %}
     $('#contacts_map_link_{{city.id}}').on('click', function(){
+        $('.branches_'+currentCity).hide();
         $('#contacts_map_'+currentCity).hide();
         currentMap.destroy();
         $('#contacts_map_link_'+currentCity).parent('li').removeClass('curr');
         $('#contacts_map_{{city.id}}').show();
+        $('.branches_{{city.id}}').show();
         $('#contacts_map_link_{{city.id}}').parent('li').addClass('curr');
-        ymaps.ready(init_{{city.id}});
+        ymaps.ready(initHeaderMap_{{city.id}});
         currentCity = {{city.id}};
     });
-{% endfor%}
+{% endfor %}
+    var modal = $('.contact_map_modal');
+    function showModal(){
+        var scroll = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        var height = modal.height();
+        var width = modal.width();
+        modal.css('margin-left', -(width/2));
+        modal.css('z-index', '99');
+        modal.css('top', scroll);
+        modal.css('margin-top', (windowHeight-height)/2 );
+        addBlocked('contmod');
+        modal.show();
+        modal.addClass('current-modal');
+    }
+    $('.header_contacts_lnk').on('click', function(){
+        showModal();
+        ymaps.ready(initHeaderMap_{{city_list.0.id}});
+    });
+    $('.close_contacts').live('click', function(){
+        modal.hide();
+        currentMap.destroy();
+        removeBlocked('contmod');
+    });
+    $('div.contmod_blocked').live('click', function(){
+        modal.hide();
+        currentMap.destroy();
+        removeBlocked('contmod');
+    });
 </script>

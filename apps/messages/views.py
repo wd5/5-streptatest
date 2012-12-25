@@ -42,7 +42,6 @@ class OrderFormView(FormView):
         except:
             current_quantity = 1
 
-        context['city_list'] = City.objects.all()
         context['drugtest'] = City.objects.all()[0].drugstore_set
         context['drugstore_count'] = Drugstore.objects.all().count
         product_with_5_tests = Product.objects.filter(test_items_quantity=5)[0]
@@ -137,7 +136,6 @@ class PatientsView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(PatientsView, self).get_context_data(**kwargs)
-        context['city_list'] = City.objects.all()
         context['last_articles'] = Article.objects.all()[:2]
         context['articles_more_count'] = Article.objects.all().count()-2
         return context

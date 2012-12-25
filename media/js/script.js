@@ -203,7 +203,7 @@ var OrderSwitchProduct = {
         var currentPrice = parseInt($('.buy_calc_price .5_elem').text());
         var currentQnt = parseInt($('.buy_calc_qty .inpt').attr('value'));
         var newSum = currentQnt*currentPrice;
-        $('.buy_calc_sum .20_elem .sum').html(newSum);
+        $('.buy_calc_sum .5_elem .sum').html(newSum);
     },
     show20: function(){
         $('.5_link').removeClass('curr');
@@ -224,6 +224,18 @@ var OrderSwitchProduct = {
     }
 }
 
+var MailCheckbox = function(){
+    $('.mail_checkbox').live('click', function(){
+        if ($('.mail_inpt').attr('checked')){
+            $('.mail_inpt').attr('checked',false);
+            $(this).removeClass('mail_checked');
+        } else {
+            $('.mail_inpt').attr('checked',true);
+            $(this).addClass('mail_checked');
+        };
+    });
+}
+
 var OrderForm = function(){ 
     $('.cash_radio').on('click', function(){
         $('.credit_radio').removeClass('buy_form_option_checked');
@@ -238,15 +250,6 @@ var OrderForm = function(){
         $('.inpt_cash').attr('disabled', true);
         $('.cash_input').attr('checked', false);
         $('.credit_input').attr('checked', true);
-    });
-    $('.mail_checkbox').on('click', function(){
-        if ($('.mail_inpt').attr('checked')){
-            $('.mail_inpt').attr('checked',false);
-            $(this).removeClass('mail_checked');
-        } else {
-            $('.mail_inpt').attr('checked',true);
-            $(this).addClass('mail_checked');
-        };
     });
     $('.buy_calc_qty_plus').on('click', function(){
         if ($('.buy_calc_sum strong:not(:hidden)').hasClass('20_elem')){
@@ -405,8 +408,8 @@ var InstructionsModal = function(){
         // var windowHeight = document.documentElement.clientHeight;
         var scroll = $(window).scrollTop();
         var windowHeight = $(window).height();
-        var height = modal.find('img').height();
-        var width = modal.find('img').width();
+        var height = modal.height();
+        var width = modal.width();
         modal.css('margin-left', -(width/2));
         modal.css('z-index', '99');
         modal.css('top', scroll);
@@ -454,7 +457,7 @@ var ReviewForm = function(){
         });
     });
 
-    $('.blob_modal_close').live('click', function(){
+    $('.close_review_form').live('click', function(){
         $('.review_form_modal').hide();
         removeBlocked('revform');
     });
@@ -520,7 +523,7 @@ var PatientsQuestionForm = function(){
         });
     });
 
-    $('.blob_modal_close').live('click', function(){
+    $('.patients_question_modal_close').live('click', function(){
         $('.patients_question_form_modal').hide();
         removeBlocked('patqform');
     });
@@ -575,7 +578,7 @@ var PatientsSchoolForm = function(){
         });
     });
 
-    $('.blob_modal_close').live('click', function(){
+    $('.patients_school_modal_close').live('click', function(){
         $('.patients_school_form_modal').hide();
         removeBlocked('patsform');
     });
@@ -614,9 +617,9 @@ $(function(){
     AsideOrderLink.bindLinks();
     ShowOutReviewFull();
     InstructionsModal();
-    HeaderContact();
     ClinicsModal();
     ReviewForm();
     PatientsQuestionForm();
     PatientsSchoolForm();
+    MailCheckbox();
 });

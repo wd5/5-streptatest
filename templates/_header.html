@@ -20,8 +20,24 @@
 
 <div class="contact_map_modal">
 <div class="modal_blob">
-    <div class="modal_header">
+    <div class="h_line">
         <h2>Как нас найти</h2>
+        <div class="hormenu col">
+            <ul>
+                {% for city in city_list %}
+                    {% if forloop.first %}
+                    <li class="curr">
+                    <a id="contacts_map_link_{{city.id}}">{{city.title}}</a>
+                    <img src="/media/img/hormenu_arr.png"/>           
+                    {% else %}
+                    <li>
+                    <a id="contacts_map_link_{{city.id}}" href="javascript:void(0)">{{city.title}}</a>
+                    <img src="/media/img/hormenu_arr.png"/>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div><!--/hormenu-->
     </div><!--/modal_header-->
 
     <div class="col">
@@ -30,11 +46,22 @@
         </div>
     </div>
     <div class="col contacts_branches">
-        {% for branch in city.branch_set.all %}
-            {{ branch.title }}
-        {% endfor %}
-    </div>
+    {% for city in city_list %}
+        {% if forloop.first %}
+        <div class="branches_{{city.id}}">
+        {% else %}
+        <div class="branches_{{city.id}}" style="display:none;">
+        {% endif %}
+            {% for branch in city.branch_set.all %}
+            <div class="branch">
+                <p>{{ branch.city }}</p>
+                <p>{{ branch.address }}</p>
+                <p><span class="phone">{{ branch.phone }}</span></p>
+            </div>
+            {% endfor %}
+        </div>
     {% endfor %}
+    </div>
     <div class="blob_modal_close close_contacts"></div>
     <div class="modal_shade"></div>
 </div>

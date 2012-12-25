@@ -17,29 +17,33 @@
 							<h2 class="side_h">Сотрудничество для врачей</h2>
 						</div>
 					</div>
-					{{ form_doctors.errors }}
 					{% csrf_token %}
 					<div style="display:none;">
 						<input type="text" name="offer_author_type" value="{{ form_doctors.offer_author_type.value }}">
+						<span class="form-text-error">{{form_doctors.offer_author_type.errors}}</span>
 					</div>
 					<div class="form_line">
 						<label class="required">ФИО</label>
 						<input class="inpt" type="text" name="title" value="{{ form_doctors.title.value|default_if_none:'' }}" />
+						<span class="form-text-error">{{form_doctors.title.errors}}</span>
 					</div>
 					
 					<div class="form_line">
 						<label>E-mail</label>
 						<input class="inpt" type="text" name="email" value="{{ form_doctors.email.value|default_if_none:'' }}" />
+						<span class="form-text-error">{{form_doctors.email.errors}}</span>
 					</div>
 					
 					<div class="form_line">
 						<label>Телефон</label>
 						<input class="inpt" type="text" name="phone" value="{{ form_doctors.phone.value|default_if_none:'' }}" />
+						<span class="form-text-error">{{form_doctors.phone.errors}}</span>
 					</div>
 					
 					<div class="form_line">
 						<label>Сообщение</label>
 						<textarea class="txtr" rows="0" cols="0" name="message">{{ form_doctors.message.value|default_if_none:'' }}</textarea>
+						<span class="form-text-error">{{form_doctors.message.errors}}</span>
 					</div>
 					
 					<div class="form_line">
@@ -59,30 +63,33 @@
 							<h2 class="side_h">Сотрудничество для аптек</h2>
 						</div>
 					</div>
-					{{ form_drugstores.errors }}
 					{% csrf_token %}
 					<div style="display:none;">
 						<input type="text" name="offer_author_type" value="{{ form_drugstores.offer_author_type.value }}">
+						<span class="form-text-error">{{form_drugstores.offer_author.errors}}</span>
 					</div>
 
 					<div class="form_line">
 						<label class="required">ФИО</label>
 						<input class="inpt" type="text" name="title" value="{{ form_drugstores.title.value|default_if_none:''}}"/>
+						<span class="form-text-error">{{form_drugstores.title.errors}}</span>
 					</div>
 					
 					<div class="form_line">
 						<label>E-mail</label>
 						<input class="inpt" type="text" name="email" value="{{ form_drugstores.email.value|default_if_none:'' }}"/>
+						<span class="form-text-error">{{form_drugstores.email.errors}}</span>
 					</div>
 					
 					<div class="form_line">
 						<label>Телефон</label>
 						<input class="inpt" type="text" name="phone" value="{{ form_drugstores.phone.value|default_if_none:'' }}"/>
+						<span class="form-text-error">{{form_drugstores.phone.errors}}</span>
 					</div>
 					
 					<div class="form_line">
 						<label>Сообщение</label>
-						<textarea class="txtr" rows="0" cols="0" name="message">{{ form_drugstores.message.value|default_if_none:'' }}</textarea>
+						<textarea class="txtr" rows="0" cols="0" name="message">{{ form_drugstores.message.value|default_if_none:'' }}</textarea><span class="form-text-error">{{form_drugstores.message.errors}}</span>
 					</div>
 					
 					<div class="form_line">

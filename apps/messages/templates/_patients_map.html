@@ -51,12 +51,12 @@
     {% endif %}
 {% endfor %}
 {% for city in city_list %}
-    $('#drugstores_map_link_{{city.id}}').on('click', function(){
+    $('#patients_map_link_{{city.id}}').on('click', function(){
         $('#patients_map_'+currentCity).hide();
         currentMap.destroy();
-        $('#drugstores_map_link_'+currentCity).parent('li').removeClass('curr');
+        $('#patients_map_link_'+currentCity).parent('li').removeClass('curr');
         $('#patients_map_{{city.id}}').show();
-        $('#drugstores_map_link_{{city.id}}').parent('li').addClass('curr');
+        $('#patients_map_link_{{city.id}}').parent('li').addClass('curr');
         ymaps.ready(init_{{city.id}});
         currentCity = {{city.id}};
     });
