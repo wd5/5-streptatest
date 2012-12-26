@@ -1,10 +1,18 @@
 # -*- coding: utf-8 -*-
-from django.views.generic import TemplateView
+from django.http import HttpResponse
+from django.views.generic import TemplateView, FormView
 from django.views.generic.base import TemplateResponseMixin
+from django.forms import ModelForm
+from django.shortcuts import render_to_response
+from django.template.loader import get_template
+from django.template import RequestContext
+
+from captcha.fields import CaptchaField
 
 from apps.reviews.models import Review
 from apps.capabilities.models import Capability
 from apps.siteblocks.models import Settings
+from apps.messages.models import MailingAddress
 
 class IndexSettings(TemplateResponseMixin):
     def get_context_data(self, **kwargs):
@@ -39,7 +47,31 @@ class InstructionsView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(InstructionsView, self).get_context_data(**kwargs)
         context['instructions_video'] = Settings.objects.get(name='instructions_video').value
+        context['instructions_modal_text'] = Settings.objects.get(name='instructions_modal_text').value
         return context
 
 class PatientsView(TemplateView):
     template_name = 'pages/patients.html'
+
+
+class SubscribeForm(ModelForm):
+    captcha = CaptchaField()
+
+    class Meta:
+        model = MailingAddress
+        exclude = ('is_active',)
+
+class SubscribeFormView(FormView):
+    form_class = SubscribeForm
+    template_name = '_new_subscribe_form.html'
+
+    def form_valid(self, form):
+        MailingAddress.objects.create(**form.cleaned_data)
+        response = 'success!'
+        return HttpResponse(response)
+
+    def form_invalid(self, form):
+        response = render_to_response(self.template_name, 
+                                      self.get_context_data(form=form),
+                                      context_instance=RequestContext(self.request))
+        return HttpResponse(response, status=406)

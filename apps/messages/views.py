@@ -1,3 +1,4 @@
+# coding: utf-8
 from django.views.generic import FormView, TemplateView
 from django import forms
 from django.forms.formsets import formset_factory
@@ -5,14 +6,18 @@ from django.http import HttpResponse
 from django.template import RequestContext
 from django.forms.widgets import RadioSelect
 from django.shortcuts import redirect, render_to_response
+from captcha.fields import CaptchaField
 
 from apps.publications.models import Article
 from apps.products.models import Product
 from apps.places.models import City, Drugstore
 from apps.messages.models import Question, EntryInSchool
+from apps.siteblocks.models import Settings
 from models import Order, PartnershipOffer
 
 class OrderForm(forms.ModelForm):
+    captcha = CaptchaField()
+
     class Meta:
         model = Order
         exclude = ('state',)
@@ -75,11 +80,16 @@ class OrderThanksView(TemplateView):
 #         'book_formset': book_formset,
 #     })
 class PartnersFormDoctors(forms.ModelForm):
+    captcha = CaptchaField()
+    
     class Meta:
         model = PartnershipOffer
         exclude = ('state',)
 
+
 class PartnersFormDrugstores(forms.ModelForm):
+    captcha = CaptchaField()
+    
     class Meta:
         model = PartnershipOffer
         exclude = ('state',)
@@ -92,6 +102,8 @@ class PartnersView(TemplateView):
         context['form_doctors'] = PartnersFormDoctors(initial={'offer_author_type': 'doctor'})
         context['form_drugstores'] = PartnersFormDrugstores(initial={'offer_author_type': 'drugstore'})
         context['drugstore_count'] = Drugstore.objects.all().count()
+        context['partnership_offer_doctor_text'] = Settings.objects.get(name='partnership_offer_doctor_text').value
+        context['partnership_offer_drugstore_text'] = Settings.objects.get(name='partnership_offer_drugstore_text').value
         return context
 
 class PartnersDoctorsFormView(FormView):
@@ -101,7 +113,9 @@ class PartnersDoctorsFormView(FormView):
 
     def get_context_data(self, **kwargs):
         context = super(PartnersDoctorsFormView, self).get_context_data(**kwargs)
-        context['drugstore_count'] = Drugstore.objects.all().count() 
+        context['drugstore_count'] = Drugstore.objects.all().count()
+        context['partnership_offer_doctor_text'] = Settings.objects.get(name='partnership_offer_doctor_text').value
+        context['partnership_offer_drugstore_text'] = Settings.objects.get(name='partnership_offer_drugstore_text').value 
         return context
 
     def get(self, request, *args, **kwargs):
@@ -119,7 +133,9 @@ class PartnersDrugstoresFormView(FormView):
 
     def get_context_data(self, **kwargs):
         context = super(PartnersDrugstoresFormView, self).get_context_data(**kwargs)
-        context['drugstore_count'] = Drugstore.objects.all().count() 
+        context['drugstore_count'] = Drugstore.objects.all().count()
+        context['partnership_offer_doctor_text'] = Settings.objects.get(name='partnership_offer_doctor_text').value
+        context['partnership_offer_drugstore_text'] = Settings.objects.get(name='partnership_offer_drugstore_text').value 
         return context
 
     def get(self, request, *args, **kwargs):
@@ -141,11 +157,14 @@ class PatientsView(TemplateView):
         return context
 
 class PatientQForm(forms.ModelForm):
+    captcha = CaptchaField()
+
     class Meta:
         model = Question
         exclude = ('state','answer','send_answer')
 
 class PatientsQFormView(FormView):
+
     form_class = PatientQForm
     template_name = '_new_patients_q_form.html'
 
@@ -162,6 +181,8 @@ class PatientsQFormView(FormView):
 
 
 class PatientsSchoolForm(forms.ModelForm):
+    captcha = CaptchaField() 
+
     class Meta:
         model = EntryInSchool
         exclude = ('state',)

@@ -8,7 +8,11 @@
     </div>
     
     <div class="footer_menu col">
-        {% footer_menu request.path %}
+        <ul>
+        	<li><a id="friends_modal_link" href="javascript:void(0)">Посоветовать друзьям</a></li>
+        	<li><a id="subscribe_link" data-url="{% url subscribe_url %}" href="javascript:void(0)">Подписаться на новости</a></li>
+        	<li><a href="{% url news_list_url %}">Пресс-центр</a></li>
+        </ul>
         <p>Сайт разработан в студии <a href="http://octoberweb.ru/" title="Разработка сайта — студия OctoberWeb">«<u>OctoberWeb</u>»</a></p>
     </div><!--/footer_menu-->
     
@@ -16,3 +20,4 @@
 </div>
 </div>
 <!--/FOOTER-->
+{% include '_footer_modals.html' %}

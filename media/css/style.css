@@ -954,6 +954,25 @@ div.review_out_full {
 	display:none;
 }
 
+.friends_modal {
+	position: absolute;
+	left:50%;
+	display:none;
+}
+.friends_modal .modal {
+	width: 400px;
+}
+
+.subscribe_modal .modal {
+	width: 600px;
+}
+
+.subscribe_modal {
+	position: absolute;
+	left:50%;
+	display:none;
+}
+
 /*box_carousel_zs*/
 .box_carousel_zs {
 	position: relative;
@@ -1815,6 +1834,9 @@ input:placeholder {
 	margin-bottom: 30px;
 }
 span.form-text-error .errorlist{
+	font-size: 80%;
+	position: absolute;
+	top: -15px;
 	margin-left: 170px;
 	color:red;
 }
@@ -1825,4 +1847,30 @@ span.form-text-error .errorlist{
 .partners_form span.form-text-error .errorlist{
 	margin-left: 210px;
 	color:red;
+}
+.preform_text {
+	margin:40px 110px 20px 20px;
+}
+.form_captcha input {
+	margin-left: 124px;
+	background: #fbfbfb;
+	border: 1px solid #e3e3e3;
+	padding: 3px 8px;
+	box-shadow: inset 0px 0px 1px #e3e3e3;
+	border-radius: 8px;
+	width: 30%;
+}
+.captha_review input {
+	margin-left: 84px;
+}
+.required {
+	font-weight: bold;
+}
+.form_captcha input {
+	font-weight: bold;
+	height: 26px;
+}
+.form_captcha input:focus {
+	outline: none;
+	box-shadow: 0px 0px 0px 5px #f8f8f8;
 }

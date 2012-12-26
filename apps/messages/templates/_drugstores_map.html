@@ -6,6 +6,7 @@
     {% endif %}
 {% endfor %}
 <script>
+var DrugstoresMap = function(){
 {% for city in city_list %}
     var drugstoresMap_{{city.id}};
     var currentMap;
@@ -34,7 +35,7 @@
     }
     {% if forloop.first %}
     ymaps.ready(init_{{city.id}});
-    currentCity = {{city.id}};
+    var currentCity = {{city.id}};
     {% endif %}
 {% endfor %}
 {% for city in city_list %}
@@ -48,4 +49,6 @@
         currentCity = {{city.id}};
     });
 {% endfor%}
+};
+DrugstoresMap();
 </script>
