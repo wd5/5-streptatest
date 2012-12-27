@@ -39,7 +39,7 @@
                 {% for capability in index_capability_list %}
                 <div class="index_why col">
                     <div class="index_why_img">
-                        <a href="{% url capabilities_url %}"><img src="media/img/{{ capability.image }}" alt="" /></a>
+                        <a href="{% url capabilities_url %}"><img src="media/{{ capability.image }}" alt="" /></a>
                     </div>
                     <h3 class="index_why_h">{{ capability.title|safe }}</h3>
                     <div class="index_why_des">{{ capability.body|safe }}</div>
@@ -87,7 +87,7 @@
                         <li>
                             <div class="review review_doc" data-review="{{ review.id }}">
                                 <div class="review_info col">
-                                    <div class="review_img"><img src="media/images/1.jpg" alt="" /></div>
+                                    <div class="review_img"><img src="media/{{ review.image }}" alt="" /></div>
                                     <h3 class="review_name">{{ review.initials }}</h3>
                                     <div class="review_post"><p>{{ review.reviewer_post }}</p></div>
                                 </div>
@@ -105,7 +105,7 @@
                             {% if review|length > 200 %}
                             <div class="review review_doc review_full review_full_index" data-review-full="{{ review.id }}" style="display:none;">
                                 <div class="review_info col">
-                                    <div class="review_img"><img src="/media/images/1.jpg" alt="" /></div>
+                                    <div class="review_img"><img src="/media/{{ review.image }}" alt="" /></div>
                                     <h3 class="review_name">{{ review.initials }}</h3>
                                     <div class="review_post">
                                         <p>{{ review.reviewer_post }}</p>
@@ -141,7 +141,7 @@
                         <li>
                             <div class="review review_client" data-review="{{ review.id }}">
                                 <div class="review_info col">
-                                    <div class="review_img"><img src="/media/images/2.jpg" alt="" /><div class="review_img_fr"></div></div>
+                                    <div class="review_img"><img src="/media/{{ review.image }}" alt="" /><div class="review_img_fr"></div></div>
                                     <h3 class="review_name">{{ review.initials }}</h3>
                                     <div class="review_post"><p>{{ review.reviewer_post }}</p></div>
                                 </div>
@@ -159,7 +159,7 @@
                             {% if review|length > 200 %}
                             <div class="review review_client review_full review_full_index" data-review-full="{{ review.id }}" style="display:none;">
                                 <div class="review_info col">
-                                    <div class="review_img"><img src="/media/images/2.jpg" alt="" /><div class="review_img_fr"></div></div>
+                                    <div class="review_img"><img src="/media/{{ review.image }}" alt="" /><div class="review_img_fr"></div></div>
                                     <h3 class="review_name">{{ review.initials }}</h3>
                                     <div class="review_post">
                                         <p>{{ review.reviewer_post }}</p>

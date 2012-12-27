@@ -7,6 +7,7 @@ from django.utils import simplejson
 from django.views.generic import TemplateView, FormView
 from django.forms import ModelForm
 from captcha.fields import CaptchaField
+from django.forms.widgets import RadioSelect
 
 from apps.publications.models import Publication
 from apps.places.models import Clinic
@@ -24,6 +25,9 @@ class ReviewForm(ModelForm):
 
     class Meta:
         model = Review
+        widgets = {
+            'product': RadioSelect(), 
+        }
 
 class BaseReviewView(TemplateView):
     def get_params(self, request, **kwargs):
@@ -33,6 +37,20 @@ class BaseReviewView(TemplateView):
 class ReviewIndexView(BaseReviewView):
     template_name = 'review_index.html'
 
+    def get_clinic_list(self, **kwargs):
+        all_clinics = Clinic.objects.all()
+        latters = []
+        for clinic in all_clinics:
+            latters.append(clinic.title[0])
+
+        clinic_list = {}
+        for latter in latters:
+            clinic_list[latter] = []
+            for clinic in all_clinics:
+                if clinic.title[0] == latter: 
+                    clinic_list[latter].append(clinic)
+        return clinic_list
+
     def get_context_data(self, **kwargs):
         context = super(ReviewIndexView, self).get_context_data(**kwargs)
         review_list = Review.objects.filter(is_published=True)
@@ -40,7 +58,7 @@ class ReviewIndexView(BaseReviewView):
         context['doctors_reviews_count'] = review_list.filter(reviewer_type='doctor').count()-3
         context['patients_review_list'] = review_list.filter(reviewer_type='patient')[:3]
         context['patients_reviews_count'] = review_list.filter(reviewer_type='patient').count()-3
-        context['clinic_list'] = Clinic.objects.all()
+        context['clinic_list'] = self.get_clinic_list()
         context['clinics_count'] = Clinic.objects.all().count()
         context['last_publications'] = Publication.objects.all()[:2]
         context['publications_count'] = Publication.objects.all().count()-2
@@ -53,7 +71,7 @@ class ReviewListView(BaseReviewView):
     def get_context_data(self, **kwargs):
         context = super(ReviewListView, self).get_context_data(**kwargs)
         full_object_list = Review.objects.filter(is_published=True).filter(reviewer_type=kwargs['reviewer_type'])
-        object_list = full_object_list[:17]
+        object_list = full_object_list[:9]
         context['object_list_first'] = object_list[0]
         context['object_list'] = chunks(object_list[1:], 4)
         context['object_list_count'] = full_object_list.filter(reviewer_type=kwargs['reviewer_type']).count
@@ -67,9 +85,10 @@ class MoreReviewsView(BaseReviewView):
         context = super(MoreReviewsView, self).get_context_data(**kwargs)
         params = self.get_params(self.request)
         start = int(params['current_items'])
-        limit = start+2
-        object_list = Review.objects.filter(is_published=True)
-        context['object_list'] = object_list.filter(reviewer_type=kwargs['reviewer_type'])[start:limit]
+        limit = start+8
+        object_list = Review.objects.filter(is_published=True).filter(reviewer_type=kwargs['reviewer_type'])[start:limit]
+        context['object_list'] = chunks(object_list, 4)
+        context['reviewer_type'] = kwargs['reviewer_type']
         return context
 
 class ReviewFormView(FormView):
@@ -77,7 +96,8 @@ class ReviewFormView(FormView):
     template_name = '_new_review_form.html'
 
     def form_valid(self, form):
-        Review.objects.create(**form.cleaned_data)
+        data = {key:value for key, value in form.cleaned_data.items() if key is not 'captcha'}
+        Review.objects.create(**data)
         response = 'success!'
         return HttpResponse(response)
 

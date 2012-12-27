@@ -58,7 +58,8 @@ class OrderFormView(FormView):
         return context
 
     def form_valid(self, form):
-        Order.objects.create(**form.cleaned_data)
+        data = {key:value for key, value in form.cleaned_data.items() if key is not 'captcha'}
+        Order.objects.create(**data)
         return redirect(self.get_success_url())
 
 class OrderThanksView(TemplateView):
@@ -123,6 +124,11 @@ class PartnersDoctorsFormView(FormView):
         form = self.get_form(form_class)
         return self.render_to_response(self.get_context_data(form_doctors=form))
 
+    def form_valid(self, form):
+        data = {key:value for key, value in form.cleaned_data.items() if key is not 'captcha'}
+        PartnershipOffer.objects.create(**data)
+        return redirect(self.get_success_url())
+
     def form_invalid(self, form):
         return self.render_to_response(self.get_context_data(form_doctors=form))
 
@@ -142,6 +148,11 @@ class PartnersDrugstoresFormView(FormView):
         form_class = self.get_form_class()
         form = self.get_form(form_class)
         return self.render_to_response(self.get_context_data(form_drugstores=form))
+
+    def form_valid(self, form):
+        data = {key:value for key, value in form.cleaned_data.items() if key is not 'captcha'}
+        PartnershipOffer.objects.create(**data)
+        return redirect(self.get_success_url())
 
     def form_invalid(self, form):
         return self.render_to_response(self.get_context_data(form_drugstores=form))
@@ -164,12 +175,12 @@ class PatientQForm(forms.ModelForm):
         exclude = ('state','answer','send_answer')
 
 class PatientsQFormView(FormView):
-
     form_class = PatientQForm
     template_name = '_new_patients_q_form.html'
 
     def form_valid(self, form):
-        Question.objects.create(**form.cleaned_data)
+        data = {key:value for key, value in form.cleaned_data.items() if key is not 'captcha'}
+        Question.objects.create(**data)
         response = 'success!'
         return HttpResponse(response)
 
@@ -192,7 +203,8 @@ class PatientsSchoolFormView(FormView):
     template_name = '_new_patients_school_form.html'
 
     def form_valid(self, form):
-        EntryInSchool.objects.create(**form.cleaned_data)
+        data = {key:value for key, value in form.cleaned_data.items() if key is not 'captcha'}
+        EntryInSchool.objects.create(**data)
         response = 'success!'
         return HttpResponse(response)
 

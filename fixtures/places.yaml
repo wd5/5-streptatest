@@ -94,6 +94,70 @@
     coordinates: 30.383621,59.870112
     address: Невский проспект 440
 
+- model: places.clinic
+  pk: 5
+  fields:
+    city: 2
+    title: смичсми
+    coordinates: 30.309291,59.965351
+    address: Невский проспект 440
+
+- model: places.clinic
+  pk: 6
+  fields:
+    city: 2
+    title: енгнгнv
+    coordinates: 30.345683,59.985743
+    address: Невский проспект 440
+
+- model: places.clinic
+  pk: 7
+  fields:
+    city: 2
+    title: прапрpuj
+    coordinates: 30.209041,59.991591
+    address: Невский проспект 440
+
+- model: places.clinic
+  pk: 8
+  fields:
+    city: 2
+    title: апроапроапр
+    coordinates: 30.383621,59.870112
+    address: Невский проспект 440
+
+- model: places.clinic
+  pk: 9
+  fields:
+    city: 2
+    title: смичсми
+    coordinates: 30.309291,59.965351
+    address: Невский проспект 440
+
+- model: places.clinic
+  pk: 10
+  fields:
+    city: 2
+    title: енгнгнv
+    coordinates: 30.345683,59.985743
+    address: Невский проспект 440
+
+- model: places.clinic
+  pk: 11
+  fields:
+    city: 2
+    title: прапрpuj
+    coordinates: 30.209041,59.991591
+    address: Невский проспект 440
+
+- model: places.clinic
+  pk: 12
+  fields:
+    city: 2
+    title: апроапроапр
+    coordinates: 30.383621,59.870112
+    address: Невский проспект 440
+
 # лаборатории
 - model: places.lab
   pk: 1
@@ -115,7 +179,7 @@
   pk: 3
   fields:
     city: 2
-    title: прапрpuj
+    title: hрапрpuj
     coordinates: 30.291524,59.92173
     address: Невский проспект 440
 
@@ -123,7 +187,7 @@
   pk: 4
   fields:
     city: 2
-    title: апроапроапр
+    title: упроапроапр
     coordinates: 30.434661,59.962984
     address: Невский проспект 440
 
@@ -132,7 +196,7 @@
   pk: 1
   fields:
     city: 2
-    title: смичсми
+    title: ясмичсми
     coordinates: 30.283113,59.946368
     address: Невский проспект 440
     phone: +7(234)263-23-23

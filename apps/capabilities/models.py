@@ -11,7 +11,7 @@ class ImageField(sorl_ImageField, models.ImageField):
     pass
 
 def file_path_capabilities(instance, filename):
-    return os.path.join('images','capabilities', translify(filename).replace(' ', '_') )
+    return os.path.join('img', translify(filename).replace(' ', '_') )
 
 
 class Capability(models.Model):

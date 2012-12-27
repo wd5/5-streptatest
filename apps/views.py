@@ -66,7 +66,8 @@ class SubscribeFormView(FormView):
     template_name = '_new_subscribe_form.html'
 
     def form_valid(self, form):
-        MailingAddress.objects.create(**form.cleaned_data)
+        data = {key:value for key, value in form.cleaned_data.items() if key is not 'captcha'}
+        MailingAddress.objects.create(**data)
         response = 'success!'
         return HttpResponse(response)
 

@@ -4,7 +4,7 @@
     title: Результат через 5&nbsp;минут
     body: Правильно установит возбудителя заболевания
     show_on_index: True
-    image: teaser_fast.png
+    image: images/capabilities/teaser_fast.png
 
 - model: capabilities.capability
   pk: 2
@@ -12,7 +12,7 @@
     title: Защищает от&nbsp;антибиотиков
     body: Предотвращает необоснованное назначение
     show_on_index: True
-    image: teaser_drugs.png
+    image: images/capabilities/teaser_drugs.png
 
 - model: capabilities.capability
   pk: 3
@@ -20,7 +20,7 @@
     title: Своевременная диагностика
     body: Спасает жизни своевременно диагностирую опасные заболевания
     show_on_index: True
-    image: teaser_diagnosis.png
+    image: images/capabilities/teaser_diagnosis.png
 
 - model: capabilities.capability
   pk: 4
@@ -28,7 +28,7 @@
     title: Помогает избежать осложнений
     body: При неправильной диагностики или лечения ангины
     show_on_index: True
-    image: teaser_complication.png
+    image: images/capabilities/teaser_complication.png
 
 # on list page
 - model: capabilities.capability
@@ -37,7 +37,7 @@
     title: Позволяет в течение 5 минут правильно установить возбудителя заболевания
     body: Позволяет в течение 5 минут правильно установить возбудителя заболевания
     show_on_index: False
-    image: ic_1.png
+    image: images/capabilities/ic_1.png
 
 - model: capabilities.capability
   pk: 5
@@ -45,7 +45,7 @@
     title: Защищает от необоснованного назначения антибиотиков
     body: Защищает от необоснованного назначения антибиотиков
     show_on_index: False
-    image: ic_2.png
+    image: images/capabilities/ic_2.png
 
 - model: capabilities.capability
   pk: 6
@@ -53,7 +53,7 @@
     title: Помогает спасать жизни своевременно диагностируя опасные заболевания
     body: Помогает спасать жизни своевременно диагностируя опасные заболевания
     show_on_index: False
-    image: ic_3.png
+    image: images/capabilities/ic_3.png
 
 - model: capabilities.capability
   pk: 7
@@ -61,7 +61,7 @@
     title: Позволяет избежать осложнений при неправильной диагностике или лечения ангины
     body: Позволяет избежать осложнений при неправильной диагностике или лечения ангины
     show_on_index: False
-    image: ic_4.png
+    image: images/capabilities/ic_4.png
 
 - model: capabilities.capability
   pk: 9
@@ -69,7 +69,7 @@
     title: Диагностирует наличие стриптококков на ранних стадиях
     body: Диагностирует наличие стриптококков на ранних стадиях
     show_on_index: False
-    image: ic_6.png
+    image: images/capabilities/ic_6.png
 
 - model: capabilities.capability
   pk: 10
@@ -77,7 +77,7 @@
     title: Экономит время, исключая необходимость стоят в очередях на анализы и ожидания результатов
     body: Экономит время, исключая необходимость стоят в очередях на анализы и ожидания результатов
     show_on_index: False
-    image: ic_7.png
+    image: images/capabilities/ic_7.png
 
 - model: capabilities.capability
   pk: 11
@@ -85,7 +85,7 @@
     title: Позволяет экономить деньги, исключая необходимость в покупке дорогостоящих лекарств
     body: Позволяет экономить деньги, исключая необходимость в покупке дорогостоящих лекарств
     show_on_index: False
-    image: ic_8.png
+    image: images/capabilities/ic_8.png
 
 - model: capabilities.capability
   pk: 12
@@ -93,7 +93,7 @@
     title: Не имеет ограничений по возрасту и полу
     body: Не имеет ограничений по возрасту и полу
     show_on_index: False
-    image: ic_9.png
+    image: images/capabilities/ic_9.png
 
 - model: capabilities.capability
   pk: 13
@@ -101,7 +101,7 @@
     title: Удобен и может быть использован человеком без медицинского образования в домашних условиях
     body: Удобен и может быть использован человеком без медицинского образования в домашних условиях
     show_on_index: False
-    image: ic_10.png
+    image: images/capabilities/ic_10.png
 
 - model: capabilities.capability
   pk: 14
@@ -109,7 +109,7 @@
     title: Используется более 10 лет на государственном уровне в странах западной Европы
     body: Используется более 10 лет на государственном уровне в странах западной Европы
     show_on_index: False
-    image: ic_11.png
+    image: images/capabilities/ic_11.png
 
 - model: capabilities.capability
   pk: 15
@@ -117,4 +117,4 @@
     title: Используется в России 2 года, врачами из ведущих клиник
     body: Используется в России 2 года, врачами из ведущих клиник
     show_on_index: False
-    image: ic_12.png
+    image: images/capabilities/ic_12.png

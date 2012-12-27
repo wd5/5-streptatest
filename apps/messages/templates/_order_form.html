@@ -103,7 +103,7 @@
         </div>
         <div class="math col">X</div>
         <div class="buy_calc_qty col">
-            <input class="inpt" type="text" name="product_quantity" value="{{ form.product_quantity.value|default_if_none:1 }}" />
+            <input class="inpt" id="quantity_input" type="text" name="product_quantity" value="{{ form.product_quantity.value|default_if_none:1 }}" />
             <span class="form-text-error">{{form.product_quantity.errors}}</span>
             <div class="buy_calc_qty_plus"></div>
             <div class="buy_calc_qty_minus"></div>

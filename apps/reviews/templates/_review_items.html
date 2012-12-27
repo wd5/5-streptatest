@@ -1,3 +1,75 @@
-{% for object in object_list %}
-    <li class="review-item">{{ object }}</li>
-{% endfor %}
+{% for review_list_line in object_list %}
+                <div class="reviews_list_line">
+
+                    <!-- full review -->
+                    {% for review in review_list_line %}
+                        {% if reviewer_type == 'doctor' %}
+                        <div class="review review_out_full review_doc" data-review="{{ review.id }}" style="display:none;">
+                        {% elif reviewer_type == 'patient' %}
+                        <div class="review review_out_full review_client" data-review="{{ review.id }}" style="display:none;">
+                        {% endif %}
+                            <div class="review_info col">
+                                <div class="review_img"><img src="/media/{{review.image}}" alt="" />{% if reviewer_type == 'patient' %}<div class="review_img_fr"></div>{% endif %}</div>
+                                <h3 class="review_name">{{ review.initials }}</h3>
+                                <div class="review_post"><p>{{ review.reviewer_post }}</p></div>
+                            </div>
+                            <div class="review_blob col">
+                                <div class="review_text">
+                                    <p>{{ review.review|truncatechars:200 }}
+                                    {% if review.review|length > 200 %}
+                                    <a href="javascript:void(0)" class="review_more">весь отзыв</a>
+                                    {% endif %}
+                                    </p>
+                                </div>
+                                <div class="review_blob_arr"></div>
+                                <div class="review_blob_shade"><img src="/media/img/shade2.png" alt="" /></div>
+                                <div class="blob_close"></div>
+                            </div>
+                        </div>
+
+                        <!-- full review with full text -->
+                        {% if review.review|length > 200 %}
+                            {% if reviewer_type == 'doctor' %}
+                            <div class="review review_doc review_out_full review_full" data-review-full="{{ review.id }}" style="display:none;">
+                            {% elif reviewer_type == 'patient' %}
+                            <div class="review review_client review_out_full review_full" data-review-full="{{ review.id }}" style="display:none;">
+                            {% endif %}
+                                <div class="review_info col">
+                                    <div class="review_img"><img src="/media/{{review.image}}" alt="" />{% if reviewer_type == 'patient' %}<div class="review_img_fr"></div>{% endif %}</div>
+                                    <h3 class="review_name">{{ review.initials }}</h3>
+                                    <div class="review_post"><p>{{ review.reviewer_post }}</p></div>
+                                </div>
+                                <div class="review_blob col">
+                                    <div class="review_text">
+                                        <p>{{ review.review }}</p>
+                                    </div>
+                                    <div class="review_blob_arr"></div>
+                                    <div class="review_blob_shade"><img src="/media/img/shade2.png" alt="" /></div>
+                                    <div class="blob_close"></div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% for review in review_list_line %}
+                    <div class="review_out">
+                        {% if reviewer_type == 'doctor' %}
+                        <div class="review review_doc" data-target="{{ review.id }}">
+                        {% elif reviewer_type == 'patient' %}
+                        <div class="review review_client" data-target="{{ review.id }}">
+                        {% endif %}
+                            <div class="review_info col">
+                                <div class="review_img"><img src="/media/{{review.image}}" alt="" />{% if reviewer_type == 'patient' %}<div class="review_img_fr"></div>{% endif %}</div>
+                                <h3 class="review_name"><a href="javascript:void(0)" class="show_review_out_full">{{ review.initials }}</a></h3>
+                                <div class="review_post"><p>{{ review.reviewer_post }}</p></div>
+                            </div>
+                            <div class="review_blob col">
+                                <div class="review_blob_arr"></div>
+                                <div class="review_blob_shade"><img src="/media/img/shade2.png" alt="" /></div>
+                                <div class="blob_close"></div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div><!--/reviews_list_line-->
+                {% endfor %}

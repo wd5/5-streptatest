@@ -24,7 +24,7 @@
                     {% for review in doctors_review_list %}
                     <div class="review review_doc" data-review="{{ review.id }}">
                         <div class="review_info col">
-                            <div class="review_img"><img src="/media/images/1.jpg" alt="" /></div>
+                            <div class="review_img"><img src="/media/{{review.image}}" alt="" /></div>
                             <h3 class="review_name">{{ review.initials }}</h3>
                             <div class="review_post"><p>{{ review.reviewer_post }}</p></div>
                         </div>
@@ -45,7 +45,7 @@
                     {% if review.review|length > 200 %}
                     <div class="review review_doc review_full" data-review-full="{{ review.id }}" style="display:none;">
                         <div class="review_info col">
-                            <div class="review_img"><img src="/media/images/1.jpg" alt="" /></div>
+                            <div class="review_img"><img src="/media/{{review.image}}" alt="" /></div>
                             <h3 class="review_name">{{ review.initials }}</h3>
                             <div class="review_post"><p>{{ review.reviewer_post }}</p></div>
                         </div>
@@ -82,7 +82,7 @@
                     {% for review in patients_review_list %}
                     <div class="review review_client" data-review="{{ review.id }}">
                         <div class="review_info col">
-                            <div class="review_img"><img src="/media/images/2.jpg" alt="" /><div class="review_img_fr"></div></div>
+                            <div class="review_img"><img src="/media/{{review.image}}" alt="" /><div class="review_img_fr"></div></div>
                             <h3 class="review_name">{{ review.initials }}</h3>
                             <div class="review_post">
                                 <p>{{ review.reviewer_post }}</p>
@@ -105,7 +105,7 @@
                     {% if review|length > 200 %}
                     <div class="review review_client review_full" data-review-full="{{ review.id }}" style="display:none;">
                         <div class="review_info col">
-                            <div class="review_img"><img src="/media/images/2.jpg" alt="" /><div class="review_img_fr"></div></div>
+                            <div class="review_img"><img src="/media/{{review.image}}" alt="" /><div class="review_img_fr"></div></div>
                             <h3 class="review_name">{{ review.initials }}</h3>
                             <div class="review_post">
                                 <p>{{ review.reviewer_post }}</p>

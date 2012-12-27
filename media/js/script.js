@@ -24,6 +24,21 @@ function getScrollBarWidth () {
   return (w1 - w2); 
 }; 
 
+var MoreReviews = function(){
+    $('.more-more').live('click', function(e){
+        e.preventDefault();
+        $.ajax({
+            type: 'GET',
+            url: 'more/',
+            data: { 'current_items':$('.reviews_list .review_out_full').size() },
+            success: function(data){
+                $('.reviews_list').append(data);
+            },
+            dataType: 'html'
+        });
+    });
+};
+
 var addBlocked = function(prefix){
     $('body').addClass('no-scroll');
     var scrollBarWidth = getScrollBarWidth();
@@ -288,6 +303,15 @@ var OrderForm = function(){
         currentQntBox.attr('value',newQnt);
         currentSumBox.html(newSum);
     });
+    $('#quantity_input').on('focus', function(){
+        oldOrderQInputValue = $(this).attr('value');
+    });
+    $('#quantity_input').on('change', function(){
+        var newValue = $(this).attr('value');
+        if ( !(/^[0-9]+$/.test(newValue)) || newValue < 1) {
+            $(this).attr('value',oldOrderQInputValue);
+        }        
+    });
 }
 
 var HeaderContact = function(){
@@ -422,7 +446,7 @@ var AsideOrderLink = {
 }
 
 var ShowOutReviewFull = function(){
-    $('.review_out .show_review_out_full').on('click', function(){
+    $('.review_out .show_review_out_full').live('click', function(){
         var targetReview = $(this).parents('.review_out .review').attr('data-target');
         $('.review_out_full[data-review='+targetReview+']').show();
         $(this).parents('.review_out').hide();
@@ -501,6 +525,7 @@ var ReviewForm = function(){
             data: $(this).serialize(),
             success: function(data){
                 $('.review_form_modal').hide();
+                removeBlocked('revform');
             },
             error: function(ts){
                 var modal = $('.review_form_modal');
@@ -510,15 +535,15 @@ var ReviewForm = function(){
         });
     });
     $('#doc_link').live('click', function(){
-        $('#doc_radio').attr('checked', true);
+        $('#doc_radio').prop('checked', true);
         $('#doc_link').parent().addClass('curr');
-        $('#patient_radio').attr('checked', false);
+        $('#patient_radio').prop('checked', false);
         $('#patient_link').parent().removeClass('curr');
     });
     $('#patient_link').live('click', function(){
-        $('#patient_radio').attr('checked', true);
+        $('#patient_radio').prop('checked', true);
         $('#patient_link').parent().addClass('curr');
-        $('#doc_radio').attr('checked', false);
+        $('#doc_radio').prop('checked', false);
         $('#doc_link').parent().removeClass('curr');
     });
 }
@@ -569,6 +594,7 @@ var PatientsQuestionForm = function(){
             data: $(this).serialize(),
             success: function(data){
                 $('.patients_question_form_modal').hide();
+                removeBlocked('patqform');
             },
             error: function(ts){
                 var modal = $('.patients_question_form_modal')
@@ -626,6 +652,7 @@ var SubscribeForm = function(){
             data: $(this).serialize(),
             success: function(data){
                 $('.subscribe_modal').hide();
+                removeBlocked('subscr');
             },
             error: function(ts){
                 var modal = $('.subscribe_modal')
@@ -682,6 +709,7 @@ var PatientsSchoolForm = function(){
             data: $(this).serialize(),
             success: function(data){
                 $('.patients_school_form_modal').hide();
+                removeBlocked('patsform');
             },
             error: function(ts){
                 $('.patients_school_form_modal').html(ts.responseText);
@@ -710,4 +738,5 @@ $(function(){
     MailCheckbox();
     FriendsModal();
     SubscribeForm();
+    MoreReviews();
 });
