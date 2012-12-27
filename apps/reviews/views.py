@@ -6,6 +6,7 @@ from django.template import RequestContext
 from django.utils import simplejson
 from django.views.generic import TemplateView, FormView
 from django.forms import ModelForm
+from captcha.fields import CaptchaField
 
 from apps.publications.models import Publication
 from apps.places.models import Clinic
@@ -19,6 +20,8 @@ def chunks(l, n):
         yield l[i:i+n]
 
 class ReviewForm(ModelForm):
+    captcha = CaptchaField()
+
     class Meta:
         model = Review
 

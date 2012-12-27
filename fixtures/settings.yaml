@@ -63,4 +63,24 @@
     name: instructions_video
     type: input
     value: http://www.youtube.com/embed/fJ9rUzIMcZQ
-    
+
+- model: siteblocks.settings
+  pk: 9
+  fields:
+    name: instructions_modal_text
+    type: redactor
+    value: text
+
+- model: siteblocks.settings
+  pk: 10
+  fields:
+    name: partnership_offer_doctor_text
+    type: redactor
+    value: texttexttexttext texttexttexttext
+
+- model: siteblocks.settings
+  pk: 11
+  fields:
+    name: partnership_offer_drugstore_text
+    type: redactor
+    value: texttex ttexttexttexttextt exttexttext texttexttexttext

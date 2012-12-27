@@ -356,6 +356,33 @@ var ClinicsModal = function(){
     });
 }
 
+var FriendsModal = function(){
+    var modal = $('.friends_modal');
+    var ShowFriendsModal = function(){
+        var scroll = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        var height = modal.height();
+        var width = modal.width();
+        modal.css('margin-left', -(width/2));
+        modal.css('z-index', '99');
+        modal.css('top', scroll);
+        modal.css('margin-top', (windowHeight-height)/2 );
+        addBlocked('frmod');
+        modal.show();
+    };
+    $('#friends_modal_link').on('click', function(){
+        ShowFriendsModal();
+    });
+    $('.blob_modal_close.close_friends').on('click', function(){
+        modal.hide();
+        removeBlocked('frmod');
+    });
+    $('div.frmod_blocked').live('click', function(){
+        modal.hide();
+        removeBlocked('frmod');
+    });
+}
+
 var AsideOrderLink = {
     show5: function(){
         $('.5-link-a').addClass('curr');
@@ -476,7 +503,8 @@ var ReviewForm = function(){
                 $('.review_form_modal').hide();
             },
             error: function(ts){
-                $('.review_form_modal').html(ts.responseText);
+                var modal = $('.review_form_modal');
+                modal.html(ts.responseText);
             },
             dataType: 'html'
         });
@@ -543,7 +571,65 @@ var PatientsQuestionForm = function(){
                 $('.patients_question_form_modal').hide();
             },
             error: function(ts){
-                $('.patients_question_form_modal').html(ts.responseText);
+                var modal = $('.patients_question_form_modal')
+                modal.html(ts.responseText);
+            },
+            dataType: 'html'
+        });
+    });
+}
+
+var SubscribeForm = function(){
+    var showModal = function(){
+        var modal = $('.subscribe_modal');
+        var scroll = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        var height = modal.height();
+        var width = modal.width();
+        modal.css('margin-left', -(width/2));
+        modal.css('z-index', '99');
+        modal.css('top', scroll);
+        modal.css('margin-top', (windowHeight-height)/2);
+        addBlocked('subscr');
+        modal.show();
+    }
+
+    $('#subscribe_link').live('click', function(e){
+        e.preventDefault();
+        var url = $(this).attr('data-url');
+        $.ajax({
+            type: 'GET',
+            url: url,
+            success: function(data){
+                $('.subscribe_modal').html(data);
+                showModal();
+            },
+            dataType: 'html'
+        });
+    });
+
+    $('.close_subscribe').live('click', function(){
+        $('.subscribe_modal').hide();
+        removeBlocked('subscr');
+    });
+    $('div.subscr_blocked').live('click', function(){
+        $('.subscribe_modal').hide();
+        removeBlocked('subscr');
+    });
+
+    $('.subscribe_form').live('submit', function(e){
+        e.preventDefault();
+        var url = $(this).attr('action');
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: $(this).serialize(),
+            success: function(data){
+                $('.subscribe_modal').hide();
+            },
+            error: function(ts){
+                var modal = $('.subscribe_modal')
+                modal.html(ts.responseText);
             },
             dataType: 'html'
         });
@@ -622,4 +708,6 @@ $(function(){
     PatientsQuestionForm();
     PatientsSchoolForm();
     MailCheckbox();
+    FriendsModal();
+    SubscribeForm();
 });

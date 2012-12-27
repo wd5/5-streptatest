@@ -241,6 +241,10 @@
             {% endif %}
             </div>
         </div>
+        <div class="form_line form_captcha">
+            {{ form.captcha }}
+            <span class="form-text-error">{{ form.captcha.errors }}</span>
+        </div>
         
         <div class="btn_zs"><div class="btn_zs_in"><input type="submit" value="Оформить заказ" /></div></div>
 </div><!--/buy_step-->

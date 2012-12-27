@@ -48,8 +48,12 @@
             
             <div class="form_line">
                 <label class="required">Ваш отзыв:</label>
-                <textarea class="txtr" rows="0" cols="0">{{ form.review.value|default_if_none:'' }}</textarea>
+                <textarea name="review" class="txtr" rows="0" cols="0">{{ form.review.value|default_if_none:'' }}</textarea>
                 <span class="form-text-error">{{form.review.errors}}</span>
+            </div>
+            <div class="form_line form_captcha captha_review">
+                {{ form.captcha }}
+                <span class="form-text-error">{{ form.captcha.errors }}</span>
             </div>          
         
             <div class="btn_zs"><div class="btn_zs_in"><input type="submit" value="Отправить отзыв" /></div></div>

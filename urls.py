@@ -5,7 +5,7 @@ from django.conf import settings
 
 from apps.urls import urlpatterns as apps_urlpatterns
 
-from apps.views import index, InstructionsView
+from apps.views import index, InstructionsView, SubscribeFormView
 from apps.reviews.views import ReviewIndexView, ReviewListView, MoreReviewsView, ReviewFormView
 from apps.capabilities.views import CapabilityListView 
 from apps.messages.views import OrderFormView, OrderThanksView, \
@@ -18,6 +18,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    url(r'^captcha/', include('captcha.urls')),
 
     # Admin
     url(r'^admin/', include(admin.site.urls)),
@@ -56,8 +57,10 @@ urlpatterns = patterns('',
     url(r'^articles/$', ArticleListView.as_view(), name='article_list_url'),
     url(r'^publications/$', PublicationListView.as_view(), name='publication_list_url'),
     url(r'^publications/(?P<id>\d)/$', PublicationView.as_view(), name='publication_url'),
-    url(r'^newslist/(?P<id>\d)/$', NewsView.as_view(), name='single_news_url'),
+    url(r'^newsboard/(?P<id>\d)/$', NewsView.as_view(), name='single_news_url'),
     url(r'^articles/(?P<id>\d)/$', ArticleView.as_view(), name='article_url'),
+    # subscribe
+    url(r'^subscribe/$', SubscribeFormView.as_view(), name='subscribe_url'),
 )
 
 urlpatterns += apps_urlpatterns

@@ -28,7 +28,7 @@ INSTALLED_APPS += (
     'apps.messages',
     'apps.places',
     'sorl.thumbnail',
-    #'captcha',
+    'captcha',
 )
 
 MIDDLEWARE_CLASSES += (

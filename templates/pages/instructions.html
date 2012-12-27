@@ -118,6 +118,9 @@
 		</div><!--/modal_header-->
 		
 		<div class="modal_instruction"><img src="/media/img/instruction.png" alt="" /></div>
+		{% if instructions_modal_text %}
+		<div>{{ instructions_modal_text }}</div>
+		{% endif %}
 		<div class="blob_modal_close close_instruction"></div>
 	</div>
 </div>

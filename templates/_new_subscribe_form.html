@@ -1,0 +1,32 @@
+<div class="modal modal_blob">
+    <div class="modal_header">
+        <h2>Подписаться на новости</h2>
+    </div><!--/modal_header-->
+    
+    <form class="subscribe_form review_form" method="post" action="{% url subscribe_url %}">
+        {% csrf_token %}
+        <div class="review_form_inputs">
+        	
+            <div class="form_line">
+        		<label class="required">ФИО:</label>
+        		<input class="inpt" type="text" name="initials" value="{{form.initials.value|default_if_none:''}}" />
+                <span class="form-text-error">{{form.initials.errors}}</span>
+        	</div>
+
+            <div class="form_line">
+                <label class="required">E-mail:</label>
+                <input class="inpt" type="text" name="email" value="{{form.email.value|default_if_none:''}}" />
+                <span class="form-text-error">{{form.email.errors}}</span>
+            </div>
+
+            <div class="form_line form_captcha captha_review">
+                {{ form.captcha }}
+                <span class="form-text-error">{{ form.captcha.errors }}</span>
+            </div>
+
+            <div class="btn_zs"><div class="btn_zs_in"><input type="submit" value="Отправить отзыв" /></div></div>
+        </div>
+    </form>
+
+    <div class="blob_modal_close close_subscribe"></div>
+</div>

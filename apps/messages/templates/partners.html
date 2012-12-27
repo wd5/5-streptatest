@@ -11,6 +11,12 @@
 				<div class="text page_lead">
 					<p>Унитарное государство важно представляет собой онтологический кризис легитимности, что неминуемо повлечет эскалацию напряжения в стране. Политическое учение Руссо взаимно. Референдум, на первый взгляд, предсказуем.</p>
 				</div>
+
+				{% if partnership_offer_doctor_text %}
+				<div class="text preform_text">
+					{{ partnership_offer_doctor_text }}
+				</div>
+				{% endif %}
 				<form class="partners_form" method="post" action="{% url partners_doctors_url %}">
 					<div class="side">
 						<div class="arrpl arrpl_2">
@@ -45,7 +51,11 @@
 						<textarea class="txtr" rows="0" cols="0" name="message">{{ form_doctors.message.value|default_if_none:'' }}</textarea>
 						<span class="form-text-error">{{form_doctors.message.errors}}</span>
 					</div>
-					
+					<div class="form_line form_captcha">
+						{{ form_doctors.captcha }}
+						<span class="form-text-error">{{ form_doctors.captcha.errors }}</span>
+					</div>
+
 					<div class="form_line">
 						<div class="btn_blue"><div class="btn_blue_in"><input type="submit" value="Отправить сообщение" /></div></div>
 					</div>
@@ -57,6 +67,11 @@
 			</div><!--/content_r-->
 				
 			<div class="content_l col">
+				{% if partnership_offer_drugstore_text %}
+				<div class="text preform_text">
+					{{ partnership_offer_drugstore_text }}
+				</div>
+				{% endif %}
 				<form class="partners_form" method="post" action="{% url partners_drugstores_url %}">
 					<div class="side">
 						<div class="arrpl arrpl_2">
@@ -90,6 +105,10 @@
 					<div class="form_line">
 						<label>Сообщение</label>
 						<textarea class="txtr" rows="0" cols="0" name="message">{{ form_drugstores.message.value|default_if_none:'' }}</textarea><span class="form-text-error">{{form_drugstores.message.errors}}</span>
+					</div>
+					<div class="form_line form_captcha">
+						{{ form_drugstores.captcha }}
+						<span class="form-text-error">{{ form_drugstores.captcha.errors }}</span>
 					</div>
 					
 					<div class="form_line">
