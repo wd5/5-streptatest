@@ -25,6 +25,26 @@ function getScrollBarWidth () {
 }; 
 
 var MoreReviews = function(){
+    var processing;
+
+    $(window).on('scroll', function(){
+        if (processing)
+            return false;
+
+        if ($(window).scrollTop() >= ($(document).height() - $(window).height())*0.9){
+            processing = true; //sets a processing AJAX request flag
+            $.ajax({
+                type: 'GET',
+                url: 'more/',
+                data: { 'current_items':$('.reviews_list .review_out_full').size() },
+                success: function(data){
+                    $('.reviews_list').append(data);
+                },
+                dataType: 'html'
+            });
+        }
+    });
+
     $('.more-more').live('click', function(e){
         e.preventDefault();
         $.ajax({
@@ -719,6 +739,10 @@ var PatientsSchoolForm = function(){
     });
 }
 
+var PhoneMask = function(){
+    $('.inpt_tel').mask("(999) 999-9999");
+}
+
 $(function(){
     SwitchSlider();
     IndexPageSliders.doctorsCarousel();
@@ -739,4 +763,5 @@ $(function(){
     FriendsModal();
     SubscribeForm();
     MoreReviews();
+    PhoneMask();
 });

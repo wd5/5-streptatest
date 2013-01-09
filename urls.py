@@ -8,7 +8,7 @@ from apps.urls import urlpatterns as apps_urlpatterns
 from apps.views import index, InstructionsView, SubscribeFormView
 from apps.reviews.views import ReviewIndexView, ReviewListView, MoreReviewsView, ReviewFormView
 from apps.capabilities.views import CapabilityListView 
-from apps.messages.views import OrderFormView, OrderThanksView, \
+from apps.messages.views import OrderFormView, \
                                 PartnersView, PartnersDoctorsFormView, PartnersDrugstoresFormView, \
                                 PatientsView, PatientsQFormView, PatientsSchoolFormView
 from apps.publications.views import ArticleListView, ArticleView, NewsListView, NewsView, PublicationListView, PublicationView
@@ -41,7 +41,6 @@ urlpatterns = patterns('',
     url(r'^capabilities/$', CapabilityListView.as_view(), name='capabilities_url'),
     # order form
     url(r'^order/$', OrderFormView.as_view(), name='order_url'),
-    url(r'^thanks/$', OrderThanksView.as_view()),
     # instructions
     url(r'^instructions/$', InstructionsView.as_view(), name='instructions_url'),
     # for_patients

@@ -84,3 +84,17 @@
     name: partnership_offer_drugstore_text
     type: redactor
     value: texttex ttexttexttexttextt exttexttext texttexttexttext
+
+- model: siteblocks.settings
+  pk: 12
+  fields:
+    name: vk_widget_code
+    type: textarea
+    value:  '<script type="text/javascript">
+                  VK.init({apiId: 3347149, onlyWidgets: true});
+                </script>
+                <!-- Put this div tag to the place, where the Like block will be -->
+                  <div id="vk_like"></div>
+                  <script type="text/javascript">
+                  VK.Widgets.Like("vk_like", {type: "button"});
+                </script>'
