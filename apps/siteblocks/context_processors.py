@@ -11,6 +11,11 @@ def settings(request):
     except Settings.DoesNotExist:
         contacts = False
 
+    try:
+        vk_widget_code = Settings.objects.get(name='vk_widget_code').value
+    except Settings.DoesNotExist:
+        vk_widget_code = False
+
     now = datetime.now()
 
     city_list = City.objects.all()
@@ -20,4 +25,5 @@ def settings(request):
         'site_name': SITE_NAME,
         'now': now,
         'city_list': city_list,
+        'vk_widget_code': vk_widget_code 
     }

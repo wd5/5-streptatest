@@ -188,15 +188,15 @@ h3 {
 	left: 83%;
 }
 .tel {
-	font-size: 18px;
+	font-size: 28px;
 	font-weight: bold;
 	position: relative;
-	margin: 4px 0 6px 0;
+	margin: 4px 0 6px -3px;
 }
 .tel span {
 	color: #e7a8ce;
 	position: absolute;
-	left: -24px;
+	left: -36px;
 	top: 0;
 }
 .header_contacts_lnk {

@@ -5,6 +5,7 @@
     body: Правильно установит возбудителя заболевания
     show_on_index: True
     image: images/capabilities/teaser_fast.png
+    order: 10
 
 - model: capabilities.capability
   pk: 2
@@ -13,6 +14,7 @@
     body: Предотвращает необоснованное назначение
     show_on_index: True
     image: images/capabilities/teaser_drugs.png
+    order: 8
 
 - model: capabilities.capability
   pk: 3
@@ -21,6 +23,7 @@
     body: Спасает жизни своевременно диагностирую опасные заболевания
     show_on_index: True
     image: images/capabilities/teaser_diagnosis.png
+    order: 9
 
 - model: capabilities.capability
   pk: 4
@@ -29,6 +32,7 @@
     body: При неправильной диагностики или лечения ангины
     show_on_index: True
     image: images/capabilities/teaser_complication.png
+    order: 7
 
 # on list page
 - model: capabilities.capability

@@ -15,7 +15,7 @@ TEMPLATE_DEBUG = DEBUG
 
 INSTALLED_APPS += (
     'apps.siteblocks',
-    # 'apps.pages',
+    'apps.pages',
     # 'apps.faq',
     'apps.slider',
     # 'apps.newsboard',
@@ -32,7 +32,7 @@ INSTALLED_APPS += (
 )
 
 MIDDLEWARE_CLASSES += (
-    # 'apps.pages.middleware.PageFallbackMiddleware',
+    'apps.pages.middleware.PageFallbackMiddleware',
 )
 
 AUTHENTICATION_BACKENDS = (

@@ -4,11 +4,7 @@
             <h2>Посоветовать друзьям</h2>
         </div><!--/modal_header-->
 
-        <!-- Put this div tag to the place, where the Like block will be -->
-        <div id="vk_like"></div>
-        <script type="text/javascript">
-        VK.Widgets.Like("vk_like", {type: "full"});
-        </script>
+        {{ vk_widget_code|safe }}
 
         <div class="blob_modal_close close_friends"></div>
     </div>

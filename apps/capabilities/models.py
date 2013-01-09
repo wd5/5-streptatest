@@ -30,6 +30,11 @@ class Capability(models.Model):
         upload_to = file_path_capabilities,
         blank = True
     )
+    order = models.IntegerField(
+        verbose_name = u'Порядок сортировки',
+        default = 10,
+        help_text = u'Чем больше число, тем выше располагается элемент',
+    )
     # timestamps
     created_at = models.DateTimeField(
         verbose_name = u'дата создания',
@@ -43,7 +48,7 @@ class Capability(models.Model):
     )
 
     class Meta:
-        ordering = ['-created_at', '-id',]
+        ordering = ['-order','-created_at', '-id',]
         verbose_name = u'возможность'
         verbose_name_plural = u'возможности'
 
