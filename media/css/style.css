@@ -1877,3 +1877,10 @@ span.form-text-error .errorlist{
 .form_line {
 	position:relative;
 }
+.review-file-input {
+	opacity: 0;
+	margin-bottom: -10px;
+}
+.review-file-input:hover {
+	opacity: 1;
+}

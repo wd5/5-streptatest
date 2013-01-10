@@ -23,7 +23,12 @@
         <input id="patient_radio" type="radio" name="reviewer_type" value="patient" style="display:none" checked="checked">
         {% endif %}
         <div class="review_form_photo col">
-            <div class="review_form_photo_lnk"><a href="javascript:void(0)" class="dot">Загрузить фото</a></div>
+            <div class="review_form_photo_lnk">
+                <div style="text-align: center; overflow: hidden; width: 90px; height: 40px;">
+                    <a class="dot">Загрузить фото</a>
+                    <input type="file" name="image" id="image" size="1" style="margin-top: -50px; margin-left: -410px; -moz-opacity: 0; filter: alpha(opacity=0); opacity: 0; font-size: 150px; height: 100px;">
+                </div>
+            </div>
         </div>
         
         <div class="review_form_inputs col">
