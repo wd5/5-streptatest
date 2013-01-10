@@ -24,6 +24,10 @@ function getScrollBarWidth () {
   return (w1 - w2); 
 }; 
 
+var PhoneMask = function(){
+    $('.inpt_tel').mask("(999) 999-9999");
+}
+
 var MoreReviews = function(){
     var processing;
 
@@ -737,10 +741,6 @@ var PatientsSchoolForm = function(){
             dataType: 'html'
         });
     });
-}
-
-var PhoneMask = function(){
-    $('.inpt_tel').mask("(999) 999-9999");
 }
 
 $(function(){
