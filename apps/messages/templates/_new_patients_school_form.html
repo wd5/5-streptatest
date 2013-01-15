@@ -28,7 +28,7 @@
 
             <div class="form_line">
                 <label>Телефон:</label>
-                <input class="inpt" type="text" name="phone" value="{{form.phone.value|default_if_none:''}}" />
+                <input class="inpt inpt_tel" type="text" name="phone" value="{{form.phone.value|default_if_none:''}}" />
                 <span class="form-text-error">{{form.phone.errors}}</span>
             </div>
 
@@ -38,7 +38,7 @@
                 <span class="form-text-error">{{form.message.errors}}</span>
             </div>
             <div class="form_line form_captcha captha_review">
-                {{ form.captcha }}
+                {{ form.captcha }}<span class="input_note">Введите текст, который вы видите на картинке слева от поля</span>
                 <span class="form-text-error">{{ form.captcha.errors }}</span>
             </div>
 
@@ -47,3 +47,6 @@
     </form>
 <div class="patients_school_modal_close blob_modal_close"></div>
 </div>
+<script type="text/javascript">
+    PhoneMask();
+</script>

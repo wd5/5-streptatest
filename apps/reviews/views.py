@@ -98,11 +98,13 @@ class ReviewFormView(FormView):
     def form_valid(self, form):
         data = {key:value for key, value in form.cleaned_data.items() if key is not 'captcha'}
         Review.objects.create(**data)
-        response = 'success!'
+        response = render_to_response('_render_review_form.html', 
+                                      self.get_context_data(reviewFormSuccess=1),
+                                      context_instance=RequestContext(self.request))
         return HttpResponse(response)
 
     def form_invalid(self, form):
-        response = render_to_response(self.template_name, 
-                                      self.get_context_data(form=form),
+        response = render_to_response('_render_review_form.html', 
+                                      self.get_context_data(form=form, reviewFormSuccess=0),
                                       context_instance=RequestContext(self.request))
         return HttpResponse(response, status=406)

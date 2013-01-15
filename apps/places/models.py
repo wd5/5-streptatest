@@ -49,6 +49,11 @@ class Clinic(models.Model):
         verbose_name = u'адрес',
         max_length = 400,
     )
+    phone = models.CharField(
+        verbose_name = u'телефон',
+        max_length = 300,
+        blank = True,
+    )
     coordinates = models.CharField(
         verbose_name = u'координаты',
         max_length = 300,
@@ -87,6 +92,11 @@ class Drugstore(models.Model):
         verbose_name = u'адрес',
         max_length = 400,
     )
+    phone = models.CharField(
+        verbose_name = u'телефон',
+        max_length = 300,
+        blank = True,
+    )
     coordinates = models.CharField(
         verbose_name = u'координаты',
         max_length = 300,
@@ -124,6 +134,11 @@ class Lab(models.Model):
     address = models.CharField(
         verbose_name = u'адрес',
         max_length = 400,
+    )
+    phone = models.CharField(
+        verbose_name = u'телефон',
+        max_length = 300,
+        blank = True,
     )
     coordinates = models.CharField(
         verbose_name = u'координаты',
@@ -166,6 +181,7 @@ class Branch(models.Model):
     phone = models.CharField(
         verbose_name = u'телефон',
         max_length = 300,
+        blank = True,
     )
     coordinates = models.CharField(
         verbose_name = u'координаты',

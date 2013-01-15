@@ -194,23 +194,6 @@ var HideFullReview = function(){
     });
 }
 
-var DrugstoresMap = function(){
-    var myMap = [];
-    function InitMap(id){     
-        myMap[id] = new ymaps.Map (id, {
-            center: [55.76, 37.64],
-            zoom: 7,
-        });
-    }
-    $('.drugstore-map-link').on('click', function(){
-        var cityId = $(this).attr('data-target-city');
-        var targetId = 'map_'+cityId;
-        $('.map_container').hide();
-        $('#'+targetId).show();
-        InitMap(targetId);
-    });
-}
-
 var OrderSwitchProduct = {
     bindLinks: function(){
         $('.5_link').on('click', function(){
@@ -504,6 +487,9 @@ var InstructionsModal = function(){
         removeBlocked('instmod');
     });
 }
+var TestScr = function(){
+    alert('mmm');
+}
 
 var ReviewForm = function(){
     var showModal = function(){
@@ -521,9 +507,11 @@ var ReviewForm = function(){
     }
     $('.form-link').live('click', function(e){
         e.preventDefault();
+        var reviewerType = $(this).attr('data-reviewer-type');
         $.ajax({
             type: 'GET',
             url: 'form/',
+            data: {'reviewer_type': reviewerType},
             success: function(data){
                 $('.review_form_modal').html(data);
                 showModal();
@@ -541,23 +529,23 @@ var ReviewForm = function(){
         removeBlocked('revform');
     });
 
-    $('.review-form').live('submit', function(e){
-        e.preventDefault();
-        $.ajax({
-            type: 'POST',
-            url: 'form/',
-            data: $(this).serialize(),
-            success: function(data){
-                $('.review_form_modal').hide();
-                removeBlocked('revform');
-            },
-            error: function(ts){
-                var modal = $('.review_form_modal');
-                modal.html(ts.responseText);
-            },
-            dataType: 'html'
-        });
-    });
+    // $('.review-form').live('submit', function(e){
+    //     e.preventDefault();
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: 'form/',
+    //         data: $(this).serialize(),
+    //         success: function(data){
+    //             $('.review_form_modal').hide();
+    //             removeBlocked('revform');
+    //         },
+    //         error: function(ts){
+    //             var modal = $('.review_form_modal');
+    //             modal.html(ts.responseText);
+    //         },
+    //         dataType: 'html'
+    //     });
+    // });
     $('#doc_link').live('click', function(){
         $('#doc_radio').prop('checked', true);
         $('#doc_link').parent().addClass('curr');
@@ -749,7 +737,6 @@ $(function(){
     IndexBoxAnimate();
     ShowFullReview();
     HideFullReview();
-    DrugstoresMap();
     OrderSwitchProduct.bindLinks();
     OrderForm();
     AsideOrderLink.bindLinks();

@@ -153,13 +153,13 @@
     <div class="buy_step_num">3.</div>
     <h2 class="buy_step_h">Оплата и адрес доставки</h2>
         <div class="form_line">
-            <label>ФИО:</label>
+            <label class="required">ФИО:</label>
             <input class="inpt" type="text" name="initials" value="{{ form.initials.value|default_if_none:"" }}" />
             <span class="form-text-error">{{form.initials.errors}}</span>
         </div>
         
         <div class="form_line">
-            <label>E-mail:</label>
+            <label class="required">E-mail:</label>
             <input class="inpt" type="text" name="email" value="{{ form.email.value|default_if_none:"" }}" />
             <span class="form-text-error">{{form.email.errors}}</span>
             {% if form.allow_mailings.value == False %}
@@ -172,19 +172,19 @@
         </div>
         
         <div class="form_line">
-            <label>Город:</label>
+            <label class="required">Город:</label>
             <input class="inpt" type="text" name="city" value="{{ form.city.value|default_if_none:"" }}" />
             <span class="form-text-error">{{form.city.errors}}</span>
         </div>
         
         <div class="form_line">
-            <label>Адрес доставки:</label>
+            <label class="required">Адрес доставки:</label>
             <input class="inpt" type="text" name="address" value="{{ form.address.value|default_if_none:"" }}" />
             <span class="form-text-error">{{form.address.errors}}</span>
         </div>
         
         <div class="form_line">
-            <label>Телефон:</label>
+            <label class="required">Телефон:</label>
             <strong class="inpt_tel_label">+7</strong> <input class="inpt inpt_tel" type="text" name="phone" value="{{ form.phone.value|default_if_none:"" }}"/>
             <span class="form-text-error">{{form.phone.errors}}</span>
         </div>
@@ -242,7 +242,7 @@
             </div>
         </div>
         <div class="form_line form_captcha">
-            {{ form.captcha }}
+            {{ form.captcha }}<span class="input_note">Введите текст, который вы видите на картинке слева от поля</span>
             <span class="form-text-error">{{ form.captcha.errors }}</span>
         </div>
         

@@ -1,0 +1,14 @@
+<script type="text/javascript" src="/media/js/jquery.js"></script>
+<div id="result">{% include '_new_review_form.html' %}</div>
+
+<script language="javascript" type="text/javascript">
+    var success = parseInt({{reviewFormSuccess}});
+    var parentDocument = window.parent.document;
+    if(success === 1){
+        window.parent.location = '/thanks'
+    }else if(success === 0){
+        var result = $('#result').html();
+        var reviewModal = $(parentDocument).find('.review_form_modal');
+        reviewModal.html(result);
+    }
+</script> 

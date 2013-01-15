@@ -34,7 +34,7 @@
 						<div class="side side_pl" style="margin-top: 560px;">
 							<p>Поделитесь своим опытом использования Стрептатест</p>
 							<div class="btn_blue"><div class="btn_blue_in">
-								<a id="new_review_link" class="form-link" href="javascript:void(0)">Оставить отзыв</a>
+								<a id="new_review_link" class="form-link" href="javascript:void(0)" data-reviewer-type="{{reviewer_type}}">Оставить отзыв</a>
 							</div></div>
 						</div>
 					{% elif reviewer_type == 'patient' %}
@@ -49,7 +49,7 @@
 						<div class="side side_pl" style="margin-top: 560px;">
 							<p>Поделитесь своим опытом использования Стрептатест</p>
 							<div class="btn_blue"><div class="btn_blue_in">
-								<a id="new_review_link" class="form-link" href="javascript:void(0)">Оставить отзыв</a>
+								<a id="new_review_link" class="form-link" href="javascript:void(0)" data-reviewer-type="{{reviewer_type}}">Оставить отзыв</a>
 							</div></div>
 						</div>
 					{% endif %}
@@ -109,7 +109,6 @@
 				{% include 'shared/buy_box_aside.html' %}
 			</div><!--/content_r-->
 		</div><!--/content-->
-		
 		
 		<div class="content">
 			<div class="reviews_list">
@@ -193,6 +192,10 @@
 			<div class="up up_l" style="top: 1200px;"><a href="#"><span class="dot">Наверх</span></a></div>
 		</div><!--/content-->		
 	</div>
+
+	<iframe id="review_target" name="review_target" src="#" style="display:none;">
+    </iframe>
+
     <!--/MAIN-->
 {% endblock %}
 {% block modals %}

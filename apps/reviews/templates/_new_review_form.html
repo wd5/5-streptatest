@@ -13,7 +13,7 @@
         {% endif %}
     </div><!--/modal_header-->
 
-    <form class="review-form" method="post" action="">
+    <form class="review-form" enctype="multipart/form-data" method="post" target="review_target" action="/reviews/doctors/form/">
         {% csrf_token %}
         {% if form.reviewer_type.value == 'doctor' %}
         <input id="doc_radio" type="radio" name="reviewer_type" value="doctor" style="display:none" checked="checked">
@@ -39,7 +39,7 @@
             </div>
             
             <div class="form_line">
-                <label class="required">Кем работаете:</label>
+                <label>Кем работаете:</label>
                 <input class="inpt" type="text" name="reviewer_post" value="{{ form.reviewer_post.value|default_if_none:'' }}"/>
                 <span class="form-text-error">{{form.reviewer_post.errors}}</span>
                 <div class="input_note">Например, модератор форума «Молодая мама» или директор турфирмы</div>
@@ -57,7 +57,7 @@
                 <span class="form-text-error">{{form.review.errors}}</span>
             </div>
             <div class="form_line form_captcha captha_review">
-                {{ form.captcha }}
+                {{ form.captcha }}<span class="input_note">Введите текст, который вы видите на картинке слева от поля</span>
                 <span class="form-text-error">{{ form.captcha.errors }}</span>
             </div>          
         

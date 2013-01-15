@@ -209,7 +209,7 @@
 			"file": "media/css/style.css",
 			"settings":
 			{
-				"buffer_size": 30695,
+				"buffer_size": 30796,
 				"line_ending": "Unix"
 			}
 		},
@@ -290,6 +290,14 @@
 			"settings":
 			{
 				"buffer_size": 9238,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "apps/reviews/templates/_new_review_form.html",
+			"settings":
+			{
+				"buffer_size": 3927,
 				"line_ending": "Unix"
 			}
 		}
@@ -404,7 +412,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 95.0,
+		"height": 0.0,
 		"where_history":
 		[
 			""
@@ -457,7 +465,7 @@
 	"groups":
 	[
 		{
-			"selected": 20,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -472,8 +480,8 @@
 						"selection":
 						[
 							[
-								921,
-								921
+								769,
+								769
 							]
 						],
 						"settings":
@@ -483,7 +491,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 378.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -511,7 +519,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 432.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -781,15 +789,15 @@
 					"file": "media/css/style.css",
 					"settings":
 					{
-						"buffer_size": 30695,
+						"buffer_size": 30796,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3704,
-								3704
+								30752,
+								30752
 							]
 						],
 						"settings":
@@ -798,7 +806,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2871.0,
+						"translation.y": 33032.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1075,7 +1083,35 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2884.0,
+						"translation.y": 382.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 21,
+					"file": "apps/reviews/templates/_new_review_form.html",
+					"settings":
+					{
+						"buffer_size": 3927,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2009,
+								2009
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 54.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
