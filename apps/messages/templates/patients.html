@@ -67,7 +67,7 @@
 					{% for article in last_articles %}
 					<div class="article_block">
 						<h3><a href="{% url article_url article.id %}">{{ article.title }}</a></h3>
-						<p>{{ article.text }}</p>
+						<p>{{ article.text|truncatewords:7 }}</p>
 					</div>
 					{% endfor %}
 					{% if articles_more_count > 2 %}

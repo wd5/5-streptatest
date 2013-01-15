@@ -25,7 +25,7 @@ function getScrollBarWidth () {
 }; 
 
 var PhoneMask = function(){
-    $('.inpt_tel').mask("(999) 999-9999");
+    $('.inpt_tel').mask("(99999) 9999999");
 }
 
 var MoreReviews = function(){
