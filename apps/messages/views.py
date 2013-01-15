@@ -62,24 +62,6 @@ class OrderFormView(FormView):
         Order.objects.create(**data)
         return redirect(self.get_success_url())
 
-class OrderThanksView(TemplateView):
-    template_name = 'success.html'
-
-# ArticleFormSet = formset_factory(ArticleForm)
-#     BookFormSet = formset_factory(BookForm)
-#     if request.method == 'POST':
-#         article_formset = ArticleFormSet(request.POST, request.FILES, prefix='articles')
-#         book_formset = BookFormSet(request.POST, request.FILES, prefix='books')
-#         if article_formset.is_valid() and book_formset.is_valid():
-#             # do something with the cleaned_data on the formsets.
-#             pass
-#     else:
-#         article_formset = ArticleFormSet(prefix='articles')
-#         book_formset = BookFormSet(prefix='books')
-#     return render_to_response('manage_articles.html', {
-#         'article_formset': article_formset,
-#         'book_formset': book_formset,
-#     })
 class PartnersFormDoctors(forms.ModelForm):
     captcha = CaptchaField()
     

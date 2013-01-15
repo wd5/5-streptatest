@@ -9,12 +9,12 @@ def settings(request):
     try:
         contacts = Settings.objects.get(name='contacts_block').value
     except Settings.DoesNotExist:
-        contacts = False
+        contacts = ''
 
     try:
-        vk_widget_code = Settings.objects.get(name='vk_widget_code').value
+        like_widget_code = Settings.objects.get(name='like_widget_code').value
     except Settings.DoesNotExist:
-        vk_widget_code = False
+        like_widget_code = ''
 
     now = datetime.now()
 
@@ -25,5 +25,5 @@ def settings(request):
         'site_name': SITE_NAME,
         'now': now,
         'city_list': city_list,
-        'vk_widget_code': vk_widget_code 
+        'like_widget_code': like_widget_code 
     }

@@ -44,6 +44,8 @@ class Order(models.Model):
     )
     MESSAGE_STATE_CHOICES = (
         ('new', 'новый'),
+        ('in_progress','в обработке'),
+        ('done', 'обработан')
     )
 
     product = models.ForeignKey(
@@ -88,7 +90,7 @@ class Order(models.Model):
         blank=True,
     )
     state = models.CharField(
-        verbose_name = u'статус обращения',
+        verbose_name = u'статус',
         max_length = 200,
         choices = MESSAGE_STATE_CHOICES,
         default = 'new',
@@ -134,7 +136,8 @@ class PartnershipOffer(models.Model):
         ('drugstore', 'аптека'),
     )
     MESSAGE_STATE_CHOICES = (
-        ('new', 'новый'),
+        ('new', 'новое'),
+        ('done','обработано')
     )
 
     title = models.CharField(
@@ -161,7 +164,7 @@ class PartnershipOffer(models.Model):
         verbose_name = 'текст сообщения'
     )
     state = models.CharField(
-        verbose_name = u'статус обращения',
+        verbose_name = u'статус',
         max_length = 200,
         choices = MESSAGE_STATE_CHOICES,
         default = 'new',
@@ -188,7 +191,8 @@ class PartnershipOffer(models.Model):
 
 class EntryInSchool(models.Model):
     MESSAGE_STATE_CHOICES = (
-        ('new', 'новый'),
+        ('new', 'новое'),
+        ('done','обработано')
     )
 
     initials = models.CharField(
@@ -210,7 +214,7 @@ class EntryInSchool(models.Model):
         verbose_name = 'цель записи'
     )
     state = models.CharField(
-        verbose_name = u'статус обращения',
+        verbose_name = u'статус',
         max_length = 200,
         choices = MESSAGE_STATE_CHOICES,
         default = 'new',
@@ -310,7 +314,7 @@ class Question(models.Model):
                 self.create_mailing_address(is_active=False)
 
     def send_answer_to(self):
-        pass
+        mailing_address = self.email
 
     def create_mailing_address(self, is_active):
         MailingAddress.objects.create(email=self.email, is_active=is_active)

@@ -529,23 +529,6 @@ var ReviewForm = function(){
         removeBlocked('revform');
     });
 
-    // $('.review-form').live('submit', function(e){
-    //     e.preventDefault();
-    //     $.ajax({
-    //         type: 'POST',
-    //         url: 'form/',
-    //         data: $(this).serialize(),
-    //         success: function(data){
-    //             $('.review_form_modal').hide();
-    //             removeBlocked('revform');
-    //         },
-    //         error: function(ts){
-    //             var modal = $('.review_form_modal');
-    //             modal.html(ts.responseText);
-    //         },
-    //         dataType: 'html'
-    //     });
-    // });
     $('#doc_link').live('click', function(){
         $('#doc_radio').prop('checked', true);
         $('#doc_link').parent().addClass('curr');
@@ -605,8 +588,7 @@ var PatientsQuestionForm = function(){
             url: url,
             data: $(this).serialize(),
             success: function(data){
-                $('.patients_question_form_modal').hide();
-                removeBlocked('patqform');
+                window.location = '/thanks'
             },
             error: function(ts){
                 var modal = $('.patients_question_form_modal')
@@ -663,8 +645,7 @@ var SubscribeForm = function(){
             url: url,
             data: $(this).serialize(),
             success: function(data){
-                $('.subscribe_modal').hide();
-                removeBlocked('subscr');
+                window.location = '/thanks'
             },
             error: function(ts){
                 var modal = $('.subscribe_modal')
@@ -720,8 +701,7 @@ var PatientsSchoolForm = function(){
             url: url,
             data: $(this).serialize(),
             success: function(data){
-                $('.patients_school_form_modal').hide();
-                removeBlocked('patsform');
+                window.location = '/thanks'
             },
             error: function(ts){
                 $('.patients_school_form_modal').html(ts.responseText);

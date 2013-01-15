@@ -2,6 +2,7 @@
 - model: siteblocks.settings
   pk: 1
   fields:
+    title: текст справа на главной 1
     name: index_header_right_text_1
     type: redactor
     value: <div class="index_percent_val">80<span>%</span></div>
@@ -11,6 +12,7 @@
 - model: siteblocks.settings
   pk: 2
   fields:
+    title: текст справа на главной 2
     name: index_header_right_text_2
     type: redactor
     value: <div class="index_percent_val">71<span>%</span></div>
@@ -20,6 +22,7 @@
 - model: siteblocks.settings
   pk: 3
   fields:
+    title: верхний текст на главной странице
     name: index_header_center_text
     type: redactor
     value: Универсальный инструмент для пациента и врача, 
@@ -31,12 +34,14 @@
 - model: siteblocks.settings
   pk: 5
   fields:
+    title: верхний текст на странице возможностей
     name: capabilities_top_text
     type: redactor
 
 - model: siteblocks.settings
   pk: 6
   fields:
+    title: центральный текст на странице возможностей
     name: capabilities_center_text
     type: redactor
 
@@ -44,6 +49,7 @@
 - model: siteblocks.settings
   pk: 7
   fields:
+    title: главный телефон
     name: contacts_block
     type: input
     value: (499) 340-0-394    
@@ -53,6 +59,7 @@
 - model: siteblocks.settings
   pk: 4
   fields:
+    title: верхний текст на странице отзывов
     name: reviews_top_text
     type: redactor
     value: Наш эксперсс-тест уже более 3 лет на рынке и зарекомендовал себя как надежное средство для диагностирования стрептакоков. Можно тут еще несколько предложений написать про популярность препарата.
@@ -60,6 +67,7 @@
 - model: siteblocks.settings
   pk: 8
   fields:
+    title: код видео
     name: instructions_video
     type: input
     value: http://www.youtube.com/embed/fJ9rUzIMcZQ
@@ -67,6 +75,7 @@
 - model: siteblocks.settings
   pk: 9
   fields:
+    title: текст в окне инструкции
     name: instructions_modal_text
     type: redactor
     value: text
@@ -74,6 +83,7 @@
 - model: siteblocks.settings
   pk: 10
   fields:
+    title: текст над формой для партнеров докторов
     name: partnership_offer_doctor_text
     type: redactor
     value: texttexttexttext texttexttexttext
@@ -81,6 +91,7 @@
 - model: siteblocks.settings
   pk: 11
   fields:
+    title: текст над формой для партнеров аптек
     name: partnership_offer_drugstore_text
     type: redactor
     value: texttex ttexttexttexttextt exttexttext texttexttexttext
@@ -88,13 +99,8 @@
 - model: siteblocks.settings
   pk: 12
   fields:
-    name: vk_widget_code
+    title: код виджета "мне нравится"
+    name: like_widget_code
     type: textarea
-    value:  '<script type="text/javascript">
-                  VK.init({apiId: 3347149, onlyWidgets: true});
-                </script>
-                <!-- Put this div tag to the place, where the Like block will be -->
-                  <div id="vk_like"></div>
-                  <script type="text/javascript">
-                  VK.Widgets.Like("vk_like", {type: "button"});
-                </script>'
+    value:  '<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+<div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki"></div>'

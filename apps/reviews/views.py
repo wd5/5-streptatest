@@ -95,6 +95,9 @@ class ReviewFormView(FormView):
     form_class = ReviewForm
     template_name = '_new_review_form.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(ReviewFormView).get_context_data(**kwargs)
+
     def form_valid(self, form):
         data = {key:value for key, value in form.cleaned_data.items() if key is not 'captcha'}
         Review.objects.create(**data)
