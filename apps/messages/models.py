@@ -1,6 +1,8 @@
 # coding: utf-8
 from datetime import datetime
 
+from django.core.mail.message import EmailMessage
+from django.template.loader import render_to_string
 from apps.products.models import Product
 from django.db import models
 
@@ -300,7 +302,20 @@ class Question(models.Model):
     def save(self, *args, **kwargs):
         is_new = self.pk is None
         if self.send_answer:
-            self.send_answer_to()
+            subject = u'Ответ на ваш вопрос - %s' % settings.SITE_NAME
+            subject = u''.join(subject.splitlines())
+            message = render_to_string(
+                'faq/user_message_template.html',
+                    {
+                    'saved_object': self,
+                    'site_name': settings.SITE_NAME,
+                }
+            )
+            emailto = self.email
+            msg = EmailMessage(subject, message, settings.DEFAULT_FROM_EMAIL, [emailto])
+            msg.content_subtype = "html"
+            msg.send()
+            
             self.send_answer = False
             self.state = 'sent'
         else:
