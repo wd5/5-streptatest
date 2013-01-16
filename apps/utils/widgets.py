@@ -38,6 +38,97 @@ class Redactor(forms.Textarea):
         );
         </script>''' % (name,self.toolbar))
 
+class MapCity(forms.TextInput):
+    class Media:
+        js = (
+            '/media/js/jquery.js',
+            'http://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU&coordorder=longlat',
+            )
+
+    def __init__(self, attrs=None):
+        self.attrs = attrs
+        if attrs:
+            self.attrs.update(attrs)
+        super(MapCity,self).__init__(attrs)
+
+    def render(self,name,value,attrs=None):
+        rendered = super(MapCity,self).render(name, value, attrs)
+        return rendered + mark_safe(u'''
+        <div id="map" style="width: 600px; height: 400px"></div>
+        <script type="text/javascript">
+        $(function(){
+            var coord_container = $('#id_coordinates_center');
+            zoom_container = $('#id_zoom');
+            var coords = coord_container.attr('value').split(',');
+            var zoom = zoom_container.attr('value');
+            ymaps.ready(init);
+            var myMap;
+
+            function init(){     
+                myMap = new ymaps.Map ("map", {
+                    center: [coords[0],coords[1]],
+                    zoom: zoom,
+                });
+                myMap.controls.add(
+                    new ymaps.control.ZoomControl()
+                );
+                var placemark = new ymaps.Placemark(
+                    [coords[0],coords[1]],{},{draggable: true}
+                );
+                myMap.geoObjects.add(placemark);
+                myMap.geoObjects.events.add("dragend",function(e) {
+                    coord_container.attr('value',placemark.geometry.getCoordinates());
+                });
+            }
+        });
+        </script>
+        ''')
+
+class MapObject(forms.TextInput):
+    class Media:
+        js = (
+            '/media/js/jquery.js',
+            'http://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU&coordorder=longlat',
+            )
+
+    def __init__(self, attrs=None):
+        self.attrs = attrs
+        if attrs:
+            self.attrs.update(attrs)
+        super(MapObject,self).__init__(attrs)
+
+    def render(self,name,value,attrs=None):
+        rendered = super(MapObject,self).render(name, value, attrs)
+        return rendered + mark_safe(u'''
+        <div id="map" style="width: 600px; height: 400px"></div>
+        <script type="text/javascript">
+        $(function(){
+            var coord_container = $('#id_coordinates');
+            var coords = coord_container.attr('value').split(',');
+            var zoom = 12;
+            ymaps.ready(init);
+            var myMap;
+
+            function init(){     
+                myMap = new ymaps.Map ("map", {
+                    center: [coords[0],coords[1]],
+                    zoom: zoom,
+                });
+                myMap.controls.add(
+                    new ymaps.control.ZoomControl()
+                );
+                var placemark = new ymaps.Placemark(
+                    [coords[0],coords[1]],{},{draggable: true}
+                );
+                myMap.geoObjects.add(placemark);
+                myMap.geoObjects.events.add("dragend",function(e) {
+                    coord_container.attr('value',placemark.geometry.getCoordinates());
+                });
+            }
+        });
+        </script>
+        ''')
+
 class RedactorMini(Redactor):
     toolbar = u'mini'
 
