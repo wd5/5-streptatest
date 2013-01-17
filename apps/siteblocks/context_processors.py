@@ -16,6 +16,11 @@ def settings(request):
     except Settings.DoesNotExist:
         like_widget_code = ''
 
+    try:
+        facebook_widget_code = Settings.objects.get(name='facebook_widget_code').value
+    except Settings.DoesNotExist:
+        pass
+
     now = datetime.now()
 
     city_list = City.objects.all()
@@ -25,5 +30,6 @@ def settings(request):
         'site_name': SITE_NAME,
         'now': now,
         'city_list': city_list,
-        'like_widget_code': like_widget_code 
+        'like_widget_code': like_widget_code,
+        'facebook_widget_code': facebook_widget_code  
     }

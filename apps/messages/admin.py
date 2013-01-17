@@ -3,6 +3,8 @@ import xlwt
 from datetime import datetime, date
 
 from django.contrib import admin
+from django.http import HttpResponse
+
 from models import MailingAddress, Order, PartnershipOffer, EntryInSchool, Question
 from apps.products.models import Product
 
@@ -22,7 +24,8 @@ class OrderAdmin(admin.ModelAdmin):
         ws.write(0, 5, 'Электропочта')
         ws.write(0, 6, 'Город')
         ws.write(0, 7, 'Адрес')
-        ws.write(0, 8, 'Телефон')
+        ws.write(0, 8, 'Код телефона')
+        ws.write(0, 9, 'Телефон')
 
         states = {'new': 'новый', 'in_progress': 'в обработке', 'done': 'обработан'}
 
@@ -35,10 +38,16 @@ class OrderAdmin(admin.ModelAdmin):
             ws.write(idx+1, 5, order.email)
             ws.write(idx+1, 6, order.city)
             ws.write(idx+1, 7, order.address)
-            ws.write(idx+1, 8, order.phone)
+            ws.write(idx+1, 8, order.phone_code)
+            ws.write(idx+1, 9, order.phone)
 
-        filename = 'orders_in_excel/orders_%s.xls' %(date.today())
-        wb.save(filename)
+        filename = 'заказы_%s.xls' %(date.today())
+        response = HttpResponse(mimetype="application/vnd.ms-excel")
+        response['Content-Disposition'] = 'attachment; filename=%s' % filename
+
+        wb.save(response)
+
+        return response
 
     export_to_excel.short_description = "Экспортировать выбранные заказы в excel"
 

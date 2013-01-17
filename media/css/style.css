@@ -1178,7 +1178,13 @@ div.review_out_full {
 	background-position: 0 -24px;
 }
 input.inpt_tel {
-	width: 45%;
+	width: 37%;
+}
+input.inpt_code {
+	margin-right: 10px;
+}
+.inpt_tel_school_form{
+	width: 31% !important;
 }
 .inpt_tel_label {
 	width: 4%;

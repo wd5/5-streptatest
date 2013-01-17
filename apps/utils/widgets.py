@@ -61,8 +61,8 @@ class MapCity(forms.TextInput):
             zoom_container = $('#id_zoom');
             var coords = coord_container.attr('value').split(',');
             var zoom = zoom_container.attr('value');
-            ymaps.ready(init);
             var myMap;
+            ymaps.ready(init);
 
             function init(){     
                 myMap = new ymaps.Map ("map", {
@@ -72,11 +72,19 @@ class MapCity(forms.TextInput):
                 myMap.controls.add(
                     new ymaps.control.ZoomControl()
                 );
+                myMap.controls.add(
+                    new ymaps.control.SearchControl()
+                );
                 var placemark = new ymaps.Placemark(
                     [coords[0],coords[1]],{},{draggable: true}
                 );
                 myMap.geoObjects.add(placemark);
                 myMap.geoObjects.events.add("dragend",function(e) {
+                    coord_container.attr('value',placemark.geometry.getCoordinates());
+                });
+                myMap.events.add("click",function(e) {
+                    var coords = e.get('coordPosition');
+                    placemark.geometry.setCoordinates(coords);
                     coord_container.attr('value',placemark.geometry.getCoordinates());
                 });
             }
@@ -106,8 +114,8 @@ class MapObject(forms.TextInput):
             var coord_container = $('#id_coordinates');
             var coords = coord_container.attr('value').split(',');
             var zoom = 12;
-            ymaps.ready(init);
             var myMap;
+            ymaps.ready(init);
 
             function init(){     
                 myMap = new ymaps.Map ("map", {
@@ -117,11 +125,19 @@ class MapObject(forms.TextInput):
                 myMap.controls.add(
                     new ymaps.control.ZoomControl()
                 );
+                myMap.controls.add(
+                    new ymaps.control.SearchControl()
+                );
                 var placemark = new ymaps.Placemark(
                     [coords[0],coords[1]],{},{draggable: true}
                 );
                 myMap.geoObjects.add(placemark);
                 myMap.geoObjects.events.add("dragend",function(e) {
+                    coord_container.attr('value',placemark.geometry.getCoordinates());
+                });
+                myMap.events.add("click",function(e) {
+                    var coords = e.get('coordPosition');
+                    placemark.geometry.setCoordinates(coords);
                     coord_container.attr('value',placemark.geometry.getCoordinates());
                 });
             }

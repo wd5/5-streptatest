@@ -49,6 +49,10 @@ class Clinic(models.Model):
         verbose_name = u'адрес',
         max_length = 400,
     )
+    phone_code = models.CharField(
+        verbose_name = u'код телефона',
+        max_length = 100,
+        )
     phone = models.CharField(
         verbose_name = u'телефон',
         max_length = 300,
@@ -92,6 +96,10 @@ class Drugstore(models.Model):
         verbose_name = u'адрес',
         max_length = 400,
     )
+    phone_code = models.CharField(
+        verbose_name = u'код телефона',
+        max_length = 100,
+        )
     phone = models.CharField(
         verbose_name = u'телефон',
         max_length = 300,
@@ -135,6 +143,10 @@ class Lab(models.Model):
         verbose_name = u'адрес',
         max_length = 400,
     )
+    phone_code = models.CharField(
+        verbose_name = u'код телефона',
+        max_length = 100,
+        )
     phone = models.CharField(
         verbose_name = u'телефон',
         max_length = 300,
@@ -178,6 +190,10 @@ class Branch(models.Model):
         verbose_name = u'адрес',
         max_length = 400,
     )
+    phone_code = models.CharField(
+        verbose_name = u'код телефона',
+        max_length = 100,
+        )
     phone = models.CharField(
         verbose_name = u'телефон',
         max_length = 300,

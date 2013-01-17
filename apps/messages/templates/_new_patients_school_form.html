@@ -27,8 +27,8 @@
             </div>
 
             <div class="form_line">
-                <label>Телефон:</label>
-                <input class="inpt inpt_tel" type="text" name="phone" value="{{form.phone.value|default_if_none:''}}" />
+                <label class="required">Телефон:</label>
+                <strong class="inpt_tel_label">+7</strong> <input class="inpt inpt_code" type="text" name="phone_code" value="{{ form.phone_code.value|default_if_none:"" }}" style="width:30px;"/><input class="inpt inpt_tel_school_form" type="text" name="phone" value="{{ form.phone.value|default_if_none:"" }}"/>
                 <span class="form-text-error">{{form.phone.errors}}</span>
             </div>
 
@@ -47,6 +47,3 @@
     </form>
 <div class="patients_school_modal_close blob_modal_close"></div>
 </div>
-<script type="text/javascript">
-    PhoneMask();
-</script>

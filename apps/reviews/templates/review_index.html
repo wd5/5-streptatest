@@ -150,7 +150,7 @@
                     <div class="block_name">Научные публикации</div>
                     {% for publication in last_publications %}
                     <div class="public">
-                        <h3><a href="{{ publication.link }}">{{ publication.title }}</a></h3>
+                        <h3><a href="{% url publication_url publication.id %}">{{ publication.title }}</a></h3>
                         <p>{{ publication.where_published }}</p>
                     </div>
                     {% empty %}

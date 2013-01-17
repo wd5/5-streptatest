@@ -730,5 +730,5 @@ $(function(){
     FriendsModal();
     SubscribeForm();
     MoreReviews();
-    PhoneMask();
+    // PhoneMask();
 });

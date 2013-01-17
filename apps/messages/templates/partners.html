@@ -41,9 +41,9 @@
 					</div>
 					
 					<div class="form_line">
-						<label class="required">Телефон</label>
-						<input class="inpt inpt_tel" type="text" name="phone" value="{{ form_doctors.phone.value|default_if_none:'' }}" />
-						<span class="form-text-error">{{form_doctors.phone.errors}}</span>
+						<label class="required">Телефон:</label>
+			            <strong class="inpt_tel_label">+7</strong> <input class="inpt inpt_code" type="text" name="phone_code" value="{{ form_doctors.phone_code.value|default_if_none:"" }}" style="width:30px;"/><input class="inpt inpt_tel" type="text" name="phone" value="{{ form_doctors.phone.value|default_if_none:"" }}"/>
+			            <span class="form-text-error">{{form.phone.errors}}</span>
 					</div>
 					
 					<div class="form_line">
@@ -97,9 +97,9 @@
 					</div>
 					
 					<div class="form_line">
-						<label class="required">Телефон</label>
-						<input class="inpt inpt_tel" type="text" name="phone" value="{{ form_drugstores.phone.value|default_if_none:'' }}"/>
-						<span class="form-text-error">{{form_drugstores.phone.errors}}</span>
+						<label class="required">Телефон:</label>
+			            <strong class="inpt_tel_label">+7</strong> <input class="inpt inpt_code" type="text" name="phone_code" value="{{ form_drugstores.phone_code.value|default_if_none:"" }}" style="width:30px;"/><input class="inpt inpt_tel" type="text" name="phone" value="{{ form_drugstores.phone.value|default_if_none:"" }}"/>
+			            <span class="form-text-error">{{form.phone.errors}}</span>
 					</div>
 					
 					<div class="form_line">
@@ -122,6 +122,7 @@
 					<div class="right_pl_num">{{ drugstore_count }}</div>
 					<p><strong>{{ 'аптек'|plural:drugstore_count }}</strong></p>
 					<p>продают Стрептатест</p>
+					<a href="{% url order_url%}#map">Посмотреть на карте</a>
 				</div>
 			</div><!--/content_r-->
 				

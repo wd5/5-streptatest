@@ -1,4 +1,6 @@
 # coding: utf-8
+import re
+
 from django.views.generic import FormView, TemplateView
 from django import forms
 from django.forms.formsets import formset_factory
@@ -24,6 +26,13 @@ class OrderForm(forms.ModelForm):
         widgets = {
             'product': RadioSelect(), 
         }
+
+    def clean(self):
+        cleaned_data = super(OrderForm, self).clean()
+        email = cleaned_data['email']
+        if not re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email):
+            self._errors["email"] = self.error_class(['Неправильный формат электронной почты'])
+        return cleaned_data
 
 class OrderFormView(FormView):
     template_name = 'order.html'
@@ -69,6 +78,13 @@ class PartnersFormDoctors(forms.ModelForm):
         model = PartnershipOffer
         exclude = ('state',)
 
+    def clean(self):
+        cleaned_data = super(PartnersFormDoctors, self).clean()
+        email = cleaned_data['email']
+        if not re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email):
+            self._errors["email"] = self.error_class(['Неправильный формат электронной почты'])
+        return cleaned_data
+
 
 class PartnersFormDrugstores(forms.ModelForm):
     captcha = CaptchaField()
@@ -76,6 +92,13 @@ class PartnersFormDrugstores(forms.ModelForm):
     class Meta:
         model = PartnershipOffer
         exclude = ('state',)
+
+    def clean(self):
+        cleaned_data = super(PartnersFormDrugstores, self).clean()
+        email = cleaned_data['email']
+        if not re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email):
+            self._errors["email"] = self.error_class(['Неправильный формат электронной почты'])
+        return cleaned_data
 
 class PartnersView(TemplateView):
     template_name = 'partners.html'
@@ -156,6 +179,13 @@ class PatientQForm(forms.ModelForm):
         model = Question
         exclude = ('state','answer','send_answer')
 
+    def clean(self):
+        cleaned_data = super(PatientQForm, self).clean()
+        email = cleaned_data['email']
+        if not re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email):
+            self._errors["email"] = self.error_class(['Неправильный формат электронной почты'])
+        return cleaned_data
+
 class PatientsQFormView(FormView):
     form_class = PatientQForm
     template_name = '_new_patients_q_form.html'
@@ -179,6 +209,13 @@ class PatientsSchoolForm(forms.ModelForm):
     class Meta:
         model = EntryInSchool
         exclude = ('state',)
+
+    def clean(self):
+        cleaned_data = super(PatientsSchoolForm, self).clean()
+        email = cleaned_data['email']
+        if not re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email):
+            self._errors["email"] = self.error_class(['Неправильный формат электронной почты'])
+        return cleaned_data
 
 class PatientsSchoolFormView(FormView):
     form_class = PatientsSchoolForm

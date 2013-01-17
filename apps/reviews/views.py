@@ -83,12 +83,13 @@ class MoreReviewsView(BaseReviewView):
 
     def get_context_data(self, **kwargs):
         context = super(MoreReviewsView, self).get_context_data(**kwargs)
+        reviewer_type = kwargs['reviewer_type']
         params = self.get_params(self.request)
         start = int(params['current_items'])
         limit = start+8
-        object_list = Review.objects.filter(is_published=True).filter(reviewer_type=kwargs['reviewer_type'])[start:limit]
+        object_list = Review.objects.filter(is_published=True).filter(reviewer_type=reviewer_type)[start:limit]
         context['object_list'] = chunks(object_list, 4)
-        context['reviewer_type'] = kwargs['reviewer_type']
+        context['reviewer_type'] = reviewer_type
         return context
 
 class ReviewFormView(FormView):
@@ -96,7 +97,13 @@ class ReviewFormView(FormView):
     template_name = '_new_review_form.html'
 
     def get_context_data(self, **kwargs):
-        context = super(ReviewFormView).get_context_data(**kwargs)
+        context = super(ReviewFormView, self).get_context_data(**kwargs)
+        params = self.request.GET
+        try:
+            context['reviewer_type'] = params['reviewer_type']
+        except:
+            pass
+        return context
 
     def form_valid(self, form):
         data = {key:value for key, value in form.cleaned_data.items() if key is not 'captcha'}

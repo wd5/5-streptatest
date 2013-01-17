@@ -102,5 +102,22 @@
     title: код виджета "мне нравится"
     name: like_widget_code
     type: textarea
-    value:  '<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+    value: '<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
 <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki"></div>'
+
+- model: siteblocks.settings
+  pk: 13
+  fields:
+    title: код виджета facebook
+    name: facebook_widget_code
+    type: textrea
+    value: <div id="fb-root"></div>
+          <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1";
+            fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));</script>
+          <div class="fb-like-box" data-href="http://www.facebook.com/platform" data-width="292" data-show-faces="true" data-stream="false" data-header="true"></div>
+

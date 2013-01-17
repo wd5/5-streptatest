@@ -1,6 +1,6 @@
 # coding: utf-8
 from datetime import datetime
-
+import settings
 from django.core.mail.message import EmailMessage
 from django.template.loader import render_to_string
 from apps.products.models import Product
@@ -75,6 +75,11 @@ class Order(models.Model):
     address = models.TextField(
         verbose_name = u'адрес',
     )
+    phone_code = models.CharField(
+        verbose_name = u'код телефона',
+        max_length = 100,
+        default = ''
+        )
     phone = models.CharField(
         verbose_name = u'номер телефона',
         max_length = 200,
@@ -305,7 +310,7 @@ class Question(models.Model):
             subject = u'Ответ на ваш вопрос - %s' % settings.SITE_NAME
             subject = u''.join(subject.splitlines())
             message = render_to_string(
-                'faq/user_message_template.html',
+                'user_message_template.html',
                     {
                     'saved_object': self,
                     'site_name': settings.SITE_NAME,
@@ -315,7 +320,7 @@ class Question(models.Model):
             msg = EmailMessage(subject, message, settings.DEFAULT_FROM_EMAIL, [emailto])
             msg.content_subtype = "html"
             msg.send()
-            
+
             self.send_answer = False
             self.state = 'sent'
         else:

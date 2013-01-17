@@ -2,7 +2,7 @@
 <div class="modal_header">
         <h2 class="col">Оставить отзыв</h2>
         <span class="review_select_word">как</span>
-        {% if form.reviewer_type.value == 'doctor' %}
+        {% if reviewer_type == 'doctor' or form.reviewer_type.value == 'doctor' %}
         <span class="review_select curr"><a href="javascript:void(0)" id="doc_link">Врач</a><img src="/media/img/hormenu_arr.png"/></span>
         <span class="review_select_word">или</span>
         <span class="review_select"><a href="javascript:void(0)" id="patient_link">Пациент</a><img src="/media/img/hormenu_arr.png"/></span>

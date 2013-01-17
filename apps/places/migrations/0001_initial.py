@@ -14,8 +14,8 @@ class Migration(SchemaMigration):
             ('title', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('coordinates_center', self.gf('django.db.models.fields.CharField')(max_length=300)),
             ('zoom', self.gf('django.db.models.fields.IntegerField')()),
-            ('created_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2013, 1, 14, 0, 0))),
-            ('updated_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2013, 1, 14, 0, 0), auto_now=True, blank=True)),
+            ('created_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2013, 1, 18, 0, 0))),
+            ('updated_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2013, 1, 18, 0, 0), auto_now=True, blank=True)),
         ))
         db.send_create_signal('places', ['City'])
 
@@ -25,9 +25,11 @@ class Migration(SchemaMigration):
             ('city', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['places.City'])),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('address', self.gf('django.db.models.fields.CharField')(max_length=400)),
+            ('phone_code', self.gf('django.db.models.fields.CharField')(max_length=100)),
+            ('phone', self.gf('django.db.models.fields.CharField')(max_length=300, blank=True)),
             ('coordinates', self.gf('django.db.models.fields.CharField')(max_length=300)),
-            ('created_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2013, 1, 14, 0, 0))),
-            ('updated_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2013, 1, 14, 0, 0), auto_now=True, blank=True)),
+            ('created_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2013, 1, 18, 0, 0))),
+            ('updated_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2013, 1, 18, 0, 0), auto_now=True, blank=True)),
         ))
         db.send_create_signal('places', ['Clinic'])
 
@@ -37,9 +39,11 @@ class Migration(SchemaMigration):
             ('city', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['places.City'])),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('address', self.gf('django.db.models.fields.CharField')(max_length=400)),
+            ('phone_code', self.gf('django.db.models.fields.CharField')(max_length=100)),
+            ('phone', self.gf('django.db.models.fields.CharField')(max_length=300, blank=True)),
             ('coordinates', self.gf('django.db.models.fields.CharField')(max_length=300)),
-            ('created_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2013, 1, 14, 0, 0))),
-            ('updated_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2013, 1, 14, 0, 0), auto_now=True, blank=True)),
+            ('created_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2013, 1, 18, 0, 0))),
+            ('updated_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2013, 1, 18, 0, 0), auto_now=True, blank=True)),
         ))
         db.send_create_signal('places', ['Drugstore'])
 
@@ -49,9 +53,11 @@ class Migration(SchemaMigration):
             ('city', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['places.City'])),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('address', self.gf('django.db.models.fields.CharField')(max_length=400)),
+            ('phone_code', self.gf('django.db.models.fields.CharField')(max_length=100)),
+            ('phone', self.gf('django.db.models.fields.CharField')(max_length=300, blank=True)),
             ('coordinates', self.gf('django.db.models.fields.CharField')(max_length=300)),
-            ('created_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2013, 1, 14, 0, 0))),
-            ('updated_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2013, 1, 14, 0, 0), auto_now=True, blank=True)),
+            ('created_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2013, 1, 18, 0, 0))),
+            ('updated_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2013, 1, 18, 0, 0), auto_now=True, blank=True)),
         ))
         db.send_create_signal('places', ['Lab'])
 
@@ -61,10 +67,11 @@ class Migration(SchemaMigration):
             ('city', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['places.City'])),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('address', self.gf('django.db.models.fields.CharField')(max_length=400)),
-            ('phone', self.gf('django.db.models.fields.CharField')(max_length=300)),
+            ('phone_code', self.gf('django.db.models.fields.CharField')(max_length=100)),
+            ('phone', self.gf('django.db.models.fields.CharField')(max_length=300, blank=True)),
             ('coordinates', self.gf('django.db.models.fields.CharField')(max_length=300)),
-            ('created_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2013, 1, 14, 0, 0))),
-            ('updated_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2013, 1, 14, 0, 0), auto_now=True, blank=True)),
+            ('created_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2013, 1, 18, 0, 0))),
+            ('updated_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2013, 1, 18, 0, 0), auto_now=True, blank=True)),
         ))
         db.send_create_signal('places', ['Branch'])
 
@@ -92,19 +99,20 @@ class Migration(SchemaMigration):
             'address': ('django.db.models.fields.CharField', [], {'max_length': '400'}),
             'city': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['places.City']"}),
             'coordinates': ('django.db.models.fields.CharField', [], {'max_length': '300'}),
-            'created_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2013, 1, 14, 0, 0)'}),
+            'created_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2013, 1, 18, 0, 0)'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'phone': ('django.db.models.fields.CharField', [], {'max_length': '300'}),
+            'phone': ('django.db.models.fields.CharField', [], {'max_length': '300', 'blank': 'True'}),
+            'phone_code': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'updated_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2013, 1, 14, 0, 0)', 'auto_now': 'True', 'blank': 'True'})
+            'updated_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2013, 1, 18, 0, 0)', 'auto_now': 'True', 'blank': 'True'})
         },
         'places.city': {
             'Meta': {'ordering': "['id']", 'object_name': 'City'},
             'coordinates_center': ('django.db.models.fields.CharField', [], {'max_length': '300'}),
-            'created_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2013, 1, 14, 0, 0)'}),
+            'created_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2013, 1, 18, 0, 0)'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'updated_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2013, 1, 14, 0, 0)', 'auto_now': 'True', 'blank': 'True'}),
+            'updated_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2013, 1, 18, 0, 0)', 'auto_now': 'True', 'blank': 'True'}),
             'zoom': ('django.db.models.fields.IntegerField', [], {})
         },
         'places.clinic': {
@@ -112,30 +120,36 @@ class Migration(SchemaMigration):
             'address': ('django.db.models.fields.CharField', [], {'max_length': '400'}),
             'city': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['places.City']"}),
             'coordinates': ('django.db.models.fields.CharField', [], {'max_length': '300'}),
-            'created_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2013, 1, 14, 0, 0)'}),
+            'created_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2013, 1, 18, 0, 0)'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'phone': ('django.db.models.fields.CharField', [], {'max_length': '300', 'blank': 'True'}),
+            'phone_code': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'updated_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2013, 1, 14, 0, 0)', 'auto_now': 'True', 'blank': 'True'})
+            'updated_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2013, 1, 18, 0, 0)', 'auto_now': 'True', 'blank': 'True'})
         },
         'places.drugstore': {
             'Meta': {'ordering': "['-created_at', '-id']", 'object_name': 'Drugstore'},
             'address': ('django.db.models.fields.CharField', [], {'max_length': '400'}),
             'city': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['places.City']"}),
             'coordinates': ('django.db.models.fields.CharField', [], {'max_length': '300'}),
-            'created_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2013, 1, 14, 0, 0)'}),
+            'created_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2013, 1, 18, 0, 0)'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'phone': ('django.db.models.fields.CharField', [], {'max_length': '300', 'blank': 'True'}),
+            'phone_code': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'updated_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2013, 1, 14, 0, 0)', 'auto_now': 'True', 'blank': 'True'})
+            'updated_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2013, 1, 18, 0, 0)', 'auto_now': 'True', 'blank': 'True'})
         },
         'places.lab': {
             'Meta': {'ordering': "['-created_at', '-id']", 'object_name': 'Lab'},
             'address': ('django.db.models.fields.CharField', [], {'max_length': '400'}),
             'city': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['places.City']"}),
             'coordinates': ('django.db.models.fields.CharField', [], {'max_length': '300'}),
-            'created_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2013, 1, 14, 0, 0)'}),
+            'created_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2013, 1, 18, 0, 0)'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'phone': ('django.db.models.fields.CharField', [], {'max_length': '300', 'blank': 'True'}),
+            'phone_code': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'updated_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2013, 1, 14, 0, 0)', 'auto_now': 'True', 'blank': 'True'})
+            'updated_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2013, 1, 18, 0, 0)', 'auto_now': 'True', 'blank': 'True'})
         }
     }
 
