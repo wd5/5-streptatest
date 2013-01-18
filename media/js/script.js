@@ -321,45 +321,6 @@ var OrderForm = function(){
     });
 }
 
-var HeaderContact = function(){
-    var modal = $('.contact_map_modal');
-    // ymaps.ready(initMap);
-    var myMap;
-    function InitMap(){     
-        myMap = new ymaps.Map ("contact_map", {
-            center: [55.76, 37.64],
-            zoom: 7,
-        });
-    }
-    var ShowContactModal = function(){
-        var scroll = $(window).scrollTop();
-        var windowHeight = $(window).height();
-        var height = modal.height();
-        var width = modal.width();
-        modal.css('margin-left', -(width/2));
-        modal.css('z-index', '99');
-        modal.css('top', scroll);
-        modal.css('margin-top', (windowHeight-height)/2 );
-        addBlocked('contmod');
-        modal.show();
-        modal.addClass('current-modal');
-    };
-    $('.header_contacts_lnk').on('click', function(){
-        ShowContactModal();
-        InitMap();
-    });
-    $('.blob_modal_close.close_contacts').on('click', function(){
-        modal.hide();
-        myMap.destroy();
-        removeBlocked('contmod');
-    });
-    $('div.contmod_blocked').live('click', function(){
-        modal.hide();
-        myMap.destroy();
-        removeBlocked('contmod');
-    });
-}
-
 var ClinicsModal = function(){
     var modal = $('.clinics_modal');
     var ShowClinicsModal = function(){
@@ -460,75 +421,29 @@ var ShowOutReviewFull = function(){
     });
 }
 
-var InstructionsModal = function(){
-    var modal = $('.instructions_modal');
-    var showModal = function(){
-        // var windowHeight = document.documentElement.clientHeight;
-        var scroll = $(window).scrollTop();
-        var windowHeight = $(window).height();
-        var height = modal.height();
-        var width = modal.width();
-        modal.css('margin-left', -(width/2));
-        modal.css('z-index', '99');
-        modal.css('top', scroll);
-        modal.css('margin-top', (windowHeight-height)/2);
-        modal.show()
-    }
-    $('.res_lnk a').on('click', function(){
-        addBlocked('instmod');
-        showModal();
+var FancyBox = function(){
+    $('.fancybox').fancybox({
+        padding:0,
+        tpl : {
+            closeBtn : '<div class="blob_modal_close"></div>'
+        }
     });
-    modal.find('.close_instruction').on('click', function(){
-        modal.hide();
-        removeBlocked('instmod');
-    });
-    $('div.instmod_blocked').live('click', function(){
-        modal.hide();
-        removeBlocked('instmod');
+    $('.fancybox_contacts').fancybox({
+        padding:0,
+        tpl : {
+            closeBtn : '<div class="blob_modal_close"></div>'
+        },
+        autoSize: false,
+        height: $('contact_map_modal').attr('height'),
+        width: $('contact_map_modal').attr('width'),
     });
 }
+
 var TestScr = function(){
     alert('mmm');
 }
 
 var ReviewForm = function(){
-    var showModal = function(){
-        var modal = $('.review_form_modal');
-        var scroll = $(window).scrollTop();
-        var windowHeight = $(window).height();
-        var height = modal.height();
-        var width = modal.width();
-        modal.css('margin-left', -(width/2));
-        modal.css('z-index', '99');
-        modal.css('top', scroll);
-        modal.css('margin-top', (windowHeight-height)/2);
-        modal.show();
-        addBlocked('revform');
-    }
-    $('.form-link').live('click', function(e){
-        e.preventDefault();
-        var reviewerType = $(this).attr('data-reviewer-type');
-        $.ajax({
-            type: 'GET',
-            url: 'form/',
-            data: {'reviewer_type': reviewerType},
-            success: function(data){
-                $('.review_form_modal').html(data);
-                showModal();
-            },
-            dataType: 'html'
-        });
-    });
-
-    $('.close_review_form').live('click', function(){
-        $('.review_form_modal').hide();
-        removeBlocked('revform');
-    });
-    $('div.revform_blocked').live('click', function(){
-        $('.review_form_modal').hide();
-        removeBlocked('revform');
-    });
-
     $('#doc_link').live('click', function(){
         $('#doc_radio').prop('checked', true);
         $('#doc_link').parent().addClass('curr');
@@ -721,7 +636,7 @@ $(function(){
     OrderForm();
     AsideOrderLink.bindLinks();
     ShowOutReviewFull();
-    InstructionsModal();
+    FancyBox();
     ClinicsModal();
     ReviewForm();
     PatientsQuestionForm();
@@ -730,5 +645,4 @@ $(function(){
     FriendsModal();
     SubscribeForm();
     MoreReviews();
-    // PhoneMask();
 });

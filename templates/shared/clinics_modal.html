@@ -10,7 +10,11 @@
             <h3>{{ key|capfirst }}</h3>
             <ul>
                 {% for clinic in value %}
-                <li>{{clinic.title}}</li>
+                <li>
+                <p>{{clinic.title}}</p>
+                <p><span class="phone">{{clinic.phone}}</p>
+                <p><span class="phone">{{clinic.address}}</p>
+                </li>
                 {% endfor %}
             </ul>
         </div>

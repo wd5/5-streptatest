@@ -59,7 +59,7 @@
 			<div class="content_r col">
 				{% include 'shared/buy_box_aside.html' %}
 				
-				<div class="res_lnk"><a href="javascript:void(0)"><span>Как правильно считывать результат</span></a></div>
+				<div class="res_lnk"><a class="fancybox" href="#instructions_modal"><span>Как правильно считывать результат</span></a></div>
 			</div><!--/content_r-->
 				
 			<div class="content_l col">
@@ -111,7 +111,7 @@
     <!--/MAIN-->
 {% endblock %}
 {% block modals %}
-<div class="instructions_modal">
+<div class="instructions_modal" id="instructions_modal">
 	<div class="modal modal_blob">
 		<div class="modal_header">
 			<h2>Как правильно считывать результат</h2>
@@ -121,7 +121,6 @@
 		{% if instructions_modal_text %}
 		<div>{{ instructions_modal_text }}</div>
 		{% endif %}
-		<div class="blob_modal_close close_instruction"></div>
 	</div>
 </div>
 {% endblock %}

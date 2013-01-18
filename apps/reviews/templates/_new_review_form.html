@@ -15,7 +15,7 @@
 
     <form class="review-form" enctype="multipart/form-data" method="post" target="review_target" action="/reviews/doctors/form/">
         {% csrf_token %}
-        {% if form.reviewer_type.value == 'doctor' %}
+        {% if reviewer_type == 'doctor' or form.reviewer_type.value == 'doctor' %}
         <input id="doc_radio" type="radio" name="reviewer_type" value="doctor" style="display:none" checked="checked">
         <input id="patient_radio" type="radio" name="reviewer_type" value="patient" style="display:none">
         {% else %}
@@ -64,5 +64,4 @@
             <div class="btn_zs"><div class="btn_zs_in"><input type="submit" value="Отправить отзыв" /></div></div>
         </div>
     </form>
-<div class="blob_modal_close close_review_form"></div>
 </div>

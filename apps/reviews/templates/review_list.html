@@ -34,7 +34,7 @@
 						<div class="side side_pl" style="margin-top: 560px;">
 							<p>Поделитесь своим опытом использования Стрептатест</p>
 							<div class="btn_blue"><div class="btn_blue_in">
-								<a id="new_review_link" class="form-link" href="javascript:void(0)" data-reviewer-type="{{reviewer_type}}">Оставить отзыв</a>
+								<a id="new_review_link" class="form-link fancybox" href="#review_form_modal">Оставить отзыв</a>
 							</div></div>
 						</div>
 					{% elif reviewer_type == 'patient' %}
@@ -49,7 +49,7 @@
 						<div class="side side_pl" style="margin-top: 560px;">
 							<p>Поделитесь своим опытом использования Стрептатест</p>
 							<div class="btn_blue"><div class="btn_blue_in">
-								<a id="new_review_link" class="form-link" href="javascript:void(0)" data-reviewer-type="{{reviewer_type}}">Оставить отзыв</a>
+								<a id="new_review_link" class="form-link fancybox" href="#review_form_modal">Оставить отзыв</a>
 							</div></div>
 						</div>
 					{% endif %}
@@ -199,5 +199,7 @@
     <!--/MAIN-->
 {% endblock %}
 {% block modals %}
-	<div class="review_form_modal"></div>
+<div class="review_form_modal" id="review_form_modal">
+	{% include '_new_review_form.html' %}
+</div>
 {% endblock %}

@@ -28,6 +28,7 @@
     title: asdfasdf
     coordinates: 30.238223,59.949511
     address: Невский проспект 440
+    phone: +7 (333) 456-45-66
 
 - model: places.drugstore
   pk: 3
@@ -36,6 +37,7 @@
     title: sdgasdgas
     coordinates: 30.309291,59.965351
     address: Невский проспект 440
+    phone: +7 (333) 456-45-66
 
 - model: places.drugstore
   pk: 4
@@ -101,6 +103,7 @@
     title: смичсми
     coordinates: 30.309291,59.965351
     address: Невский проспект 440
+    phone: +7 (333) 456-45-66
 
 - model: places.clinic
   pk: 6
@@ -109,6 +112,7 @@
     title: енгнгнv
     coordinates: 30.345683,59.985743
     address: Невский проспект 440
+    phone: +7 (333) 456-45-66
 
 - model: places.clinic
   pk: 7
@@ -117,6 +121,7 @@
     title: прапрpuj
     coordinates: 30.209041,59.991591
     address: Невский проспект 440
+    phone: +7 (333) 456-45-66
 
 - model: places.clinic
   pk: 8
@@ -125,6 +130,7 @@
     title: апроапроапр
     coordinates: 30.383621,59.870112
     address: Невский проспект 440
+    phone: +7 (333) 456-45-66
 
 - model: places.clinic
   pk: 9
@@ -133,6 +139,7 @@
     title: смичсми
     coordinates: 30.309291,59.965351
     address: Невский проспект 440
+    phone: +7 (333) 456-45-66
 
 - model: places.clinic
   pk: 10
@@ -141,6 +148,7 @@
     title: енгнгнv
     coordinates: 30.345683,59.985743
     address: Невский проспект 440
+    phone: +7 (333) 456-45-66
 
 - model: places.clinic
   pk: 11
@@ -149,6 +157,7 @@
     title: прапрpuj
     coordinates: 30.209041,59.991591
     address: Невский проспект 440
+    phone: +7 (333) 456-45-66
 
 - model: places.clinic
   pk: 12
@@ -157,6 +166,7 @@
     title: апроапроапр
     coordinates: 30.383621,59.870112
     address: Невский проспект 440
+    phone: +7 (333) 456-45-66
 
 # лаборатории
 - model: places.lab
@@ -166,6 +176,7 @@
     title: смичсми
     coordinates: 30.283113,59.946368
     address: Невский проспект 440
+    phone: +7 (333) 456-45-66
 
 - model: places.lab
   pk: 2
@@ -174,6 +185,7 @@
     title: енгнгнv
     coordinates: 30.367742,59.933018
     address: Невский проспект 440
+    phone: +7 (333) 456-45-66
 
 - model: places.lab
   pk: 3

@@ -639,7 +639,7 @@ h3 {
 }
 .review_full .review_blob {
 	position: absolute;
-	left: 33%;
+	left: 33.6%;
 	top: 0;
 }
 .review_full_index .review_blob {
@@ -815,9 +815,8 @@ div.review_out_full {
 	display:none;
 }
 .review_form_modal{
-	position: absolute;
-	left:50%;
 	display:none;
+	z-index: 99;
 }
 .patients_question_form_modal {
 	position: absolute;
@@ -928,31 +927,27 @@ div.review_out_full {
 	line-height: 24px;
 }
 .instructions_modal {
-	position: absolute;
-	left:50%;
 	display:none;
+	z-index: 99;
 }
 .modal_blob {
 	background: #fff;
 	border: 3px solid #c3e3e5;
 	border-radius: 4px;
 	position: relative;
-	margin-left: -3%;
 }
 .blob_modal_close {
 	background: url('../img/blob_close.png') no-repeat;
 	width: 23px;
 	height: 22px;
 	position: absolute;
-	top: -12px;
-	right: -12px;
+	top: -9px;
+	right: -9px;
 	cursor: pointer;	
 }
 /*instruction*/
 
 .contact_map_modal {
-	position: absolute;
-	left:50%;
 	display:none;
 }
 
@@ -1827,6 +1822,8 @@ input:placeholder {
 .cl {clear:both}
 
 .contact_map_modal .modal_blob{
+	width: 100%;
+	height: 100%;
 	padding: 20px 40px;
 }
 
@@ -1837,6 +1834,10 @@ input:placeholder {
 }
 .contacts_branches .phone {
 	color:gray;
+}
+.modal_clinics .phone {
+	font-size: 90%;
+	color: gray;
 }
 .contacts_branches .branch {
 	margin-bottom: 30px;
@@ -1891,4 +1892,9 @@ span.form-text-error .errorlist{
 }
 .review-file-input:hover {
 	opacity: 1;
+}
+body.blured > * {
+    /* Блюр для всех
+       непосредственных детей body */
+	-webkit-filter: blur(2px);
 }

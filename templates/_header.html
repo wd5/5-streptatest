@@ -10,7 +10,7 @@
         {% if contacts %}
         <div class="tel"><span>+7</span> {{ contacts }}</div>
         {% endif %}
-        <p><a href="javascript:void(0)" class="header_contacts_lnk">Как нас найти</a></p>
+        <p><a href="#contact_map_modal" class="header_contacts_lnk fancybox_contacts">Как нас найти</a></p>
     </div><!--/header_contacts-->
     <div class="header_menu">
         {% header_menu request.path %}
@@ -18,7 +18,7 @@
 </div>
 <!--/HEADER-->
 
-<div class="contact_map_modal">
+<div class="contact_map_modal" id="contact_map_modal">
 <div class="modal_blob">
     <div class="h_line">
         <h2>Как нас найти</h2>
@@ -63,7 +63,6 @@
         </div>
     {% endfor %}
     </div>
-    <div class="blob_modal_close close_contacts"></div>
     <div class="modal_shade"></div>
 </div>
 </div>

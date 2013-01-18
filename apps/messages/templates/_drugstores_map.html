@@ -18,6 +18,25 @@ var DrugstoresMap = function(){
         drugstoresMap_{{city.id}}.controls.add(
            new ymaps.control.ZoomControl()
         );
+        var button_{{city.id}} = new ymaps.control.Button({
+            data: {
+                image: '/media/img/icon-fullscreen.png',
+                content: '<img class="fullscreen-button_{{city.id}}"/>',
+                title:'Разворачивать карту на весть экран'
+            }
+        }, {
+            selectOnClick: true
+        });
+        button_{{city.id}}.events.add(['select', 'deselect'], function (e) {
+            if(button_{{city.id}}.isSelected()) {
+                console.log('selected');
+                $("#drugstores_map_{{city.id}}").fullScreen(true);
+            }
+            else {
+                $("#drugstores_map_{{city.id}}").fullScreen(false);
+            }
+        });
+        drugstoresMap_{{city.id}}.controls.add(button_{{city.id}}, { top : 5, left : 5 });               
         currentMap = drugstoresMap_{{city.id}};
         {% for drugstore in city.drugstore_set.all %}
             var myPlacemark_{{drugstore.id}} = new ymaps.Placemark(

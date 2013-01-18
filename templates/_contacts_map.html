@@ -30,6 +30,7 @@ var ContactsMap = function(){
         {% endfor %}
     }
     {% if forloop.first %}
+    ymaps.ready(initHeaderMap_{{city.id}});
     var currentCity = {{city.id}};
     {% endif %}
 {% endfor %}
@@ -46,39 +47,6 @@ var ContactsMap = function(){
         currentCity = {{city.id}};
     });
 {% endfor %}
-    var modal = $('.contact_map_modal');
-    function showModal(){
-        var scroll = $(window).scrollTop();
-        var windowHeight = $(window).height();
-        var height = modal.height();
-        var width = modal.width();
-        modal.css('margin-left', -(width/2));
-        modal.css('z-index', '99');
-        modal.css('top', scroll);
-        modal.css('margin-top', (windowHeight-height)/2 );
-        addBlocked('contmod');
-        modal.show();
-        modal.addClass('current-modal');
-    }
-    $('.header_contacts_lnk').on('click', function(){
-        showModal();
-        // if (currentCity){
-        //     ymaps.ready(initHeaderMap_{{city_list.0.id}});
-        // }else{
-        //     ymaps.ready(initHeaderMap_{{city_list.0.id}});
-        // }
-        ymaps.ready(eval('initHeaderMap_'+currentCity));
-    });
-    $('.close_contacts').live('click', function(){
-        modal.hide();
-        currentMap.destroy();
-        removeBlocked('contmod');
-    });
-    $('div.contmod_blocked').live('click', function(){
-        modal.hide();
-        currentMap.destroy();
-        removeBlocked('contmod');
-    });
 };
 ContactsMap();
 </script>
