@@ -9,14 +9,14 @@
             
             <div class="form_line">
                 <label class="required">ФИО:</label>
-                <input class="inpt" name="initials" type="text" value="{{form.initials.value|default_if_none:''}}" />
-                <span class="form-text-error">{{form.initials.errors}}</span>
+                <input class="inpt" name="initials" type="text" value="{{school_form.initials.value|default_if_none:''}}" />
+                <span class="form-text-error">{{school_form.initials.errors}}</span>
             </div>
 
             <div class="form_line">
                 <label class="required">E-mail:</label>
-                <input class="inpt" type="text" name="email" value="{{form.email.value|default_if_none:''}}" />
-                <span class="form-text-error">{{form.email.errors}}</span>
+                <input class="inpt" type="text" name="email" value="{{school_form.email.value|default_if_none:''}}" />
+                <span class="form-text-error">{{school_form.email.errors}}</span>
                 {% if form.allow_mailings.value == False %}
                     <div class="mail_checkbox">Получать информационную рассылку на этот e-mail</div>
                     <input style="display:none;" class="inpt mail_inpt" type="checkbox" name="allow_mailings"/>
@@ -28,22 +28,21 @@
 
             <div class="form_line">
                 <label class="required">Телефон:</label>
-                <strong class="inpt_tel_label">+7</strong> <input class="inpt inpt_code" type="text" name="phone_code" value="{{ form.phone_code.value|default_if_none:"" }}" style="width:30px;"/><input class="inpt inpt_tel_school_form" type="text" name="phone" value="{{ form.phone.value|default_if_none:"" }}"/>
-                <span class="form-text-error">{{form.phone.errors}}</span>
+                <strong class="inpt_tel_label">+7</strong> <input class="inpt inpt_code" type="text" name="phone_code" value="{{ school_form.phone_code.value|default_if_none:"" }}" style="width:30px;"/><input class="inpt inpt_tel_school_form" type="text" name="phone" value="{{ school_form.phone.value|default_if_none:"" }}"/>
+                <span class="form-text-error">{{school_form.phone.errors}}</span>
             </div>
 
             <div class="form_line">
                 <label class="required">Цель записи:</label>
-                <textarea name="message" class="txtr" rows="0" cols="0">{{form.message.value|default_if_none:''}}</textarea>
-                <span class="form-text-error">{{form.message.errors}}</span>
+                <textarea name="message" class="txtr" rows="0" cols="0">{{school_form.message.value|default_if_none:''}}</textarea>
+                <span class="form-text-error">{{school_form.message.errors}}</span>
             </div>
             <div class="form_line form_captcha captha_review">
-                {{ form.captcha }}<span class="input_note">Введите текст, который вы видите на картинке слева от поля</span>
-                <span class="form-text-error">{{ form.captcha.errors }}</span>
+                {{ school_form.captcha }}<span class="input_note">Введите текст, который вы видите на картинке слева от поля</span>
+                <span class="form-text-error">{{ school_form.captcha.errors }}</span>
             </div>
 
             <div class="btn_zs"><div class="btn_zs_in"><input type="submit" value="Отправить отзыв" /></div></div>
         </div>
     </form>
-<div class="patients_school_modal_close blob_modal_close"></div>
 </div>

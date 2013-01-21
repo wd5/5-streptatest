@@ -1,33 +1,3 @@
-function getScrollBarWidth () { 
-  var inner = document.createElement('p'); 
-  inner.style.width = "100%"; 
-  inner.style.height = "200px"; 
-
-  var outer = document.createElement('div'); 
-  outer.style.position = "absolute"; 
-  outer.style.top = "0px"; 
-  outer.style.left = "0px"; 
-  outer.style.visibility = "hidden"; 
-  outer.style.width = "200px"; 
-  outer.style.height = "150px"; 
-  outer.style.overflow = "hidden"; 
-  outer.appendChild (inner); 
-
-  document.body.appendChild (outer); 
-  var w1 = inner.offsetWidth; 
-  outer.style.overflow = 'scroll'; 
-  var w2 = inner.offsetWidth; 
-  if (w1 == w2) w2 = outer.clientWidth; 
-
-  document.body.removeChild (outer); 
-
-  return (w1 - w2); 
-}; 
-
-var PhoneMask = function(){
-    $('.inpt_tel').mask("(99999) 9999999");
-}
-
 var MoreReviews = function(){
     var processing;
 
@@ -48,86 +18,59 @@ var MoreReviews = function(){
             });
         }
     });
-
-    $('.more-more').live('click', function(e){
-        e.preventDefault();
-        $.ajax({
-            type: 'GET',
-            url: 'more/',
-            data: { 'current_items':$('.reviews_list .review_out_full').size() },
-            success: function(data){
-                $('.reviews_list').append(data);
-            },
-            dataType: 'html'
-        });
-    });
 };
 
-var addBlocked = function(prefix){
-    $('body').addClass('no-scroll');
-    var scrollBarWidth = getScrollBarWidth();
-    if ($('body').height() > $(window).height()){
-        $('body').css('padding-right',scrollBarWidth);
-    }
-    $('body').prepend('<div class="'+prefix+'_blocked"></div>');
-    $('div.'+prefix+'_blocked').css('top', $(window).scrollTop());
-    $('div.'+prefix+'_blocked').addClass('blocked')
-}
-
-var removeBlocked = function(prefix){
-    $('body').removeClass('no-scroll');
-    $('div.'+prefix+'_blocked').remove();
-    $('body').css('padding-right','');
-}
-
-var IndexPageSliders = {
-    delControls: function(type){
-        if ($('#'+type+'_carousel_l a.bx-prev').size() > 1) {
-            $('#'+type+'_carousel_l a.bx-prev:not(:first)').remove();
-        };
-        if ($('#'+type+'_carousel_r a.bx-next').size() > 1) {
-            $('#'+type+'_carousel_r a.bx-next:not(:first)').remove();
-        };
-    },
-    doctorsCarousel: function(){
-        $('#doctors_carousel ul').bxSlider({
+var IndexPageSliders = function(){
+    var doctorsCarousel;
+    var patientsCarousel;
+    var initDoctorsCarousel = function(){
+        doctorsCarousel = $('#doctors_carousel ul').bxSlider({
             pager: false,
             nextSelector: '#doc_carousel_r',
             prevSelector: '#doc_carousel_l',
             nextText: '',
             prevText: ''
         });
-        this.delControls('doc');
-    },
-    patientsCarousel: function(){
-        $('#patients_carousel ul').bxSlider({
+    };
+    var initPatientsCarousel = function(){
+        patientsCarousel = $('#patients_carousel ul').bxSlider({
             pager: false,
             nextSelector: '#patient_carousel_r',
             prevSelector: '#patient_carousel_l',
             nextText: '',
             prevText: ''
         });
-        this.delControls('patient');
-    }
-};
-
-var SwitchSlider = function(){
-    $('.index_reviews #patients_link').on('click', function(){
-        $('#doctors_carousel').hide();
-        $('#doctors_link').parents('li').removeClass('curr');
-        $('#patients_carousel').show();
-        $('#patients_link').parents('li').addClass('curr');
-        IndexPageSliders.patientsCarousel();
-        return false;
-    });
-    $('.index_reviews #doctors_link').on('click', function(){
-        $('#patients_carousel').hide();
-        $('#patients_link').parents('li').removeClass('curr');
-        $('#doctors_carousel').show();
-        $('#doctors_link').parents('li').addClass('curr');
-        IndexPageSliders.doctorsCarousel();
-        return false;
-    });
+    };
+    var patientsLink = $('.index_reviews #patients_link');
+    var bindPatientsLink = function(){
+        patientsLink.on('click', function(){
+            $('#doctors_carousel').hide();
+            doctorsCarousel.destroyShow();
+            $('#doctors_link').parents('li').removeClass('curr');
+            $('#patients_carousel').show();
+            patientsLink.off();
+            initPatientsCarousel();
+            bindDoctorsLink();
+            $('#patients_link').parents('li').addClass('curr');
+            return false;
+        });
+    };
+    var doctorsLink = $('.index_reviews #doctors_link');
+    var bindDoctorsLink = function(){
+        doctorsLink.on('click', function(){
+            $('#patients_carousel').hide();
+            patientsCarousel.destroyShow();
+            $('#patients_link').parents('li').removeClass('curr');
+            doctorsLink.off();
+            $('#doctors_carousel').show();
+            initDoctorsCarousel();
+            bindPatientsLink();
+            $('#doctors_link').parents('li').addClass('curr');
+            return false;
+        });
+    };
+    initDoctorsCarousel();
+    bindPatientsLink();
 }
 
 var IndexBoxAnimate = function(){
@@ -158,7 +101,7 @@ var ShowFullReview = function(){
         fullReview.addClass('opened');
         fullReview.show();
         if($(this).hasClass('more_index')){
-            var cont = $(this).parents('.bx-viewport');
+            var cont = $(this).parents('.bx-window');
             var oldHeight = cont.height();
             var newHeight = fullReview.find('.review_blob').height()+26;
             if (newHeight>oldHeight){
@@ -176,7 +119,7 @@ var HideFullReview = function(){
         $(this).parents('.review').hide();
         review.show();
         if($(this).hasClass('close_review_index')){
-            var cont = $(this).parents('.bx-viewport');
+            var cont = $(this).parents('.bx-window');
             var oldHeight = cont.height();
             var newHeight = 303;
             if (newHeight<oldHeight){
@@ -185,7 +128,7 @@ var HideFullReview = function(){
         };
     });
     $('.index_carousel .bx-prev, .index_carousel .bx-next').on('click', function(){
-        var cont = $(this).parents('.index_carousel').find('.bx-viewport');
+        var cont = $(this).parents('.index_carousel').find('.bx-window');
         var oldHeight = cont.height();
         var newHeight = 303;
         if (newHeight<oldHeight){
@@ -321,60 +264,6 @@ var OrderForm = function(){
     });
 }
 
-var ClinicsModal = function(){
-    var modal = $('.clinics_modal');
-    var ShowClinicsModal = function(){
-        var scroll = $(window).scrollTop();
-        var windowHeight = $(window).height();
-        var height = modal.height();
-        var width = modal.width();
-        modal.css('margin-left', -(width/2));
-        modal.css('z-index', '99');
-        modal.css('top', scroll);
-        modal.css('margin-top', (windowHeight-height)/2 );
-        addBlocked('clmod');
-        modal.show();
-    };
-    $('.clinics_modal_link').on('click', function(){
-        ShowClinicsModal();
-    });
-    $('.blob_modal_close.close_clinics').on('click', function(){
-        modal.hide();
-        removeBlocked('clmod');
-    });
-    $('div.clmod_blocked').live('click', function(){
-        modal.hide();
-        removeBlocked('clmod');
-    });
-}
-
-var FriendsModal = function(){
-    var modal = $('.friends_modal');
-    var ShowFriendsModal = function(){
-        var scroll = $(window).scrollTop();
-        var windowHeight = $(window).height();
-        var height = modal.height();
-        var width = modal.width();
-        modal.css('margin-left', -(width/2));
-        modal.css('z-index', '99');
-        modal.css('top', scroll);
-        modal.css('margin-top', (windowHeight-height)/2 );
-        addBlocked('frmod');
-        modal.show();
-    };
-    $('#friends_modal_link').on('click', function(){
-        ShowFriendsModal();
-    });
-    $('.blob_modal_close.close_friends').on('click', function(){
-        modal.hide();
-        removeBlocked('frmod');
-    });
-    $('div.frmod_blocked').live('click', function(){
-        modal.hide();
-        removeBlocked('frmod');
-    });
-}
-
 var AsideOrderLink = {
     show5: function(){
         $('.5-link-a').addClass('curr');
@@ -424,23 +313,11 @@ var ShowOutReviewFull = function(){
 var FancyBox = function(){
     $('.fancybox').fancybox({
         padding:0,
+        type : 'inline',
         tpl : {
             closeBtn : '<div class="blob_modal_close"></div>'
         }
     });
-    $('.fancybox_contacts').fancybox({
-        padding:0,
-        tpl : {
-            closeBtn : '<div class="blob_modal_close"></div>'
-        },
-        autoSize: false,
-        height: $('contact_map_modal').attr('height'),
-        width: $('contact_map_modal').attr('width'),
-    });
-}
-
-var TestScr = function(){
-    alert('mmm');
 }
 
 var ReviewForm = function(){
@@ -459,42 +336,6 @@ var ReviewForm = function(){
 }
 
 var PatientsQuestionForm = function(){
-    var showModal = function(){
-        var modal = $('.patients_question_form_modal');
-        var scroll = $(window).scrollTop();
-        var windowHeight = $(window).height();
-        var height = modal.height();
-        var width = modal.width();
-        modal.css('margin-left', -(width/2));
-        modal.css('z-index', '99');
-        modal.css('top', scroll);
-        modal.css('margin-top', (windowHeight-height)/2);
-        addBlocked('patqform');
-        modal.show();
-    }
-    $('.patients-q-form-link').live('click', function(e){
-        e.preventDefault();
-        var url = $(this).attr('data-url');
-        $.ajax({
-            type: 'GET',
-            url: url,
-            success: function(data){
-                $('.patients_question_form_modal').html(data);
-                showModal();
-            },
-            dataType: 'html'
-        });
-    });
-
-    $('.patients_question_modal_close').live('click', function(){
-        $('.patients_question_form_modal').hide();
-        removeBlocked('patqform');
-    });
-    $('div.patqform_blocked').live('click', function(){
-        $('.patients_question_form_modal').hide();
-        removeBlocked('patqform');
-    });
-
     $('.patients-question-form').live('submit', function(e){
         e.preventDefault();
         var url = $(this).attr('action');
@@ -503,7 +344,7 @@ var PatientsQuestionForm = function(){
             url: url,
             data: $(this).serialize(),
             success: function(data){
-                window.location = '/thanks'
+                window.location = '/thanks_for_question'
             },
             error: function(ts){
                 var modal = $('.patients_question_form_modal')
@@ -515,43 +356,6 @@ var PatientsQuestionForm = function(){
 }
 
 var SubscribeForm = function(){
-    var showModal = function(){
-        var modal = $('.subscribe_modal');
-        var scroll = $(window).scrollTop();
-        var windowHeight = $(window).height();
-        var height = modal.height();
-        var width = modal.width();
-        modal.css('margin-left', -(width/2));
-        modal.css('z-index', '99');
-        modal.css('top', scroll);
-        modal.css('margin-top', (windowHeight-height)/2);
-        addBlocked('subscr');
-        modal.show();
-    }
-
-    $('#subscribe_link').live('click', function(e){
-        e.preventDefault();
-        var url = $(this).attr('data-url');
-        $.ajax({
-            type: 'GET',
-            url: url,
-            success: function(data){
-                $('.subscribe_modal').html(data);
-                showModal();
-            },
-            dataType: 'html'
-        });
-    });
-
-    $('.close_subscribe').live('click', function(){
-        $('.subscribe_modal').hide();
-        removeBlocked('subscr');
-    });
-    $('div.subscr_blocked').live('click', function(){
-        $('.subscribe_modal').hide();
-        removeBlocked('subscr');
-    });
-
     $('.subscribe_form').live('submit', function(e){
         e.preventDefault();
         var url = $(this).attr('action');
@@ -560,7 +364,7 @@ var SubscribeForm = function(){
             url: url,
             data: $(this).serialize(),
             success: function(data){
-                window.location = '/thanks'
+                window.location = '/thanks_for_subscribe'
             },
             error: function(ts){
                 var modal = $('.subscribe_modal')
@@ -572,42 +376,6 @@ var SubscribeForm = function(){
 }
 
 var PatientsSchoolForm = function(){
-    var showModal = function(){
-        var modal = $('.patients_school_form_modal');
-        var scroll = $(window).scrollTop();
-        var windowHeight = $(window).height();
-        var height = modal.height();
-        var width = modal.width();
-        modal.css('margin-left', -(width/2));
-        modal.css('z-index', '99');
-        modal.css('top', scroll);
-        modal.css('margin-top', (windowHeight-height)/2);
-        addBlocked('patsform');
-        modal.show();
-    }
-    $('.patients-school-form-link').live('click', function(e){
-        e.preventDefault();
-        var url = $(this).attr('data-url');
-        $.ajax({
-            type: 'GET',
-            url: url,
-            success: function(data){
-                $('.patients_school_form_modal').html(data);
-                showModal();
-            },
-            dataType: 'html'
-        });
-    });
-
-    $('.patients_school_modal_close').live('click', function(){
-        $('.patients_school_form_modal').hide();
-        removeBlocked('patsform');
-    });
-    $('div.patsform_blocked').live('click', function(){
-        $('.patients_school_form_modal').hide();
-        removeBlocked('patsform');
-    });
-
     $('.patients-school-form').live('submit', function(e){
         e.preventDefault();
         var url = $(this).attr('action');
@@ -616,7 +384,7 @@ var PatientsSchoolForm = function(){
             url: url,
             data: $(this).serialize(),
             success: function(data){
-                window.location = '/thanks'
+                window.location = '/thanks_school'
             },
             error: function(ts){
                 $('.patients_school_form_modal').html(ts.responseText);
@@ -627,8 +395,7 @@ var PatientsSchoolForm = function(){
 }
 
 $(function(){
-    SwitchSlider();
-    IndexPageSliders.doctorsCarousel();
+    IndexPageSliders();
     IndexBoxAnimate();
     ShowFullReview();
     HideFullReview();
@@ -637,12 +404,10 @@ $(function(){
     AsideOrderLink.bindLinks();
     ShowOutReviewFull();
     FancyBox();
-    ClinicsModal();
     ReviewForm();
     PatientsQuestionForm();
     PatientsSchoolForm();
     MailCheckbox();
-    FriendsModal();
     SubscribeForm();
     MoreReviews();
 });

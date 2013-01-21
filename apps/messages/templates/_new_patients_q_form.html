@@ -9,15 +9,15 @@
         	
             <div class="form_line">
         		<label class="required">ФИО:</label>
-        		<input class="inpt" type="text" name="initials" value="{{form.initials.value|default_if_none:''}}" />
-                <span class="form-text-error">{{form.initials.errors}}</span>
+        		<input class="inpt" type="text" name="initials" value="{{q_form.initials.value|default_if_none:''}}" />
+                <span class="form-text-error">{{q_form.initials.errors}}</span>
         	</div>
 
             <div class="form_line">
                 <label class="required">E-mail:</label>
-                <input class="inpt" type="text" name="email" value="{{form.email.value|default_if_none:''}}" />
-                <span class="form-text-error">{{form.email.errors}}</span>
-                {% if form.allow_mailings.value == False %}
+                <input class="inpt" type="text" name="email" value="{{q_form.email.value|default_if_none:''}}" />
+                <span class="form-text-error">{{q_form.email.errors}}</span>
+                {% if q_form.allow_mailings.value == False %}
                     <div class="mail_checkbox">Получать информационную рассылку на этот e-mail</div>
                     <input style="display:none;" class="inpt mail_inpt" type="checkbox" name="allow_mailings"/>
                 {% else %}
@@ -28,16 +28,15 @@
 
             <div class="form_line">
                 <label class="required">Ваш вопрос:</label>
-                <textarea name="question" class="txtr" rows="0" cols="0">{{form.question.value|default_if_none:''}}</textarea>
-                <span class="form-text-error">{{form.question.errors}}</span>
+                <textarea name="question" class="txtr" rows="0" cols="0">{{q_form.question.value|default_if_none:''}}</textarea>
+                <span class="form-text-error">{{q_form.question.errors}}</span>
             </div>
             <div class="form_line form_captcha captha_review">
-                {{ form.captcha }}<span class="input_note">Введите текст, который вы видите на картинке слева от поля</span>
-                <span class="form-text-error">{{ form.captcha.errors }}</span>
+                {{ q_form.captcha }}<span class="input_note">Введите текст, который вы видите на картинке слева от поля</span>
+                <span class="form-text-error">{{ q_form.captcha.errors }}</span>
             </div>
 
             <div class="btn_zs"><div class="btn_zs_in"><input type="submit" value="Отправить отзыв" /></div></div>
         </div>
     </form>
-<div class="patients_question_modal_close blob_modal_close"></div>
 </div>

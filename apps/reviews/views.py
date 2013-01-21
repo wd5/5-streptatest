@@ -72,6 +72,7 @@ class ReviewListView(BaseReviewView):
         context = super(ReviewListView, self).get_context_data(**kwargs)
         full_object_list = Review.objects.filter(is_published=True).filter(reviewer_type=kwargs['reviewer_type'])
         object_list = full_object_list[:9]
+        context['form'] = ReviewForm()
         context['object_list_first'] = object_list[0]
         context['object_list'] = chunks(object_list[1:], 4)
         context['object_list_count'] = full_object_list.filter(reviewer_type=kwargs['reviewer_type']).count

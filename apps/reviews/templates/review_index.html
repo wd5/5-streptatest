@@ -143,7 +143,7 @@
                     <div class="block_name">{{ 'Клиника'|plural:clinics_count }} России</div>
                     <p>используют Стрептатест в своей работе.</p>
                     <p class="review_clinics_block_example">Такие как, {{ clinic_list.0.title }}{% if clinic_list.count > 1 %} и {{ clinic_list.1.title }}{% endif %}</p>
-                    <div><a href="javascript:void(0)" class="dot clinics_modal_link">Весь список</a></div>
+                    <div><a href="#clinics_modal" class="dot clinics_modal_link fancybox">Весь список</a></div>
                 </div><!--/review_clinics_block-->
                 
                 <div class="publics_block">
@@ -164,5 +164,28 @@
         </div><!--/content-->
     </div>
     <!--/MAIN--> 
-{% include 'shared/clinics_modal.html' %}
+    <div class="clinics_modal" id="clinics_modal">
+    <div class="modal modal_blob">
+        <div class="modal_header">
+            <h2>Клиники, в которых используют Стрептатест</h2>
+        </div><!--/modal_header-->
+        
+        <div class="modal_clinics">
+            {% for key, value in clinic_list.items %}
+            <div class="modal_clinics_col col">
+                <h3>{{ key|capfirst }}</h3>
+                <ul>
+                    {% for clinic in value %}
+                    <li>
+                    <p>{{clinic.title}}</p>
+                    <p><span class="phone">{{clinic.phone}}</p>
+                    <p><span class="phone">{{clinic.address}}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    </div><!--/modal-->
 {% endblock %}

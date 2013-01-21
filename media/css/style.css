@@ -498,7 +498,7 @@ h3 {
 .reviews_carousel .review_do {
 	width: 800px;
 }
-.bx-viewport {
+.bx-window {
 	padding-top:20px;
 }
 .bx-prev, .bx-next {
@@ -810,8 +810,6 @@ div.review_out_full {
 
 /*modal_clinics*/
 .clinics_modal {
-	position: absolute;
-	left:50%;
 	display:none;
 }
 .review_form_modal{
@@ -819,13 +817,9 @@ div.review_out_full {
 	z-index: 99;
 }
 .patients_question_form_modal {
-	position: absolute;
-	left:50%;
 	display:none;
 }
 .patients_school_form_modal {
-	position: absolute;
-	left:50%;
 	display:none;
 }
 .review_form_modal .modal_blob{
@@ -952,8 +946,6 @@ div.review_out_full {
 }
 
 .friends_modal {
-	position: absolute;
-	left:50%;
 	display:none;
 }
 .friends_modal .modal {
@@ -965,8 +957,6 @@ div.review_out_full {
 }
 
 .subscribe_modal {
-	position: absolute;
-	left:50%;
 	display:none;
 }
 
@@ -1822,8 +1812,6 @@ input:placeholder {
 .cl {clear:both}
 
 .contact_map_modal .modal_blob{
-	width: 100%;
-	height: 100%;
 	padding: 20px 40px;
 }
 

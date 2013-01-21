@@ -36,7 +36,7 @@ class OrderForm(forms.ModelForm):
 
 class OrderFormView(FormView):
     template_name = 'order.html'
-    success_url = '/thanks/'
+    success_url = '/thanks_for_order/'
     form_class = OrderForm
 
     def get_params(self, request, **kwargs):
@@ -80,9 +80,12 @@ class PartnersFormDoctors(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super(PartnersFormDoctors, self).clean()
-        email = cleaned_data['email']
-        if not re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email):
-            self._errors["email"] = self.error_class(['Неправильный формат электронной почты'])
+        try:
+            email = cleaned_data['email']
+            if not re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email):
+                self._errors["email"] = self.error_class(['Неправильный формат электронной почты'])
+        except:
+            self._errors["email"] = self.error_class(['Обязательное поле'])
         return cleaned_data
 
 
@@ -95,9 +98,12 @@ class PartnersFormDrugstores(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super(PartnersFormDrugstores, self).clean()
-        email = cleaned_data['email']
-        if not re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email):
-            self._errors["email"] = self.error_class(['Неправильный формат электронной почты'])
+        try:
+            email = cleaned_data['email']
+            if not re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email):
+                self._errors["email"] = self.error_class(['Неправильный формат электронной почты'])
+        except:
+            self._errors["email"] = self.error_class(['Обязательное поле'])
         return cleaned_data
 
 class PartnersView(TemplateView):
@@ -114,7 +120,7 @@ class PartnersView(TemplateView):
 
 class PartnersDoctorsFormView(FormView):
     template_name = 'partners.html'
-    success_url = '/thanks/'
+    success_url = '/thanks_partners_doctors/'
     form_class = PartnersFormDoctors
 
     def get_context_data(self, **kwargs):
@@ -139,7 +145,7 @@ class PartnersDoctorsFormView(FormView):
 
 class PartnersDrugstoresFormView(FormView):
     template_name = 'partners.html'
-    success_url = '/thanks/'
+    success_url = '/thanks_partners_drugstores/'
     form_class = PartnersFormDrugstores
 
     def get_context_data(self, **kwargs):
@@ -168,6 +174,8 @@ class PatientsView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(PatientsView, self).get_context_data(**kwargs)
+        context['q_form'] = PatientQForm()
+        context['school_form'] = PatientsSchoolForm()
         context['last_articles'] = Article.objects.all()[:2]
         context['articles_more_count'] = Article.objects.all().count()-2
         return context
@@ -181,9 +189,12 @@ class PatientQForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super(PatientQForm, self).clean()
-        email = cleaned_data['email']
-        if not re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email):
-            self._errors["email"] = self.error_class(['Неправильный формат электронной почты'])
+        try:
+            email = cleaned_data['email']
+            if not re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email):
+                self._errors["email"] = self.error_class(['Неправильный формат электронной почты'])
+        except:
+            self._errors["email"] = self.error_class(['Обязательное поле'])
         return cleaned_data
 
 class PatientsQFormView(FormView):
@@ -198,7 +209,7 @@ class PatientsQFormView(FormView):
 
     def form_invalid(self, form):
         response = render_to_response(self.template_name, 
-                                      self.get_context_data(form=form),
+                                      self.get_context_data(q_form=form),
                                       context_instance=RequestContext(self.request))
         return HttpResponse(response, status=406)   
 
@@ -212,9 +223,12 @@ class PatientsSchoolForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super(PatientsSchoolForm, self).clean()
-        email = cleaned_data['email']
-        if not re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email):
-            self._errors["email"] = self.error_class(['Неправильный формат электронной почты'])
+        try:
+            email = cleaned_data['email']
+            if not re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email):
+                self._errors["email"] = self.error_class(['Неправильный формат электронной почты'])
+        except:
+            self._errors["email"] = self.error_class(['Обязательное поле'])
         return cleaned_data
 
 class PatientsSchoolFormView(FormView):
@@ -229,6 +243,6 @@ class PatientsSchoolFormView(FormView):
 
     def form_invalid(self, form):
         response = render_to_response(self.template_name, 
-                                      self.get_context_data(form=form),
+                                      self.get_context_data(school_form=form),
                                       context_instance=RequestContext(self.request))
         return HttpResponse(response, status=406)        

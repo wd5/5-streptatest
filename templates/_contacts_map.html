@@ -9,7 +9,9 @@
 var ContactsMap = function(){
     {% for city in city_list %}
     var contactsMap_{{city.id}};
+    {% if forloop.first %}
     var currentMap;
+    {% endif %}
     function initHeaderMap_{{city.id}}(){     
         contactsMap_{{city.id}} = new ymaps.Map ("contacts_map_{{city.id}}", {
             center: [{{city.coordinates_center}}],
@@ -30,14 +32,28 @@ var ContactsMap = function(){
         {% endfor %}
     }
     {% if forloop.first %}
-    ymaps.ready(initHeaderMap_{{city.id}});
-    var currentCity = {{city.id}};
+    var currentCity;
+    $('.contacts-fancybox').fancybox({
+        padding: 0,
+        type: 'inline',
+        tpl : {
+            closeBtn : '<div class="blob_modal_close"></div>'
+        },
+        beforeShow: function(){
+            ymaps.ready(initHeaderMap_{{city.id}});
+            currentCity = {{city.id}};
+        },
+        beforeClose: function(){
+            currentMap.destroy();
+        }
+    });
     {% endif %}
 {% endfor %}
 {% for city in city_list %}
     $('#contacts_map_link_{{city.id}}').on('click', function(){
         $('.branches_'+currentCity).hide();
         $('#contacts_map_'+currentCity).hide();
+        alert('asd');
         currentMap.destroy();
         $('#contacts_map_link_'+currentCity).parent('li').removeClass('curr');
         $('#contacts_map_{{city.id}}').show();

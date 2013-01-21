@@ -1,4 +1,4 @@
-<div class="friends_modal">
+<div class="friends_modal" id="friend_modal">
     <div class="modal modal_blob">
         <div class="modal_header">
             <h2>Посоветовать друзьям</h2>
@@ -6,9 +6,9 @@
 
         {{ facebook_widget_code|safe }}
 
-        <div class="blob_modal_close close_friends"></div>
     </div>
 </div><!--/modal-->
 
-<div class="subscribe_modal">
+<div class="subscribe_modal" id="subscribe_modal">
+    {% include '_new_subscribe_form.html' %}
 </div><!--/modal-->

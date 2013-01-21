@@ -10,7 +10,7 @@
         {% if contacts %}
         <div class="tel"><span>+7</span> {{ contacts }}</div>
         {% endif %}
-        <p><a href="#contact_map_modal" class="header_contacts_lnk fancybox_contacts">Как нас найти</a></p>
+        <p><a href="#contact_map_modal" class="header_contacts_lnk contacts-fancybox">Как нас найти</a></p>
     </div><!--/header_contacts-->
     <div class="header_menu">
         {% header_menu request.path %}
@@ -27,11 +27,11 @@
                 {% for city in city_list %}
                     {% if forloop.first %}
                     <li class="curr">
-                    <a id="contacts_map_link_{{city.id}}">{{city.title}}</a>
+                    <a id="contacts_map_link_{{city.id}}" class="cont_link">{{city.title}}</a>
                     <img src="/media/img/hormenu_arr.png"/>           
                     {% else %}
                     <li>
-                    <a id="contacts_map_link_{{city.id}}" href="javascript:void(0)">{{city.title}}</a>
+                    <a id="contacts_map_link_{{city.id}}" class="cont_link" href="#">{{city.title}}</a>
                     <img src="/media/img/hormenu_arr.png"/>
                     </li>
                     {% endif %}
@@ -42,16 +42,22 @@
 
     <div class="col">
         <div class="map" style="width: 800px; height: 600px;">
-            {% include '_contacts_map.html' %}
+            {% for city in city_list %}
+                {% if forloop.first %}
+                <div id="contacts_map_{{city.id}}" class="cont_map" style="width: 100%; height: 100%;"></div>
+                {% else %}
+                <div id="contacts_map_{{city.id}}" class="cont_map" style="width: 100%; height: 100%; display:none;"></div>
+                {% endif %}
+            {% endfor %}
         </div>
     </div>
 
     <div class="col contacts_branches">
     {% for city in city_list %}
         {% if forloop.first %}
-        <div class="branches_{{city.id}}">
+        <div class="cont_branch branches_{{city.id}}">
         {% else %}
-        <div class="branches_{{city.id}}" style="display:none;">
+        <div class="cont_branch branches_{{city.id}}" style="display:none;">
         {% endif %}
             {% for branch in city.branch_set.all %}
             <div class="branch">
@@ -66,3 +72,71 @@
     <div class="modal_shade"></div>
 </div>
 </div>
+<script>
+var ContactsMap = function(){
+    {% for city in city_list %}
+    var contactsMap_{{city.id}};
+    {% if forloop.first %}
+    var currentContactsMap;
+    {% endif %}
+    function initHeaderMap_{{city.id}}(){     
+        contactsMap_{{city.id}} = new ymaps.Map ("contacts_map_{{city.id}}", {
+            center: [{{city.coordinates_center}}],
+            zoom: {{city.zoom}},
+        });
+        contactsMap_{{city.id}}.controls.add(
+           new ymaps.control.ZoomControl()
+        );
+        currentContactsMap = contactsMap_{{city.id}};
+        {% for branch in city.branch_set.all %}
+            var myPlacemark_{{branch.id}} = new ymaps.Placemark(
+                [{{branch.coordinates}}],
+                {
+                    content: '{{branch.id}}',
+                    balloonContent: '<p>{{branch.title}}</p><p>{{branch.address}}</p>'
+                });
+            contactsMap_{{city.id}}.geoObjects.add(myPlacemark_{{branch.id}});
+        {% endfor %}
+    }
+    {% if forloop.first %}
+    var currentContactsCity;
+    $('.contacts-fancybox').fancybox({
+        padding: 0,
+        type: 'inline',
+        tpl : {
+            closeBtn : '<div class="blob_modal_close"></div>'
+        },
+        beforeShow: function(){
+            ymaps.ready(initHeaderMap_{{city.id}});
+            currentContactsCity = {{city.id}};
+        },
+        beforeClose: function(){
+            currentContactsMap.destroy();
+            $('.cont_branch').hide();
+            $('.cont_map').hide();
+            $('.cont_link').parent('li').removeClass('curr');
+            $('#contacts_map_{{city.id}}').show();
+            $('.branches_{{city.id}}').show();
+            $('#contacts_map_{{city.id}}').show();
+            $('.branches_{{city.id}}').show();
+            $('#contacts_map_link_{{city.id}}').parent('li').addClass('curr');
+        }
+    });
+    {% endif %}
+{% endfor %}
+{% for city in city_list %}
+    $('#contacts_map_link_{{city.id}}').on('click', function(){
+        $('.branches_'+currentContactsCity).hide();
+        $('#contacts_map_'+currentContactsCity).hide();
+        currentContactsMap.destroy();
+        $('#contacts_map_link_'+currentContactsCity).parent('li').removeClass('curr');
+        $('#contacts_map_{{city.id}}').show();
+        $('.branches_{{city.id}}').show();
+        $('#contacts_map_link_{{city.id}}').parent('li').addClass('curr');
+        ymaps.ready(initHeaderMap_{{city.id}});
+        currentContactsCity = {{city.id}};
+    });
+{% endfor %}
+};
+ContactsMap();
+</script>
