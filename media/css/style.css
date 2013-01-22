@@ -814,7 +814,6 @@ div.review_out_full {
 }
 .review_form_modal{
 	display:none;
-	z-index: 99;
 }
 .patients_question_form_modal {
 	display:none;
@@ -922,7 +921,6 @@ div.review_out_full {
 }
 .instructions_modal {
 	display:none;
-	z-index: 99;
 }
 .modal_blob {
 	background: #fff;
@@ -938,6 +936,7 @@ div.review_out_full {
 	top: -9px;
 	right: -9px;
 	cursor: pointer;	
+	z-index: 3;
 }
 /*instruction*/
 
@@ -950,10 +949,6 @@ div.review_out_full {
 }
 .friends_modal .modal {
 	width: 400px;
-}
-
-.subscribe_modal .modal {
-	width: 600px;
 }
 
 .subscribe_modal {

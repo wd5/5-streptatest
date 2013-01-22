@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import re
+
 from django.http import HttpResponse
 from django.views.generic import TemplateView, FormView
 from django.views.generic.base import TemplateResponseMixin
@@ -13,6 +15,23 @@ from apps.reviews.models import Review
 from apps.capabilities.models import Capability
 from apps.siteblocks.models import Settings
 from apps.messages.models import MailingAddress
+
+class SubscribeForm(ModelForm):
+    captcha = CaptchaField()
+
+    class Meta:
+        model = MailingAddress
+        exclude = ('is_active',)
+
+    def clean(self):
+        cleaned_data = super(SubscribeForm, self).clean()
+        try:
+            email = cleaned_data['email']
+            if not re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email):
+                self._errors["email"] = self.error_class(['Неправильный формат электронной почты'])
+        except:
+            self._errors["email"] = self.error_class(['Обязательное поле'])
+        return cleaned_data
 
 class IndexSettings(TemplateResponseMixin):
     def get_context_data(self, **kwargs):
@@ -54,13 +73,6 @@ class PatientsView(TemplateView):
     template_name = 'pages/patients.html'
 
 
-class SubscribeForm(ModelForm):
-    captcha = CaptchaField()
-
-    class Meta:
-        model = MailingAddress
-        exclude = ('is_active',)
-
 class SubscribeFormView(FormView):
     form_class = SubscribeForm
     template_name = '_new_subscribe_form.html'
@@ -73,6 +85,6 @@ class SubscribeFormView(FormView):
 
     def form_invalid(self, form):
         response = render_to_response(self.template_name, 
-                                      self.get_context_data(form=form),
+                                      self.get_context_data(subscribe_form=form),
                                       context_instance=RequestContext(self.request))
         return HttpResponse(response, status=406)
