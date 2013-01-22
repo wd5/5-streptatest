@@ -65,6 +65,7 @@ class InstructionsView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(InstructionsView, self).get_context_data(**kwargs)
+        context['instruction_top_text'] = Settings.objects.get(name='instruction_top_text').value
         context['instructions_video'] = Settings.objects.get(name='instructions_video').value
         context['instructions_modal_text'] = Settings.objects.get(name='instructions_modal_text').value
         return context

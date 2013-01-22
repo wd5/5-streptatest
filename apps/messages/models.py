@@ -6,7 +6,7 @@ from django.template.loader import render_to_string
 from apps.products.models import Product
 from django.db import models
 
-form apps.siteblocks import settings
+from apps.siteblocks.models import Settings
 
 class MailingAddress(models.Model):
     email = models.CharField(
