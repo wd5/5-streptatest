@@ -25,8 +25,7 @@
 					</div>
 					{% csrf_token %}
 					<div style="display:none;">
-						<input type="text" name="offer_author_type" value="{{ form_doctors.offer_author_type.value }}">
-						<span class="form-text-error">{{form_doctors.offer_author_type.errors}}</span>
+						<input type="text" name="offer_author_type" value="doctor">
 					</div>
 					<div class="form_line">
 						<label class="required">ФИО</label>
@@ -43,7 +42,7 @@
 					<div class="form_line">
 						<label class="required">Телефон:</label>
 			            <strong class="inpt_tel_label">+7</strong> <input class="inpt inpt_code" type="text" name="phone_code" value="{{ form_doctors.phone_code.value|default_if_none:"" }}" style="width:30px;"/><input class="inpt inpt_tel" type="text" name="phone" value="{{ form_doctors.phone.value|default_if_none:"" }}"/>
-			            <span class="form-text-error">{{form.phone.errors}}</span>
+			            <span class="form-text-error">{{form_doctors.phone_code.errors}} {{form_doctors.phone.errors}}</span>
 					</div>
 					
 					<div class="form_line">
@@ -80,8 +79,7 @@
 					</div>
 					{% csrf_token %}
 					<div style="display:none;">
-						<input type="text" name="offer_author_type" value="{{ form_drugstores.offer_author_type.value }}">
-						<span class="form-text-error">{{form_drugstores.offer_author.errors}}</span>
+						<input type="text" name="offer_author_type" value="drugstore">
 					</div>
 
 					<div class="form_line">
@@ -99,7 +97,7 @@
 					<div class="form_line">
 						<label class="required">Телефон:</label>
 			            <strong class="inpt_tel_label">+7</strong> <input class="inpt inpt_code" type="text" name="phone_code" value="{{ form_drugstores.phone_code.value|default_if_none:"" }}" style="width:30px;"/><input class="inpt inpt_tel" type="text" name="phone" value="{{ form_drugstores.phone.value|default_if_none:"" }}"/>
-			            <span class="form-text-error">{{form.phone.errors}}</span>
+			            <span class="form-text-error">{{form_drugstores.phone_code.errors}} {{form_drugstores.phone.errors}}</span>
 					</div>
 					
 					<div class="form_line">

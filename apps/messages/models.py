@@ -163,6 +163,11 @@ class PartnershipOffer(models.Model):
     allow_mailings = models.BooleanField(
         verbose_name = u'разрешение на рассылку',
     )
+    phone_code = models.CharField(
+        verbose_name = u'код телефона',
+        max_length = 100,
+        default = ''
+        )
     phone = models.CharField(
         verbose_name = 'телефон',
         max_length = 200,
@@ -213,6 +218,11 @@ class EntryInSchool(models.Model):
     allow_mailings = models.BooleanField(
         verbose_name = u'разрешение на рассылку',
     )
+    phone_code = models.CharField(
+        verbose_name = u'код телефона',
+        max_length = 100,
+        default = ''
+        )
     phone = models.CharField(
         verbose_name = 'телефон',
         max_length = 200,

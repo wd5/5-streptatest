@@ -136,7 +136,7 @@ class PartnersDoctorsFormView(FormView):
     def get(self, request, *args, **kwargs):
         form_class = self.get_form_class()
         form = self.get_form(form_class)
-        return self.render_to_response(self.get_context_data(form_doctors=form))
+        return self.render_to_response(self.get_context_data(form_doctors=form, form_drugstores=PartnersFormDrugstores()))
 
     def form_valid(self, form):
         data = {key:value for key, value in form.cleaned_data.items() if key is not 'captcha'}
@@ -144,7 +144,7 @@ class PartnersDoctorsFormView(FormView):
         return redirect(self.get_success_url())
 
     def form_invalid(self, form):
-        return self.render_to_response(self.get_context_data(form_doctors=form))
+        return self.render_to_response(self.get_context_data(form_doctors=form, form_drugstores=PartnersFormDrugstores()))
 
 class PartnersDrugstoresFormView(FormView):
     template_name = 'partners.html'
@@ -161,7 +161,7 @@ class PartnersDrugstoresFormView(FormView):
     def get(self, request, *args, **kwargs):
         form_class = self.get_form_class()
         form = self.get_form(form_class)
-        return self.render_to_response(self.get_context_data(form_drugstores=form))
+        return self.render_to_response(self.get_context_data(form_drugstores=form, form_doctors=PartnersFormDoctors()))
 
     def form_valid(self, form):
         data = {key:value for key, value in form.cleaned_data.items() if key is not 'captcha'}
@@ -169,7 +169,7 @@ class PartnersDrugstoresFormView(FormView):
         return redirect(self.get_success_url())
 
     def form_invalid(self, form):
-        return self.render_to_response(self.get_context_data(form_drugstores=form))
+        return self.render_to_response(self.get_context_data(form_drugstores=form, form_doctors=PartnersFormDoctors()))
 
 
 class PatientsView(TemplateView):

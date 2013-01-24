@@ -28,8 +28,9 @@
 
             <div class="form_line">
                 <label class="required">Телефон:</label>
-                <strong class="inpt_tel_label">+7</strong> <input class="inpt inpt_code" type="text" name="phone_code" value="{{ school_form.phone_code.value|default_if_none:"" }}" style="width:30px;"/><input class="inpt inpt_tel_school_form" type="text" name="phone" value="{{ school_form.phone.value|default_if_none:"" }}"/>
-                <span class="form-text-error">{{school_form.phone.errors}}</span>
+                <strong class="inpt_tel_label">+7</strong> <input class="inpt inpt_code" type="text" name="phone_code" value="{{ school_form.phone_code.value|default_if_none:"" }}" style="width:30px;"/>
+                <input class="inpt inpt_tel inpt_tel_school_form" type="text" name="phone" value="{{ school_form.phone.value|default_if_none:"" }}"/>
+                <span class="form-text-error">{{school_form.phone_code.errors}} {{school_form.phone.errors}}</span>
             </div>
 
             <div class="form_line">
