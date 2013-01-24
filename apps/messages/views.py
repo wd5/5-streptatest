@@ -29,9 +29,12 @@ class OrderForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super(OrderForm, self).clean()
-        email = cleaned_data['email']
-        if not re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email):
-            self._errors["email"] = self.error_class(['Неправильный формат электронной почты'])
+        try:
+            email = cleaned_data['email']
+            if not re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email):
+                self._errors["email"] = self.error_class(['Неправильный формат электронной почты'])
+        except:
+            self._errors["email"] = self.error_class(['Обязательное поле'])
         return cleaned_data
 
 class OrderFormView(FormView):

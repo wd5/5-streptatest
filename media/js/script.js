@@ -29,7 +29,21 @@ var IndexPageSliders = function(){
             nextSelector: '#doc_carousel_r',
             prevSelector: '#doc_carousel_l',
             nextText: '',
-            prevText: ''
+            prevText: '',
+            onPrevSlide: function(){
+                var openedReview = $('.review_full.opened');
+                openedReview.hide();
+                openedReview.removeClass('opened');
+                var targetReview = openedReview.attr('data-review-full');
+                $('.review[data-review='+targetReview+']').show();
+            },
+            onNextSlide: function(){
+                var openedReview = $('.review_full.opened');
+                openedReview.hide();
+                openedReview.removeClass('opened');
+                var targetReview = openedReview.attr('data-review-full');
+                $('.review[data-review='+targetReview+']').show();
+            }
         });
     };
     var initPatientsCarousel = function(){
@@ -101,11 +115,11 @@ var ShowFullReview = function(){
         fullReview.addClass('opened');
         fullReview.show();
         if($(this).hasClass('more_index')){
-            var cont = $(this).parents('.bx-window');
+            var cont = $(this).parents('.review');
             var oldHeight = cont.height();
-            var newHeight = fullReview.find('.review_blob').height()+26;
+            var newHeight = fullReview.find('.review_blob').height()+56;
             if (newHeight>oldHeight){
-                cont.height(newHeight);
+                $(this).parents('.bx-window').height(newHeight);
             }            
         };
     });
