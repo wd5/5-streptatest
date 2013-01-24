@@ -20,6 +20,18 @@ var MoreReviews = function(){
     });
 };
 
+var PhoneMask = function(){    
+    $(".inpt_code").keyup(function(){
+        if($(this).val().length > 5){
+            $(this).val($(this).val().substr(0, 5));
+        }
+    });
+    $(".inpt_tel").keyup(function(){
+        if($(this).val().length > 7){
+            $(this).val($(this).val().substr(0, 7));
+        }
+    });
+}
 var IndexPageSliders = function(){
     var doctorsCarousel;
     var patientsCarousel;
@@ -424,4 +436,5 @@ $(function(){
     MailCheckbox();
     SubscribeForm();
     MoreReviews();
+    PhoneMask();
 });

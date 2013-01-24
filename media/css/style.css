@@ -1160,9 +1160,10 @@ div.review_out_full {
 	background-position: 0 -24px;
 }
 input.inpt_tel {
-	width: 37%;
+	width: 34%;
 }
 input.inpt_code {
+	width: 50px !important;
 	margin-right: 10px;
 }
 .inpt_tel_school_form{
