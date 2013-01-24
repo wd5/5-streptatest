@@ -6,6 +6,8 @@ from django.template.loader import render_to_string
 from apps.products.models import Product
 from django.db import models
 
+from apps.siteblocks.models import Settings
+
 class MailingAddress(models.Model):
     email = models.CharField(
         verbose_name = 'e-mail',
@@ -315,9 +317,14 @@ class Question(models.Model):
     )
 
     def save(self, *args, **kwargs):
+        try:
+            email_from = Settings.objects.get(name='main_email').value
+        except:
+            email_from = settings.DEFAULT_FROM_EMAIL
+
         is_new = self.pk is None
         if self.send_answer:
-            subject = u'Ответ на ваш вопрос - %s' % settings.SITE_NAME
+            subject = u'%s. Ответ на ваш вопрос.' % settings.SITE_NAME
             subject = u''.join(subject.splitlines())
             message = render_to_string(
                 'user_message_template.html',
@@ -327,7 +334,7 @@ class Question(models.Model):
                 }
             )
             emailto = self.email
-            msg = EmailMessage(subject, message, settings.DEFAULT_FROM_EMAIL, [emailto])
+            msg = EmailMessage(subject, message, email_from, [emailto])
             msg.content_subtype = "html"
             msg.send()
 

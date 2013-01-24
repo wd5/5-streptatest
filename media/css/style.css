@@ -815,7 +815,6 @@ div.review_out_full {
 }
 .review_form_modal{
 	display:none;
-	z-index: 99;
 }
 .patients_question_form_modal {
 	display:none;
@@ -923,7 +922,6 @@ div.review_out_full {
 }
 .instructions_modal {
 	display:none;
-	z-index: 99;
 }
 .modal_blob {
 	background: #fff;
@@ -939,6 +937,7 @@ div.review_out_full {
 	top: -9px;
 	right: -9px;
 	cursor: pointer;	
+	z-index: 4;
 }
 /*instruction*/
 

@@ -4,6 +4,7 @@ from datetime import datetime
 from apps.siteblocks.models import Settings
 from apps.places.models import City
 from settings import SITE_NAME
+from apps.views import SubscribeForm
 
 def settings(request):
     try:
@@ -21,6 +22,7 @@ def settings(request):
     except Settings.DoesNotExist:
         pass
 
+    subscribe_form = SubscribeForm()    
     now = datetime.now()
 
     city_list = City.objects.all()
@@ -31,5 +33,6 @@ def settings(request):
         'now': now,
         'city_list': city_list,
         'like_widget_code': like_widget_code,
-        'facebook_widget_code': facebook_widget_code  
+        'facebook_widget_code': facebook_widget_code,
+        'subscribe_form': subscribe_form  
     }
