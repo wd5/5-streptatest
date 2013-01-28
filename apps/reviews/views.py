@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import re
+
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template.loader import get_template
@@ -18,7 +20,7 @@ def chunks(l, n):
     """ Yield successive n-sized chunks from l.
     """
     for i in range(0, len(l), n):
-        yield l[i:i+n]
+        yield l[i:i+n]        
 
 class ReviewForm(ModelForm):
     captcha = CaptchaField()
@@ -28,6 +30,17 @@ class ReviewForm(ModelForm):
         widgets = {
             'product': RadioSelect(), 
         }
+
+    def clean(self):
+        cleaned_data = super(ReviewForm, self).clean()
+        try:
+            email = cleaned_data['email']
+            if not re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email):
+                self._errors["email"] = self.error_class(['Неправильный формат электронной почты'])
+        except:
+            self._errors["email"] = self.error_class(['Обязательное поле'])
+        return cleaned_data
+
 
 class BaseReviewView(TemplateView):
     def get_params(self, request, **kwargs):
@@ -99,7 +112,7 @@ class ReviewFormView(FormView):
 
     def get_context_data(self, **kwargs):
         context = super(ReviewFormView, self).get_context_data(**kwargs)
-        params = self.request.GET
+        params = self.request.POST
         try:
             context['reviewer_type'] = params['reviewer_type']
         except:

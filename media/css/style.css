@@ -1860,6 +1860,10 @@ span.form-text-error .errorlist{
 .required {
 	font-weight: bold;
 }
+.required:before {
+	content:'*';
+	color: red;
+}
 .form_captcha input {
 	font-weight: bold;
 	height: 26px;

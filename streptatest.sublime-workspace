@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"in",
+				"inline-block"
+			],
+			[
+				"re",
+				"review-form"
+			],
+			[
+				"object_list_",
+				"object_list_without_first"
+			],
+			[
+				"old",
+				"oldHeight"
+			],
+			[
+				"new",
+				"newHeight"
+			],
+			[
+				"open",
+				"openedReview"
+			],
+			[
 				"docto",
 				"doctorsLink"
 			],
@@ -96,14 +120,6 @@
 				"all_clinics"
 			],
 			[
-				"new",
-				"newValue"
-			],
-			[
-				"old",
-				"oldOrderQInputValue"
-			],
-			[
 				"ob",
 				"object_list"
 			],
@@ -172,14 +188,6 @@
 				"formset_factory"
 			],
 			[
-				"in",
-				"instructions_modal"
-			],
-			[
-				"re",
-				"review_out"
-			],
-			[
 				"T",
 				"TemplateView"
 			],
@@ -200,66 +208,18 @@
 	"buffers":
 	[
 		{
-			"file": "apps/messages/templates/_new_patients_q_form.html",
-			"settings":
-			{
-				"buffer_size": 2249,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "apps/messages/templates/_new_patients_school_form.html",
-			"settings":
-			{
-				"buffer_size": 2843,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "apps/reviews/views.py",
 			"settings":
 			{
-				"buffer_size": 4916,
+				"buffer_size": 5398,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "apps/messages/views.py",
+			"file": "apps/reviews/templates/review_list.html",
 			"settings":
 			{
-				"buffer_size": 10188,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/_footer_modals.html",
-			"settings":
-			{
-				"buffer_size": 382,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/_footer.html",
-			"settings":
-			{
-				"buffer_size": 971,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/_new_subscribe_form.html",
-			"settings":
-			{
-				"buffer_size": 1301,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "apps/reviews/templates/review_index.html",
-			"settings":
-			{
-				"buffer_size": 9971,
+				"buffer_size": 9412,
 				"line_ending": "Unix"
 			}
 		},
@@ -267,7 +227,23 @@
 			"file": "media/css/style.css",
 			"settings":
 			{
-				"buffer_size": 30800,
+				"buffer_size": 30872,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "apps/reviews/templates/_new_review_form.html",
+			"settings":
+			{
+				"buffer_size": 5151,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "apps/reviews/templates/_render_review_form.html",
+			"settings":
+			{
+				"buffer_size": 732,
 				"line_ending": "Unix"
 			}
 		},
@@ -275,31 +251,38 @@
 			"file": "media/js/script.js",
 			"settings":
 			{
-				"buffer_size": 14416,
+				"buffer_size": 15484,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "templates/_header.html",
+			"file": "templates/_footer_modals.html",
 			"settings":
 			{
-				"buffer_size": 5258,
+				"buffer_size": 442,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "templates/base.html",
 			"settings":
 			{
-				"buffer_size": 1828,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "apps/views.py",
+			"file": "templates/_footer.html",
 			"settings":
 			{
-				"buffer_size": 3743,
+				"buffer_size": 1062,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "apps/siteblocks/context_processors.py",
+			"settings":
+			{
+				"buffer_size": 1378,
 				"line_ending": "Unix"
 			}
 		}
@@ -332,48 +315,58 @@
 	},
 	"file_history":
 	[
+		"/home/grigl/Works/streptatest/apps/reviews/models.py",
+		"/home/grigl/Works/streptatest/apps/messages/models.py",
+		"/home/grigl/Works/streptatest/apps/messages/views.py",
+		"/home/grigl/Works/streptatest/apps/publications/templates/article.html",
+		"/home/grigl/Works/streptatest/apps/publications/templates/article_list.html",
+		"/home/grigl/Works/streptatest/apps/publications/templates/news_item.html",
+		"/home/grigl/Works/streptatest/apps/publications/templates/publication.html",
+		"/home/grigl/Works/streptatest/apps/publications/templates/publication_list.html",
+		"/home/grigl/Works/streptatest/apps/publications/models.py",
+		"/home/grigl/Works/streptatest/apps/reviews/templates/review_list.html",
+		"/home/grigl/Works/streptatest/apps/messages/templates/_new_patients_q_form.html",
+		"/home/grigl/Works/streptatest/apps/messages/templates/_order_form.html",
+		"/home/grigl/Works/streptatest/.gitignore",
+		"/home/grigl/Works/streptatest/apps/views.py",
+		"/home/grigl/Works/streptatest/apps/messages/templates/partners.html",
+		"/home/grigl/Works/streptatest/apps/messages/templates/_new_patients_school_form.html",
+		"/home/grigl/Works/streptatest/media/js/script.js",
+		"/home/grigl/Works/streptatest/media/css/style.css",
+		"/home/grigl/Works/streptatest/templates/_new_subscribe_form.html",
+		"/home/grigl/Works/streptatest/apps/messages/templates/_drugstores_map.html",
+		"/home/grigl/Works/streptatest/apps/messages/templates/_patients_map.html",
+		"/home/grigl/Works/streptatest/templates/base.html",
+		"/home/grigl/Works/streptatest/templates/_header.html",
+		"/home/grigl/Works/streptatest/apps/reviews/templates/review_index.html",
+		"/home/grigl/Works/streptatest/templates/_footer.html",
+		"/home/grigl/Works/streptatest/templates/_footer_modals.html",
+		"/home/grigl/Works/streptatest/apps/reviews/views.py",
 		"/home/grigl/Works/streptatest/templates/_contacts_map.html",
 		"/home/grigl/Works/streptatest/templates/shared/clinics_modal.html",
 		"/home/grigl/Works/streptatest/apps/messages/templates/patients.html",
 		"/home/grigl/Works/streptatest/fixtures/places.yaml",
-		"/home/grigl/Works/streptatest/templates/_header.html",
 		"/home/grigl/Works/streptatest/apps/reviews/templates/_new_review_form.html",
-		"/home/grigl/Works/streptatest/templates/base.html",
-		"/home/grigl/Works/streptatest/media/css/style.css",
-		"/home/grigl/Works/streptatest/media/js/script.js",
 		"/home/grigl/Works/streptatest/templates/pages/instructions.html",
-		"/home/grigl/Works/streptatest/apps/reviews/templates/review_list.html",
 		"/home/grigl/Works/streptatest/media/js/jquery.fullscreen-min.js",
-		"/home/grigl/Works/streptatest/apps/messages/templates/_drugstores_map.html",
 		"/home/grigl/Works/streptatest/apps/utils/widgets.py",
-		"/home/grigl/Works/streptatest/apps/reviews/templates/review_index.html",
-		"/home/grigl/Works/streptatest/apps/messages/models.py",
 		"/home/grigl/Works/streptatest/apps/messages/admin.py",
-		"/home/grigl/Works/streptatest/apps/messages/templates/partners.html",
-		"/home/grigl/Works/streptatest/apps/messages/templates/_new_patients_school_form.html",
 		"/home/grigl/Works/streptatest/fixtures/settings.yaml",
-		"/home/grigl/Works/streptatest/apps/messages/templates/_order_form.html",
 		"/home/grigl/Works/streptatest/apps/pages/models.py",
 		"/home/grigl/Works/streptatest/apps/places/models.py",
 		"/home/grigl/Works/streptatest/apps/messages/templates/models.py",
 		"/home/grigl/Works/streptatest/apps/urls.py",
 		"/home/grigl/Works/streptatest/apps/reviews/migrations/0001_initial.py",
 		"/home/grigl/Works/streptatest/apps/siteblocks/context_processors.py",
-		"/home/grigl/Works/streptatest/templates/_footer_modals.html",
-		"/home/grigl/Works/streptatest/apps/messages/views.py",
-		"/home/grigl/Works/streptatest/apps/reviews/views.py",
 		"/home/grigl/Works/streptatest/config/production.py",
 		"/home/grigl/Works/streptatest/config/development.py",
 		"/home/grigl/.virtualenvs/streptatest/lib/python2.7/site-packages/django/forms/util.py",
 		"/home/grigl/Works/streptatest/apps/places/admin.py",
 		"/home/grigl/Works/streptatest/fixtures/publications.yaml",
 		"/home/grigl/Works/streptatest/urls.py",
-		"/home/grigl/Works/streptatest/apps/publications/models.py",
 		"/home/grigl/Works/streptatest/fixtures/pages.yaml",
 		"/home/grigl/Works/streptatest/apps/siteblocks/admin.py",
 		"/home/grigl/Works/streptatest/apps/pages/admin.py",
-		"/home/grigl/Works/streptatest/templates/_footer.html",
-		"/home/grigl/Works/streptatest/apps/messages/templates/_new_patients_q_form.html",
 		"/home/grigl/Works/streptatest/apps/reviews/templates/_render_review_form.html",
 		"/home/grigl/Works/streptatest/templates/pages/default.html",
 		"/home/grigl/Works/streptatest/settings.py",
@@ -382,10 +375,8 @@
 		"/home/grigl/Works/streptatest/config/base.py",
 		"/home/grigl/Works/streptatest/apps/capabilities/models.py",
 		"/home/grigl/Works/streptatest/static/css/style.css",
-		"/home/grigl/Works/streptatest/apps/views.py",
 		"/home/grigl/Works/streptatest/apps/capabilities/templates/capability_list.html",
 		"/home/grigl/Works/streptatest/fixtures/reviews.yaml",
-		"/home/grigl/Works/streptatest/apps/messages/templates/_patients_map.html",
 		"/home/grigl/Works/streptatest/apps/reviews/templates/_review_items.html",
 		"/home/grigl/Works/streptatest/apps/reviews/templates/_more_reviews",
 		"/home/grigl/Works/streptatest/Imaging-1.1.7/setup.py",
@@ -397,9 +388,6 @@
 		"/home/grigl/Works/streptatest/vrstk/patients.html",
 		"/home/grigl/Works/streptatest/templates/shared/buy_box_aside.html",
 		"/home/grigl/Works/streptatest/templates/_header_menu.html",
-		"/home/grigl/Works/streptatest/apps/publications/templates/publication_list.html",
-		"/home/grigl/Works/streptatest/apps/publications/templates/publication.html",
-		"/home/grigl/Works/streptatest/apps/publications/templates/news_item.html",
 		"/home/grigl/Works/streptatest/apps/publications/templates/news_list.html",
 		"/home/grigl/Works/streptatest/apps/siteblocks/templatetags/siteblocks_extras.py",
 		"/home/grigl/Works/streptatest/apps/publications/views.py",
@@ -432,7 +420,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 95.0,
+		"height": 0.0,
 		"where_history":
 		[
 			""
@@ -443,6 +431,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"up_l",
+			"up_l\nup_l",
+			"up_l",
+			"inpt_tel_school_form",
+			"phone",
+			"bxs",
 			"subs",
 			"bx-",
 			"bx",
@@ -512,57 +506,61 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "apps/messages/templates/_new_patients_q_form.html",
+					"file": "apps/reviews/views.py",
 					"settings":
 					{
-						"buffer_size": 2249,
+						"buffer_size": 5398,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								920,
-								920
+								4497,
+								4497
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1782.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "apps/messages/templates/_new_patients_school_form.html",
+					"file": "apps/reviews/templates/review_list.html",
 					"settings":
 					{
-						"buffer_size": 2843,
+						"buffer_size": 9412,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								509,
-								509
+								416,
+								416
 							]
 						],
 						"settings":
 						{
+							"remote_loading": false,
+							"synced": false,
 							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -572,79 +570,87 @@
 				},
 				{
 					"buffer": 2,
-					"file": "apps/reviews/views.py",
+					"file": "media/css/style.css",
 					"settings":
 					{
-						"buffer_size": 4916,
+						"buffer_size": 30872,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2854,
-								2854
+								1382,
+								1382
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 0.0,
-						"translation.y": 162.0,
+						"translation.x": 109.0,
+						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "apps/messages/views.py",
+					"file": "apps/reviews/templates/_new_review_form.html",
 					"settings":
 					{
-						"buffer_size": 10188,
+						"buffer_size": 5151,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8225,
-								8225
+								5151,
+								5151
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage",
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2916.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "templates/_footer_modals.html",
+					"file": "apps/reviews/templates/_render_review_form.html",
 					"settings":
 					{
-						"buffer_size": 382,
+						"buffer_size": 732,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								234,
-								234
+								276,
+								276
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -654,23 +660,25 @@
 				},
 				{
 					"buffer": 5,
-					"file": "templates/_footer.html",
+					"file": "media/js/script.js",
 					"settings":
 					{
-						"buffer_size": 971,
+						"buffer_size": 15484,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								432,
-								432
+								867,
+								867
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -682,25 +690,25 @@
 				},
 				{
 					"buffer": 6,
-					"file": "templates/_new_subscribe_form.html",
+					"file": "templates/_footer_modals.html",
 					"settings":
 					{
-						"buffer_size": 1301,
+						"buffer_size": 442,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								574,
-								574
+								201,
+								201
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -710,133 +718,52 @@
 				},
 				{
 					"buffer": 7,
-					"file": "apps/reviews/templates/review_index.html",
 					"settings":
 					{
-						"buffer_size": 9971,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9921,
-								9921
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2862.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 8,
-					"file": "media/css/style.css",
+					"file": "templates/_footer.html",
 					"settings":
 					{
-						"buffer_size": 30800,
+						"buffer_size": 1062,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								15199,
-								15199
+								611,
+								611
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 16767.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "media/js/script.js",
-					"settings":
-					{
-						"buffer_size": 14416,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								13854,
-								13854
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 6480.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "templates/_header.html",
-					"settings":
-					{
-						"buffer_size": 5258,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2369,
-								2369
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1224.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "templates/base.html",
-					"settings":
-					{
-						"buffer_size": 1828,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								735,
-								735
-							]
-						],
-						"settings":
-						{
+							"remote_loading": false,
+							"synced": false,
 							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -848,29 +775,31 @@
 					"type": "text"
 				},
 				{
-					"buffer": 12,
-					"file": "apps/views.py",
+					"buffer": 9,
+					"file": "apps/siteblocks/context_processors.py",
 					"settings":
 					{
-						"buffer_size": 3743,
+						"buffer_size": 1378,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								780,
-								780
+								1370,
+								1370
 							]
 						],
 						"settings":
 						{
+							"remote_loading": false,
+							"synced": false,
 							"syntax": "Packages/Python/Python.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 162.0,
+						"translation.y": 108.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -913,6 +842,10 @@
 	{
 		"height": 120.0
 	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
 	"output.unsaved_changes":
 	{
 		"height": 112.0
@@ -928,16 +861,16 @@
 		"selected_items":
 		[
 			[
-				"tb",
-				"streptatest/templates/base.html"
-			],
-			[
 				"mjs",
 				"streptatest/media/js/script.js"
 			],
 			[
 				"mcs",
 				"streptatest/media/css/style.css"
+			],
+			[
+				"tb",
+				"streptatest/templates/base.html"
 			],
 			[
 				"t_f",

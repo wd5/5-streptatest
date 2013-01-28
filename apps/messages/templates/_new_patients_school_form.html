@@ -17,7 +17,7 @@
                 <label class="required">E-mail:</label>
                 <input class="inpt" type="text" name="email" value="{{school_form.email.value|default_if_none:''}}" />
                 <span class="form-text-error">{{school_form.email.errors}}</span>
-                {% if form.allow_mailings.value == False %}
+                {% if school_form.allow_mailings.value == 0 %}
                     <div class="mail_checkbox">Получать информационную рассылку на этот e-mail</div>
                     <input style="display:none;" class="inpt mail_inpt" type="checkbox" name="allow_mailings"/>
                 {% else %}

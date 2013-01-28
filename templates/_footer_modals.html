@@ -3,8 +3,8 @@
         <div class="modal_header">
             <h2>Посоветовать друзьям</h2>
         </div><!--/modal_header-->
-
-        {{ facebook_widget_code|safe }}
+        
+        {{ facebook_widget_code|safe }}<div id="vk_groups"></div>
 
     </div>
 </div><!--/modal-->
@@ -12,3 +12,4 @@
 <div class="subscribe_modal" id="subscribe_modal">
     {% include '_new_subscribe_form.html' %}
 </div><!--/modal-->
+{{ vk_widget_code|safe }}

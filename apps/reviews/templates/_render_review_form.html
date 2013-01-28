@@ -3,9 +3,14 @@
 
 <script language="javascript" type="text/javascript">
     var success = parseInt({{reviewFormSuccess}});
+    var reviewerType = '{{reviewer_type}}';
     var parentDocument = window.parent.document;
     if(success === 1){
-        window.parent.location = '/thanks'
+        if(reviewerType == 'doctor') {
+            window.parent.location = '/thanks_review_doctor'
+        } else {
+            window.parent.location = '/thanks_review_patient'
+        }
     }else if(success === 0){
         var result = $('#result').html();
         var reviewModal = $(parentDocument).find('.review_form_modal');

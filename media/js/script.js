@@ -21,12 +21,12 @@ var MoreReviews = function(){
 };
 
 var PhoneMask = function(){    
-    $(".inpt_code").keyup(function(){
+    $(".inpt_code").live('keyup', function(){
         if($(this).val().length > 5){
             $(this).val($(this).val().substr(0, 5));
         }
     });
-    $(".inpt_tel").keyup(function(){
+    $(".inpt_tel").live('keyup', function(){
         if($(this).val().length > 7){
             $(this).val($(this).val().substr(0, 7));
         }

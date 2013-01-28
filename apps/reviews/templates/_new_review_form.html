@@ -16,20 +16,26 @@
     <form class="review-form" enctype="multipart/form-data" method="post" target="review_target" action="/reviews/doctors/form/">
         {% csrf_token %}
         {% if reviewer_type == 'doctor' or form.reviewer_type.value == 'doctor' %}
-        <input id="doc_radio" type="radio" name="reviewer_type" value="doctor" style="display:none" checked="checked">
-        <input id="patient_radio" type="radio" name="reviewer_type" value="patient" style="display:none">
+        <input id="doc_radio" type="checkbox" name="reviewer_type" value="doctor" style="display:none" checked="checked">
+        <input id="patient_radio" type="checkbox" name="reviewer_type" value="patient" style="display:none">
         {% else %}
-        <input id="doc_radio" type="radio" name="reviewer_type" value="doctor" style="display:none">
-        <input id="patient_radio" type="radio" name="reviewer_type" value="patient" style="display:none" checked="checked">
+        <input id="doc_radio" type="checkbox" name="reviewer_type" value="doctor" style="display:none">
+        <input id="patient_radio" type="checkbox" name="reviewer_type" value="patient" style="display:none" checked="checked">
         {% endif %}
         <div class="review_form_photo col">
             <div class="review_form_photo_lnk">
                 <div style="text-align: center; overflow: hidden; width: 90px; height: 40px;">
-                    <a class="dot">Загрузить фото</a>
+                    <a class="dot" id="upload_photo">Загрузить фото</a>
                     <input type="file" name="image" id="image" size="1" style="margin-top: -50px; margin-left: -410px; -moz-opacity: 0; filter: alpha(opacity=0); opacity: 0; font-size: 150px; height: 100px;">
                 </div>
             </div>
         </div>
+        <script type="text/javascript">
+            $('#image').live('change', function(){
+                var name = $(this).attr('value').split(/(\\|\/)/g).pop();
+                $('#upload_photo').html(name);
+            });
+        </script>
         
         <div class="review_form_inputs col">
             <div class="form_line">
@@ -43,6 +49,18 @@
                 <input class="inpt" type="text" name="reviewer_post" value="{{ form.reviewer_post.value|default_if_none:'' }}"/>
                 <span class="form-text-error">{{form.reviewer_post.errors}}</span>
                 <div class="input_note">Например, модератор форума «Молодая мама» или директор турфирмы</div>
+            </div>
+
+            <div class="form_line">
+                <label class="required">Email:</label>
+                <input class="inpt" type="text" name="email" value="{{ form.email.value|default_if_none:'' }}"/>
+                <span class="form-text-error">{{form.email.errors}}</span>
+            </div>
+
+            <div class="form_line">
+                <label>Телефон:</label>
+                <strong class="inpt_tel_label">+7</strong> <input class="inpt inpt_code" type="text" name="phone_code" value="{{ form.phone_code.value|default_if_none:"" }}" style="width:30px;"/><input class="inpt inpt_tel" type="text" name="phone" value="{{ form.phone.value|default_if_none:"" }}"/>
+                <span class="form-text-error">{{form.phone_code.errors}} {{form.phone.errors}}</span>
             </div>
             
             <div class="form_line">

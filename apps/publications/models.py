@@ -18,6 +18,7 @@ class Publication(models.Model):
     link = models.CharField(
         verbose_name = u'ссылка',
         max_length = 200,
+        blank = True,
     )
     is_published = models.BooleanField(
         verbose_name = u'опубликовано',

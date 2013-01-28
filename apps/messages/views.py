@@ -19,6 +19,7 @@ from models import Order, PartnershipOffer
 
 class OrderForm(forms.ModelForm):
     captcha = CaptchaField()
+    allow_mailings = forms.BooleanField(initial=True)
 
     class Meta:
         model = Order
@@ -185,6 +186,7 @@ class PatientsView(TemplateView):
 
 class PatientQForm(forms.ModelForm):
     captcha = CaptchaField()
+    allow_mailings = forms.BooleanField(initial=True)
 
     class Meta:
         model = Question
@@ -219,6 +221,7 @@ class PatientsQFormView(FormView):
 
 class PatientsSchoolForm(forms.ModelForm):
     captcha = CaptchaField() 
+    allow_mailings = forms.BooleanField(initial=True)
 
     class Meta:
         model = EntryInSchool

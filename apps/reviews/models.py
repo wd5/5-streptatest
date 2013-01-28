@@ -34,6 +34,20 @@ class Review(models.Model):
         verbose_name = u'ФИО',
         max_length = 200
     )
+    email = models.CharField(
+        verbose_name = u'e-mail',
+        max_length = 200,
+    )
+    phone_code = models.CharField(
+        verbose_name = u'код телефона',
+        max_length = 100,
+        blank = True,
+        )
+    phone = models.CharField(
+        verbose_name = u'номер телефона',
+        max_length = 200,
+        blank = True,
+    )
     review = models.TextField(
         verbose_name = u'обзор'
     )  

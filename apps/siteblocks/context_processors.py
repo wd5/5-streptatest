@@ -22,6 +22,16 @@ def settings(request):
     except Settings.DoesNotExist:
         pass
 
+    try:
+        vk_widget_code = Settings.objects.get(name='vk_widget_code').value
+    except Settings.DoesNotExist:
+        pass
+
+    try:
+        youtube_link = Settings.objects.get(name='youtube_link').value
+    except Settings.DoesNotExist:
+        pass
+
     subscribe_form = SubscribeForm()    
     now = datetime.now()
 
@@ -34,5 +44,7 @@ def settings(request):
         'city_list': city_list,
         'like_widget_code': like_widget_code,
         'facebook_widget_code': facebook_widget_code,
-        'subscribe_form': subscribe_form  
+        'subscribe_form': subscribe_form,
+        'vk_widget_code': vk_widget_code,
+        'youtube_link': youtube_link,  
     }
